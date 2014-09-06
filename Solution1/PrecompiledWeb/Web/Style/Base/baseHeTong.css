@@ -1,0 +1,26 @@
+﻿.tab
+{
+    BORDER-COLLAPSE: collapse;
+    }
+.tab .header
+{
+    background-image:url('../Images/bg4.png');
+    text-align:center;
+    
+    }
+ .tab td {
+    border: 1px solid #BBE1F1;
+
+}
+
+    
+ .divUpOrNew
+ {
+     clear:both; text-align:right;padding :10px 10px 5px 0px;
+     }
+ .searchW
+ {
+        margin-left: 8px;
+    width: 135px;
+    text-align:center;
+     }

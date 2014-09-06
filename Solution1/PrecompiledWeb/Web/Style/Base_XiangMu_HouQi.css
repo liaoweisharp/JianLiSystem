@@ -1,0 +1,23 @@
+﻿.tbQianQi{
+   border:solid 1px gray;
+    width:100%;
+}
+.tbQianQi .td6{ width:180px;}
+.tbQianQi .td7{ width:65px; text-align:center;}
+.wq
+{
+    color: Red;
+    }
+.yq
+{
+    
+    }
+    #tab_XiangMu
+    {
+        border-collapse:collapse;
+        }
+#tab_XiangMu td
+{
+    border:1px solid #c1c1bb;
+    }
+

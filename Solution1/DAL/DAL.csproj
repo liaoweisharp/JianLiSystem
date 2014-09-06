@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8B8ADD5C-59AA-4021-B134-FBD8143E135F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base.cs" />
+    <Compile Include="Base\Base_DiaoDong.cs" />
+    <Compile Include="Base\Base_ExcelCharger.cs" />
+    <Compile Include="Base\Base_ExcelCompanyUserZhuanYe.cs" />
+    <Compile Include="Base\Base_ExcelZhengShu.cs" />
+    <Compile Include="Base\Base_FaPiaoJiShouKuan.cs" />
+    <Compile Include="Base\Base_HeTong.cs" />
+    <Compile Include="Base\Base_HeTongBianGeng.cs" />
+    <Compile Include="Base\Base_HeTongVice.cs" />
+    <Compile Include="Base\Base_JiangCheng.cs" />
+    <Compile Include="Base\Base_JieSuanGuanLi.cs" />
+    <Compile Include="Base\Base_JingLi.cs" />
+    <Compile Include="Base\Base_PeiXun.cs" />
+    <Compile Include="Base\Base_Report_MonthSalary.cs" />
+    <Compile Include="Base\Base_Report_MonthSalaryGuiDang.cs" />
+    <Compile Include="Base\Base_Report_MonthSalaryGuiDang_ChengBen.cs" />
+    <Compile Include="Base\Base_ShoukuanJiHua.cs" />
+    <Compile Include="Base\Base_Upload.cs" />
+    <Compile Include="Base\Base_User.cs" />
+    <Compile Include="Base\Base_User_XueLi.cs" />
+    <Compile Include="Base\Base_User_ZhiCheng.cs" />
+    <Compile Include="Base\Base_User_ZhiYeZiGeZhengShu.cs" />
+    <Compile Include="Base\Base_XiangMuZu.cs" />
+    <Compile Include="Base\Base_XiangMu_BanGongYongPin.cs" />
+    <Compile Include="Base\Base_XiangMu_BaoXiao.cs" />
+    <Compile Include="Base\Base_XiangMu_FeiYongTaoZheng.cs" />
+    <Compile Include="Base\Base_XiangMu_JieSuanNeiRong.cs" />
+    <Compile Include="Base\Base_XiangMu_JiXiaoKaoHe.cs" />
+    <Compile Include="Base\Base_XiangMu_PeiXunJiJiao.cs" />
+    <Compile Include="Base\Base_XiangMu_ShiJian.cs" />
+    <Compile Include="Base\Base_XiangMu_XunJian.cs" />
+    <Compile Include="Base\Base_XiangMu_YiJiaoDan.cs" />
+    <Compile Include="Base\Base_XiangMu_YiJiaoMingXi.cs" />
+    <Compile Include="Base\Base_XiangMu_ZhiGuan.cs" />
+    <Compile Include="Base\Base_XinChou.cs" />
+    <Compile Include="Base\Base_XinChou_JieSuan.cs" />
+    <Compile Include="Base\Base_XinChou_KouKuanJiangLi.cs" />
+    <Compile Include="Base\Base_XinChou_QingJia.cs" />
+    <Compile Include="Base\ViewBase_HeTong_FaPiaoJiShouKuan_JiSuan.cs" />
+    <Compile Include="Base\ViewBase_HeTong_FaPiaoJiShouKuan.cs" />
+    <Compile Include="Base\ViewBase_XiangMuForMonth.cs" />
+    <Compile Include="Base\ViewBase_XiangMu_BuMen.cs" />
+    <Compile Include="Base\ViewBase_XiangMu_JieSuanNeiRong.cs" />
+    <Compile Include="Base\ViewBase_XiangMu_JieSuanNeiRong_IsJieSuan.cs" />
+    <Compile Include="Base\ViewBase_XiangMu_Tree.cs" />
+    <Compile Include="Base\ViewBase_XiangMu_YiJiaoQingKuang.cs" />
+    <Compile Include="Base\ViewBase_XiangMu_ZhiGuan_JieSuan.cs" />
+    <Compile Include="Base\ViewBase_XiangMu_ZhiGuan_MuBiaoGuanLi.cs" />
+    <Compile Include="Base\Base_ExcelCompany.cs" />
+    <Compile Include="CommClass\PageClass.cs" />
+    <Compile Include="Base\Base_XiangMuQianQi.cs" />
+    <Compile Include="CommClass\Wrapper.cs" />
+    <Compile Include="CommFun.cs" />
+    <Compile Include="DTO\DataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\PartialClasses.cs" />
+    <Compile Include="Logic\Logic_Comm.cs" />
+    <Compile Include="Logic\Logic_Excel.cs" />
+    <Compile Include="Logic\Logic_HeTong.cs" />
+    <Compile Include="Logic\Logic_Report.cs" />
+    <Compile Include="Logic\Logic_User.cs" />
+    <Compile Include="Logic\Logic_XiangMu.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Base\Transcation.cs" />
+    <Compile Include="Base\ViewBase_XiangMu_HouQi.cs" />
+    <Compile Include="Base\ViewBase_XiangMu_QianQi.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DTO\DataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DTO\DataClasses.dbml.layout">
+      <DependentUpon>DataClasses.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

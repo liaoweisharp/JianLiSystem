@@ -1,0 +1,69 @@
+﻿
+.tbRenLi {
+    border: 1px solid gray;
+    width: 100%;
+}
+
+.tb_List .td1
+{
+    width:66px;
+    }
+ 
+.RL td
+{
+    text-align:center;
+    }
+.RL td.td3
+{
+    text-align:left;
+    font-size:12px;
+    }
+ .tb_List .td2
+{
+    width:50px;
+    }
+    .tb_List .td4
+{
+    width:80px;
+    }
+    .tb_List .td5
+{
+    width:100px;
+    }
+    .tb_List .td6
+{
+    width:42px;
+    }
+    .tb_List .td7
+{
+    width:160px;
+    }
+    .tb_List .td8
+{
+    width:42px;
+    }
+    .tb_List .td9
+{
+    width:42px
+    }
+
+    .tb_List .td10
+{
+    width:80px;
+    }
+    .tb_List .td11
+{
+    width:42px;
+    }
+    .tb_List .td12
+{
+    width:160px;
+    }
+    .tb_List .td13
+{
+    width:80px;
+    }
+    .gw
+    {
+        color:Gray;
+        }
