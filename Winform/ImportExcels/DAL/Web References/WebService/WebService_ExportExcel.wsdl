@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="getInitData">
+        <s:complexType />
+      </s:element>
+      <s:element name="getInitDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getInitDataResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getZhuanYeByZhengShuId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="zhengShuId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getZhuanYeByZhengShuIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getZhuanYeByZhengShuIdResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="countFilter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="companyId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zhengShuArr" type="tns:ArrayOfKeyValueClass" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfKeyValueClass">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="keyValueClass" nillable="true" type="tns:keyValueClass" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="keyValueClass">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="key" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="countFilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countFilterResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFilter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="companyId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zhengShuArr" type="tns:ArrayOfKeyValueClass" />
+            <s:element minOccurs="0" maxOccurs="1" name="pc" type="tns:PageClass" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PageClass">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="currentPageNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="filter" type="tns:stringAndStringClass" />
+          <s:element minOccurs="0" maxOccurs="1" name="order" type="tns:stringAndStringClass" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="stringAndStringClass">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="excelUserWrapper">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="companyId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="companyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="companyUpdateDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="zhengShuId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="zhengShuMing" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="zhuanYe" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfExcelUserWrapper">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="excelUserWrapper" nillable="true" type="tns:excelUserWrapper" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getFilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getFilterResult" type="tns:ArrayOfExcelUserWrapper" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="countFilter_ForZhengShu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="companyId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zhengShuArr" type="tns:ArrayOfKeyValueClass" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="countFilter_ForZhengShuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countFilter_ForZhengShuResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFilter_ForZhengShu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="companyId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zhengShuArr" type="tns:ArrayOfKeyValueClass" />
+            <s:element minOccurs="0" maxOccurs="1" name="pc" type="tns:PageClass" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFilter_ForZhengShuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getFilter_ForZhengShuResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="countCompanyCharger">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pageClass" type="tns:PageClass" />
+            <s:element minOccurs="0" maxOccurs="1" name="where" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="countCompanyChargerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countCompanyChargerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="filterCompanyCharger">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pageClass" type="tns:PageClass" />
+            <s:element minOccurs="0" maxOccurs="1" name="where" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Tab_Excel_Charger">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ecr_ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ecr_CompanyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ecr_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ecr_ZhiCheng" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ecr_BeiZhu" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTab_Excel_Charger">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tab_Excel_Charger" nillable="true" type="tns:Tab_Excel_Charger" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="filterCompanyChargerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filterCompanyChargerResult" type="tns:ArrayOfTab_Excel_Charger" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addCompanyCharger">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:Tab_Excel_Charger" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addCompanyChargerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addCompanyChargerResult" type="tns:Tab_Excel_Charger" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateCompanyCharger">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:Tab_Excel_Charger" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateCompanyChargerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateCompanyChargerResult" type="tns:Tab_Excel_Charger" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delCompanyCharger">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delCompanyChargerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="delCompanyChargerResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getConnString">
+        <s:complexType />
+      </s:element>
+      <s:element name="getConnStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getConnStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getInitDataSoapIn">
+    <wsdl:part name="parameters" element="tns:getInitData" />
+  </wsdl:message>
+  <wsdl:message name="getInitDataSoapOut">
+    <wsdl:part name="parameters" element="tns:getInitDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="getZhuanYeByZhengShuIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getZhuanYeByZhengShuId" />
+  </wsdl:message>
+  <wsdl:message name="getZhuanYeByZhengShuIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getZhuanYeByZhengShuIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="countFilterSoapIn">
+    <wsdl:part name="parameters" element="tns:countFilter" />
+  </wsdl:message>
+  <wsdl:message name="countFilterSoapOut">
+    <wsdl:part name="parameters" element="tns:countFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="getFilterSoapIn">
+    <wsdl:part name="parameters" element="tns:getFilter" />
+  </wsdl:message>
+  <wsdl:message name="getFilterSoapOut">
+    <wsdl:part name="parameters" element="tns:getFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="countFilter_ForZhengShuSoapIn">
+    <wsdl:part name="parameters" element="tns:countFilter_ForZhengShu" />
+  </wsdl:message>
+  <wsdl:message name="countFilter_ForZhengShuSoapOut">
+    <wsdl:part name="parameters" element="tns:countFilter_ForZhengShuResponse" />
+  </wsdl:message>
+  <wsdl:message name="getFilter_ForZhengShuSoapIn">
+    <wsdl:part name="parameters" element="tns:getFilter_ForZhengShu" />
+  </wsdl:message>
+  <wsdl:message name="getFilter_ForZhengShuSoapOut">
+    <wsdl:part name="parameters" element="tns:getFilter_ForZhengShuResponse" />
+  </wsdl:message>
+  <wsdl:message name="countCompanyChargerSoapIn">
+    <wsdl:part name="parameters" element="tns:countCompanyCharger" />
+  </wsdl:message>
+  <wsdl:message name="countCompanyChargerSoapOut">
+    <wsdl:part name="parameters" element="tns:countCompanyChargerResponse" />
+  </wsdl:message>
+  <wsdl:message name="filterCompanyChargerSoapIn">
+    <wsdl:part name="parameters" element="tns:filterCompanyCharger" />
+  </wsdl:message>
+  <wsdl:message name="filterCompanyChargerSoapOut">
+    <wsdl:part name="parameters" element="tns:filterCompanyChargerResponse" />
+  </wsdl:message>
+  <wsdl:message name="addCompanyChargerSoapIn">
+    <wsdl:part name="parameters" element="tns:addCompanyCharger" />
+  </wsdl:message>
+  <wsdl:message name="addCompanyChargerSoapOut">
+    <wsdl:part name="parameters" element="tns:addCompanyChargerResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateCompanyChargerSoapIn">
+    <wsdl:part name="parameters" element="tns:updateCompanyCharger" />
+  </wsdl:message>
+  <wsdl:message name="updateCompanyChargerSoapOut">
+    <wsdl:part name="parameters" element="tns:updateCompanyChargerResponse" />
+  </wsdl:message>
+  <wsdl:message name="delCompanyChargerSoapIn">
+    <wsdl:part name="parameters" element="tns:delCompanyCharger" />
+  </wsdl:message>
+  <wsdl:message name="delCompanyChargerSoapOut">
+    <wsdl:part name="parameters" element="tns:delCompanyChargerResponse" />
+  </wsdl:message>
+  <wsdl:message name="getConnStringSoapIn">
+    <wsdl:part name="parameters" element="tns:getConnString" />
+  </wsdl:message>
+  <wsdl:message name="getConnStringSoapOut">
+    <wsdl:part name="parameters" element="tns:getConnStringResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService_ExportExcelSoap">
+    <wsdl:operation name="getInitData">
+      <wsdl:input message="tns:getInitDataSoapIn" />
+      <wsdl:output message="tns:getInitDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getZhuanYeByZhengShuId">
+      <wsdl:input message="tns:getZhuanYeByZhengShuIdSoapIn" />
+      <wsdl:output message="tns:getZhuanYeByZhengShuIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="countFilter">
+      <wsdl:input message="tns:countFilterSoapIn" />
+      <wsdl:output message="tns:countFilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getFilter">
+      <wsdl:input message="tns:getFilterSoapIn" />
+      <wsdl:output message="tns:getFilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="countFilter_ForZhengShu">
+      <wsdl:input message="tns:countFilter_ForZhengShuSoapIn" />
+      <wsdl:output message="tns:countFilter_ForZhengShuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getFilter_ForZhengShu">
+      <wsdl:input message="tns:getFilter_ForZhengShuSoapIn" />
+      <wsdl:output message="tns:getFilter_ForZhengShuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="countCompanyCharger">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">企业负责人Page</wsdl:documentation>
+      <wsdl:input message="tns:countCompanyChargerSoapIn" />
+      <wsdl:output message="tns:countCompanyChargerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="filterCompanyCharger">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">企业负责人Page</wsdl:documentation>
+      <wsdl:input message="tns:filterCompanyChargerSoapIn" />
+      <wsdl:output message="tns:filterCompanyChargerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addCompanyCharger">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">企业负责人Page</wsdl:documentation>
+      <wsdl:input message="tns:addCompanyChargerSoapIn" />
+      <wsdl:output message="tns:addCompanyChargerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateCompanyCharger">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">企业负责人Page</wsdl:documentation>
+      <wsdl:input message="tns:updateCompanyChargerSoapIn" />
+      <wsdl:output message="tns:updateCompanyChargerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="delCompanyCharger">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">企业负责人Page</wsdl:documentation>
+      <wsdl:input message="tns:delCompanyChargerSoapIn" />
+      <wsdl:output message="tns:delCompanyChargerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getConnString">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">C/S连接字符串</wsdl:documentation>
+      <wsdl:input message="tns:getConnStringSoapIn" />
+      <wsdl:output message="tns:getConnStringSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService_ExportExcelSoap" type="tns:WebService_ExportExcelSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getInitData">
+      <soap:operation soapAction="http://tempuri.org/getInitData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZhuanYeByZhengShuId">
+      <soap:operation soapAction="http://tempuri.org/getZhuanYeByZhengShuId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countFilter">
+      <soap:operation soapAction="http://tempuri.org/countFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFilter">
+      <soap:operation soapAction="http://tempuri.org/getFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countFilter_ForZhengShu">
+      <soap:operation soapAction="http://tempuri.org/countFilter_ForZhengShu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFilter_ForZhengShu">
+      <soap:operation soapAction="http://tempuri.org/getFilter_ForZhengShu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countCompanyCharger">
+      <soap:operation soapAction="http://tempuri.org/countCompanyCharger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filterCompanyCharger">
+      <soap:operation soapAction="http://tempuri.org/filterCompanyCharger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCompanyCharger">
+      <soap:operation soapAction="http://tempuri.org/addCompanyCharger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCompanyCharger">
+      <soap:operation soapAction="http://tempuri.org/updateCompanyCharger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delCompanyCharger">
+      <soap:operation soapAction="http://tempuri.org/delCompanyCharger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConnString">
+      <soap:operation soapAction="http://tempuri.org/getConnString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService_ExportExcelSoap12" type="tns:WebService_ExportExcelSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getInitData">
+      <soap12:operation soapAction="http://tempuri.org/getInitData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getZhuanYeByZhengShuId">
+      <soap12:operation soapAction="http://tempuri.org/getZhuanYeByZhengShuId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countFilter">
+      <soap12:operation soapAction="http://tempuri.org/countFilter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFilter">
+      <soap12:operation soapAction="http://tempuri.org/getFilter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countFilter_ForZhengShu">
+      <soap12:operation soapAction="http://tempuri.org/countFilter_ForZhengShu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFilter_ForZhengShu">
+      <soap12:operation soapAction="http://tempuri.org/getFilter_ForZhengShu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countCompanyCharger">
+      <soap12:operation soapAction="http://tempuri.org/countCompanyCharger" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filterCompanyCharger">
+      <soap12:operation soapAction="http://tempuri.org/filterCompanyCharger" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCompanyCharger">
+      <soap12:operation soapAction="http://tempuri.org/addCompanyCharger" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCompanyCharger">
+      <soap12:operation soapAction="http://tempuri.org/updateCompanyCharger" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delCompanyCharger">
+      <soap12:operation soapAction="http://tempuri.org/delCompanyCharger" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConnString">
+      <soap12:operation soapAction="http://tempuri.org/getConnString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService_ExportExcel">
+    <wsdl:port name="WebService_ExportExcelSoap" binding="tns:WebService_ExportExcelSoap">
+      <soap:address location="http://192.168.0.3/WebService/WebService_ExportExcel.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService_ExportExcelSoap12" binding="tns:WebService_ExportExcelSoap12">
+      <soap12:address location="http://192.168.0.3/WebService/WebService_ExportExcel.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

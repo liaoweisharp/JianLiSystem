@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses">
+  <DataContextMoniker Name="/DataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e3166707-1992-42e9-9abb-af98df3d0771" absoluteBounds="3.5, 0.875, 2, 1.9535852050781248">
+      <DataClassMoniker Name="/DataClassesDataContext/Tab_Excel_Company_User_ZhuanYe" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cdef4f00-a703-4ba5-ba11-5324f934644b" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5f75ce19-e1c8-47fd-ac38-b29989a964c0" absoluteBounds="0.75, 4.25, 2, 1.3805261230468755">
+      <DataClassMoniker Name="/DataClassesDataContext/Tab_Excel_ZhengShu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="320d39de-c9d2-4c29-856e-21af0d133c69" absoluteBounds="0.765, 4.71, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.75 : 4.25); (1.75 : 1.85179260253906); (3.5 : 1.85179260253906)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Tab_Excel_ZhengShu/Tab_Excel_ZhengShu_Tab_Excel_Company_User_ZhuanYe" />
+      <nodes>
+        <classShapeMoniker Id="5f75ce19-e1c8-47fd-ac38-b29989a964c0" />
+        <classShapeMoniker Id="e3166707-1992-42e9-9abb-af98df3d0771" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b13c2f53-05f5-4bc7-a0b6-e82f1e21cc56" absoluteBounds="4, 3.375, 2, 1.3805261230468751">
+      <DataClassMoniker Name="/DataClassesDataContext/Tab_Excel_Company" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1fe7175a-2252-43d3-b539-dc7d3d084a14" absoluteBounds="4.015, 3.835, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.75 : 3.375); (4.75 : 2.82858520507812)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Tab_Excel_Company/Tab_Excel_Company_Tab_Excel_Company_User_ZhuanYe" />
+      <nodes>
+        <classShapeMoniker Id="b13c2f53-05f5-4bc7-a0b6-e82f1e21cc56" />
+        <classShapeMoniker Id="e3166707-1992-42e9-9abb-af98df3d0771" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,71 @@
+﻿
+
+
+  .HT .td1
+  {
+      width:50px;
+      }
+.HT .td2{ width:250px;}
+.HT .td3
+{
+    text-align:right;
+    width:100px;
+    }
+    .HT .td13
+{
+    text-align:center;
+    width:55px;
+    }
+.HT .td4,.HT .td5,.HT .td6
+{
+    text-align:right;
+    width:110px;
+    }
+.HT .td7,.HT .td8{ width:80px;text-align:center;}
+.HT .td9{ width:70px; text-align:center;}
+.HT .td10{ width:60px; text-align:center;}
+.HT .td11{ width:60px;}
+.HT .td12{width:120px;}
+.imgPaiXu
+{
+    
+    }
+ 
+.HT .flow_LeiXing
+{
+    margin-top:10px;
+    margin-left:-10px;
+    
+    }
+.HT .flow_LeiXing ul
+{
+    
+    }
+ .HT .flow_LeiXing ul li
+{
+    padding:2px 5px;
+    }
+
+  
+ 
+      .tabsP
+      {
+          padding:10px;
+          background-color:White;
+          height:100%;
+          }
+ .tabsContent
+ {
+     clear:both;
+     height:auto;
+     overflow:hidden;
+     background-color:White;
+     
+     }
+
+.wid1{ width:115px}
+.QQ .td7
+{
+    width: 60px;
+    text-align:center;
+    }

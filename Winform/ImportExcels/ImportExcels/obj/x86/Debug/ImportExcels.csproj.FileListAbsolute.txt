@@ -1,0 +1,15 @@
+E:\项目\监理\Winform\ImportExcels\ImportExcels\bin\Debug\ImportExcels.exe.config
+E:\项目\监理\Winform\ImportExcels\ImportExcels\bin\Debug\ImportExcels.exe
+E:\项目\监理\Winform\ImportExcels\ImportExcels\bin\Debug\ImportExcels.pdb
+E:\项目\监理\Winform\ImportExcels\ImportExcels\bin\Debug\DAL.dll
+E:\项目\监理\Winform\ImportExcels\ImportExcels\bin\Debug\DAL.pdb
+E:\项目\监理\Winform\ImportExcels\ImportExcels\obj\x86\Debug\ImportExcels.csprojResolveAssemblyReference.cache
+E:\项目\监理\Winform\ImportExcels\ImportExcels\obj\x86\Debug\ImportExcels.Form1.resources
+E:\项目\监理\Winform\ImportExcels\ImportExcels\obj\x86\Debug\ImportExcels.Properties.Resources.resources
+E:\项目\监理\Winform\ImportExcels\ImportExcels\obj\x86\Debug\ImportExcels.csproj.GenerateResource.Cache
+E:\项目\监理\Winform\ImportExcels\ImportExcels\obj\x86\Debug\ImportExcels.exe
+E:\项目\监理\Winform\ImportExcels\ImportExcels\obj\x86\Debug\ImportExcels.pdb
+E:\项目\监理\Winform\ImportExcels\ImportExcels\bin\Debug\ImportExcels.exe.manifest
+E:\项目\监理\Winform\ImportExcels\ImportExcels\bin\Debug\ImportExcels.application
+E:\项目\监理\Winform\ImportExcels\ImportExcels\obj\x86\Debug\ImportExcels.exe.manifest
+E:\项目\监理\Winform\ImportExcels\ImportExcels\obj\x86\Debug\ImportExcels.application

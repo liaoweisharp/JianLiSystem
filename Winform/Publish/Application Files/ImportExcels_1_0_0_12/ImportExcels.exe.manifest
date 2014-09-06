@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="ImportExcels.exe" version="1.0.0.12" publicKeyToken="5486e8728534edf8" language="neutral" processorArchitecture="x86" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="ImportExcels" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <commandLine file="ImportExcels.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC 清单选项
+          如果要更改 Windows 用户帐户控制级别，请用以下节点之一替换
+          requestedExecutionLevel 节点。
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+          如果要利用文件和注册表虚拟化提供
+          向后兼容性，请删除 requestedExecutionLevel 节点。
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL.dll" size="51712">
+      <assemblyIdentity name="DAL" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>/zCBe/6yyy2uVhfOpXbpO+AfnPc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ImportExcels.exe" size="33792">
+      <assemblyIdentity name="ImportExcels" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>DaeqWdRpCg+st7w4N1e7BqYEfGQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="ImportExcels.exe.config" size="127">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>huvQUd32sGTYGLq4iTgqKi1dE8E=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=ZGC-20120617ROL\Administrator" issuerKeyHash="da31f94fcca1cbaf2997f7e15ac027b6e0ec9029" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>+kgd8ENb+1XK4VpmLFdnpdoVqA8=</DigestValue></Reference></SignedInfo><SignatureValue>eV6/Tsi0nJvQjOz6pYN3uxNS+QpIMDucoXPxX5amuZ/EQbk6UHdt2/xr4+NriL5I81lHKqjiTUAFWn6sKx+MbRwCj+EQA18AzAL+gl7CBtFyH5xlK7/ygGUwRTAR2eKLn1RrovJN5bA+ZiMKxp9rtNkrTYTGKhvNCoj6P/wGnK4=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>1jVwoHh1ME/CflUNMtmXXuZXpoXx07tfytBgq1CSmgF8ONepmxqtzMiFOQeVzuEIGYHRzfPGlnmb9tNgI8CYGBN33lboOS4/Lp0xwuR7WmvBnZhCXXK0rbj0wh4PjbX04pycJY4yzdAf8Jce6xUN65XdT1+cDdUsxvOoOf2WsCU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="0fa815daa567572c665ae1ca55fb5b43f01d48fa" Description="" Url=""><as:assemblyIdentity name="ImportExcels.exe" version="1.0.0.12" publicKeyToken="5486e8728534edf8" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=ZGC-20120617ROL\Administrator</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>K7pP72YwfiDHXVT+H+le7F8sj0g=</DigestValue></Reference></SignedInfo><SignatureValue>jmqfVUaN9hQdCY797dJoxo+4LuVkAp+bSkTvjwoVfKuzVelzuFPf0HeJJSQ/Bxjz6iw8G9ttdE9PeroNbWYEkuS/HO5B7kQ9/jinVQF4NHmEVFZLPnNt7zdj/yJZiQgy6Snk58BQfrlKXXVkSK7vCgN11WBjclGpFISQq0eNLW0=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>1jVwoHh1ME/CflUNMtmXXuZXpoXx07tfytBgq1CSmgF8ONepmxqtzMiFOQeVzuEIGYHRzfPGlnmb9tNgI8CYGBN33lboOS4/Lp0xwuR7WmvBnZhCXXK0rbj0wh4PjbX04pycJY4yzdAf8Jce6xUN65XdT1+cDdUsxvOoOf2WsCU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIICDTCCAXagAwIBAgIQaSc7+bfP5o5JlNMliElLHTANBgkqhkiG9w0BAQUFADBFMUMwQQYDVQQDHjoAWgBHAEMALQAyADAAMQAyADAANgAxADcAUgBPAEwAXABBAGQAbQBpAG4AaQBzAHQAcgBhAHQAbwByMB4XDTE0MDQxMzIzNTcyMloXDTE1MDQxNDA1NTcyMlowRTFDMEEGA1UEAx46AFoARwBDAC0AMgAwADEAMgAwADYAMQA3AFIATwBMAFwAQQBkAG0AaQBuAGkAcwB0AHIAYQB0AG8AcjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA1jVwoHh1ME/CflUNMtmXXuZXpoXx07tfytBgq1CSmgF8ONepmxqtzMiFOQeVzuEIGYHRzfPGlnmb9tNgI8CYGBN33lboOS4/Lp0xwuR7WmvBnZhCXXK0rbj0wh4PjbX04pycJY4yzdAf8Jce6xUN65XdT1+cDdUsxvOoOf2WsCUCAwEAATANBgkqhkiG9w0BAQUFAAOBgQA1o0dCjgVpOx8asV2HCZ2BWvRYJxr4DPLDaz3vL50M/x1WCeiXrJaELO6kqv/xDiwnaNsNhSO0sMeqPYauTsYxcgGc8R72gWs8e8frN8T24+51xOHeueD9js9S5X2esUunc/VZJnnhBN3ne4nFmPExAIA07in/C4LVbSu/1R5dtw==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

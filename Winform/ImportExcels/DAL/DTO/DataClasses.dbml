@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DbJianLi0127" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=127.0.0.1;Initial Catalog=DbJianLi0127;Persist Security Info=True;User ID=sa" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="DbJianLi0127ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Tab_Excel_Company_User_ZhuanYe" Member="Tab_Excel_Company_User_ZhuanYe">
+    <Type Name="Tab_Excel_Company_User_ZhuanYe">
+      <Column Name="ecu_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ecu_CompanyId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ecu_UserName" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ecu_ZhuangYe" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ecu_ZhengShuId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ecu_CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Tab_Excel_ZhengShu_Tab_Excel_Company_User_ZhuanYe" Member="Tab_Excel_ZhengShu" ThisKey="ecu_ZhengShuId" OtherKey="ezs_ID" Type="Tab_Excel_ZhengShu" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Tab_Excel_Company_Tab_Excel_Company_User_ZhuanYe" Member="Tab_Excel_Company" ThisKey="ecu_CompanyId" OtherKey="ec_ID" Type="Tab_Excel_Company" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tab_Excel_ZhengShu" Member="Tab_Excel_ZhengShu">
+    <Type Name="Tab_Excel_ZhengShu">
+      <Column Name="ezs_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ezs_Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ezs_HaveZhuanYe" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Tab_Excel_ZhengShu_Tab_Excel_Company_User_ZhuanYe" Member="Tab_Excel_Company_User_ZhuanYe" AccessModifier="Internal" ThisKey="ezs_ID" OtherKey="ecu_ZhengShuId" Type="Tab_Excel_Company_User_ZhuanYe" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tab_Excel_Company" Member="Tab_Excel_Company">
+    <Type Name="Tab_Excel_Company">
+      <Column Name="ec_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ec_Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ec_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Tab_Excel_Company_Tab_Excel_Company_User_ZhuanYe" Member="Tab_Excel_Company_User_ZhuanYe" AccessModifier="Internal" ThisKey="ec_ID" OtherKey="ecu_CompanyId" Type="Tab_Excel_Company_User_ZhuanYe" />
+    </Type>
+  </Table>
+</Database>
