@@ -1,5 +1,10 @@
 ﻿
-       
+///两个日期类型相差的天数
+function daysDiff(date1, date2) {
+    var times = date1.getTime() - date2.getTime();
+    var days = parseInt(times / (1000 * 60 * 60 * 24));
+    return days;
+}
 Date.prototype.pattern=function(fmt) {        
     var o = {        
     "M+" : this.getMonth()+1, //月份        
@@ -51,7 +56,7 @@ Date.prototype.add=function(interval,number){
     }   
     return date;
 }
- 
+
  
  //var regexp;
 

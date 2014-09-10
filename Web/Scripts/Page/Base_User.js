@@ -463,9 +463,10 @@
         str.push({ itemId: "jl_ShangYeBaoXian", type: "select", title: "商业保险", yesOrNo: true, init: [{ id: "1", title: "已购买" }, { id: "0", title: "未购买"}] });
         //str.push({ itemId: "jl_ShangBaoJieZhiShiJian", type: "text", title: "商保截止时间", validate: "datetime" });
         //str.push({ itemId: "jl_LaoDongHeTongQianDing", type: "select", title: "劳动合同签订", yesOrNo: true, init: [{ id: "1", title: "是" }, { id: "0", title: "否"}] });
-        str.push({ itemId: "jl_LaoDongHeTongKaiShiShiJian", type: "text", title: "劳动合同有效时间段", validate: "datetime" });
+        str.push({ itemId: "jl_LaoDongHeTongKaiShiShiJian", type: "text", title: "劳动合同开始时间", validate: "datetime" });
         //        str.push({ itemId: "jl_LaoDongHeTongJieShuShiJian", type: "text", title: "劳动合同结束时间", validate: "datetime", parentId: "jl_LaoDongHeTongKaiShiShiJian" });
         str.push({ itemId: "jl_LaoDongHeTongJieShuShiJian", type: "text", title: "劳动合同结束时间", validate: "datetime" });
+        str.push({ itemId: "jl_IsTingXing", required: true, parentId: "jl_LaoDongHeTongJieShuShiJian", yesOrNo: true, type: "select", title: "到期提醒", init: [{ id: "1", title: "到期提醒", style: { color: "Green"} }, { id: "0", title: "不提醒", style: { color: "#FFA500"}}] });
         str.push({ itemId: "jl_FanPingXieYiQianDing", type: "select", title: "返聘协议签订", yesOrNo: true, init: [{ id: "1", title: "已签订" }, { id: "0", title: "未签订"}] });
        // str.push({ itemId: "jl_FanPingQianDingShiJian", type: "text", title: "返聘签订时间", validate: "datetime" });
         str.push({ itemId: "jl_LiuCunZhengJian", type: "text", title: "留存证件" });

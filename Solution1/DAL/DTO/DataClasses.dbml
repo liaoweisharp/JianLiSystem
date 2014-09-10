@@ -18,8 +18,8 @@
     <Type Name="Tab_BuMen">
       <Column Name="bm_Id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="bm_Name" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Association Name="Tab_BuMen_Tab_RL_User" Member="Tab_RL_User" AccessModifier="Internal" ThisKey="bm_Id" OtherKey="jl_SuShuBuMen" Type="Tab_RL_User" />
       <Association Name="Tab_BuMen_Tab_RL_PeiXun" Member="Tab_RL_PeiXun" AccessModifier="Internal" ThisKey="bm_Id" OtherKey="rl_px_BuMen" Type="Tab_RL_PeiXun" />
+      <Association Name="Tab_BuMen_Tab_RL_User" Member="Tab_RL_User" AccessModifier="Internal" ThisKey="bm_Id" OtherKey="jl_SuShuBuMen" Type="Tab_RL_User" />
     </Type>
   </Table>
   <Table Name="dbo.Tab_FP_KuanXiangXingZhi" Member="Tab_FP_KuanXiangXingZhi">
@@ -236,76 +236,6 @@
       <Association Name="Tab_RL_RuZhiTuJin_Tab_RL_User" Member="Tab_RL_User" AccessModifier="Internal" ThisKey="rztj_Id" OtherKey="jl_RuZhiTuJing" Type="Tab_RL_User" />
     </Type>
   </Table>
-  <Table Name="dbo.Tab_RL_User" Member="Tab_RL_User">
-    <Type Name="Tab_RL_User">
-      <Column Name="jl_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="jl_Name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="jl_ZhaoPian" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="jl_YuanGongBianHao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="jl_XingBie" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="jl_ChuShengRiQi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="ji_JiGuan" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="jl_HunYinZhuangKuang" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="jl_MingZu" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="jl_ZhengZhiMianMao" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="jl_CanJIanGongZuoShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="jl_YuanDanWeiLiZhiShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="jl_ShenFenZhengHao" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="jl_ShenFenZhengZhuZhi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="jl_ZongJianZiGeZhengShu" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="jl_JianKangZhuangKuang" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="jl_HuJiDiZhi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="jl_HuJiXingZhi" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="jl_XianZhuZhi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="jl_XianYouBian" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="jl_LianXiFangShi_1" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="jl_LianXiFangShi_2" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="jl_LianXiFangShi_3" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="jl_SheHuiGuanXi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="jl_CanBaoZhuangKuang" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="jl_RuZhiShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="jl_RuZhiTuJing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="jl_SuShuBuMen" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="jl_RuZhiShouXuBanLi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="jl_ShiYongKaiShiShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="jl_ShiYongJieShuShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="jl_ShiFouCanBao" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="jl_ShangYeBaoXian" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="jl_ShangBaoJieZhiShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="jl_LaoDongHeTongKaiShiShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="jl_LaoDongHeTongJieShuShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="jl_FanPingXieYiQianDing" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="jl_FanPingQianDingShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="jl_LiuCunZhengJian" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="jl_GongZuoZhuangTai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Association Name="Tab_RL_User_Tab_Report_MonthSalary_GuiDang" Member="Tab_Report_MonthSalary_GuiDang" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="msgd_UserId" Type="Tab_Report_MonthSalary_GuiDang" />
-      <Association Name="Tab_RL_User_Tab_RL_DiaoDong" Member="Tab_RL_DiaoDong" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="rl_dd_UserId" Type="Tab_RL_DiaoDong" />
-      <Association Name="Tab_RL_User_Tab_RL_QingJia" Member="Tab_RL_QingJia" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qj_UserId" Type="Tab_RL_QingJia" />
-      <Association Name="Tab_RL_User_Tab_RL_User_JingLi" Member="Tab_RL_User_JingLi" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="rl_jl_UserId" Type="Tab_RL_User_JingLi" />
-      <Association Name="Tab_RL_User_Tab_RL_XinChou" Member="Tab_RL_XinChou" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="xc_UserId" Type="Tab_RL_XinChou" />
-      <Association Name="Tab_RL_User_Tab_RL_XinChou_KouKuanJiangLi" Member="Tab_RL_XinChou_KouKuanJiangLi" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="kkjl_UserId" Type="Tab_RL_XinChou_KouKuanJiangLi" />
-      <Association Name="Tab_RL_User_Tab_XiangMu_XunJian" Member="Tab_XiangMu_XunJian" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="xj_XunJianRen" Type="Tab_XiangMu_XunJian" />
-      <Association Name="Tab_RL_User_Tab_User_XueLi" Member="Tab_User_XueLi" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="ux_UserId" Type="Tab_User_XueLi" />
-      <Association Name="Tab_RL_User_Tab_User_ZhiCheng" Member="Tab_User_ZhiCheng" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="uz_UserId" Type="Tab_User_ZhiCheng" />
-      <Association Name="Tab_RL_User_Tab_RL_ZhiYeZiGeZhengShu" Member="Tab_RL_ZhiYeZiGeZhengShu" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="zgzs_UserId" Type="Tab_RL_ZhiYeZiGeZhengShu" />
-      <Association Name="Tab_RL_User_TabXiangMuQianQi" Member="TabXiangMuQianQi" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qq_JunGongYiJiao_QianShouRenYuan" Type="TabXiangMuQianQi" />
-      <Association Name="Tab_RL_User_TabXiangMuQianQi1" Member="TabXiangMuQianQi1" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qq_JunGongYiJiao_QianShouRenYuan" Type="TabXiangMuQianQi" />
-      <Association Name="Tab_RL_User_TabXiangMuQianQi2" Member="TabXiangMuQianQi2" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qq_JunGongYiJiao_ZongJianQianZi" Type="TabXiangMuQianQi" />
-      <Association Name="Tab_RL_User_TabXiangMuQianQi3" Member="TabXiangMuQianQi3" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qq_XiangMuFuZeRen" Type="TabXiangMuQianQi" />
-      <Association Name="Tab_RL_User_Tab_RL_PeiXun" Member="Tab_RL_PeiXun" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="rl_px_UserId" Type="Tab_RL_PeiXun" />
-      <Association Name="Tab_RL_User_Tab_RL_JiangCheng" Member="Tab_RL_JiangCheng" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="rl_jc_UserId" Type="Tab_RL_JiangCheng" />
-      <Association Name="Tab_RL_User_Tab_DiaoDong" Member="Tab_DiaoDong" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="dd_FuZeRen" Type="Tab_DiaoDong" />
-      <Association Name="Tab_RL_User_Tab_DiaoDong1" Member="Tab_DiaoDong1" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="dd_UserId" Type="Tab_DiaoDong" />
-      <Association Name="Tab_BuMen_Tab_RL_User" Member="Tab_BuMen" ThisKey="jl_SuShuBuMen" OtherKey="bm_Id" Type="Tab_BuMen" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Tab_RL_GongZuoZhuangTai_Tab_RL_User" Member="Tab_RL_GongZuoZhuangTai" ThisKey="jl_GongZuoZhuangTai" OtherKey="zt_Id" Type="Tab_RL_GongZuoZhuangTai" IsForeignKey="true" />
-      <Association Name="Tab_RL_RuZhiTuJin_Tab_RL_User" Member="Tab_RL_RuZhiTuJin" ThisKey="jl_RuZhiTuJing" OtherKey="rztj_Id" Type="Tab_RL_RuZhiTuJin" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Tab_RL_User_CanBaoZhuangKuang_Tab_RL_User" Member="Tab_RL_User_CanBaoZhuangKuang" ThisKey="jl_CanBaoZhuangKuang" OtherKey="cbzk_Id" Type="Tab_RL_User_CanBaoZhuangKuang" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Tab_RL_User_HuJiXingZhi_Tab_RL_User" Member="Tab_RL_User_HuJiXingZhi" ThisKey="jl_HuJiXingZhi" OtherKey="hjxz_Id" Type="Tab_RL_User_HuJiXingZhi" IsForeignKey="true" />
-      <Association Name="Tab_RL_User_HunYin_Tab_RL_User" Member="Tab_RL_User_HunYin" ThisKey="jl_HunYinZhuangKuang" OtherKey="hy_Id" Type="Tab_RL_User_HunYin" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Tab_RL_User_MinZu_Tab_RL_User" Member="Tab_RL_User_MinZu" ThisKey="jl_MingZu" OtherKey="mz_Id" Type="Tab_RL_User_MinZu" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Tab_RL_User_ZhengZhiMianMao_Tab_RL_User" Member="Tab_RL_User_ZhengZhiMianMao" ThisKey="jl_ZhengZhiMianMao" OtherKey="zzmm_Id" Type="Tab_RL_User_ZhengZhiMianMao" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Tab_RL_User_CanBaoZhuangKuang" Member="Tab_RL_User_CanBaoZhuangKuang">
     <Type Name="Tab_RL_User_CanBaoZhuangKuang">
       <Column Name="cbzk_Id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -416,14 +346,6 @@
       <Association Name="Tab_RL_User_Tab_RL_XinChou_KouKuanJiangLi" Member="Tab_RL_User" ThisKey="kkjl_UserId" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Tab_RL_XueLi" Member="Tab_RL_XueLi">
-    <Type Name="Tab_RL_XueLi">
-      <Column Name="xl_Id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="xl_Name" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="xl_CengCi" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Association Name="Tab_RL_XueLi_Tab_User_XueLi" Member="Tab_User_XueLi" AccessModifier="Internal" ThisKey="xl_Id" OtherKey="ux_XueLiId" Type="Tab_User_XueLi" />
-    </Type>
-  </Table>
   <Table Name="dbo.Tab_RL_ZhiYeZiGeZhengShu_ZhuanYe" Member="Tab_RL_ZhiYeZiGeZhengShu_ZhuanYe">
     <Type Name="Tab_RL_ZhiYeZiGeZhengShu_ZhuanYe">
       <Column Name="zgzy_zgId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -442,9 +364,9 @@
       <Column Name="up_ShouKuanId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="up_Dir" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="TabFaPiaoJiShouKuanGuanLi_Tab_Uploads" Member="TabFaPiaoJiShouKuanGuanLi" ThisKey="up_ShouKuanId" OtherKey="fp_Id" Type="TabFaPiaoJiShouKuanGuanLi" IsForeignKey="true" />
-      <Association Name="Tab_User_XueLi_Tab_Uploads" Member="Tab_User_XueLi" ThisKey="up_XueLiId" OtherKey="ux_Id" Type="Tab_User_XueLi" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Tab_User_ZhiCheng_Tab_Uploads" Member="Tab_User_ZhiCheng" ThisKey="up_ZhiChengId" OtherKey="uz_Id" Type="Tab_User_ZhiCheng" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Tab_RL_ZhiYeZiGeZhengShu_Tab_Uploads" Member="Tab_RL_ZhiYeZiGeZhengShu" ThisKey="up_ZiGeZhengShuId" OtherKey="zgzs_Id" Type="Tab_RL_ZhiYeZiGeZhengShu" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Tab_User_XueLi_Tab_Uploads" Member="Tab_User_XueLi" ThisKey="up_XueLiId" OtherKey="ux_Id" Type="Tab_User_XueLi" IsForeignKey="true" DeleteRule="SET NULL" />
     </Type>
   </Table>
   <Table Name="dbo.Tab_XiangMu_BanGongYongPin" Member="Tab_XiangMu_BanGongYongPin">
@@ -558,8 +480,8 @@
       <Column Name="xj_YeWuYiJian" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="xj_ShiGongFangYiJian" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="xj_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Tab_RL_User_Tab_XiangMu_XunJian" Member="Tab_RL_User" ThisKey="xj_XunJianRen" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
       <Association Name="TabXiangMuQianQi_Tab_XiangMu_XunJian" Member="TabXiangMuQianQi" ThisKey="xj_XiangMuId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Tab_RL_User_Tab_XiangMu_XunJian" Member="Tab_RL_User" ThisKey="xj_XunJianRen" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Tab_XiangMu_YiJiaoDan" Member="Tab_XiangMu_YiJiaoDan">
@@ -853,8 +775,8 @@
       <Association Name="TabHeTong_TabFaPiaoJiShouKuanGuanLi" Member="TabFaPiaoJiShouKuanGuanLi" AccessModifier="Internal" ThisKey="ht_Id" OtherKey="fp_htId" Type="TabFaPiaoJiShouKuanGuanLi" />
       <Association Name="TabHeTong_TabHeTongBianGeng" Member="TabHeTongBianGeng" AccessModifier="Internal" ThisKey="ht_Id" OtherKey="bg_htId" Type="TabHeTongBianGeng" />
       <Association Name="TabHeTong_TabJieSuanGuanLi" Member="TabJieSuanGuanLi" AccessModifier="Internal" ThisKey="ht_Id" OtherKey="js_Id" Type="TabJieSuanGuanLi" Cardinality="One" />
-      <Association Name="TabHeTong_TabShouKuanJiHua" Member="TabShouKuanJiHua" AccessModifier="Internal" ThisKey="ht_Id" OtherKey="jh_htId" Type="TabShouKuanJiHua" />
       <Association Name="TabHeTong_TabHeTongVice" Member="TabHeTongVice" AccessModifier="Internal" ThisKey="ht_Id" OtherKey="htv_Id" Type="TabHeTongVice" Cardinality="One" />
+      <Association Name="TabHeTong_TabShouKuanJiHua" Member="TabShouKuanJiHua" AccessModifier="Internal" ThisKey="ht_Id" OtherKey="jh_htId" Type="TabShouKuanJiHua" />
       <Association Name="Tab_HT_GongChengDiDian_TabHeTong" Member="Tab_HT_GongChengDiDian" ThisKey="ht_GongChengDiDian" OtherKey="dd_Id" Type="Tab_HT_GongChengDiDian" IsForeignKey="true" />
       <Association Name="Tab_HT_JinEShuoMing_TabHeTong" Member="Tab_HT_JinEShuoMing" ThisKey="ht_JinEShuoMing" OtherKey="jesm_Id" Type="Tab_HT_JinEShuoMing" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Tab_HT_ShouFeiFangShi_TabHeTong" Member="Tab_HT_ShouFeiFangShi" ThisKey="ht_ShouFeiFangShi" OtherKey="sf_Id" Type="Tab_HT_ShouFeiFangShi" IsForeignKey="true" DeleteRule="SET NULL" />
@@ -865,41 +787,6 @@
       <Association Name="Tab_HT_TouZiXingZhi_TabHeTong" Member="Tab_HT_TouZiXingZhi" ThisKey="ht_TouZiXinZhi" OtherKey="xz_Id" Type="Tab_HT_TouZiXingZhi" IsForeignKey="true" />
       <Association Name="Tab_HT_XiangMuFenLei_TabHeTong" Member="Tab_HT_XiangMuFenLei" ThisKey="ht_XiangMuFenLei" OtherKey="fl_Id" Type="Tab_HT_XiangMuFenLei" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="TabXiangMuQianQi_TabHeTong" Member="TabXiangMuQianQi" ThisKey="ht_QqId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TabShouKuanJiHua" Member="TabShouKuanJiHua">
-    <Type Name="TabShouKuanJiHua">
-      <Column Name="jh_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="jh_htId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="jh_htId_bg" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="jh_ShouKuanRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="jh_ShouKuanJinE" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="jh_IsFaHan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="jh_ShoukuanShuoMing" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="jh_DengJiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="jh_DengJiRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="jh_XiuGaiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="jh_XiuGaiRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="jh_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="TabHeTongBianGeng_TabShouKuanJiHua" Member="TabHeTongBianGeng" ThisKey="jh_htId_bg" OtherKey="bg_Id" Type="TabHeTongBianGeng" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="TabHeTong_TabShouKuanJiHua" Member="TabHeTong" ThisKey="jh_htId" OtherKey="ht_Id" Type="TabHeTong" IsForeignKey="true" DeleteRule="SET NULL" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Tab_User_XueLi" Member="Tab_User_XueLi">
-    <Type Name="Tab_User_XueLi">
-      <Column Name="ux_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ux_UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ux_XueLiId" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="ux_ZhuanYe" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="ux_BiYiRiQi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="ux_BiYeYuanXiao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ux_SaoMiao" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="ux_XueLiBianHao" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="ux_RuXiaoShiJian" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ux_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Tab_User_XueLi_Tab_Uploads" Member="Tab_Uploads" AccessModifier="Internal" ThisKey="ux_Id" OtherKey="up_XueLiId" Type="Tab_Uploads" />
-      <Association Name="Tab_RL_User_Tab_User_XueLi" Member="Tab_RL_User" ThisKey="ux_UserId" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
-      <Association Name="Tab_RL_XueLi_Tab_User_XueLi" Member="Tab_RL_XueLi" ThisKey="ux_XueLiId" OtherKey="xl_Id" Type="Tab_RL_XueLi" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Tab_User_ZhiCheng" Member="Tab_User_ZhiCheng">
@@ -1027,13 +914,13 @@
       <Association Name="TabXiangMuQianQi_Tab_DiaoDong" Member="Tab_DiaoDong" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="dd_XiangMuId" Type="Tab_DiaoDong" />
       <Association Name="Tab_HT_XiangMuFenLei_TabXiangMuQianQi" Member="Tab_HT_XiangMuFenLei" ThisKey="qq_GongChengLieBie" OtherKey="fl_Id" Type="Tab_HT_XiangMuFenLei" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Tab_HT_ZhiXingBuMen_TabXiangMuQianQi" Member="Tab_HT_ZhiXingBuMen" ThisKey="qq_ZhiXingLeiXing" OtherKey="bm_Id" Type="Tab_HT_ZhiXingBuMen" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Tab_XiangMu_BuMen_TabXiangMuQianQi" Member="Tab_XiangMu_BuMen" ThisKey="qq_BuMenId" OtherKey="xmbm_Id" Type="Tab_XiangMu_BuMen" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Tab_XiangMuZu_TabXiangMuQianQi" Member="Tab_XiangMuZu" ThisKey="qq_XiangMuZhuId" OtherKey="xmz_Id" Type="Tab_XiangMuZu" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="TabXiangMuQianQi_TabXiangMuQianQi" Member="TabXiangMuQianQi1" ThisKey="qq_ParentId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" />
       <Association Name="Tab_RL_User_TabXiangMuQianQi" Member="Tab_RL_User" ThisKey="qq_JunGongYiJiao_QianShouRenYuan" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
       <Association Name="Tab_RL_User_TabXiangMuQianQi1" Member="Tab_RL_User1" ThisKey="qq_JunGongYiJiao_QianShouRenYuan" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
       <Association Name="Tab_RL_User_TabXiangMuQianQi2" Member="Tab_RL_User2" ThisKey="qq_JunGongYiJiao_ZongJianQianZi" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
       <Association Name="Tab_RL_User_TabXiangMuQianQi3" Member="Tab_RL_User3" ThisKey="qq_XiangMuFuZeRen" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
-      <Association Name="Tab_XiangMu_BuMen_TabXiangMuQianQi" Member="Tab_XiangMu_BuMen" ThisKey="qq_BuMenId" OtherKey="xmbm_Id" Type="Tab_XiangMu_BuMen" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Tab_XiangMuZu_TabXiangMuQianQi" Member="Tab_XiangMuZu" ThisKey="qq_XiangMuZhuId" OtherKey="xmz_Id" Type="Tab_XiangMuZu" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="TabXiangMuQianQi_TabXiangMuQianQi" Member="TabXiangMuQianQi1" ThisKey="qq_ParentId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Tab_RL_PeiXun" Member="Tab_RL_PeiXun">
@@ -1061,8 +948,8 @@
       <Association Name="Tab_BuMen_Tab_RL_PeiXun" Member="Tab_BuMen" ThisKey="rl_px_BuMen" OtherKey="bm_Id" Type="Tab_BuMen" IsForeignKey="true" />
       <Association Name="Tab_RL_PeiXun_LeiBie_Tab_RL_PeiXun" Member="Tab_RL_PeiXun_LeiBie" ThisKey="rl_px_PeiXunLeiBie" OtherKey="pxlb_Id" Type="Tab_RL_PeiXun_LeiBie" IsForeignKey="true" />
       <Association Name="Tab_RL_PeiXun_XingZhi_Tab_RL_PeiXun" Member="Tab_RL_PeiXun_XingZhi" ThisKey="rl_px_PeiXunXingZhi" OtherKey="pxxz_Id" Type="Tab_RL_PeiXun_XingZhi" IsForeignKey="true" />
-      <Association Name="Tab_RL_User_Tab_RL_PeiXun" Member="Tab_RL_User" ThisKey="rl_px_UserId" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
       <Association Name="TabXiangMuQianQi_Tab_RL_PeiXun" Member="TabXiangMuQianQi" ThisKey="rl_px_XiangMuId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" />
+      <Association Name="Tab_RL_User_Tab_RL_PeiXun" Member="Tab_RL_User" ThisKey="rl_px_UserId" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Tab_RL_JiangCheng" Member="Tab_RL_JiangCheng">
@@ -1076,8 +963,8 @@
       <Column Name="rl_jc_JiangChengQingKuang" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="rl_jc_SuoShuXiangMu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="rl_jc_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Tab_RL_User_Tab_RL_JiangCheng" Member="Tab_RL_User" ThisKey="rl_jc_UserId" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
       <Association Name="TabXiangMuQianQi_Tab_RL_JiangCheng" Member="TabXiangMuQianQi" ThisKey="rl_jc_XiangMuId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" />
+      <Association Name="Tab_RL_User_Tab_RL_JiangCheng" Member="Tab_RL_User" ThisKey="rl_jc_UserId" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Tab_Excel_Company_User_ZhuanYe" Member="Tab_Excel_Company_User_ZhuanYe">
@@ -1142,9 +1029,143 @@
       <Column Name="dd_FuZeRen" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="dd_GangWei" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="dd_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="TabXiangMuQianQi_Tab_DiaoDong" Member="TabXiangMuQianQi" ThisKey="dd_XiangMuId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Tab_RL_User_Tab_DiaoDong" Member="Tab_RL_User" ThisKey="dd_FuZeRen" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Tab_RL_User_Tab_DiaoDong1" Member="Tab_RL_User1" ThisKey="dd_UserId" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
-      <Association Name="TabXiangMuQianQi_Tab_DiaoDong" Member="TabXiangMuQianQi" ThisKey="dd_XiangMuId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TabShouKuanJiHua" Member="TabShouKuanJiHua">
+    <Type Name="TabShouKuanJiHua">
+      <Column Name="jh_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="jh_htId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="jh_htId_bg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="jh_ShouKuanRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="jh_IsTiXing" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="jh_ShouKuanJinE" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="jh_IsFaHan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="jh_ShoukuanShuoMing" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="jh_DengJiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="jh_DengJiRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="jh_XiuGaiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="jh_XiuGaiRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="jh_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="TabHeTongBianGeng_TabShouKuanJiHua" Member="TabHeTongBianGeng" ThisKey="jh_htId_bg" OtherKey="bg_Id" Type="TabHeTongBianGeng" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="TabHeTong_TabShouKuanJiHua" Member="TabHeTong" ThisKey="jh_htId" OtherKey="ht_Id" Type="TabHeTong" IsForeignKey="true" DeleteRule="SET NULL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_ShouKuanJiHua" Member="View_ShouKuanJiHua">
+    <Type Name="View_ShouKuanJiHua">
+      <Column Name="jh_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="jh_ShouKuanRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="jh_ShouKuanJinE" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="jh_IsFaHan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ht_MingCheng" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="qq_HeTongHao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="jh_IsTiXing" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tab_RL_User" Member="Tab_RL_User">
+    <Type Name="Tab_RL_User">
+      <Column Name="jl_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="jl_Name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="jl_ZhaoPian" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="jl_YuanGongBianHao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="jl_XingBie" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="jl_ChuShengRiQi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ji_JiGuan" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="jl_HunYinZhuangKuang" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="jl_MingZu" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="jl_ZhengZhiMianMao" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="jl_CanJIanGongZuoShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="jl_YuanDanWeiLiZhiShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="jl_ShenFenZhengHao" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="jl_ShenFenZhengZhuZhi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="jl_ZongJianZiGeZhengShu" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="jl_JianKangZhuangKuang" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="jl_HuJiDiZhi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="jl_HuJiXingZhi" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="jl_XianZhuZhi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="jl_XianYouBian" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="jl_LianXiFangShi_1" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="jl_LianXiFangShi_2" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="jl_LianXiFangShi_3" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="jl_SheHuiGuanXi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="jl_CanBaoZhuangKuang" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="jl_RuZhiShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="jl_RuZhiTuJing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="jl_SuShuBuMen" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="jl_RuZhiShouXuBanLi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="jl_ShiYongKaiShiShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="jl_ShiYongJieShuShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="jl_ShiFouCanBao" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="jl_ShangYeBaoXian" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="jl_ShangBaoJieZhiShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="jl_LaoDongHeTongKaiShiShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="jl_LaoDongHeTongJieShuShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="jl_IsTingXing" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="jl_FanPingXieYiQianDing" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="jl_FanPingQianDingShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="jl_LiuCunZhengJian" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="jl_GongZuoZhuangTai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="Tab_RL_User_Tab_Report_MonthSalary_GuiDang" Member="Tab_Report_MonthSalary_GuiDang" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="msgd_UserId" Type="Tab_Report_MonthSalary_GuiDang" />
+      <Association Name="Tab_RL_User_Tab_RL_DiaoDong" Member="Tab_RL_DiaoDong" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="rl_dd_UserId" Type="Tab_RL_DiaoDong" />
+      <Association Name="Tab_RL_User_Tab_RL_QingJia" Member="Tab_RL_QingJia" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qj_UserId" Type="Tab_RL_QingJia" />
+      <Association Name="Tab_RL_User_Tab_RL_User_JingLi" Member="Tab_RL_User_JingLi" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="rl_jl_UserId" Type="Tab_RL_User_JingLi" />
+      <Association Name="Tab_RL_User_Tab_RL_XinChou" Member="Tab_RL_XinChou" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="xc_UserId" Type="Tab_RL_XinChou" />
+      <Association Name="Tab_RL_User_Tab_RL_XinChou_KouKuanJiangLi" Member="Tab_RL_XinChou_KouKuanJiangLi" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="kkjl_UserId" Type="Tab_RL_XinChou_KouKuanJiangLi" />
+      <Association Name="Tab_RL_User_Tab_XiangMu_XunJian" Member="Tab_XiangMu_XunJian" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="xj_XunJianRen" Type="Tab_XiangMu_XunJian" />
+      <Association Name="Tab_RL_User_Tab_User_ZhiCheng" Member="Tab_User_ZhiCheng" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="uz_UserId" Type="Tab_User_ZhiCheng" />
+      <Association Name="Tab_RL_User_Tab_RL_ZhiYeZiGeZhengShu" Member="Tab_RL_ZhiYeZiGeZhengShu" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="zgzs_UserId" Type="Tab_RL_ZhiYeZiGeZhengShu" />
+      <Association Name="Tab_RL_User_TabXiangMuQianQi" Member="TabXiangMuQianQi" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qq_JunGongYiJiao_QianShouRenYuan" Type="TabXiangMuQianQi" />
+      <Association Name="Tab_RL_User_TabXiangMuQianQi1" Member="TabXiangMuQianQi1" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qq_JunGongYiJiao_QianShouRenYuan" Type="TabXiangMuQianQi" />
+      <Association Name="Tab_RL_User_TabXiangMuQianQi2" Member="TabXiangMuQianQi2" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qq_JunGongYiJiao_ZongJianQianZi" Type="TabXiangMuQianQi" />
+      <Association Name="Tab_RL_User_TabXiangMuQianQi3" Member="TabXiangMuQianQi3" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qq_XiangMuFuZeRen" Type="TabXiangMuQianQi" />
+      <Association Name="Tab_RL_User_Tab_RL_PeiXun" Member="Tab_RL_PeiXun" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="rl_px_UserId" Type="Tab_RL_PeiXun" />
+      <Association Name="Tab_RL_User_Tab_RL_JiangCheng" Member="Tab_RL_JiangCheng" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="rl_jc_UserId" Type="Tab_RL_JiangCheng" />
+      <Association Name="Tab_RL_User_Tab_DiaoDong" Member="Tab_DiaoDong" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="dd_FuZeRen" Type="Tab_DiaoDong" />
+      <Association Name="Tab_RL_User_Tab_DiaoDong1" Member="Tab_DiaoDong1" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="dd_UserId" Type="Tab_DiaoDong" />
+      <Association Name="Tab_RL_User_Tab_User_XueLi" Member="Tab_User_XueLi" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="ux_UserId" Type="Tab_User_XueLi" />
+      <Association Name="Tab_BuMen_Tab_RL_User" Member="Tab_BuMen" ThisKey="jl_SuShuBuMen" OtherKey="bm_Id" Type="Tab_BuMen" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Tab_RL_GongZuoZhuangTai_Tab_RL_User" Member="Tab_RL_GongZuoZhuangTai" ThisKey="jl_GongZuoZhuangTai" OtherKey="zt_Id" Type="Tab_RL_GongZuoZhuangTai" IsForeignKey="true" />
+      <Association Name="Tab_RL_RuZhiTuJin_Tab_RL_User" Member="Tab_RL_RuZhiTuJin" ThisKey="jl_RuZhiTuJing" OtherKey="rztj_Id" Type="Tab_RL_RuZhiTuJin" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Tab_RL_User_CanBaoZhuangKuang_Tab_RL_User" Member="Tab_RL_User_CanBaoZhuangKuang" ThisKey="jl_CanBaoZhuangKuang" OtherKey="cbzk_Id" Type="Tab_RL_User_CanBaoZhuangKuang" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Tab_RL_User_HuJiXingZhi_Tab_RL_User" Member="Tab_RL_User_HuJiXingZhi" ThisKey="jl_HuJiXingZhi" OtherKey="hjxz_Id" Type="Tab_RL_User_HuJiXingZhi" IsForeignKey="true" />
+      <Association Name="Tab_RL_User_HunYin_Tab_RL_User" Member="Tab_RL_User_HunYin" ThisKey="jl_HunYinZhuangKuang" OtherKey="hy_Id" Type="Tab_RL_User_HunYin" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Tab_RL_User_MinZu_Tab_RL_User" Member="Tab_RL_User_MinZu" ThisKey="jl_MingZu" OtherKey="mz_Id" Type="Tab_RL_User_MinZu" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Tab_RL_User_ZhengZhiMianMao_Tab_RL_User" Member="Tab_RL_User_ZhengZhiMianMao" ThisKey="jl_ZhengZhiMianMao" OtherKey="zzmm_Id" Type="Tab_RL_User_ZhengZhiMianMao" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tab_RL_XueLi" Member="Tab_RL_XueLi">
+    <Type Name="Tab_RL_XueLi">
+      <Column Name="xl_Id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="xl_Name" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="xl_CengCi" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="Tab_RL_XueLi_Tab_User_XueLi" Member="Tab_User_XueLi" AccessModifier="Internal" ThisKey="xl_Id" OtherKey="ux_XueLiId" Type="Tab_User_XueLi" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tab_User_XueLi" Member="Tab_User_XueLi">
+    <Type Name="Tab_User_XueLi">
+      <Column Name="ux_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ux_UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ux_XueLiId" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ux_ZhuanYe" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ux_BiYiRiQi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ux_BiYeYuanXiao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ux_SaoMiao" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ux_XueLiBianHao" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ux_RuXiaoShiJian" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ux_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Tab_User_XueLi_Tab_Uploads" Member="Tab_Uploads" AccessModifier="Internal" ThisKey="ux_Id" OtherKey="up_XueLiId" Type="Tab_Uploads" />
+      <Association Name="Tab_RL_User_Tab_User_XueLi" Member="Tab_RL_User" ThisKey="ux_UserId" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
+      <Association Name="Tab_RL_XueLi_Tab_User_XueLi" Member="Tab_RL_XueLi" ThisKey="ux_XueLiId" OtherKey="xl_Id" Type="Tab_RL_XueLi" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_User" Member="View_User">
+    <Type Name="View_User">
+      <Column Name="jl_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="jl_Name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="jl_LaoDongHeTongJieShuShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="jl_IsTingXing" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

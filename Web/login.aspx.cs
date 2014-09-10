@@ -40,7 +40,7 @@ public partial class login : System.Web.UI.Page
             //登录成功
             Session["id"] = dd.FirstOrDefault().Element("id").Value;//Session
             lb_Status.Visible = false;
-            Response.Redirect("default.aspx");
+            Response.Redirect("Default.aspx");
             
         }
         else { 

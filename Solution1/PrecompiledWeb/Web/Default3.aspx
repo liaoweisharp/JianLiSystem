@@ -1,4 +1,4 @@
-﻿<%@ page title="" language="C#" masterpagefile="Master/MasterPage.master" autoeventwireup="true" inherits="Default3, App_Web_uawfmnkv" %>
+﻿<%@ page title="" language="C#" masterpagefile="Master/MasterPage.master" autoeventwireup="true" inherits="Default3, App_Web_hkon342b" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script src="Scripts/jQuery/jquery-1.6.1.min.js" type="text/javascript"></script>
@@ -28,6 +28,25 @@
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+<div>
+    <div class='header'>
+        <ul class="">
+            <li>收款提醒</li>
+            <li>
+            <select>
+                <option>一周</option>
+                <option>两周</option>
+                <option>一个月</option>
+                <option>两个月</option>
+            </select>
+            </li>
+        </ul>
+    </div>
+    <div class='content'></div>
+</div>
+
+
     <label id="dd" value='abc'>123</label>
     <h2>实例（四）:  </h2>  
 

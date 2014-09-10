@@ -115,9 +115,6 @@ namespace DAL.DTO
     partial void InsertTab_RL_RuZhiTuJin(Tab_RL_RuZhiTuJin instance);
     partial void UpdateTab_RL_RuZhiTuJin(Tab_RL_RuZhiTuJin instance);
     partial void DeleteTab_RL_RuZhiTuJin(Tab_RL_RuZhiTuJin instance);
-    partial void InsertTab_RL_User(Tab_RL_User instance);
-    partial void UpdateTab_RL_User(Tab_RL_User instance);
-    partial void DeleteTab_RL_User(Tab_RL_User instance);
     partial void InsertTab_RL_User_CanBaoZhuangKuang(Tab_RL_User_CanBaoZhuangKuang instance);
     partial void UpdateTab_RL_User_CanBaoZhuangKuang(Tab_RL_User_CanBaoZhuangKuang instance);
     partial void DeleteTab_RL_User_CanBaoZhuangKuang(Tab_RL_User_CanBaoZhuangKuang instance);
@@ -145,9 +142,6 @@ namespace DAL.DTO
     partial void InsertTab_RL_XinChou_KouKuanJiangLi(Tab_RL_XinChou_KouKuanJiangLi instance);
     partial void UpdateTab_RL_XinChou_KouKuanJiangLi(Tab_RL_XinChou_KouKuanJiangLi instance);
     partial void DeleteTab_RL_XinChou_KouKuanJiangLi(Tab_RL_XinChou_KouKuanJiangLi instance);
-    partial void InsertTab_RL_XueLi(Tab_RL_XueLi instance);
-    partial void UpdateTab_RL_XueLi(Tab_RL_XueLi instance);
-    partial void DeleteTab_RL_XueLi(Tab_RL_XueLi instance);
     partial void InsertTab_RL_ZhiYeZiGeZhengShu_ZhuanYe(Tab_RL_ZhiYeZiGeZhengShu_ZhuanYe instance);
     partial void UpdateTab_RL_ZhiYeZiGeZhengShu_ZhuanYe(Tab_RL_ZhiYeZiGeZhengShu_ZhuanYe instance);
     partial void DeleteTab_RL_ZhiYeZiGeZhengShu_ZhuanYe(Tab_RL_ZhiYeZiGeZhengShu_ZhuanYe instance);
@@ -205,12 +199,6 @@ namespace DAL.DTO
     partial void InsertTabHeTong(TabHeTong instance);
     partial void UpdateTabHeTong(TabHeTong instance);
     partial void DeleteTabHeTong(TabHeTong instance);
-    partial void InsertTabShouKuanJiHua(TabShouKuanJiHua instance);
-    partial void UpdateTabShouKuanJiHua(TabShouKuanJiHua instance);
-    partial void DeleteTabShouKuanJiHua(TabShouKuanJiHua instance);
-    partial void InsertTab_User_XueLi(Tab_User_XueLi instance);
-    partial void UpdateTab_User_XueLi(Tab_User_XueLi instance);
-    partial void DeleteTab_User_XueLi(Tab_User_XueLi instance);
     partial void InsertTab_User_ZhiCheng(Tab_User_ZhiCheng instance);
     partial void UpdateTab_User_ZhiCheng(Tab_User_ZhiCheng instance);
     partial void DeleteTab_User_ZhiCheng(Tab_User_ZhiCheng instance);
@@ -247,6 +235,18 @@ namespace DAL.DTO
     partial void InsertTab_DiaoDong(Tab_DiaoDong instance);
     partial void UpdateTab_DiaoDong(Tab_DiaoDong instance);
     partial void DeleteTab_DiaoDong(Tab_DiaoDong instance);
+    partial void InsertTabShouKuanJiHua(TabShouKuanJiHua instance);
+    partial void UpdateTabShouKuanJiHua(TabShouKuanJiHua instance);
+    partial void DeleteTabShouKuanJiHua(TabShouKuanJiHua instance);
+    partial void InsertTab_RL_User(Tab_RL_User instance);
+    partial void UpdateTab_RL_User(Tab_RL_User instance);
+    partial void DeleteTab_RL_User(Tab_RL_User instance);
+    partial void InsertTab_RL_XueLi(Tab_RL_XueLi instance);
+    partial void UpdateTab_RL_XueLi(Tab_RL_XueLi instance);
+    partial void DeleteTab_RL_XueLi(Tab_RL_XueLi instance);
+    partial void InsertTab_User_XueLi(Tab_User_XueLi instance);
+    partial void UpdateTab_User_XueLi(Tab_User_XueLi instance);
+    partial void DeleteTab_User_XueLi(Tab_User_XueLi instance);
     #endregion
 		
 		public DataClassesDataContext() : 
@@ -503,14 +503,6 @@ namespace DAL.DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<Tab_RL_User> Tab_RL_User
-		{
-			get
-			{
-				return this.GetTable<Tab_RL_User>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Tab_RL_User_CanBaoZhuangKuang> Tab_RL_User_CanBaoZhuangKuang
 		{
 			get
@@ -580,14 +572,6 @@ namespace DAL.DTO
 			get
 			{
 				return this.GetTable<Tab_RL_XinChou_KouKuanJiangLi>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Tab_RL_XueLi> Tab_RL_XueLi
-		{
-			get
-			{
-				return this.GetTable<Tab_RL_XueLi>();
 			}
 		}
 		
@@ -839,22 +823,6 @@ namespace DAL.DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<TabShouKuanJiHua> TabShouKuanJiHua
-		{
-			get
-			{
-				return this.GetTable<TabShouKuanJiHua>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Tab_User_XueLi> Tab_User_XueLi
-		{
-			get
-			{
-				return this.GetTable<Tab_User_XueLi>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Tab_User_ZhiCheng> Tab_User_ZhiCheng
 		{
 			get
@@ -948,6 +916,54 @@ namespace DAL.DTO
 			get
 			{
 				return this.GetTable<Tab_DiaoDong>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TabShouKuanJiHua> TabShouKuanJiHua
+		{
+			get
+			{
+				return this.GetTable<TabShouKuanJiHua>();
+			}
+		}
+		
+		public System.Data.Linq.Table<View_ShouKuanJiHua> View_ShouKuanJiHua
+		{
+			get
+			{
+				return this.GetTable<View_ShouKuanJiHua>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Tab_RL_User> Tab_RL_User
+		{
+			get
+			{
+				return this.GetTable<Tab_RL_User>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Tab_RL_XueLi> Tab_RL_XueLi
+		{
+			get
+			{
+				return this.GetTable<Tab_RL_XueLi>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Tab_User_XueLi> Tab_User_XueLi
+		{
+			get
+			{
+				return this.GetTable<Tab_User_XueLi>();
+			}
+		}
+		
+		public System.Data.Linq.Table<View_User> View_User
+		{
+			get
+			{
+				return this.GetTable<View_User>();
 			}
 		}
 	}
@@ -1221,9 +1237,9 @@ namespace DAL.DTO
 		
 		private string _bm_Name;
 		
-		private EntitySet<Tab_RL_User> _Tab_RL_User;
-		
 		private EntitySet<Tab_RL_PeiXun> _Tab_RL_PeiXun;
+		
+		private EntitySet<Tab_RL_User> _Tab_RL_User;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -1282,19 +1298,6 @@ namespace DAL.DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_BuMen_Tab_RL_User", Storage="_Tab_RL_User", ThisKey="bm_Id", OtherKey="jl_SuShuBuMen")]
-		internal EntitySet<Tab_RL_User> Tab_RL_User
-		{
-			get
-			{
-				return this._Tab_RL_User;
-			}
-			set
-			{
-				this._Tab_RL_User.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_BuMen_Tab_RL_PeiXun", Storage="_Tab_RL_PeiXun", ThisKey="bm_Id", OtherKey="rl_px_BuMen")]
 		internal EntitySet<Tab_RL_PeiXun> Tab_RL_PeiXun
 		{
@@ -1305,6 +1308,19 @@ namespace DAL.DTO
 			set
 			{
 				this._Tab_RL_PeiXun.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_BuMen_Tab_RL_User", Storage="_Tab_RL_User", ThisKey="bm_Id", OtherKey="jl_SuShuBuMen")]
+		internal EntitySet<Tab_RL_User> Tab_RL_User
+		{
+			get
+			{
+				return this._Tab_RL_User;
+			}
+			set
+			{
+				this._Tab_RL_User.Assign(value);
 			}
 		}
 		
@@ -1328,18 +1344,6 @@ namespace DAL.DTO
 			}
 		}
 		
-		private void attach_Tab_RL_User(Tab_RL_User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_BuMen = this;
-		}
-		
-		private void detach_Tab_RL_User(Tab_RL_User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_BuMen = null;
-		}
-		
 		private void attach_Tab_RL_PeiXun(Tab_RL_PeiXun entity)
 		{
 			this.SendPropertyChanging();
@@ -1352,10 +1356,22 @@ namespace DAL.DTO
 			entity.Tab_BuMen = null;
 		}
 		
+		private void attach_Tab_RL_User(Tab_RL_User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_BuMen = this;
+		}
+		
+		private void detach_Tab_RL_User(Tab_RL_User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_BuMen = null;
+		}
+		
 		private void Initialize()
 		{
-			this._Tab_RL_User = new EntitySet<Tab_RL_User>(new Action<Tab_RL_User>(this.attach_Tab_RL_User), new Action<Tab_RL_User>(this.detach_Tab_RL_User));
 			this._Tab_RL_PeiXun = new EntitySet<Tab_RL_PeiXun>(new Action<Tab_RL_PeiXun>(this.attach_Tab_RL_PeiXun), new Action<Tab_RL_PeiXun>(this.detach_Tab_RL_PeiXun));
+			this._Tab_RL_User = new EntitySet<Tab_RL_User>(new Action<Tab_RL_User>(this.attach_Tab_RL_User), new Action<Tab_RL_User>(this.detach_Tab_RL_User));
 			OnCreated();
 		}
 		
@@ -5689,1889 +5705,6 @@ namespace DAL.DTO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tab_RL_User")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Tab_RL_User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _jl_Id;
-		
-		private string _jl_Name;
-		
-		private string _jl_ZhaoPian;
-		
-		private string _jl_YuanGongBianHao;
-		
-		private System.Nullable<bool> _jl_XingBie;
-		
-		private System.Nullable<System.DateTime> _jl_ChuShengRiQi;
-		
-		private string _ji_JiGuan;
-		
-		private System.Nullable<byte> _jl_HunYinZhuangKuang;
-		
-		private System.Nullable<byte> _jl_MingZu;
-		
-		private System.Nullable<byte> _jl_ZhengZhiMianMao;
-		
-		private System.Nullable<System.DateTime> _jl_CanJIanGongZuoShiJian;
-		
-		private System.Nullable<System.DateTime> _jl_YuanDanWeiLiZhiShiJian;
-		
-		private string _jl_ShenFenZhengHao;
-		
-		private string _jl_ShenFenZhengZhuZhi;
-		
-		private System.Nullable<bool> _jl_ZongJianZiGeZhengShu;
-		
-		private string _jl_JianKangZhuangKuang;
-		
-		private string _jl_HuJiDiZhi;
-		
-		private System.Nullable<byte> _jl_HuJiXingZhi;
-		
-		private string _jl_XianZhuZhi;
-		
-		private string _jl_XianYouBian;
-		
-		private string _jl_LianXiFangShi_1;
-		
-		private string _jl_LianXiFangShi_2;
-		
-		private string _jl_LianXiFangShi_3;
-		
-		private string _jl_SheHuiGuanXi;
-		
-		private System.Nullable<byte> _jl_CanBaoZhuangKuang;
-		
-		private System.Nullable<System.DateTime> _jl_RuZhiShiJian;
-		
-		private System.Nullable<byte> _jl_RuZhiTuJing;
-		
-		private System.Nullable<byte> _jl_SuShuBuMen;
-		
-		private System.Nullable<bool> _jl_RuZhiShouXuBanLi;
-		
-		private System.Nullable<System.DateTime> _jl_ShiYongKaiShiShiJian;
-		
-		private System.Nullable<System.DateTime> _jl_ShiYongJieShuShiJian;
-		
-		private System.Nullable<bool> _jl_ShiFouCanBao;
-		
-		private System.Nullable<bool> _jl_ShangYeBaoXian;
-		
-		private System.Nullable<System.DateTime> _jl_ShangBaoJieZhiShiJian;
-		
-		private System.Nullable<System.DateTime> _jl_LaoDongHeTongKaiShiShiJian;
-		
-		private System.Nullable<System.DateTime> _jl_LaoDongHeTongJieShuShiJian;
-		
-		private System.Nullable<bool> _jl_FanPingXieYiQianDing;
-		
-		private System.Nullable<System.DateTime> _jl_FanPingQianDingShiJian;
-		
-		private string _jl_LiuCunZhengJian;
-		
-		private System.Nullable<byte> _jl_GongZuoZhuangTai;
-		
-		private EntitySet<Tab_Report_MonthSalary_GuiDang> _Tab_Report_MonthSalary_GuiDang;
-		
-		private EntitySet<Tab_RL_DiaoDong> _Tab_RL_DiaoDong;
-		
-		private EntitySet<Tab_RL_QingJia> _Tab_RL_QingJia;
-		
-		private EntitySet<Tab_RL_User_JingLi> _Tab_RL_User_JingLi;
-		
-		private EntitySet<Tab_RL_XinChou> _Tab_RL_XinChou;
-		
-		private EntitySet<Tab_RL_XinChou_KouKuanJiangLi> _Tab_RL_XinChou_KouKuanJiangLi;
-		
-		private EntitySet<Tab_XiangMu_XunJian> _Tab_XiangMu_XunJian;
-		
-		private EntitySet<Tab_User_XueLi> _Tab_User_XueLi;
-		
-		private EntitySet<Tab_User_ZhiCheng> _Tab_User_ZhiCheng;
-		
-		private EntitySet<Tab_RL_ZhiYeZiGeZhengShu> _Tab_RL_ZhiYeZiGeZhengShu;
-		
-		private EntitySet<TabXiangMuQianQi> _TabXiangMuQianQi;
-		
-		private EntitySet<TabXiangMuQianQi> _TabXiangMuQianQi1;
-		
-		private EntitySet<TabXiangMuQianQi> _TabXiangMuQianQi2;
-		
-		private EntitySet<TabXiangMuQianQi> _TabXiangMuQianQi3;
-		
-		private EntitySet<Tab_RL_PeiXun> _Tab_RL_PeiXun;
-		
-		private EntitySet<Tab_RL_JiangCheng> _Tab_RL_JiangCheng;
-		
-		private EntitySet<Tab_DiaoDong> _Tab_DiaoDong;
-		
-		private EntitySet<Tab_DiaoDong> _Tab_DiaoDong1;
-		
-		private EntityRef<Tab_BuMen> _Tab_BuMen;
-		
-		private EntityRef<Tab_RL_GongZuoZhuangTai> _Tab_RL_GongZuoZhuangTai;
-		
-		private EntityRef<Tab_RL_RuZhiTuJin> _Tab_RL_RuZhiTuJin;
-		
-		private EntityRef<Tab_RL_User_CanBaoZhuangKuang> _Tab_RL_User_CanBaoZhuangKuang;
-		
-		private EntityRef<Tab_RL_User_HuJiXingZhi> _Tab_RL_User_HuJiXingZhi;
-		
-		private EntityRef<Tab_RL_User_HunYin> _Tab_RL_User_HunYin;
-		
-		private EntityRef<Tab_RL_User_MinZu> _Tab_RL_User_MinZu;
-		
-		private EntityRef<Tab_RL_User_ZhengZhiMianMao> _Tab_RL_User_ZhengZhiMianMao;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onjl_IdChanging(int value);
-    partial void Onjl_IdChanged();
-    partial void Onjl_NameChanging(string value);
-    partial void Onjl_NameChanged();
-    partial void Onjl_ZhaoPianChanging(string value);
-    partial void Onjl_ZhaoPianChanged();
-    partial void Onjl_YuanGongBianHaoChanging(string value);
-    partial void Onjl_YuanGongBianHaoChanged();
-    partial void Onjl_XingBieChanging(System.Nullable<bool> value);
-    partial void Onjl_XingBieChanged();
-    partial void Onjl_ChuShengRiQiChanging(System.Nullable<System.DateTime> value);
-    partial void Onjl_ChuShengRiQiChanged();
-    partial void Onji_JiGuanChanging(string value);
-    partial void Onji_JiGuanChanged();
-    partial void Onjl_HunYinZhuangKuangChanging(System.Nullable<byte> value);
-    partial void Onjl_HunYinZhuangKuangChanged();
-    partial void Onjl_MingZuChanging(System.Nullable<byte> value);
-    partial void Onjl_MingZuChanged();
-    partial void Onjl_ZhengZhiMianMaoChanging(System.Nullable<byte> value);
-    partial void Onjl_ZhengZhiMianMaoChanged();
-    partial void Onjl_CanJIanGongZuoShiJianChanging(System.Nullable<System.DateTime> value);
-    partial void Onjl_CanJIanGongZuoShiJianChanged();
-    partial void Onjl_YuanDanWeiLiZhiShiJianChanging(System.Nullable<System.DateTime> value);
-    partial void Onjl_YuanDanWeiLiZhiShiJianChanged();
-    partial void Onjl_ShenFenZhengHaoChanging(string value);
-    partial void Onjl_ShenFenZhengHaoChanged();
-    partial void Onjl_ShenFenZhengZhuZhiChanging(string value);
-    partial void Onjl_ShenFenZhengZhuZhiChanged();
-    partial void Onjl_ZongJianZiGeZhengShuChanging(System.Nullable<bool> value);
-    partial void Onjl_ZongJianZiGeZhengShuChanged();
-    partial void Onjl_JianKangZhuangKuangChanging(string value);
-    partial void Onjl_JianKangZhuangKuangChanged();
-    partial void Onjl_HuJiDiZhiChanging(string value);
-    partial void Onjl_HuJiDiZhiChanged();
-    partial void Onjl_HuJiXingZhiChanging(System.Nullable<byte> value);
-    partial void Onjl_HuJiXingZhiChanged();
-    partial void Onjl_XianZhuZhiChanging(string value);
-    partial void Onjl_XianZhuZhiChanged();
-    partial void Onjl_XianYouBianChanging(string value);
-    partial void Onjl_XianYouBianChanged();
-    partial void Onjl_LianXiFangShi_1Changing(string value);
-    partial void Onjl_LianXiFangShi_1Changed();
-    partial void Onjl_LianXiFangShi_2Changing(string value);
-    partial void Onjl_LianXiFangShi_2Changed();
-    partial void Onjl_LianXiFangShi_3Changing(string value);
-    partial void Onjl_LianXiFangShi_3Changed();
-    partial void Onjl_SheHuiGuanXiChanging(string value);
-    partial void Onjl_SheHuiGuanXiChanged();
-    partial void Onjl_CanBaoZhuangKuangChanging(System.Nullable<byte> value);
-    partial void Onjl_CanBaoZhuangKuangChanged();
-    partial void Onjl_RuZhiShiJianChanging(System.Nullable<System.DateTime> value);
-    partial void Onjl_RuZhiShiJianChanged();
-    partial void Onjl_RuZhiTuJingChanging(System.Nullable<byte> value);
-    partial void Onjl_RuZhiTuJingChanged();
-    partial void Onjl_SuShuBuMenChanging(System.Nullable<byte> value);
-    partial void Onjl_SuShuBuMenChanged();
-    partial void Onjl_RuZhiShouXuBanLiChanging(System.Nullable<bool> value);
-    partial void Onjl_RuZhiShouXuBanLiChanged();
-    partial void Onjl_ShiYongKaiShiShiJianChanging(System.Nullable<System.DateTime> value);
-    partial void Onjl_ShiYongKaiShiShiJianChanged();
-    partial void Onjl_ShiYongJieShuShiJianChanging(System.Nullable<System.DateTime> value);
-    partial void Onjl_ShiYongJieShuShiJianChanged();
-    partial void Onjl_ShiFouCanBaoChanging(System.Nullable<bool> value);
-    partial void Onjl_ShiFouCanBaoChanged();
-    partial void Onjl_ShangYeBaoXianChanging(System.Nullable<bool> value);
-    partial void Onjl_ShangYeBaoXianChanged();
-    partial void Onjl_ShangBaoJieZhiShiJianChanging(System.Nullable<System.DateTime> value);
-    partial void Onjl_ShangBaoJieZhiShiJianChanged();
-    partial void Onjl_LaoDongHeTongKaiShiShiJianChanging(System.Nullable<System.DateTime> value);
-    partial void Onjl_LaoDongHeTongKaiShiShiJianChanged();
-    partial void Onjl_LaoDongHeTongJieShuShiJianChanging(System.Nullable<System.DateTime> value);
-    partial void Onjl_LaoDongHeTongJieShuShiJianChanged();
-    partial void Onjl_FanPingXieYiQianDingChanging(System.Nullable<bool> value);
-    partial void Onjl_FanPingXieYiQianDingChanged();
-    partial void Onjl_FanPingQianDingShiJianChanging(System.Nullable<System.DateTime> value);
-    partial void Onjl_FanPingQianDingShiJianChanged();
-    partial void Onjl_LiuCunZhengJianChanging(string value);
-    partial void Onjl_LiuCunZhengJianChanged();
-    partial void Onjl_GongZuoZhuangTaiChanging(System.Nullable<byte> value);
-    partial void Onjl_GongZuoZhuangTaiChanged();
-    #endregion
-		
-		public Tab_RL_User()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int jl_Id
-		{
-			get
-			{
-				return this._jl_Id;
-			}
-			set
-			{
-				if ((this._jl_Id != value))
-				{
-					this.Onjl_IdChanging(value);
-					this.SendPropertyChanging();
-					this._jl_Id = value;
-					this.SendPropertyChanged("jl_Id");
-					this.Onjl_IdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_Name", DbType="NVarChar(20)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string jl_Name
-		{
-			get
-			{
-				return this._jl_Name;
-			}
-			set
-			{
-				if ((this._jl_Name != value))
-				{
-					this.Onjl_NameChanging(value);
-					this.SendPropertyChanging();
-					this._jl_Name = value;
-					this.SendPropertyChanged("jl_Name");
-					this.Onjl_NameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ZhaoPian", DbType="VarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public string jl_ZhaoPian
-		{
-			get
-			{
-				return this._jl_ZhaoPian;
-			}
-			set
-			{
-				if ((this._jl_ZhaoPian != value))
-				{
-					this.Onjl_ZhaoPianChanging(value);
-					this.SendPropertyChanging();
-					this._jl_ZhaoPian = value;
-					this.SendPropertyChanged("jl_ZhaoPian");
-					this.Onjl_ZhaoPianChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_YuanGongBianHao", DbType="NVarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public string jl_YuanGongBianHao
-		{
-			get
-			{
-				return this._jl_YuanGongBianHao;
-			}
-			set
-			{
-				if ((this._jl_YuanGongBianHao != value))
-				{
-					this.Onjl_YuanGongBianHaoChanging(value);
-					this.SendPropertyChanging();
-					this._jl_YuanGongBianHao = value;
-					this.SendPropertyChanged("jl_YuanGongBianHao");
-					this.Onjl_YuanGongBianHaoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_XingBie", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public System.Nullable<bool> jl_XingBie
-		{
-			get
-			{
-				return this._jl_XingBie;
-			}
-			set
-			{
-				if ((this._jl_XingBie != value))
-				{
-					this.Onjl_XingBieChanging(value);
-					this.SendPropertyChanging();
-					this._jl_XingBie = value;
-					this.SendPropertyChanged("jl_XingBie");
-					this.Onjl_XingBieChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ChuShengRiQi", DbType="Date")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public System.Nullable<System.DateTime> jl_ChuShengRiQi
-		{
-			get
-			{
-				return this._jl_ChuShengRiQi;
-			}
-			set
-			{
-				if ((this._jl_ChuShengRiQi != value))
-				{
-					this.Onjl_ChuShengRiQiChanging(value);
-					this.SendPropertyChanging();
-					this._jl_ChuShengRiQi = value;
-					this.SendPropertyChanged("jl_ChuShengRiQi");
-					this.Onjl_ChuShengRiQiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ji_JiGuan", DbType="NVarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public string ji_JiGuan
-		{
-			get
-			{
-				return this._ji_JiGuan;
-			}
-			set
-			{
-				if ((this._ji_JiGuan != value))
-				{
-					this.Onji_JiGuanChanging(value);
-					this.SendPropertyChanging();
-					this._ji_JiGuan = value;
-					this.SendPropertyChanged("ji_JiGuan");
-					this.Onji_JiGuanChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_HunYinZhuangKuang", DbType="TinyInt")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-		public System.Nullable<byte> jl_HunYinZhuangKuang
-		{
-			get
-			{
-				return this._jl_HunYinZhuangKuang;
-			}
-			set
-			{
-				if ((this._jl_HunYinZhuangKuang != value))
-				{
-					if (this._Tab_RL_User_HunYin.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onjl_HunYinZhuangKuangChanging(value);
-					this.SendPropertyChanging();
-					this._jl_HunYinZhuangKuang = value;
-					this.SendPropertyChanged("jl_HunYinZhuangKuang");
-					this.Onjl_HunYinZhuangKuangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_MingZu", DbType="TinyInt")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-		public System.Nullable<byte> jl_MingZu
-		{
-			get
-			{
-				return this._jl_MingZu;
-			}
-			set
-			{
-				if ((this._jl_MingZu != value))
-				{
-					if (this._Tab_RL_User_MinZu.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onjl_MingZuChanging(value);
-					this.SendPropertyChanging();
-					this._jl_MingZu = value;
-					this.SendPropertyChanged("jl_MingZu");
-					this.Onjl_MingZuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ZhengZhiMianMao", DbType="TinyInt")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
-		public System.Nullable<byte> jl_ZhengZhiMianMao
-		{
-			get
-			{
-				return this._jl_ZhengZhiMianMao;
-			}
-			set
-			{
-				if ((this._jl_ZhengZhiMianMao != value))
-				{
-					if (this._Tab_RL_User_ZhengZhiMianMao.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onjl_ZhengZhiMianMaoChanging(value);
-					this.SendPropertyChanging();
-					this._jl_ZhengZhiMianMao = value;
-					this.SendPropertyChanged("jl_ZhengZhiMianMao");
-					this.Onjl_ZhengZhiMianMaoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_CanJIanGongZuoShiJian", DbType="Date")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
-		public System.Nullable<System.DateTime> jl_CanJIanGongZuoShiJian
-		{
-			get
-			{
-				return this._jl_CanJIanGongZuoShiJian;
-			}
-			set
-			{
-				if ((this._jl_CanJIanGongZuoShiJian != value))
-				{
-					this.Onjl_CanJIanGongZuoShiJianChanging(value);
-					this.SendPropertyChanging();
-					this._jl_CanJIanGongZuoShiJian = value;
-					this.SendPropertyChanged("jl_CanJIanGongZuoShiJian");
-					this.Onjl_CanJIanGongZuoShiJianChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_YuanDanWeiLiZhiShiJian", DbType="Date")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
-		public System.Nullable<System.DateTime> jl_YuanDanWeiLiZhiShiJian
-		{
-			get
-			{
-				return this._jl_YuanDanWeiLiZhiShiJian;
-			}
-			set
-			{
-				if ((this._jl_YuanDanWeiLiZhiShiJian != value))
-				{
-					this.Onjl_YuanDanWeiLiZhiShiJianChanging(value);
-					this.SendPropertyChanging();
-					this._jl_YuanDanWeiLiZhiShiJian = value;
-					this.SendPropertyChanged("jl_YuanDanWeiLiZhiShiJian");
-					this.Onjl_YuanDanWeiLiZhiShiJianChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ShenFenZhengHao", DbType="NVarChar(100)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
-		public string jl_ShenFenZhengHao
-		{
-			get
-			{
-				return this._jl_ShenFenZhengHao;
-			}
-			set
-			{
-				if ((this._jl_ShenFenZhengHao != value))
-				{
-					this.Onjl_ShenFenZhengHaoChanging(value);
-					this.SendPropertyChanging();
-					this._jl_ShenFenZhengHao = value;
-					this.SendPropertyChanged("jl_ShenFenZhengHao");
-					this.Onjl_ShenFenZhengHaoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ShenFenZhengZhuZhi", DbType="NVarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
-		public string jl_ShenFenZhengZhuZhi
-		{
-			get
-			{
-				return this._jl_ShenFenZhengZhuZhi;
-			}
-			set
-			{
-				if ((this._jl_ShenFenZhengZhuZhi != value))
-				{
-					this.Onjl_ShenFenZhengZhuZhiChanging(value);
-					this.SendPropertyChanging();
-					this._jl_ShenFenZhengZhuZhi = value;
-					this.SendPropertyChanged("jl_ShenFenZhengZhuZhi");
-					this.Onjl_ShenFenZhengZhuZhiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ZongJianZiGeZhengShu", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
-		public System.Nullable<bool> jl_ZongJianZiGeZhengShu
-		{
-			get
-			{
-				return this._jl_ZongJianZiGeZhengShu;
-			}
-			set
-			{
-				if ((this._jl_ZongJianZiGeZhengShu != value))
-				{
-					this.Onjl_ZongJianZiGeZhengShuChanging(value);
-					this.SendPropertyChanging();
-					this._jl_ZongJianZiGeZhengShu = value;
-					this.SendPropertyChanged("jl_ZongJianZiGeZhengShu");
-					this.Onjl_ZongJianZiGeZhengShuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_JianKangZhuangKuang", DbType="NVarChar(100)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16)]
-		public string jl_JianKangZhuangKuang
-		{
-			get
-			{
-				return this._jl_JianKangZhuangKuang;
-			}
-			set
-			{
-				if ((this._jl_JianKangZhuangKuang != value))
-				{
-					this.Onjl_JianKangZhuangKuangChanging(value);
-					this.SendPropertyChanging();
-					this._jl_JianKangZhuangKuang = value;
-					this.SendPropertyChanged("jl_JianKangZhuangKuang");
-					this.Onjl_JianKangZhuangKuangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_HuJiDiZhi", DbType="NVarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=17)]
-		public string jl_HuJiDiZhi
-		{
-			get
-			{
-				return this._jl_HuJiDiZhi;
-			}
-			set
-			{
-				if ((this._jl_HuJiDiZhi != value))
-				{
-					this.Onjl_HuJiDiZhiChanging(value);
-					this.SendPropertyChanging();
-					this._jl_HuJiDiZhi = value;
-					this.SendPropertyChanged("jl_HuJiDiZhi");
-					this.Onjl_HuJiDiZhiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_HuJiXingZhi", DbType="TinyInt")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=18)]
-		public System.Nullable<byte> jl_HuJiXingZhi
-		{
-			get
-			{
-				return this._jl_HuJiXingZhi;
-			}
-			set
-			{
-				if ((this._jl_HuJiXingZhi != value))
-				{
-					if (this._Tab_RL_User_HuJiXingZhi.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onjl_HuJiXingZhiChanging(value);
-					this.SendPropertyChanging();
-					this._jl_HuJiXingZhi = value;
-					this.SendPropertyChanged("jl_HuJiXingZhi");
-					this.Onjl_HuJiXingZhiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_XianZhuZhi", DbType="NVarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=19)]
-		public string jl_XianZhuZhi
-		{
-			get
-			{
-				return this._jl_XianZhuZhi;
-			}
-			set
-			{
-				if ((this._jl_XianZhuZhi != value))
-				{
-					this.Onjl_XianZhuZhiChanging(value);
-					this.SendPropertyChanging();
-					this._jl_XianZhuZhi = value;
-					this.SendPropertyChanged("jl_XianZhuZhi");
-					this.Onjl_XianZhuZhiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_XianYouBian", DbType="VarChar(10)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=20)]
-		public string jl_XianYouBian
-		{
-			get
-			{
-				return this._jl_XianYouBian;
-			}
-			set
-			{
-				if ((this._jl_XianYouBian != value))
-				{
-					this.Onjl_XianYouBianChanging(value);
-					this.SendPropertyChanging();
-					this._jl_XianYouBian = value;
-					this.SendPropertyChanged("jl_XianYouBian");
-					this.Onjl_XianYouBianChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_LianXiFangShi_1", DbType="NVarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=21)]
-		public string jl_LianXiFangShi_1
-		{
-			get
-			{
-				return this._jl_LianXiFangShi_1;
-			}
-			set
-			{
-				if ((this._jl_LianXiFangShi_1 != value))
-				{
-					this.Onjl_LianXiFangShi_1Changing(value);
-					this.SendPropertyChanging();
-					this._jl_LianXiFangShi_1 = value;
-					this.SendPropertyChanged("jl_LianXiFangShi_1");
-					this.Onjl_LianXiFangShi_1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_LianXiFangShi_2", DbType="NVarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=22)]
-		public string jl_LianXiFangShi_2
-		{
-			get
-			{
-				return this._jl_LianXiFangShi_2;
-			}
-			set
-			{
-				if ((this._jl_LianXiFangShi_2 != value))
-				{
-					this.Onjl_LianXiFangShi_2Changing(value);
-					this.SendPropertyChanging();
-					this._jl_LianXiFangShi_2 = value;
-					this.SendPropertyChanged("jl_LianXiFangShi_2");
-					this.Onjl_LianXiFangShi_2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_LianXiFangShi_3", DbType="NVarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=23)]
-		public string jl_LianXiFangShi_3
-		{
-			get
-			{
-				return this._jl_LianXiFangShi_3;
-			}
-			set
-			{
-				if ((this._jl_LianXiFangShi_3 != value))
-				{
-					this.Onjl_LianXiFangShi_3Changing(value);
-					this.SendPropertyChanging();
-					this._jl_LianXiFangShi_3 = value;
-					this.SendPropertyChanged("jl_LianXiFangShi_3");
-					this.Onjl_LianXiFangShi_3Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_SheHuiGuanXi", DbType="NVarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=24)]
-		public string jl_SheHuiGuanXi
-		{
-			get
-			{
-				return this._jl_SheHuiGuanXi;
-			}
-			set
-			{
-				if ((this._jl_SheHuiGuanXi != value))
-				{
-					this.Onjl_SheHuiGuanXiChanging(value);
-					this.SendPropertyChanging();
-					this._jl_SheHuiGuanXi = value;
-					this.SendPropertyChanged("jl_SheHuiGuanXi");
-					this.Onjl_SheHuiGuanXiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_CanBaoZhuangKuang", DbType="TinyInt")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=25)]
-		public System.Nullable<byte> jl_CanBaoZhuangKuang
-		{
-			get
-			{
-				return this._jl_CanBaoZhuangKuang;
-			}
-			set
-			{
-				if ((this._jl_CanBaoZhuangKuang != value))
-				{
-					if (this._Tab_RL_User_CanBaoZhuangKuang.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onjl_CanBaoZhuangKuangChanging(value);
-					this.SendPropertyChanging();
-					this._jl_CanBaoZhuangKuang = value;
-					this.SendPropertyChanged("jl_CanBaoZhuangKuang");
-					this.Onjl_CanBaoZhuangKuangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_RuZhiShiJian", DbType="Date")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=26)]
-		public System.Nullable<System.DateTime> jl_RuZhiShiJian
-		{
-			get
-			{
-				return this._jl_RuZhiShiJian;
-			}
-			set
-			{
-				if ((this._jl_RuZhiShiJian != value))
-				{
-					this.Onjl_RuZhiShiJianChanging(value);
-					this.SendPropertyChanging();
-					this._jl_RuZhiShiJian = value;
-					this.SendPropertyChanged("jl_RuZhiShiJian");
-					this.Onjl_RuZhiShiJianChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_RuZhiTuJing", DbType="TinyInt")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=27)]
-		public System.Nullable<byte> jl_RuZhiTuJing
-		{
-			get
-			{
-				return this._jl_RuZhiTuJing;
-			}
-			set
-			{
-				if ((this._jl_RuZhiTuJing != value))
-				{
-					if (this._Tab_RL_RuZhiTuJin.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onjl_RuZhiTuJingChanging(value);
-					this.SendPropertyChanging();
-					this._jl_RuZhiTuJing = value;
-					this.SendPropertyChanged("jl_RuZhiTuJing");
-					this.Onjl_RuZhiTuJingChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_SuShuBuMen", DbType="TinyInt")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=28)]
-		public System.Nullable<byte> jl_SuShuBuMen
-		{
-			get
-			{
-				return this._jl_SuShuBuMen;
-			}
-			set
-			{
-				if ((this._jl_SuShuBuMen != value))
-				{
-					if (this._Tab_BuMen.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onjl_SuShuBuMenChanging(value);
-					this.SendPropertyChanging();
-					this._jl_SuShuBuMen = value;
-					this.SendPropertyChanged("jl_SuShuBuMen");
-					this.Onjl_SuShuBuMenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_RuZhiShouXuBanLi", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=29)]
-		public System.Nullable<bool> jl_RuZhiShouXuBanLi
-		{
-			get
-			{
-				return this._jl_RuZhiShouXuBanLi;
-			}
-			set
-			{
-				if ((this._jl_RuZhiShouXuBanLi != value))
-				{
-					this.Onjl_RuZhiShouXuBanLiChanging(value);
-					this.SendPropertyChanging();
-					this._jl_RuZhiShouXuBanLi = value;
-					this.SendPropertyChanged("jl_RuZhiShouXuBanLi");
-					this.Onjl_RuZhiShouXuBanLiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ShiYongKaiShiShiJian", DbType="Date")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=30)]
-		public System.Nullable<System.DateTime> jl_ShiYongKaiShiShiJian
-		{
-			get
-			{
-				return this._jl_ShiYongKaiShiShiJian;
-			}
-			set
-			{
-				if ((this._jl_ShiYongKaiShiShiJian != value))
-				{
-					this.Onjl_ShiYongKaiShiShiJianChanging(value);
-					this.SendPropertyChanging();
-					this._jl_ShiYongKaiShiShiJian = value;
-					this.SendPropertyChanged("jl_ShiYongKaiShiShiJian");
-					this.Onjl_ShiYongKaiShiShiJianChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ShiYongJieShuShiJian", DbType="Date")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=31)]
-		public System.Nullable<System.DateTime> jl_ShiYongJieShuShiJian
-		{
-			get
-			{
-				return this._jl_ShiYongJieShuShiJian;
-			}
-			set
-			{
-				if ((this._jl_ShiYongJieShuShiJian != value))
-				{
-					this.Onjl_ShiYongJieShuShiJianChanging(value);
-					this.SendPropertyChanging();
-					this._jl_ShiYongJieShuShiJian = value;
-					this.SendPropertyChanged("jl_ShiYongJieShuShiJian");
-					this.Onjl_ShiYongJieShuShiJianChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ShiFouCanBao", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=32)]
-		public System.Nullable<bool> jl_ShiFouCanBao
-		{
-			get
-			{
-				return this._jl_ShiFouCanBao;
-			}
-			set
-			{
-				if ((this._jl_ShiFouCanBao != value))
-				{
-					this.Onjl_ShiFouCanBaoChanging(value);
-					this.SendPropertyChanging();
-					this._jl_ShiFouCanBao = value;
-					this.SendPropertyChanged("jl_ShiFouCanBao");
-					this.Onjl_ShiFouCanBaoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ShangYeBaoXian", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=33)]
-		public System.Nullable<bool> jl_ShangYeBaoXian
-		{
-			get
-			{
-				return this._jl_ShangYeBaoXian;
-			}
-			set
-			{
-				if ((this._jl_ShangYeBaoXian != value))
-				{
-					this.Onjl_ShangYeBaoXianChanging(value);
-					this.SendPropertyChanging();
-					this._jl_ShangYeBaoXian = value;
-					this.SendPropertyChanged("jl_ShangYeBaoXian");
-					this.Onjl_ShangYeBaoXianChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ShangBaoJieZhiShiJian", DbType="Date")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=34)]
-		public System.Nullable<System.DateTime> jl_ShangBaoJieZhiShiJian
-		{
-			get
-			{
-				return this._jl_ShangBaoJieZhiShiJian;
-			}
-			set
-			{
-				if ((this._jl_ShangBaoJieZhiShiJian != value))
-				{
-					this.Onjl_ShangBaoJieZhiShiJianChanging(value);
-					this.SendPropertyChanging();
-					this._jl_ShangBaoJieZhiShiJian = value;
-					this.SendPropertyChanged("jl_ShangBaoJieZhiShiJian");
-					this.Onjl_ShangBaoJieZhiShiJianChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_LaoDongHeTongKaiShiShiJian", DbType="Date")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=35)]
-		public System.Nullable<System.DateTime> jl_LaoDongHeTongKaiShiShiJian
-		{
-			get
-			{
-				return this._jl_LaoDongHeTongKaiShiShiJian;
-			}
-			set
-			{
-				if ((this._jl_LaoDongHeTongKaiShiShiJian != value))
-				{
-					this.Onjl_LaoDongHeTongKaiShiShiJianChanging(value);
-					this.SendPropertyChanging();
-					this._jl_LaoDongHeTongKaiShiShiJian = value;
-					this.SendPropertyChanged("jl_LaoDongHeTongKaiShiShiJian");
-					this.Onjl_LaoDongHeTongKaiShiShiJianChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_LaoDongHeTongJieShuShiJian", DbType="Date")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=36)]
-		public System.Nullable<System.DateTime> jl_LaoDongHeTongJieShuShiJian
-		{
-			get
-			{
-				return this._jl_LaoDongHeTongJieShuShiJian;
-			}
-			set
-			{
-				if ((this._jl_LaoDongHeTongJieShuShiJian != value))
-				{
-					this.Onjl_LaoDongHeTongJieShuShiJianChanging(value);
-					this.SendPropertyChanging();
-					this._jl_LaoDongHeTongJieShuShiJian = value;
-					this.SendPropertyChanged("jl_LaoDongHeTongJieShuShiJian");
-					this.Onjl_LaoDongHeTongJieShuShiJianChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_FanPingXieYiQianDing", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=37)]
-		public System.Nullable<bool> jl_FanPingXieYiQianDing
-		{
-			get
-			{
-				return this._jl_FanPingXieYiQianDing;
-			}
-			set
-			{
-				if ((this._jl_FanPingXieYiQianDing != value))
-				{
-					this.Onjl_FanPingXieYiQianDingChanging(value);
-					this.SendPropertyChanging();
-					this._jl_FanPingXieYiQianDing = value;
-					this.SendPropertyChanged("jl_FanPingXieYiQianDing");
-					this.Onjl_FanPingXieYiQianDingChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_FanPingQianDingShiJian", DbType="Date")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=38)]
-		public System.Nullable<System.DateTime> jl_FanPingQianDingShiJian
-		{
-			get
-			{
-				return this._jl_FanPingQianDingShiJian;
-			}
-			set
-			{
-				if ((this._jl_FanPingQianDingShiJian != value))
-				{
-					this.Onjl_FanPingQianDingShiJianChanging(value);
-					this.SendPropertyChanging();
-					this._jl_FanPingQianDingShiJian = value;
-					this.SendPropertyChanged("jl_FanPingQianDingShiJian");
-					this.Onjl_FanPingQianDingShiJianChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_LiuCunZhengJian", DbType="NVarChar(200)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=39)]
-		public string jl_LiuCunZhengJian
-		{
-			get
-			{
-				return this._jl_LiuCunZhengJian;
-			}
-			set
-			{
-				if ((this._jl_LiuCunZhengJian != value))
-				{
-					this.Onjl_LiuCunZhengJianChanging(value);
-					this.SendPropertyChanging();
-					this._jl_LiuCunZhengJian = value;
-					this.SendPropertyChanged("jl_LiuCunZhengJian");
-					this.Onjl_LiuCunZhengJianChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_GongZuoZhuangTai", DbType="TinyInt")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=40)]
-		public System.Nullable<byte> jl_GongZuoZhuangTai
-		{
-			get
-			{
-				return this._jl_GongZuoZhuangTai;
-			}
-			set
-			{
-				if ((this._jl_GongZuoZhuangTai != value))
-				{
-					if (this._Tab_RL_GongZuoZhuangTai.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onjl_GongZuoZhuangTaiChanging(value);
-					this.SendPropertyChanging();
-					this._jl_GongZuoZhuangTai = value;
-					this.SendPropertyChanged("jl_GongZuoZhuangTai");
-					this.Onjl_GongZuoZhuangTaiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_Report_MonthSalary_GuiDang", Storage="_Tab_Report_MonthSalary_GuiDang", ThisKey="jl_Id", OtherKey="msgd_UserId")]
-		internal EntitySet<Tab_Report_MonthSalary_GuiDang> Tab_Report_MonthSalary_GuiDang
-		{
-			get
-			{
-				return this._Tab_Report_MonthSalary_GuiDang;
-			}
-			set
-			{
-				this._Tab_Report_MonthSalary_GuiDang.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_DiaoDong", Storage="_Tab_RL_DiaoDong", ThisKey="jl_Id", OtherKey="rl_dd_UserId")]
-		internal EntitySet<Tab_RL_DiaoDong> Tab_RL_DiaoDong
-		{
-			get
-			{
-				return this._Tab_RL_DiaoDong;
-			}
-			set
-			{
-				this._Tab_RL_DiaoDong.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_QingJia", Storage="_Tab_RL_QingJia", ThisKey="jl_Id", OtherKey="qj_UserId")]
-		internal EntitySet<Tab_RL_QingJia> Tab_RL_QingJia
-		{
-			get
-			{
-				return this._Tab_RL_QingJia;
-			}
-			set
-			{
-				this._Tab_RL_QingJia.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_User_JingLi", Storage="_Tab_RL_User_JingLi", ThisKey="jl_Id", OtherKey="rl_jl_UserId")]
-		internal EntitySet<Tab_RL_User_JingLi> Tab_RL_User_JingLi
-		{
-			get
-			{
-				return this._Tab_RL_User_JingLi;
-			}
-			set
-			{
-				this._Tab_RL_User_JingLi.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_XinChou", Storage="_Tab_RL_XinChou", ThisKey="jl_Id", OtherKey="xc_UserId")]
-		internal EntitySet<Tab_RL_XinChou> Tab_RL_XinChou
-		{
-			get
-			{
-				return this._Tab_RL_XinChou;
-			}
-			set
-			{
-				this._Tab_RL_XinChou.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_XinChou_KouKuanJiangLi", Storage="_Tab_RL_XinChou_KouKuanJiangLi", ThisKey="jl_Id", OtherKey="kkjl_UserId")]
-		internal EntitySet<Tab_RL_XinChou_KouKuanJiangLi> Tab_RL_XinChou_KouKuanJiangLi
-		{
-			get
-			{
-				return this._Tab_RL_XinChou_KouKuanJiangLi;
-			}
-			set
-			{
-				this._Tab_RL_XinChou_KouKuanJiangLi.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_XiangMu_XunJian", Storage="_Tab_XiangMu_XunJian", ThisKey="jl_Id", OtherKey="xj_XunJianRen")]
-		internal EntitySet<Tab_XiangMu_XunJian> Tab_XiangMu_XunJian
-		{
-			get
-			{
-				return this._Tab_XiangMu_XunJian;
-			}
-			set
-			{
-				this._Tab_XiangMu_XunJian.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_User_XueLi", Storage="_Tab_User_XueLi", ThisKey="jl_Id", OtherKey="ux_UserId")]
-		internal EntitySet<Tab_User_XueLi> Tab_User_XueLi
-		{
-			get
-			{
-				return this._Tab_User_XueLi;
-			}
-			set
-			{
-				this._Tab_User_XueLi.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_User_ZhiCheng", Storage="_Tab_User_ZhiCheng", ThisKey="jl_Id", OtherKey="uz_UserId")]
-		internal EntitySet<Tab_User_ZhiCheng> Tab_User_ZhiCheng
-		{
-			get
-			{
-				return this._Tab_User_ZhiCheng;
-			}
-			set
-			{
-				this._Tab_User_ZhiCheng.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_ZhiYeZiGeZhengShu", Storage="_Tab_RL_ZhiYeZiGeZhengShu", ThisKey="jl_Id", OtherKey="zgzs_UserId")]
-		internal EntitySet<Tab_RL_ZhiYeZiGeZhengShu> Tab_RL_ZhiYeZiGeZhengShu
-		{
-			get
-			{
-				return this._Tab_RL_ZhiYeZiGeZhengShu;
-			}
-			set
-			{
-				this._Tab_RL_ZhiYeZiGeZhengShu.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_TabXiangMuQianQi", Storage="_TabXiangMuQianQi", ThisKey="jl_Id", OtherKey="qq_JunGongYiJiao_QianShouRenYuan")]
-		internal EntitySet<TabXiangMuQianQi> TabXiangMuQianQi
-		{
-			get
-			{
-				return this._TabXiangMuQianQi;
-			}
-			set
-			{
-				this._TabXiangMuQianQi.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_TabXiangMuQianQi1", Storage="_TabXiangMuQianQi1", ThisKey="jl_Id", OtherKey="qq_JunGongYiJiao_QianShouRenYuan")]
-		internal EntitySet<TabXiangMuQianQi> TabXiangMuQianQi1
-		{
-			get
-			{
-				return this._TabXiangMuQianQi1;
-			}
-			set
-			{
-				this._TabXiangMuQianQi1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_TabXiangMuQianQi2", Storage="_TabXiangMuQianQi2", ThisKey="jl_Id", OtherKey="qq_JunGongYiJiao_ZongJianQianZi")]
-		internal EntitySet<TabXiangMuQianQi> TabXiangMuQianQi2
-		{
-			get
-			{
-				return this._TabXiangMuQianQi2;
-			}
-			set
-			{
-				this._TabXiangMuQianQi2.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_TabXiangMuQianQi3", Storage="_TabXiangMuQianQi3", ThisKey="jl_Id", OtherKey="qq_XiangMuFuZeRen")]
-		internal EntitySet<TabXiangMuQianQi> TabXiangMuQianQi3
-		{
-			get
-			{
-				return this._TabXiangMuQianQi3;
-			}
-			set
-			{
-				this._TabXiangMuQianQi3.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_PeiXun", Storage="_Tab_RL_PeiXun", ThisKey="jl_Id", OtherKey="rl_px_UserId")]
-		internal EntitySet<Tab_RL_PeiXun> Tab_RL_PeiXun
-		{
-			get
-			{
-				return this._Tab_RL_PeiXun;
-			}
-			set
-			{
-				this._Tab_RL_PeiXun.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_JiangCheng", Storage="_Tab_RL_JiangCheng", ThisKey="jl_Id", OtherKey="rl_jc_UserId")]
-		internal EntitySet<Tab_RL_JiangCheng> Tab_RL_JiangCheng
-		{
-			get
-			{
-				return this._Tab_RL_JiangCheng;
-			}
-			set
-			{
-				this._Tab_RL_JiangCheng.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_DiaoDong", Storage="_Tab_DiaoDong", ThisKey="jl_Id", OtherKey="dd_FuZeRen")]
-		internal EntitySet<Tab_DiaoDong> Tab_DiaoDong
-		{
-			get
-			{
-				return this._Tab_DiaoDong;
-			}
-			set
-			{
-				this._Tab_DiaoDong.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_DiaoDong1", Storage="_Tab_DiaoDong1", ThisKey="jl_Id", OtherKey="dd_UserId")]
-		internal EntitySet<Tab_DiaoDong> Tab_DiaoDong1
-		{
-			get
-			{
-				return this._Tab_DiaoDong1;
-			}
-			set
-			{
-				this._Tab_DiaoDong1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_BuMen_Tab_RL_User", Storage="_Tab_BuMen", ThisKey="jl_SuShuBuMen", OtherKey="bm_Id", IsForeignKey=true, DeleteRule="SET NULL")]
-		public Tab_BuMen Tab_BuMen
-		{
-			get
-			{
-				return this._Tab_BuMen.Entity;
-			}
-			set
-			{
-				Tab_BuMen previousValue = this._Tab_BuMen.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_BuMen.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_BuMen.Entity = null;
-						previousValue.Tab_RL_User.Remove(this);
-					}
-					this._Tab_BuMen.Entity = value;
-					if ((value != null))
-					{
-						value.Tab_RL_User.Add(this);
-						this._jl_SuShuBuMen = value.bm_Id;
-					}
-					else
-					{
-						this._jl_SuShuBuMen = default(Nullable<byte>);
-					}
-					this.SendPropertyChanged("Tab_BuMen");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_GongZuoZhuangTai_Tab_RL_User", Storage="_Tab_RL_GongZuoZhuangTai", ThisKey="jl_GongZuoZhuangTai", OtherKey="zt_Id", IsForeignKey=true)]
-		public Tab_RL_GongZuoZhuangTai Tab_RL_GongZuoZhuangTai
-		{
-			get
-			{
-				return this._Tab_RL_GongZuoZhuangTai.Entity;
-			}
-			set
-			{
-				Tab_RL_GongZuoZhuangTai previousValue = this._Tab_RL_GongZuoZhuangTai.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_RL_GongZuoZhuangTai.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_RL_GongZuoZhuangTai.Entity = null;
-						previousValue.Tab_RL_User.Remove(this);
-					}
-					this._Tab_RL_GongZuoZhuangTai.Entity = value;
-					if ((value != null))
-					{
-						value.Tab_RL_User.Add(this);
-						this._jl_GongZuoZhuangTai = value.zt_Id;
-					}
-					else
-					{
-						this._jl_GongZuoZhuangTai = default(Nullable<byte>);
-					}
-					this.SendPropertyChanged("Tab_RL_GongZuoZhuangTai");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_RuZhiTuJin_Tab_RL_User", Storage="_Tab_RL_RuZhiTuJin", ThisKey="jl_RuZhiTuJing", OtherKey="rztj_Id", IsForeignKey=true, DeleteRule="SET NULL")]
-		public Tab_RL_RuZhiTuJin Tab_RL_RuZhiTuJin
-		{
-			get
-			{
-				return this._Tab_RL_RuZhiTuJin.Entity;
-			}
-			set
-			{
-				Tab_RL_RuZhiTuJin previousValue = this._Tab_RL_RuZhiTuJin.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_RL_RuZhiTuJin.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_RL_RuZhiTuJin.Entity = null;
-						previousValue.Tab_RL_User.Remove(this);
-					}
-					this._Tab_RL_RuZhiTuJin.Entity = value;
-					if ((value != null))
-					{
-						value.Tab_RL_User.Add(this);
-						this._jl_RuZhiTuJing = value.rztj_Id;
-					}
-					else
-					{
-						this._jl_RuZhiTuJing = default(Nullable<byte>);
-					}
-					this.SendPropertyChanged("Tab_RL_RuZhiTuJin");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_CanBaoZhuangKuang_Tab_RL_User", Storage="_Tab_RL_User_CanBaoZhuangKuang", ThisKey="jl_CanBaoZhuangKuang", OtherKey="cbzk_Id", IsForeignKey=true, DeleteRule="SET NULL")]
-		public Tab_RL_User_CanBaoZhuangKuang Tab_RL_User_CanBaoZhuangKuang
-		{
-			get
-			{
-				return this._Tab_RL_User_CanBaoZhuangKuang.Entity;
-			}
-			set
-			{
-				Tab_RL_User_CanBaoZhuangKuang previousValue = this._Tab_RL_User_CanBaoZhuangKuang.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_RL_User_CanBaoZhuangKuang.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_RL_User_CanBaoZhuangKuang.Entity = null;
-						previousValue.Tab_RL_User.Remove(this);
-					}
-					this._Tab_RL_User_CanBaoZhuangKuang.Entity = value;
-					if ((value != null))
-					{
-						value.Tab_RL_User.Add(this);
-						this._jl_CanBaoZhuangKuang = value.cbzk_Id;
-					}
-					else
-					{
-						this._jl_CanBaoZhuangKuang = default(Nullable<byte>);
-					}
-					this.SendPropertyChanged("Tab_RL_User_CanBaoZhuangKuang");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_HuJiXingZhi_Tab_RL_User", Storage="_Tab_RL_User_HuJiXingZhi", ThisKey="jl_HuJiXingZhi", OtherKey="hjxz_Id", IsForeignKey=true)]
-		public Tab_RL_User_HuJiXingZhi Tab_RL_User_HuJiXingZhi
-		{
-			get
-			{
-				return this._Tab_RL_User_HuJiXingZhi.Entity;
-			}
-			set
-			{
-				Tab_RL_User_HuJiXingZhi previousValue = this._Tab_RL_User_HuJiXingZhi.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_RL_User_HuJiXingZhi.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_RL_User_HuJiXingZhi.Entity = null;
-						previousValue.Tab_RL_User.Remove(this);
-					}
-					this._Tab_RL_User_HuJiXingZhi.Entity = value;
-					if ((value != null))
-					{
-						value.Tab_RL_User.Add(this);
-						this._jl_HuJiXingZhi = value.hjxz_Id;
-					}
-					else
-					{
-						this._jl_HuJiXingZhi = default(Nullable<byte>);
-					}
-					this.SendPropertyChanged("Tab_RL_User_HuJiXingZhi");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_HunYin_Tab_RL_User", Storage="_Tab_RL_User_HunYin", ThisKey="jl_HunYinZhuangKuang", OtherKey="hy_Id", IsForeignKey=true, DeleteRule="SET NULL")]
-		public Tab_RL_User_HunYin Tab_RL_User_HunYin
-		{
-			get
-			{
-				return this._Tab_RL_User_HunYin.Entity;
-			}
-			set
-			{
-				Tab_RL_User_HunYin previousValue = this._Tab_RL_User_HunYin.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_RL_User_HunYin.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_RL_User_HunYin.Entity = null;
-						previousValue.Tab_RL_User.Remove(this);
-					}
-					this._Tab_RL_User_HunYin.Entity = value;
-					if ((value != null))
-					{
-						value.Tab_RL_User.Add(this);
-						this._jl_HunYinZhuangKuang = value.hy_Id;
-					}
-					else
-					{
-						this._jl_HunYinZhuangKuang = default(Nullable<byte>);
-					}
-					this.SendPropertyChanged("Tab_RL_User_HunYin");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_MinZu_Tab_RL_User", Storage="_Tab_RL_User_MinZu", ThisKey="jl_MingZu", OtherKey="mz_Id", IsForeignKey=true, DeleteRule="SET NULL")]
-		public Tab_RL_User_MinZu Tab_RL_User_MinZu
-		{
-			get
-			{
-				return this._Tab_RL_User_MinZu.Entity;
-			}
-			set
-			{
-				Tab_RL_User_MinZu previousValue = this._Tab_RL_User_MinZu.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_RL_User_MinZu.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_RL_User_MinZu.Entity = null;
-						previousValue.Tab_RL_User.Remove(this);
-					}
-					this._Tab_RL_User_MinZu.Entity = value;
-					if ((value != null))
-					{
-						value.Tab_RL_User.Add(this);
-						this._jl_MingZu = value.mz_Id;
-					}
-					else
-					{
-						this._jl_MingZu = default(Nullable<byte>);
-					}
-					this.SendPropertyChanged("Tab_RL_User_MinZu");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_ZhengZhiMianMao_Tab_RL_User", Storage="_Tab_RL_User_ZhengZhiMianMao", ThisKey="jl_ZhengZhiMianMao", OtherKey="zzmm_Id", IsForeignKey=true)]
-		public Tab_RL_User_ZhengZhiMianMao Tab_RL_User_ZhengZhiMianMao
-		{
-			get
-			{
-				return this._Tab_RL_User_ZhengZhiMianMao.Entity;
-			}
-			set
-			{
-				Tab_RL_User_ZhengZhiMianMao previousValue = this._Tab_RL_User_ZhengZhiMianMao.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_RL_User_ZhengZhiMianMao.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_RL_User_ZhengZhiMianMao.Entity = null;
-						previousValue.Tab_RL_User.Remove(this);
-					}
-					this._Tab_RL_User_ZhengZhiMianMao.Entity = value;
-					if ((value != null))
-					{
-						value.Tab_RL_User.Add(this);
-						this._jl_ZhengZhiMianMao = value.zzmm_Id;
-					}
-					else
-					{
-						this._jl_ZhengZhiMianMao = default(Nullable<byte>);
-					}
-					this.SendPropertyChanged("Tab_RL_User_ZhengZhiMianMao");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Tab_Report_MonthSalary_GuiDang(Tab_Report_MonthSalary_GuiDang entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = this;
-		}
-		
-		private void detach_Tab_Report_MonthSalary_GuiDang(Tab_Report_MonthSalary_GuiDang entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = null;
-		}
-		
-		private void attach_Tab_RL_DiaoDong(Tab_RL_DiaoDong entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = this;
-		}
-		
-		private void detach_Tab_RL_DiaoDong(Tab_RL_DiaoDong entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = null;
-		}
-		
-		private void attach_Tab_RL_QingJia(Tab_RL_QingJia entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = this;
-		}
-		
-		private void detach_Tab_RL_QingJia(Tab_RL_QingJia entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = null;
-		}
-		
-		private void attach_Tab_RL_User_JingLi(Tab_RL_User_JingLi entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = this;
-		}
-		
-		private void detach_Tab_RL_User_JingLi(Tab_RL_User_JingLi entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = null;
-		}
-		
-		private void attach_Tab_RL_XinChou(Tab_RL_XinChou entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = this;
-		}
-		
-		private void detach_Tab_RL_XinChou(Tab_RL_XinChou entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = null;
-		}
-		
-		private void attach_Tab_RL_XinChou_KouKuanJiangLi(Tab_RL_XinChou_KouKuanJiangLi entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = this;
-		}
-		
-		private void detach_Tab_RL_XinChou_KouKuanJiangLi(Tab_RL_XinChou_KouKuanJiangLi entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = null;
-		}
-		
-		private void attach_Tab_XiangMu_XunJian(Tab_XiangMu_XunJian entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = this;
-		}
-		
-		private void detach_Tab_XiangMu_XunJian(Tab_XiangMu_XunJian entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = null;
-		}
-		
-		private void attach_Tab_User_XueLi(Tab_User_XueLi entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = this;
-		}
-		
-		private void detach_Tab_User_XueLi(Tab_User_XueLi entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = null;
-		}
-		
-		private void attach_Tab_User_ZhiCheng(Tab_User_ZhiCheng entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = this;
-		}
-		
-		private void detach_Tab_User_ZhiCheng(Tab_User_ZhiCheng entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = null;
-		}
-		
-		private void attach_Tab_RL_ZhiYeZiGeZhengShu(Tab_RL_ZhiYeZiGeZhengShu entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = this;
-		}
-		
-		private void detach_Tab_RL_ZhiYeZiGeZhengShu(Tab_RL_ZhiYeZiGeZhengShu entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = null;
-		}
-		
-		private void attach_TabXiangMuQianQi(TabXiangMuQianQi entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = this;
-		}
-		
-		private void detach_TabXiangMuQianQi(TabXiangMuQianQi entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = null;
-		}
-		
-		private void attach_TabXiangMuQianQi1(TabXiangMuQianQi entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User1 = this;
-		}
-		
-		private void detach_TabXiangMuQianQi1(TabXiangMuQianQi entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User1 = null;
-		}
-		
-		private void attach_TabXiangMuQianQi2(TabXiangMuQianQi entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User2 = this;
-		}
-		
-		private void detach_TabXiangMuQianQi2(TabXiangMuQianQi entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User2 = null;
-		}
-		
-		private void attach_TabXiangMuQianQi3(TabXiangMuQianQi entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User3 = this;
-		}
-		
-		private void detach_TabXiangMuQianQi3(TabXiangMuQianQi entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User3 = null;
-		}
-		
-		private void attach_Tab_RL_PeiXun(Tab_RL_PeiXun entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = this;
-		}
-		
-		private void detach_Tab_RL_PeiXun(Tab_RL_PeiXun entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = null;
-		}
-		
-		private void attach_Tab_RL_JiangCheng(Tab_RL_JiangCheng entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = this;
-		}
-		
-		private void detach_Tab_RL_JiangCheng(Tab_RL_JiangCheng entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = null;
-		}
-		
-		private void attach_Tab_DiaoDong(Tab_DiaoDong entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = this;
-		}
-		
-		private void detach_Tab_DiaoDong(Tab_DiaoDong entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User = null;
-		}
-		
-		private void attach_Tab_DiaoDong1(Tab_DiaoDong entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User1 = this;
-		}
-		
-		private void detach_Tab_DiaoDong1(Tab_DiaoDong entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_User1 = null;
-		}
-		
-		private void Initialize()
-		{
-			this._Tab_Report_MonthSalary_GuiDang = new EntitySet<Tab_Report_MonthSalary_GuiDang>(new Action<Tab_Report_MonthSalary_GuiDang>(this.attach_Tab_Report_MonthSalary_GuiDang), new Action<Tab_Report_MonthSalary_GuiDang>(this.detach_Tab_Report_MonthSalary_GuiDang));
-			this._Tab_RL_DiaoDong = new EntitySet<Tab_RL_DiaoDong>(new Action<Tab_RL_DiaoDong>(this.attach_Tab_RL_DiaoDong), new Action<Tab_RL_DiaoDong>(this.detach_Tab_RL_DiaoDong));
-			this._Tab_RL_QingJia = new EntitySet<Tab_RL_QingJia>(new Action<Tab_RL_QingJia>(this.attach_Tab_RL_QingJia), new Action<Tab_RL_QingJia>(this.detach_Tab_RL_QingJia));
-			this._Tab_RL_User_JingLi = new EntitySet<Tab_RL_User_JingLi>(new Action<Tab_RL_User_JingLi>(this.attach_Tab_RL_User_JingLi), new Action<Tab_RL_User_JingLi>(this.detach_Tab_RL_User_JingLi));
-			this._Tab_RL_XinChou = new EntitySet<Tab_RL_XinChou>(new Action<Tab_RL_XinChou>(this.attach_Tab_RL_XinChou), new Action<Tab_RL_XinChou>(this.detach_Tab_RL_XinChou));
-			this._Tab_RL_XinChou_KouKuanJiangLi = new EntitySet<Tab_RL_XinChou_KouKuanJiangLi>(new Action<Tab_RL_XinChou_KouKuanJiangLi>(this.attach_Tab_RL_XinChou_KouKuanJiangLi), new Action<Tab_RL_XinChou_KouKuanJiangLi>(this.detach_Tab_RL_XinChou_KouKuanJiangLi));
-			this._Tab_XiangMu_XunJian = new EntitySet<Tab_XiangMu_XunJian>(new Action<Tab_XiangMu_XunJian>(this.attach_Tab_XiangMu_XunJian), new Action<Tab_XiangMu_XunJian>(this.detach_Tab_XiangMu_XunJian));
-			this._Tab_User_XueLi = new EntitySet<Tab_User_XueLi>(new Action<Tab_User_XueLi>(this.attach_Tab_User_XueLi), new Action<Tab_User_XueLi>(this.detach_Tab_User_XueLi));
-			this._Tab_User_ZhiCheng = new EntitySet<Tab_User_ZhiCheng>(new Action<Tab_User_ZhiCheng>(this.attach_Tab_User_ZhiCheng), new Action<Tab_User_ZhiCheng>(this.detach_Tab_User_ZhiCheng));
-			this._Tab_RL_ZhiYeZiGeZhengShu = new EntitySet<Tab_RL_ZhiYeZiGeZhengShu>(new Action<Tab_RL_ZhiYeZiGeZhengShu>(this.attach_Tab_RL_ZhiYeZiGeZhengShu), new Action<Tab_RL_ZhiYeZiGeZhengShu>(this.detach_Tab_RL_ZhiYeZiGeZhengShu));
-			this._TabXiangMuQianQi = new EntitySet<TabXiangMuQianQi>(new Action<TabXiangMuQianQi>(this.attach_TabXiangMuQianQi), new Action<TabXiangMuQianQi>(this.detach_TabXiangMuQianQi));
-			this._TabXiangMuQianQi1 = new EntitySet<TabXiangMuQianQi>(new Action<TabXiangMuQianQi>(this.attach_TabXiangMuQianQi1), new Action<TabXiangMuQianQi>(this.detach_TabXiangMuQianQi1));
-			this._TabXiangMuQianQi2 = new EntitySet<TabXiangMuQianQi>(new Action<TabXiangMuQianQi>(this.attach_TabXiangMuQianQi2), new Action<TabXiangMuQianQi>(this.detach_TabXiangMuQianQi2));
-			this._TabXiangMuQianQi3 = new EntitySet<TabXiangMuQianQi>(new Action<TabXiangMuQianQi>(this.attach_TabXiangMuQianQi3), new Action<TabXiangMuQianQi>(this.detach_TabXiangMuQianQi3));
-			this._Tab_RL_PeiXun = new EntitySet<Tab_RL_PeiXun>(new Action<Tab_RL_PeiXun>(this.attach_Tab_RL_PeiXun), new Action<Tab_RL_PeiXun>(this.detach_Tab_RL_PeiXun));
-			this._Tab_RL_JiangCheng = new EntitySet<Tab_RL_JiangCheng>(new Action<Tab_RL_JiangCheng>(this.attach_Tab_RL_JiangCheng), new Action<Tab_RL_JiangCheng>(this.detach_Tab_RL_JiangCheng));
-			this._Tab_DiaoDong = new EntitySet<Tab_DiaoDong>(new Action<Tab_DiaoDong>(this.attach_Tab_DiaoDong), new Action<Tab_DiaoDong>(this.detach_Tab_DiaoDong));
-			this._Tab_DiaoDong1 = new EntitySet<Tab_DiaoDong>(new Action<Tab_DiaoDong>(this.attach_Tab_DiaoDong1), new Action<Tab_DiaoDong>(this.detach_Tab_DiaoDong1));
-			this._Tab_BuMen = default(EntityRef<Tab_BuMen>);
-			this._Tab_RL_GongZuoZhuangTai = default(EntityRef<Tab_RL_GongZuoZhuangTai>);
-			this._Tab_RL_RuZhiTuJin = default(EntityRef<Tab_RL_RuZhiTuJin>);
-			this._Tab_RL_User_CanBaoZhuangKuang = default(EntityRef<Tab_RL_User_CanBaoZhuangKuang>);
-			this._Tab_RL_User_HuJiXingZhi = default(EntityRef<Tab_RL_User_HuJiXingZhi>);
-			this._Tab_RL_User_HunYin = default(EntityRef<Tab_RL_User_HunYin>);
-			this._Tab_RL_User_MinZu = default(EntityRef<Tab_RL_User_MinZu>);
-			this._Tab_RL_User_ZhengZhiMianMao = default(EntityRef<Tab_RL_User_ZhengZhiMianMao>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tab_RL_User_CanBaoZhuangKuang")]
 	[global::System.Runtime.Serialization.DataContractAttribute()]
 	public partial class Tab_RL_User_CanBaoZhuangKuang : INotifyPropertyChanging, INotifyPropertyChanged
@@ -9967,160 +8100,6 @@ namespace DAL.DTO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tab_RL_XueLi")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Tab_RL_XueLi : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private byte _xl_Id;
-		
-		private string _xl_Name;
-		
-		private System.Nullable<byte> _xl_CengCi;
-		
-		private EntitySet<Tab_User_XueLi> _Tab_User_XueLi;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onxl_IdChanging(byte value);
-    partial void Onxl_IdChanged();
-    partial void Onxl_NameChanging(string value);
-    partial void Onxl_NameChanged();
-    partial void Onxl_CengCiChanging(System.Nullable<byte> value);
-    partial void Onxl_CengCiChanged();
-    #endregion
-		
-		public Tab_RL_XueLi()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_xl_Id", AutoSync=AutoSync.OnInsert, DbType="TinyInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public byte xl_Id
-		{
-			get
-			{
-				return this._xl_Id;
-			}
-			set
-			{
-				if ((this._xl_Id != value))
-				{
-					this.Onxl_IdChanging(value);
-					this.SendPropertyChanging();
-					this._xl_Id = value;
-					this.SendPropertyChanged("xl_Id");
-					this.Onxl_IdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_xl_Name", DbType="NVarChar(10)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string xl_Name
-		{
-			get
-			{
-				return this._xl_Name;
-			}
-			set
-			{
-				if ((this._xl_Name != value))
-				{
-					this.Onxl_NameChanging(value);
-					this.SendPropertyChanging();
-					this._xl_Name = value;
-					this.SendPropertyChanged("xl_Name");
-					this.Onxl_NameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_xl_CengCi", DbType="TinyInt")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<byte> xl_CengCi
-		{
-			get
-			{
-				return this._xl_CengCi;
-			}
-			set
-			{
-				if ((this._xl_CengCi != value))
-				{
-					this.Onxl_CengCiChanging(value);
-					this.SendPropertyChanging();
-					this._xl_CengCi = value;
-					this.SendPropertyChanged("xl_CengCi");
-					this.Onxl_CengCiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_XueLi_Tab_User_XueLi", Storage="_Tab_User_XueLi", ThisKey="xl_Id", OtherKey="ux_XueLiId")]
-		internal EntitySet<Tab_User_XueLi> Tab_User_XueLi
-		{
-			get
-			{
-				return this._Tab_User_XueLi;
-			}
-			set
-			{
-				this._Tab_User_XueLi.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Tab_User_XueLi(Tab_User_XueLi entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_XueLi = this;
-		}
-		
-		private void detach_Tab_User_XueLi(Tab_User_XueLi entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_RL_XueLi = null;
-		}
-		
-		private void Initialize()
-		{
-			this._Tab_User_XueLi = new EntitySet<Tab_User_XueLi>(new Action<Tab_User_XueLi>(this.attach_Tab_User_XueLi), new Action<Tab_User_XueLi>(this.detach_Tab_User_XueLi));
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tab_RL_ZhiYeZiGeZhengShu_ZhuanYe")]
 	[global::System.Runtime.Serialization.DataContractAttribute()]
 	public partial class Tab_RL_ZhiYeZiGeZhengShu_ZhuanYe : INotifyPropertyChanging, INotifyPropertyChanged
@@ -10288,11 +8267,11 @@ namespace DAL.DTO
 		
 		private EntityRef<TabFaPiaoJiShouKuanGuanLi> _TabFaPiaoJiShouKuanGuanLi;
 		
-		private EntityRef<Tab_User_XueLi> _Tab_User_XueLi;
-		
 		private EntityRef<Tab_User_ZhiCheng> _Tab_User_ZhiCheng;
 		
 		private EntityRef<Tab_RL_ZhiYeZiGeZhengShu> _Tab_RL_ZhiYeZiGeZhengShu;
+		
+		private EntityRef<Tab_User_XueLi> _Tab_User_XueLi;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -10539,40 +8518,6 @@ namespace DAL.DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_User_XueLi_Tab_Uploads", Storage="_Tab_User_XueLi", ThisKey="up_XueLiId", OtherKey="ux_Id", IsForeignKey=true, DeleteRule="SET NULL")]
-		public Tab_User_XueLi Tab_User_XueLi
-		{
-			get
-			{
-				return this._Tab_User_XueLi.Entity;
-			}
-			set
-			{
-				Tab_User_XueLi previousValue = this._Tab_User_XueLi.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_User_XueLi.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_User_XueLi.Entity = null;
-						previousValue.Tab_Uploads.Remove(this);
-					}
-					this._Tab_User_XueLi.Entity = value;
-					if ((value != null))
-					{
-						value.Tab_Uploads.Add(this);
-						this._up_XueLiId = value.ux_Id;
-					}
-					else
-					{
-						this._up_XueLiId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Tab_User_XueLi");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_User_ZhiCheng_Tab_Uploads", Storage="_Tab_User_ZhiCheng", ThisKey="up_ZhiChengId", OtherKey="uz_Id", IsForeignKey=true, DeleteRule="SET NULL")]
 		public Tab_User_ZhiCheng Tab_User_ZhiCheng
 		{
@@ -10641,6 +8586,40 @@ namespace DAL.DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_User_XueLi_Tab_Uploads", Storage="_Tab_User_XueLi", ThisKey="up_XueLiId", OtherKey="ux_Id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Tab_User_XueLi Tab_User_XueLi
+		{
+			get
+			{
+				return this._Tab_User_XueLi.Entity;
+			}
+			set
+			{
+				Tab_User_XueLi previousValue = this._Tab_User_XueLi.Entity;
+				if (((previousValue != value) 
+							|| (this._Tab_User_XueLi.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tab_User_XueLi.Entity = null;
+						previousValue.Tab_Uploads.Remove(this);
+					}
+					this._Tab_User_XueLi.Entity = value;
+					if ((value != null))
+					{
+						value.Tab_Uploads.Add(this);
+						this._up_XueLiId = value.ux_Id;
+					}
+					else
+					{
+						this._up_XueLiId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Tab_User_XueLi");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -10664,9 +8643,9 @@ namespace DAL.DTO
 		private void Initialize()
 		{
 			this._TabFaPiaoJiShouKuanGuanLi = default(EntityRef<TabFaPiaoJiShouKuanGuanLi>);
-			this._Tab_User_XueLi = default(EntityRef<Tab_User_XueLi>);
 			this._Tab_User_ZhiCheng = default(EntityRef<Tab_User_ZhiCheng>);
 			this._Tab_RL_ZhiYeZiGeZhengShu = default(EntityRef<Tab_RL_ZhiYeZiGeZhengShu>);
+			this._Tab_User_XueLi = default(EntityRef<Tab_User_XueLi>);
 			OnCreated();
 		}
 		
@@ -12834,9 +10813,9 @@ namespace DAL.DTO
 		
 		private string _xj_BeiZhu;
 		
-		private EntityRef<Tab_RL_User> _Tab_RL_User;
-		
 		private EntityRef<TabXiangMuQianQi> _TabXiangMuQianQi;
+		
+		private EntityRef<Tab_RL_User> _Tab_RL_User;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -13110,40 +11089,6 @@ namespace DAL.DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_XiangMu_XunJian", Storage="_Tab_RL_User", ThisKey="xj_XunJianRen", OtherKey="jl_Id", IsForeignKey=true)]
-		public Tab_RL_User Tab_RL_User
-		{
-			get
-			{
-				return this._Tab_RL_User.Entity;
-			}
-			set
-			{
-				Tab_RL_User previousValue = this._Tab_RL_User.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_RL_User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_RL_User.Entity = null;
-						previousValue.Tab_XiangMu_XunJian.Remove(this);
-					}
-					this._Tab_RL_User.Entity = value;
-					if ((value != null))
-					{
-						value.Tab_XiangMu_XunJian.Add(this);
-						this._xj_XunJianRen = value.jl_Id;
-					}
-					else
-					{
-						this._xj_XunJianRen = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Tab_RL_User");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TabXiangMuQianQi_Tab_XiangMu_XunJian", Storage="_TabXiangMuQianQi", ThisKey="xj_XiangMuId", OtherKey="qq_Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public TabXiangMuQianQi TabXiangMuQianQi
 		{
@@ -13178,6 +11123,40 @@ namespace DAL.DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_XiangMu_XunJian", Storage="_Tab_RL_User", ThisKey="xj_XunJianRen", OtherKey="jl_Id", IsForeignKey=true)]
+		public Tab_RL_User Tab_RL_User
+		{
+			get
+			{
+				return this._Tab_RL_User.Entity;
+			}
+			set
+			{
+				Tab_RL_User previousValue = this._Tab_RL_User.Entity;
+				if (((previousValue != value) 
+							|| (this._Tab_RL_User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tab_RL_User.Entity = null;
+						previousValue.Tab_XiangMu_XunJian.Remove(this);
+					}
+					this._Tab_RL_User.Entity = value;
+					if ((value != null))
+					{
+						value.Tab_XiangMu_XunJian.Add(this);
+						this._xj_XunJianRen = value.jl_Id;
+					}
+					else
+					{
+						this._xj_XunJianRen = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Tab_RL_User");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -13200,8 +11179,8 @@ namespace DAL.DTO
 		
 		private void Initialize()
 		{
-			this._Tab_RL_User = default(EntityRef<Tab_RL_User>);
 			this._TabXiangMuQianQi = default(EntityRef<TabXiangMuQianQi>);
+			this._Tab_RL_User = default(EntityRef<Tab_RL_User>);
 			OnCreated();
 		}
 		
@@ -17775,9 +15754,9 @@ namespace DAL.DTO
 		
 		private EntityRef<TabJieSuanGuanLi> _TabJieSuanGuanLi;
 		
-		private EntitySet<TabShouKuanJiHua> _TabShouKuanJiHua;
-		
 		private EntityRef<TabHeTongVice> _TabHeTongVice;
+		
+		private EntitySet<TabShouKuanJiHua> _TabShouKuanJiHua;
 		
 		private EntityRef<Tab_HT_GongChengDiDian> _Tab_HT_GongChengDiDian;
 		
@@ -18641,19 +16620,6 @@ namespace DAL.DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TabHeTong_TabShouKuanJiHua", Storage="_TabShouKuanJiHua", ThisKey="ht_Id", OtherKey="jh_htId")]
-		internal EntitySet<TabShouKuanJiHua> TabShouKuanJiHua
-		{
-			get
-			{
-				return this._TabShouKuanJiHua;
-			}
-			set
-			{
-				this._TabShouKuanJiHua.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TabHeTong_TabHeTongVice", Storage="_TabHeTongVice", ThisKey="ht_Id", OtherKey="htv_Id", IsUnique=true, IsForeignKey=false)]
 		internal TabHeTongVice TabHeTongVice
 		{
@@ -18680,6 +16646,19 @@ namespace DAL.DTO
 					}
 					this.SendPropertyChanged("TabHeTongVice");
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TabHeTong_TabShouKuanJiHua", Storage="_TabShouKuanJiHua", ThisKey="ht_Id", OtherKey="jh_htId")]
+		internal EntitySet<TabShouKuanJiHua> TabShouKuanJiHua
+		{
+			get
+			{
+				return this._TabShouKuanJiHua;
+			}
+			set
+			{
+				this._TabShouKuanJiHua.Assign(value);
 			}
 		}
 		
@@ -19084,8 +17063,8 @@ namespace DAL.DTO
 			this._TabFaPiaoJiShouKuanGuanLi = new EntitySet<TabFaPiaoJiShouKuanGuanLi>(new Action<TabFaPiaoJiShouKuanGuanLi>(this.attach_TabFaPiaoJiShouKuanGuanLi), new Action<TabFaPiaoJiShouKuanGuanLi>(this.detach_TabFaPiaoJiShouKuanGuanLi));
 			this._TabHeTongBianGeng = new EntitySet<TabHeTongBianGeng>(new Action<TabHeTongBianGeng>(this.attach_TabHeTongBianGeng), new Action<TabHeTongBianGeng>(this.detach_TabHeTongBianGeng));
 			this._TabJieSuanGuanLi = default(EntityRef<TabJieSuanGuanLi>);
-			this._TabShouKuanJiHua = new EntitySet<TabShouKuanJiHua>(new Action<TabShouKuanJiHua>(this.attach_TabShouKuanJiHua), new Action<TabShouKuanJiHua>(this.detach_TabShouKuanJiHua));
 			this._TabHeTongVice = default(EntityRef<TabHeTongVice>);
+			this._TabShouKuanJiHua = new EntitySet<TabShouKuanJiHua>(new Action<TabShouKuanJiHua>(this.attach_TabShouKuanJiHua), new Action<TabShouKuanJiHua>(this.detach_TabShouKuanJiHua));
 			this._Tab_HT_GongChengDiDian = default(EntityRef<Tab_HT_GongChengDiDian>);
 			this._Tab_HT_JinEShuoMing = default(EntityRef<Tab_HT_JinEShuoMing>);
 			this._Tab_HT_ShouFeiFangShi = default(EntityRef<Tab_HT_ShouFeiFangShi>);
@@ -19096,850 +17075,6 @@ namespace DAL.DTO
 			this._Tab_HT_TouZiXingZhi = default(EntityRef<Tab_HT_TouZiXingZhi>);
 			this._Tab_HT_XiangMuFenLei = default(EntityRef<Tab_HT_XiangMuFenLei>);
 			this._TabXiangMuQianQi = default(EntityRef<TabXiangMuQianQi>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TabShouKuanJiHua")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class TabShouKuanJiHua : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _jh_Id;
-		
-		private System.Nullable<int> _jh_htId;
-		
-		private System.Nullable<int> _jh_htId_bg;
-		
-		private System.Nullable<System.DateTime> _jh_ShouKuanRiQi;
-		
-		private System.Nullable<decimal> _jh_ShouKuanJinE;
-		
-		private System.Nullable<byte> _jh_IsFaHan;
-		
-		private string _jh_ShoukuanShuoMing;
-		
-		private string _jh_DengJiRen;
-		
-		private System.Nullable<System.DateTime> _jh_DengJiRiQi;
-		
-		private string _jh_XiuGaiRen;
-		
-		private System.Nullable<System.DateTime> _jh_XiuGaiRiQi;
-		
-		private string _jh_BeiZhu;
-		
-		private EntityRef<TabHeTongBianGeng> _TabHeTongBianGeng;
-		
-		private EntityRef<TabHeTong> _TabHeTong;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onjh_IdChanging(int value);
-    partial void Onjh_IdChanged();
-    partial void Onjh_htIdChanging(System.Nullable<int> value);
-    partial void Onjh_htIdChanged();
-    partial void Onjh_htId_bgChanging(System.Nullable<int> value);
-    partial void Onjh_htId_bgChanged();
-    partial void Onjh_ShouKuanRiQiChanging(System.Nullable<System.DateTime> value);
-    partial void Onjh_ShouKuanRiQiChanged();
-    partial void Onjh_ShouKuanJinEChanging(System.Nullable<decimal> value);
-    partial void Onjh_ShouKuanJinEChanged();
-    partial void Onjh_IsFaHanChanging(System.Nullable<byte> value);
-    partial void Onjh_IsFaHanChanged();
-    partial void Onjh_ShoukuanShuoMingChanging(string value);
-    partial void Onjh_ShoukuanShuoMingChanged();
-    partial void Onjh_DengJiRenChanging(string value);
-    partial void Onjh_DengJiRenChanged();
-    partial void Onjh_DengJiRiQiChanging(System.Nullable<System.DateTime> value);
-    partial void Onjh_DengJiRiQiChanged();
-    partial void Onjh_XiuGaiRenChanging(string value);
-    partial void Onjh_XiuGaiRenChanged();
-    partial void Onjh_XiuGaiRiQiChanging(System.Nullable<System.DateTime> value);
-    partial void Onjh_XiuGaiRiQiChanged();
-    partial void Onjh_BeiZhuChanging(string value);
-    partial void Onjh_BeiZhuChanged();
-    #endregion
-		
-		public TabShouKuanJiHua()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int jh_Id
-		{
-			get
-			{
-				return this._jh_Id;
-			}
-			set
-			{
-				if ((this._jh_Id != value))
-				{
-					this.Onjh_IdChanging(value);
-					this.SendPropertyChanging();
-					this._jh_Id = value;
-					this.SendPropertyChanged("jh_Id");
-					this.Onjh_IdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_htId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> jh_htId
-		{
-			get
-			{
-				return this._jh_htId;
-			}
-			set
-			{
-				if ((this._jh_htId != value))
-				{
-					if (this._TabHeTong.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onjh_htIdChanging(value);
-					this.SendPropertyChanging();
-					this._jh_htId = value;
-					this.SendPropertyChanged("jh_htId");
-					this.Onjh_htIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_htId_bg", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> jh_htId_bg
-		{
-			get
-			{
-				return this._jh_htId_bg;
-			}
-			set
-			{
-				if ((this._jh_htId_bg != value))
-				{
-					if (this._TabHeTongBianGeng.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onjh_htId_bgChanging(value);
-					this.SendPropertyChanging();
-					this._jh_htId_bg = value;
-					this.SendPropertyChanged("jh_htId_bg");
-					this.Onjh_htId_bgChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_ShouKuanRiQi", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<System.DateTime> jh_ShouKuanRiQi
-		{
-			get
-			{
-				return this._jh_ShouKuanRiQi;
-			}
-			set
-			{
-				if ((this._jh_ShouKuanRiQi != value))
-				{
-					this.Onjh_ShouKuanRiQiChanging(value);
-					this.SendPropertyChanging();
-					this._jh_ShouKuanRiQi = value;
-					this.SendPropertyChanged("jh_ShouKuanRiQi");
-					this.Onjh_ShouKuanRiQiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_ShouKuanJinE", DbType="Decimal(18,6)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public System.Nullable<decimal> jh_ShouKuanJinE
-		{
-			get
-			{
-				return this._jh_ShouKuanJinE;
-			}
-			set
-			{
-				if ((this._jh_ShouKuanJinE != value))
-				{
-					this.Onjh_ShouKuanJinEChanging(value);
-					this.SendPropertyChanging();
-					this._jh_ShouKuanJinE = value;
-					this.SendPropertyChanged("jh_ShouKuanJinE");
-					this.Onjh_ShouKuanJinEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_IsFaHan", DbType="TinyInt")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public System.Nullable<byte> jh_IsFaHan
-		{
-			get
-			{
-				return this._jh_IsFaHan;
-			}
-			set
-			{
-				if ((this._jh_IsFaHan != value))
-				{
-					this.Onjh_IsFaHanChanging(value);
-					this.SendPropertyChanging();
-					this._jh_IsFaHan = value;
-					this.SendPropertyChanged("jh_IsFaHan");
-					this.Onjh_IsFaHanChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_ShoukuanShuoMing", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public string jh_ShoukuanShuoMing
-		{
-			get
-			{
-				return this._jh_ShoukuanShuoMing;
-			}
-			set
-			{
-				if ((this._jh_ShoukuanShuoMing != value))
-				{
-					this.Onjh_ShoukuanShuoMingChanging(value);
-					this.SendPropertyChanging();
-					this._jh_ShoukuanShuoMing = value;
-					this.SendPropertyChanged("jh_ShoukuanShuoMing");
-					this.Onjh_ShoukuanShuoMingChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_DengJiRen", DbType="NVarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-		public string jh_DengJiRen
-		{
-			get
-			{
-				return this._jh_DengJiRen;
-			}
-			set
-			{
-				if ((this._jh_DengJiRen != value))
-				{
-					this.Onjh_DengJiRenChanging(value);
-					this.SendPropertyChanging();
-					this._jh_DengJiRen = value;
-					this.SendPropertyChanged("jh_DengJiRen");
-					this.Onjh_DengJiRenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_DengJiRiQi", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-		public System.Nullable<System.DateTime> jh_DengJiRiQi
-		{
-			get
-			{
-				return this._jh_DengJiRiQi;
-			}
-			set
-			{
-				if ((this._jh_DengJiRiQi != value))
-				{
-					this.Onjh_DengJiRiQiChanging(value);
-					this.SendPropertyChanging();
-					this._jh_DengJiRiQi = value;
-					this.SendPropertyChanged("jh_DengJiRiQi");
-					this.Onjh_DengJiRiQiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_XiuGaiRen", DbType="NVarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
-		public string jh_XiuGaiRen
-		{
-			get
-			{
-				return this._jh_XiuGaiRen;
-			}
-			set
-			{
-				if ((this._jh_XiuGaiRen != value))
-				{
-					this.Onjh_XiuGaiRenChanging(value);
-					this.SendPropertyChanging();
-					this._jh_XiuGaiRen = value;
-					this.SendPropertyChanged("jh_XiuGaiRen");
-					this.Onjh_XiuGaiRenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_XiuGaiRiQi", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
-		public System.Nullable<System.DateTime> jh_XiuGaiRiQi
-		{
-			get
-			{
-				return this._jh_XiuGaiRiQi;
-			}
-			set
-			{
-				if ((this._jh_XiuGaiRiQi != value))
-				{
-					this.Onjh_XiuGaiRiQiChanging(value);
-					this.SendPropertyChanging();
-					this._jh_XiuGaiRiQi = value;
-					this.SendPropertyChanged("jh_XiuGaiRiQi");
-					this.Onjh_XiuGaiRiQiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_BeiZhu", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
-		public string jh_BeiZhu
-		{
-			get
-			{
-				return this._jh_BeiZhu;
-			}
-			set
-			{
-				if ((this._jh_BeiZhu != value))
-				{
-					this.Onjh_BeiZhuChanging(value);
-					this.SendPropertyChanging();
-					this._jh_BeiZhu = value;
-					this.SendPropertyChanged("jh_BeiZhu");
-					this.Onjh_BeiZhuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TabHeTongBianGeng_TabShouKuanJiHua", Storage="_TabHeTongBianGeng", ThisKey="jh_htId_bg", OtherKey="bg_Id", IsForeignKey=true, DeleteRule="SET NULL")]
-		public TabHeTongBianGeng TabHeTongBianGeng
-		{
-			get
-			{
-				return this._TabHeTongBianGeng.Entity;
-			}
-			set
-			{
-				TabHeTongBianGeng previousValue = this._TabHeTongBianGeng.Entity;
-				if (((previousValue != value) 
-							|| (this._TabHeTongBianGeng.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TabHeTongBianGeng.Entity = null;
-						previousValue.TabShouKuanJiHua.Remove(this);
-					}
-					this._TabHeTongBianGeng.Entity = value;
-					if ((value != null))
-					{
-						value.TabShouKuanJiHua.Add(this);
-						this._jh_htId_bg = value.bg_Id;
-					}
-					else
-					{
-						this._jh_htId_bg = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("TabHeTongBianGeng");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TabHeTong_TabShouKuanJiHua", Storage="_TabHeTong", ThisKey="jh_htId", OtherKey="ht_Id", IsForeignKey=true, DeleteRule="SET NULL")]
-		public TabHeTong TabHeTong
-		{
-			get
-			{
-				return this._TabHeTong.Entity;
-			}
-			set
-			{
-				TabHeTong previousValue = this._TabHeTong.Entity;
-				if (((previousValue != value) 
-							|| (this._TabHeTong.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TabHeTong.Entity = null;
-						previousValue.TabShouKuanJiHua.Remove(this);
-					}
-					this._TabHeTong.Entity = value;
-					if ((value != null))
-					{
-						value.TabShouKuanJiHua.Add(this);
-						this._jh_htId = value.ht_Id;
-					}
-					else
-					{
-						this._jh_htId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("TabHeTong");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._TabHeTongBianGeng = default(EntityRef<TabHeTongBianGeng>);
-			this._TabHeTong = default(EntityRef<TabHeTong>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tab_User_XueLi")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Tab_User_XueLi : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ux_Id;
-		
-		private System.Nullable<int> _ux_UserId;
-		
-		private System.Nullable<byte> _ux_XueLiId;
-		
-		private string _ux_ZhuanYe;
-		
-		private System.Nullable<System.DateTime> _ux_BiYiRiQi;
-		
-		private string _ux_BiYeYuanXiao;
-		
-		private string _ux_SaoMiao;
-		
-		private string _ux_XueLiBianHao;
-		
-		private string _ux_RuXiaoShiJian;
-		
-		private string _ux_BeiZhu;
-		
-		private EntitySet<Tab_Uploads> _Tab_Uploads;
-		
-		private EntityRef<Tab_RL_User> _Tab_RL_User;
-		
-		private EntityRef<Tab_RL_XueLi> _Tab_RL_XueLi;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onux_IdChanging(int value);
-    partial void Onux_IdChanged();
-    partial void Onux_UserIdChanging(System.Nullable<int> value);
-    partial void Onux_UserIdChanged();
-    partial void Onux_XueLiIdChanging(System.Nullable<byte> value);
-    partial void Onux_XueLiIdChanged();
-    partial void Onux_ZhuanYeChanging(string value);
-    partial void Onux_ZhuanYeChanged();
-    partial void Onux_BiYiRiQiChanging(System.Nullable<System.DateTime> value);
-    partial void Onux_BiYiRiQiChanged();
-    partial void Onux_BiYeYuanXiaoChanging(string value);
-    partial void Onux_BiYeYuanXiaoChanged();
-    partial void Onux_SaoMiaoChanging(string value);
-    partial void Onux_SaoMiaoChanged();
-    partial void Onux_XueLiBianHaoChanging(string value);
-    partial void Onux_XueLiBianHaoChanged();
-    partial void Onux_RuXiaoShiJianChanging(string value);
-    partial void Onux_RuXiaoShiJianChanged();
-    partial void Onux_BeiZhuChanging(string value);
-    partial void Onux_BeiZhuChanged();
-    #endregion
-		
-		public Tab_User_XueLi()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int ux_Id
-		{
-			get
-			{
-				return this._ux_Id;
-			}
-			set
-			{
-				if ((this._ux_Id != value))
-				{
-					this.Onux_IdChanging(value);
-					this.SendPropertyChanging();
-					this._ux_Id = value;
-					this.SendPropertyChanged("ux_Id");
-					this.Onux_IdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_UserId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> ux_UserId
-		{
-			get
-			{
-				return this._ux_UserId;
-			}
-			set
-			{
-				if ((this._ux_UserId != value))
-				{
-					if (this._Tab_RL_User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onux_UserIdChanging(value);
-					this.SendPropertyChanging();
-					this._ux_UserId = value;
-					this.SendPropertyChanged("ux_UserId");
-					this.Onux_UserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_XueLiId", DbType="TinyInt")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<byte> ux_XueLiId
-		{
-			get
-			{
-				return this._ux_XueLiId;
-			}
-			set
-			{
-				if ((this._ux_XueLiId != value))
-				{
-					if (this._Tab_RL_XueLi.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onux_XueLiIdChanging(value);
-					this.SendPropertyChanging();
-					this._ux_XueLiId = value;
-					this.SendPropertyChanged("ux_XueLiId");
-					this.Onux_XueLiIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_ZhuanYe", DbType="NVarChar(30)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public string ux_ZhuanYe
-		{
-			get
-			{
-				return this._ux_ZhuanYe;
-			}
-			set
-			{
-				if ((this._ux_ZhuanYe != value))
-				{
-					this.Onux_ZhuanYeChanging(value);
-					this.SendPropertyChanging();
-					this._ux_ZhuanYe = value;
-					this.SendPropertyChanged("ux_ZhuanYe");
-					this.Onux_ZhuanYeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_BiYiRiQi", DbType="Date")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public System.Nullable<System.DateTime> ux_BiYiRiQi
-		{
-			get
-			{
-				return this._ux_BiYiRiQi;
-			}
-			set
-			{
-				if ((this._ux_BiYiRiQi != value))
-				{
-					this.Onux_BiYiRiQiChanging(value);
-					this.SendPropertyChanging();
-					this._ux_BiYiRiQi = value;
-					this.SendPropertyChanged("ux_BiYiRiQi");
-					this.Onux_BiYiRiQiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_BiYeYuanXiao", DbType="NVarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public string ux_BiYeYuanXiao
-		{
-			get
-			{
-				return this._ux_BiYeYuanXiao;
-			}
-			set
-			{
-				if ((this._ux_BiYeYuanXiao != value))
-				{
-					this.Onux_BiYeYuanXiaoChanging(value);
-					this.SendPropertyChanging();
-					this._ux_BiYeYuanXiao = value;
-					this.SendPropertyChanged("ux_BiYeYuanXiao");
-					this.Onux_BiYeYuanXiaoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_SaoMiao", DbType="NVarChar(100)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public string ux_SaoMiao
-		{
-			get
-			{
-				return this._ux_SaoMiao;
-			}
-			set
-			{
-				if ((this._ux_SaoMiao != value))
-				{
-					this.Onux_SaoMiaoChanging(value);
-					this.SendPropertyChanging();
-					this._ux_SaoMiao = value;
-					this.SendPropertyChanged("ux_SaoMiao");
-					this.Onux_SaoMiaoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_XueLiBianHao", DbType="NVarChar(100)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-		public string ux_XueLiBianHao
-		{
-			get
-			{
-				return this._ux_XueLiBianHao;
-			}
-			set
-			{
-				if ((this._ux_XueLiBianHao != value))
-				{
-					this.Onux_XueLiBianHaoChanging(value);
-					this.SendPropertyChanging();
-					this._ux_XueLiBianHao = value;
-					this.SendPropertyChanged("ux_XueLiBianHao");
-					this.Onux_XueLiBianHaoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_RuXiaoShiJian", DbType="NVarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-		public string ux_RuXiaoShiJian
-		{
-			get
-			{
-				return this._ux_RuXiaoShiJian;
-			}
-			set
-			{
-				if ((this._ux_RuXiaoShiJian != value))
-				{
-					this.Onux_RuXiaoShiJianChanging(value);
-					this.SendPropertyChanging();
-					this._ux_RuXiaoShiJian = value;
-					this.SendPropertyChanged("ux_RuXiaoShiJian");
-					this.Onux_RuXiaoShiJianChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_BeiZhu", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
-		public string ux_BeiZhu
-		{
-			get
-			{
-				return this._ux_BeiZhu;
-			}
-			set
-			{
-				if ((this._ux_BeiZhu != value))
-				{
-					this.Onux_BeiZhuChanging(value);
-					this.SendPropertyChanging();
-					this._ux_BeiZhu = value;
-					this.SendPropertyChanged("ux_BeiZhu");
-					this.Onux_BeiZhuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_User_XueLi_Tab_Uploads", Storage="_Tab_Uploads", ThisKey="ux_Id", OtherKey="up_XueLiId")]
-		internal EntitySet<Tab_Uploads> Tab_Uploads
-		{
-			get
-			{
-				return this._Tab_Uploads;
-			}
-			set
-			{
-				this._Tab_Uploads.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_User_XueLi", Storage="_Tab_RL_User", ThisKey="ux_UserId", OtherKey="jl_Id", IsForeignKey=true)]
-		public Tab_RL_User Tab_RL_User
-		{
-			get
-			{
-				return this._Tab_RL_User.Entity;
-			}
-			set
-			{
-				Tab_RL_User previousValue = this._Tab_RL_User.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_RL_User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_RL_User.Entity = null;
-						previousValue.Tab_User_XueLi.Remove(this);
-					}
-					this._Tab_RL_User.Entity = value;
-					if ((value != null))
-					{
-						value.Tab_User_XueLi.Add(this);
-						this._ux_UserId = value.jl_Id;
-					}
-					else
-					{
-						this._ux_UserId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Tab_RL_User");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_XueLi_Tab_User_XueLi", Storage="_Tab_RL_XueLi", ThisKey="ux_XueLiId", OtherKey="xl_Id", IsForeignKey=true)]
-		public Tab_RL_XueLi Tab_RL_XueLi
-		{
-			get
-			{
-				return this._Tab_RL_XueLi.Entity;
-			}
-			set
-			{
-				Tab_RL_XueLi previousValue = this._Tab_RL_XueLi.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_RL_XueLi.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_RL_XueLi.Entity = null;
-						previousValue.Tab_User_XueLi.Remove(this);
-					}
-					this._Tab_RL_XueLi.Entity = value;
-					if ((value != null))
-					{
-						value.Tab_User_XueLi.Add(this);
-						this._ux_XueLiId = value.xl_Id;
-					}
-					else
-					{
-						this._ux_XueLiId = default(Nullable<byte>);
-					}
-					this.SendPropertyChanged("Tab_RL_XueLi");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Tab_Uploads(Tab_Uploads entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_User_XueLi = this;
-		}
-		
-		private void detach_Tab_Uploads(Tab_Uploads entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tab_User_XueLi = null;
-		}
-		
-		private void Initialize()
-		{
-			this._Tab_Uploads = new EntitySet<Tab_Uploads>(new Action<Tab_Uploads>(this.attach_Tab_Uploads), new Action<Tab_Uploads>(this.detach_Tab_Uploads));
-			this._Tab_RL_User = default(EntityRef<Tab_RL_User>);
-			this._Tab_RL_XueLi = default(EntityRef<Tab_RL_XueLi>);
 			OnCreated();
 		}
 		
@@ -21526,6 +18661,12 @@ namespace DAL.DTO
 		
 		private EntityRef<Tab_HT_ZhiXingBuMen> _Tab_HT_ZhiXingBuMen;
 		
+		private EntityRef<Tab_XiangMu_BuMen> _Tab_XiangMu_BuMen;
+		
+		private EntityRef<Tab_XiangMuZu> _Tab_XiangMuZu;
+		
+		private EntityRef<TabXiangMuQianQi> _TabXiangMuQianQi1;
+		
 		private EntityRef<Tab_RL_User> _Tab_RL_User;
 		
 		private EntityRef<Tab_RL_User> _Tab_RL_User1;
@@ -21533,12 +18674,6 @@ namespace DAL.DTO
 		private EntityRef<Tab_RL_User> _Tab_RL_User2;
 		
 		private EntityRef<Tab_RL_User> _Tab_RL_User3;
-		
-		private EntityRef<Tab_XiangMu_BuMen> _Tab_XiangMu_BuMen;
-		
-		private EntityRef<Tab_XiangMuZu> _Tab_XiangMuZu;
-		
-		private EntityRef<TabXiangMuQianQi> _TabXiangMuQianQi1;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -22926,6 +20061,108 @@ namespace DAL.DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_XiangMu_BuMen_TabXiangMuQianQi", Storage="_Tab_XiangMu_BuMen", ThisKey="qq_BuMenId", OtherKey="xmbm_Id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Tab_XiangMu_BuMen Tab_XiangMu_BuMen
+		{
+			get
+			{
+				return this._Tab_XiangMu_BuMen.Entity;
+			}
+			set
+			{
+				Tab_XiangMu_BuMen previousValue = this._Tab_XiangMu_BuMen.Entity;
+				if (((previousValue != value) 
+							|| (this._Tab_XiangMu_BuMen.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tab_XiangMu_BuMen.Entity = null;
+						previousValue.TabXiangMuQianQi.Remove(this);
+					}
+					this._Tab_XiangMu_BuMen.Entity = value;
+					if ((value != null))
+					{
+						value.TabXiangMuQianQi.Add(this);
+						this._qq_BuMenId = value.xmbm_Id;
+					}
+					else
+					{
+						this._qq_BuMenId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Tab_XiangMu_BuMen");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_XiangMuZu_TabXiangMuQianQi", Storage="_Tab_XiangMuZu", ThisKey="qq_XiangMuZhuId", OtherKey="xmz_Id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Tab_XiangMuZu Tab_XiangMuZu
+		{
+			get
+			{
+				return this._Tab_XiangMuZu.Entity;
+			}
+			set
+			{
+				Tab_XiangMuZu previousValue = this._Tab_XiangMuZu.Entity;
+				if (((previousValue != value) 
+							|| (this._Tab_XiangMuZu.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tab_XiangMuZu.Entity = null;
+						previousValue.TabXiangMuQianQi.Remove(this);
+					}
+					this._Tab_XiangMuZu.Entity = value;
+					if ((value != null))
+					{
+						value.TabXiangMuQianQi.Add(this);
+						this._qq_XiangMuZhuId = value.xmz_Id;
+					}
+					else
+					{
+						this._qq_XiangMuZhuId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Tab_XiangMuZu");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TabXiangMuQianQi_TabXiangMuQianQi", Storage="_TabXiangMuQianQi1", ThisKey="qq_ParentId", OtherKey="qq_Id", IsForeignKey=true)]
+		public TabXiangMuQianQi TabXiangMuQianQi1
+		{
+			get
+			{
+				return this._TabXiangMuQianQi1.Entity;
+			}
+			set
+			{
+				TabXiangMuQianQi previousValue = this._TabXiangMuQianQi1.Entity;
+				if (((previousValue != value) 
+							|| (this._TabXiangMuQianQi1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TabXiangMuQianQi1.Entity = null;
+						previousValue.TabXiangMuQianQi2.Remove(this);
+					}
+					this._TabXiangMuQianQi1.Entity = value;
+					if ((value != null))
+					{
+						value.TabXiangMuQianQi2.Add(this);
+						this._qq_ParentId = value.qq_Id;
+					}
+					else
+					{
+						this._qq_ParentId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TabXiangMuQianQi1");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_TabXiangMuQianQi", Storage="_Tab_RL_User", ThisKey="qq_JunGongYiJiao_QianShouRenYuan", OtherKey="jl_Id", IsForeignKey=true)]
 		public Tab_RL_User Tab_RL_User
 		{
@@ -23058,108 +20295,6 @@ namespace DAL.DTO
 						this._qq_XiangMuFuZeRen = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Tab_RL_User3");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_XiangMu_BuMen_TabXiangMuQianQi", Storage="_Tab_XiangMu_BuMen", ThisKey="qq_BuMenId", OtherKey="xmbm_Id", IsForeignKey=true, DeleteRule="SET NULL")]
-		public Tab_XiangMu_BuMen Tab_XiangMu_BuMen
-		{
-			get
-			{
-				return this._Tab_XiangMu_BuMen.Entity;
-			}
-			set
-			{
-				Tab_XiangMu_BuMen previousValue = this._Tab_XiangMu_BuMen.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_XiangMu_BuMen.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_XiangMu_BuMen.Entity = null;
-						previousValue.TabXiangMuQianQi.Remove(this);
-					}
-					this._Tab_XiangMu_BuMen.Entity = value;
-					if ((value != null))
-					{
-						value.TabXiangMuQianQi.Add(this);
-						this._qq_BuMenId = value.xmbm_Id;
-					}
-					else
-					{
-						this._qq_BuMenId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Tab_XiangMu_BuMen");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_XiangMuZu_TabXiangMuQianQi", Storage="_Tab_XiangMuZu", ThisKey="qq_XiangMuZhuId", OtherKey="xmz_Id", IsForeignKey=true, DeleteRule="SET NULL")]
-		public Tab_XiangMuZu Tab_XiangMuZu
-		{
-			get
-			{
-				return this._Tab_XiangMuZu.Entity;
-			}
-			set
-			{
-				Tab_XiangMuZu previousValue = this._Tab_XiangMuZu.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_XiangMuZu.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_XiangMuZu.Entity = null;
-						previousValue.TabXiangMuQianQi.Remove(this);
-					}
-					this._Tab_XiangMuZu.Entity = value;
-					if ((value != null))
-					{
-						value.TabXiangMuQianQi.Add(this);
-						this._qq_XiangMuZhuId = value.xmz_Id;
-					}
-					else
-					{
-						this._qq_XiangMuZhuId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Tab_XiangMuZu");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TabXiangMuQianQi_TabXiangMuQianQi", Storage="_TabXiangMuQianQi1", ThisKey="qq_ParentId", OtherKey="qq_Id", IsForeignKey=true)]
-		public TabXiangMuQianQi TabXiangMuQianQi1
-		{
-			get
-			{
-				return this._TabXiangMuQianQi1.Entity;
-			}
-			set
-			{
-				TabXiangMuQianQi previousValue = this._TabXiangMuQianQi1.Entity;
-				if (((previousValue != value) 
-							|| (this._TabXiangMuQianQi1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TabXiangMuQianQi1.Entity = null;
-						previousValue.TabXiangMuQianQi2.Remove(this);
-					}
-					this._TabXiangMuQianQi1.Entity = value;
-					if ((value != null))
-					{
-						value.TabXiangMuQianQi2.Add(this);
-						this._qq_ParentId = value.qq_Id;
-					}
-					else
-					{
-						this._qq_ParentId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("TabXiangMuQianQi1");
 				}
 			}
 		}
@@ -23372,13 +20507,13 @@ namespace DAL.DTO
 			this._Tab_DiaoDong = new EntitySet<Tab_DiaoDong>(new Action<Tab_DiaoDong>(this.attach_Tab_DiaoDong), new Action<Tab_DiaoDong>(this.detach_Tab_DiaoDong));
 			this._Tab_HT_XiangMuFenLei = default(EntityRef<Tab_HT_XiangMuFenLei>);
 			this._Tab_HT_ZhiXingBuMen = default(EntityRef<Tab_HT_ZhiXingBuMen>);
+			this._Tab_XiangMu_BuMen = default(EntityRef<Tab_XiangMu_BuMen>);
+			this._Tab_XiangMuZu = default(EntityRef<Tab_XiangMuZu>);
+			this._TabXiangMuQianQi1 = default(EntityRef<TabXiangMuQianQi>);
 			this._Tab_RL_User = default(EntityRef<Tab_RL_User>);
 			this._Tab_RL_User1 = default(EntityRef<Tab_RL_User>);
 			this._Tab_RL_User2 = default(EntityRef<Tab_RL_User>);
 			this._Tab_RL_User3 = default(EntityRef<Tab_RL_User>);
-			this._Tab_XiangMu_BuMen = default(EntityRef<Tab_XiangMu_BuMen>);
-			this._Tab_XiangMuZu = default(EntityRef<Tab_XiangMuZu>);
-			this._TabXiangMuQianQi1 = default(EntityRef<TabXiangMuQianQi>);
 			OnCreated();
 		}
 		
@@ -23443,9 +20578,9 @@ namespace DAL.DTO
 		
 		private EntityRef<Tab_RL_PeiXun_XingZhi> _Tab_RL_PeiXun_XingZhi;
 		
-		private EntityRef<Tab_RL_User> _Tab_RL_User;
-		
 		private EntityRef<TabXiangMuQianQi> _TabXiangMuQianQi;
+		
+		private EntityRef<Tab_RL_User> _Tab_RL_User;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -24040,40 +21175,6 @@ namespace DAL.DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_PeiXun", Storage="_Tab_RL_User", ThisKey="rl_px_UserId", OtherKey="jl_Id", IsForeignKey=true)]
-		public Tab_RL_User Tab_RL_User
-		{
-			get
-			{
-				return this._Tab_RL_User.Entity;
-			}
-			set
-			{
-				Tab_RL_User previousValue = this._Tab_RL_User.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_RL_User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_RL_User.Entity = null;
-						previousValue.Tab_RL_PeiXun.Remove(this);
-					}
-					this._Tab_RL_User.Entity = value;
-					if ((value != null))
-					{
-						value.Tab_RL_PeiXun.Add(this);
-						this._rl_px_UserId = value.jl_Id;
-					}
-					else
-					{
-						this._rl_px_UserId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Tab_RL_User");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TabXiangMuQianQi_Tab_RL_PeiXun", Storage="_TabXiangMuQianQi", ThisKey="rl_px_XiangMuId", OtherKey="qq_Id", IsForeignKey=true)]
 		public TabXiangMuQianQi TabXiangMuQianQi
 		{
@@ -24108,6 +21209,40 @@ namespace DAL.DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_PeiXun", Storage="_Tab_RL_User", ThisKey="rl_px_UserId", OtherKey="jl_Id", IsForeignKey=true)]
+		public Tab_RL_User Tab_RL_User
+		{
+			get
+			{
+				return this._Tab_RL_User.Entity;
+			}
+			set
+			{
+				Tab_RL_User previousValue = this._Tab_RL_User.Entity;
+				if (((previousValue != value) 
+							|| (this._Tab_RL_User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tab_RL_User.Entity = null;
+						previousValue.Tab_RL_PeiXun.Remove(this);
+					}
+					this._Tab_RL_User.Entity = value;
+					if ((value != null))
+					{
+						value.Tab_RL_PeiXun.Add(this);
+						this._rl_px_UserId = value.jl_Id;
+					}
+					else
+					{
+						this._rl_px_UserId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Tab_RL_User");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -24133,8 +21268,8 @@ namespace DAL.DTO
 			this._Tab_BuMen = default(EntityRef<Tab_BuMen>);
 			this._Tab_RL_PeiXun_LeiBie = default(EntityRef<Tab_RL_PeiXun_LeiBie>);
 			this._Tab_RL_PeiXun_XingZhi = default(EntityRef<Tab_RL_PeiXun_XingZhi>);
-			this._Tab_RL_User = default(EntityRef<Tab_RL_User>);
 			this._TabXiangMuQianQi = default(EntityRef<TabXiangMuQianQi>);
+			this._Tab_RL_User = default(EntityRef<Tab_RL_User>);
 			OnCreated();
 		}
 		
@@ -24171,9 +21306,9 @@ namespace DAL.DTO
 		
 		private string _rl_jc_BeiZhu;
 		
-		private EntityRef<Tab_RL_User> _Tab_RL_User;
-		
 		private EntityRef<TabXiangMuQianQi> _TabXiangMuQianQi;
+		
+		private EntityRef<Tab_RL_User> _Tab_RL_User;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -24401,40 +21536,6 @@ namespace DAL.DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_JiangCheng", Storage="_Tab_RL_User", ThisKey="rl_jc_UserId", OtherKey="jl_Id", IsForeignKey=true)]
-		public Tab_RL_User Tab_RL_User
-		{
-			get
-			{
-				return this._Tab_RL_User.Entity;
-			}
-			set
-			{
-				Tab_RL_User previousValue = this._Tab_RL_User.Entity;
-				if (((previousValue != value) 
-							|| (this._Tab_RL_User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tab_RL_User.Entity = null;
-						previousValue.Tab_RL_JiangCheng.Remove(this);
-					}
-					this._Tab_RL_User.Entity = value;
-					if ((value != null))
-					{
-						value.Tab_RL_JiangCheng.Add(this);
-						this._rl_jc_UserId = value.jl_Id;
-					}
-					else
-					{
-						this._rl_jc_UserId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Tab_RL_User");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TabXiangMuQianQi_Tab_RL_JiangCheng", Storage="_TabXiangMuQianQi", ThisKey="rl_jc_XiangMuId", OtherKey="qq_Id", IsForeignKey=true)]
 		public TabXiangMuQianQi TabXiangMuQianQi
 		{
@@ -24469,6 +21570,40 @@ namespace DAL.DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_JiangCheng", Storage="_Tab_RL_User", ThisKey="rl_jc_UserId", OtherKey="jl_Id", IsForeignKey=true)]
+		public Tab_RL_User Tab_RL_User
+		{
+			get
+			{
+				return this._Tab_RL_User.Entity;
+			}
+			set
+			{
+				Tab_RL_User previousValue = this._Tab_RL_User.Entity;
+				if (((previousValue != value) 
+							|| (this._Tab_RL_User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tab_RL_User.Entity = null;
+						previousValue.Tab_RL_JiangCheng.Remove(this);
+					}
+					this._Tab_RL_User.Entity = value;
+					if ((value != null))
+					{
+						value.Tab_RL_JiangCheng.Add(this);
+						this._rl_jc_UserId = value.jl_Id;
+					}
+					else
+					{
+						this._rl_jc_UserId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Tab_RL_User");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -24491,8 +21626,8 @@ namespace DAL.DTO
 		
 		private void Initialize()
 		{
-			this._Tab_RL_User = default(EntityRef<Tab_RL_User>);
 			this._TabXiangMuQianQi = default(EntityRef<TabXiangMuQianQi>);
+			this._Tab_RL_User = default(EntityRef<Tab_RL_User>);
 			OnCreated();
 		}
 		
@@ -25658,11 +22793,11 @@ namespace DAL.DTO
 		
 		private string _dd_BeiZhu;
 		
+		private EntityRef<TabXiangMuQianQi> _TabXiangMuQianQi;
+		
 		private EntityRef<Tab_RL_User> _Tab_RL_User;
 		
 		private EntityRef<Tab_RL_User> _Tab_RL_User1;
-		
-		private EntityRef<TabXiangMuQianQi> _TabXiangMuQianQi;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -25871,6 +23006,40 @@ namespace DAL.DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TabXiangMuQianQi_Tab_DiaoDong", Storage="_TabXiangMuQianQi", ThisKey="dd_XiangMuId", OtherKey="qq_Id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public TabXiangMuQianQi TabXiangMuQianQi
+		{
+			get
+			{
+				return this._TabXiangMuQianQi.Entity;
+			}
+			set
+			{
+				TabXiangMuQianQi previousValue = this._TabXiangMuQianQi.Entity;
+				if (((previousValue != value) 
+							|| (this._TabXiangMuQianQi.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TabXiangMuQianQi.Entity = null;
+						previousValue.Tab_DiaoDong.Remove(this);
+					}
+					this._TabXiangMuQianQi.Entity = value;
+					if ((value != null))
+					{
+						value.Tab_DiaoDong.Add(this);
+						this._dd_XiangMuId = value.qq_Id;
+					}
+					else
+					{
+						this._dd_XiangMuId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TabXiangMuQianQi");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_DiaoDong", Storage="_Tab_RL_User", ThisKey="dd_FuZeRen", OtherKey="jl_Id", IsForeignKey=true, DeleteRule="CASCADE")]
 		public Tab_RL_User Tab_RL_User
 		{
@@ -25939,36 +23108,461 @@ namespace DAL.DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TabXiangMuQianQi_Tab_DiaoDong", Storage="_TabXiangMuQianQi", ThisKey="dd_XiangMuId", OtherKey="qq_Id", IsForeignKey=true, DeleteRule="CASCADE")]
-		public TabXiangMuQianQi TabXiangMuQianQi
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void Initialize()
+		{
+			this._TabXiangMuQianQi = default(EntityRef<TabXiangMuQianQi>);
+			this._Tab_RL_User = default(EntityRef<Tab_RL_User>);
+			this._Tab_RL_User1 = default(EntityRef<Tab_RL_User>);
+			OnCreated();
+		}
+		
+		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnDeserializing(StreamingContext context)
+		{
+			this.Initialize();
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TabShouKuanJiHua")]
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class TabShouKuanJiHua : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _jh_Id;
+		
+		private System.Nullable<int> _jh_htId;
+		
+		private System.Nullable<int> _jh_htId_bg;
+		
+		private System.Nullable<System.DateTime> _jh_ShouKuanRiQi;
+		
+		private bool _jh_IsTiXing;
+		
+		private System.Nullable<decimal> _jh_ShouKuanJinE;
+		
+		private System.Nullable<byte> _jh_IsFaHan;
+		
+		private string _jh_ShoukuanShuoMing;
+		
+		private string _jh_DengJiRen;
+		
+		private System.Nullable<System.DateTime> _jh_DengJiRiQi;
+		
+		private string _jh_XiuGaiRen;
+		
+		private System.Nullable<System.DateTime> _jh_XiuGaiRiQi;
+		
+		private string _jh_BeiZhu;
+		
+		private EntityRef<TabHeTongBianGeng> _TabHeTongBianGeng;
+		
+		private EntityRef<TabHeTong> _TabHeTong;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onjh_IdChanging(int value);
+    partial void Onjh_IdChanged();
+    partial void Onjh_htIdChanging(System.Nullable<int> value);
+    partial void Onjh_htIdChanged();
+    partial void Onjh_htId_bgChanging(System.Nullable<int> value);
+    partial void Onjh_htId_bgChanged();
+    partial void Onjh_ShouKuanRiQiChanging(System.Nullable<System.DateTime> value);
+    partial void Onjh_ShouKuanRiQiChanged();
+    partial void Onjh_IsTiXingChanging(bool value);
+    partial void Onjh_IsTiXingChanged();
+    partial void Onjh_ShouKuanJinEChanging(System.Nullable<decimal> value);
+    partial void Onjh_ShouKuanJinEChanged();
+    partial void Onjh_IsFaHanChanging(System.Nullable<byte> value);
+    partial void Onjh_IsFaHanChanged();
+    partial void Onjh_ShoukuanShuoMingChanging(string value);
+    partial void Onjh_ShoukuanShuoMingChanged();
+    partial void Onjh_DengJiRenChanging(string value);
+    partial void Onjh_DengJiRenChanged();
+    partial void Onjh_DengJiRiQiChanging(System.Nullable<System.DateTime> value);
+    partial void Onjh_DengJiRiQiChanged();
+    partial void Onjh_XiuGaiRenChanging(string value);
+    partial void Onjh_XiuGaiRenChanged();
+    partial void Onjh_XiuGaiRiQiChanging(System.Nullable<System.DateTime> value);
+    partial void Onjh_XiuGaiRiQiChanged();
+    partial void Onjh_BeiZhuChanging(string value);
+    partial void Onjh_BeiZhuChanged();
+    #endregion
+		
+		public TabShouKuanJiHua()
+		{
+			this.Initialize();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int jh_Id
 		{
 			get
 			{
-				return this._TabXiangMuQianQi.Entity;
+				return this._jh_Id;
 			}
 			set
 			{
-				TabXiangMuQianQi previousValue = this._TabXiangMuQianQi.Entity;
+				if ((this._jh_Id != value))
+				{
+					this.Onjh_IdChanging(value);
+					this.SendPropertyChanging();
+					this._jh_Id = value;
+					this.SendPropertyChanged("jh_Id");
+					this.Onjh_IdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_htId", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public System.Nullable<int> jh_htId
+		{
+			get
+			{
+				return this._jh_htId;
+			}
+			set
+			{
+				if ((this._jh_htId != value))
+				{
+					if (this._TabHeTong.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onjh_htIdChanging(value);
+					this.SendPropertyChanging();
+					this._jh_htId = value;
+					this.SendPropertyChanged("jh_htId");
+					this.Onjh_htIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_htId_bg", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.Nullable<int> jh_htId_bg
+		{
+			get
+			{
+				return this._jh_htId_bg;
+			}
+			set
+			{
+				if ((this._jh_htId_bg != value))
+				{
+					if (this._TabHeTongBianGeng.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onjh_htId_bgChanging(value);
+					this.SendPropertyChanging();
+					this._jh_htId_bg = value;
+					this.SendPropertyChanged("jh_htId_bg");
+					this.Onjh_htId_bgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_ShouKuanRiQi", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public System.Nullable<System.DateTime> jh_ShouKuanRiQi
+		{
+			get
+			{
+				return this._jh_ShouKuanRiQi;
+			}
+			set
+			{
+				if ((this._jh_ShouKuanRiQi != value))
+				{
+					this.Onjh_ShouKuanRiQiChanging(value);
+					this.SendPropertyChanging();
+					this._jh_ShouKuanRiQi = value;
+					this.SendPropertyChanged("jh_ShouKuanRiQi");
+					this.Onjh_ShouKuanRiQiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_IsTiXing", DbType="Bit NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public bool jh_IsTiXing
+		{
+			get
+			{
+				return this._jh_IsTiXing;
+			}
+			set
+			{
+				if ((this._jh_IsTiXing != value))
+				{
+					this.Onjh_IsTiXingChanging(value);
+					this.SendPropertyChanging();
+					this._jh_IsTiXing = value;
+					this.SendPropertyChanged("jh_IsTiXing");
+					this.Onjh_IsTiXingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_ShouKuanJinE", DbType="Decimal(18,6)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public System.Nullable<decimal> jh_ShouKuanJinE
+		{
+			get
+			{
+				return this._jh_ShouKuanJinE;
+			}
+			set
+			{
+				if ((this._jh_ShouKuanJinE != value))
+				{
+					this.Onjh_ShouKuanJinEChanging(value);
+					this.SendPropertyChanging();
+					this._jh_ShouKuanJinE = value;
+					this.SendPropertyChanged("jh_ShouKuanJinE");
+					this.Onjh_ShouKuanJinEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_IsFaHan", DbType="TinyInt")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		public System.Nullable<byte> jh_IsFaHan
+		{
+			get
+			{
+				return this._jh_IsFaHan;
+			}
+			set
+			{
+				if ((this._jh_IsFaHan != value))
+				{
+					this.Onjh_IsFaHanChanging(value);
+					this.SendPropertyChanging();
+					this._jh_IsFaHan = value;
+					this.SendPropertyChanged("jh_IsFaHan");
+					this.Onjh_IsFaHanChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_ShoukuanShuoMing", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		public string jh_ShoukuanShuoMing
+		{
+			get
+			{
+				return this._jh_ShoukuanShuoMing;
+			}
+			set
+			{
+				if ((this._jh_ShoukuanShuoMing != value))
+				{
+					this.Onjh_ShoukuanShuoMingChanging(value);
+					this.SendPropertyChanging();
+					this._jh_ShoukuanShuoMing = value;
+					this.SendPropertyChanged("jh_ShoukuanShuoMing");
+					this.Onjh_ShoukuanShuoMingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_DengJiRen", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public string jh_DengJiRen
+		{
+			get
+			{
+				return this._jh_DengJiRen;
+			}
+			set
+			{
+				if ((this._jh_DengJiRen != value))
+				{
+					this.Onjh_DengJiRenChanging(value);
+					this.SendPropertyChanging();
+					this._jh_DengJiRen = value;
+					this.SendPropertyChanged("jh_DengJiRen");
+					this.Onjh_DengJiRenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_DengJiRiQi", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		public System.Nullable<System.DateTime> jh_DengJiRiQi
+		{
+			get
+			{
+				return this._jh_DengJiRiQi;
+			}
+			set
+			{
+				if ((this._jh_DengJiRiQi != value))
+				{
+					this.Onjh_DengJiRiQiChanging(value);
+					this.SendPropertyChanging();
+					this._jh_DengJiRiQi = value;
+					this.SendPropertyChanged("jh_DengJiRiQi");
+					this.Onjh_DengJiRiQiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_XiuGaiRen", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+		public string jh_XiuGaiRen
+		{
+			get
+			{
+				return this._jh_XiuGaiRen;
+			}
+			set
+			{
+				if ((this._jh_XiuGaiRen != value))
+				{
+					this.Onjh_XiuGaiRenChanging(value);
+					this.SendPropertyChanging();
+					this._jh_XiuGaiRen = value;
+					this.SendPropertyChanged("jh_XiuGaiRen");
+					this.Onjh_XiuGaiRenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_XiuGaiRiQi", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+		public System.Nullable<System.DateTime> jh_XiuGaiRiQi
+		{
+			get
+			{
+				return this._jh_XiuGaiRiQi;
+			}
+			set
+			{
+				if ((this._jh_XiuGaiRiQi != value))
+				{
+					this.Onjh_XiuGaiRiQiChanging(value);
+					this.SendPropertyChanging();
+					this._jh_XiuGaiRiQi = value;
+					this.SendPropertyChanged("jh_XiuGaiRiQi");
+					this.Onjh_XiuGaiRiQiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_BeiZhu", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+		public string jh_BeiZhu
+		{
+			get
+			{
+				return this._jh_BeiZhu;
+			}
+			set
+			{
+				if ((this._jh_BeiZhu != value))
+				{
+					this.Onjh_BeiZhuChanging(value);
+					this.SendPropertyChanging();
+					this._jh_BeiZhu = value;
+					this.SendPropertyChanged("jh_BeiZhu");
+					this.Onjh_BeiZhuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TabHeTongBianGeng_TabShouKuanJiHua", Storage="_TabHeTongBianGeng", ThisKey="jh_htId_bg", OtherKey="bg_Id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public TabHeTongBianGeng TabHeTongBianGeng
+		{
+			get
+			{
+				return this._TabHeTongBianGeng.Entity;
+			}
+			set
+			{
+				TabHeTongBianGeng previousValue = this._TabHeTongBianGeng.Entity;
 				if (((previousValue != value) 
-							|| (this._TabXiangMuQianQi.HasLoadedOrAssignedValue == false)))
+							|| (this._TabHeTongBianGeng.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._TabXiangMuQianQi.Entity = null;
-						previousValue.Tab_DiaoDong.Remove(this);
+						this._TabHeTongBianGeng.Entity = null;
+						previousValue.TabShouKuanJiHua.Remove(this);
 					}
-					this._TabXiangMuQianQi.Entity = value;
+					this._TabHeTongBianGeng.Entity = value;
 					if ((value != null))
 					{
-						value.Tab_DiaoDong.Add(this);
-						this._dd_XiangMuId = value.qq_Id;
+						value.TabShouKuanJiHua.Add(this);
+						this._jh_htId_bg = value.bg_Id;
 					}
 					else
 					{
-						this._dd_XiangMuId = default(Nullable<int>);
+						this._jh_htId_bg = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("TabXiangMuQianQi");
+					this.SendPropertyChanged("TabHeTongBianGeng");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TabHeTong_TabShouKuanJiHua", Storage="_TabHeTong", ThisKey="jh_htId", OtherKey="ht_Id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public TabHeTong TabHeTong
+		{
+			get
+			{
+				return this._TabHeTong.Entity;
+			}
+			set
+			{
+				TabHeTong previousValue = this._TabHeTong.Entity;
+				if (((previousValue != value) 
+							|| (this._TabHeTong.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TabHeTong.Entity = null;
+						previousValue.TabShouKuanJiHua.Remove(this);
+					}
+					this._TabHeTong.Entity = value;
+					if ((value != null))
+					{
+						value.TabShouKuanJiHua.Add(this);
+						this._jh_htId = value.ht_Id;
+					}
+					else
+					{
+						this._jh_htId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TabHeTong");
 				}
 			}
 		}
@@ -25995,9 +23589,8 @@ namespace DAL.DTO
 		
 		private void Initialize()
 		{
-			this._Tab_RL_User = default(EntityRef<Tab_RL_User>);
-			this._Tab_RL_User1 = default(EntityRef<Tab_RL_User>);
-			this._TabXiangMuQianQi = default(EntityRef<TabXiangMuQianQi>);
+			this._TabHeTongBianGeng = default(EntityRef<TabHeTongBianGeng>);
+			this._TabHeTong = default(EntityRef<TabHeTong>);
 			OnCreated();
 		}
 		
@@ -26006,6 +23599,2708 @@ namespace DAL.DTO
 		public void OnDeserializing(StreamingContext context)
 		{
 			this.Initialize();
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.View_ShouKuanJiHua")]
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class View_ShouKuanJiHua
+	{
+		
+		private int _jh_Id;
+		
+		private System.Nullable<System.DateTime> _jh_ShouKuanRiQi;
+		
+		private System.Nullable<decimal> _jh_ShouKuanJinE;
+		
+		private System.Nullable<byte> _jh_IsFaHan;
+		
+		private string _ht_MingCheng;
+		
+		private string _qq_HeTongHao;
+		
+		private bool _jh_IsTiXing;
+		
+		public View_ShouKuanJiHua()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_Id", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int jh_Id
+		{
+			get
+			{
+				return this._jh_Id;
+			}
+			set
+			{
+				if ((this._jh_Id != value))
+				{
+					this._jh_Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_ShouKuanRiQi", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public System.Nullable<System.DateTime> jh_ShouKuanRiQi
+		{
+			get
+			{
+				return this._jh_ShouKuanRiQi;
+			}
+			set
+			{
+				if ((this._jh_ShouKuanRiQi != value))
+				{
+					this._jh_ShouKuanRiQi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_ShouKuanJinE", DbType="Decimal(18,6)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.Nullable<decimal> jh_ShouKuanJinE
+		{
+			get
+			{
+				return this._jh_ShouKuanJinE;
+			}
+			set
+			{
+				if ((this._jh_ShouKuanJinE != value))
+				{
+					this._jh_ShouKuanJinE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_IsFaHan", DbType="TinyInt")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public System.Nullable<byte> jh_IsFaHan
+		{
+			get
+			{
+				return this._jh_IsFaHan;
+			}
+			set
+			{
+				if ((this._jh_IsFaHan != value))
+				{
+					this._jh_IsFaHan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ht_MingCheng", DbType="NVarChar(200)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public string ht_MingCheng
+		{
+			get
+			{
+				return this._ht_MingCheng;
+			}
+			set
+			{
+				if ((this._ht_MingCheng != value))
+				{
+					this._ht_MingCheng = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_qq_HeTongHao", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public string qq_HeTongHao
+		{
+			get
+			{
+				return this._qq_HeTongHao;
+			}
+			set
+			{
+				if ((this._qq_HeTongHao != value))
+				{
+					this._qq_HeTongHao = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jh_IsTiXing", DbType="Bit NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		public bool jh_IsTiXing
+		{
+			get
+			{
+				return this._jh_IsTiXing;
+			}
+			set
+			{
+				if ((this._jh_IsTiXing != value))
+				{
+					this._jh_IsTiXing = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tab_RL_User")]
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class Tab_RL_User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _jl_Id;
+		
+		private string _jl_Name;
+		
+		private string _jl_ZhaoPian;
+		
+		private string _jl_YuanGongBianHao;
+		
+		private System.Nullable<bool> _jl_XingBie;
+		
+		private System.Nullable<System.DateTime> _jl_ChuShengRiQi;
+		
+		private string _ji_JiGuan;
+		
+		private System.Nullable<byte> _jl_HunYinZhuangKuang;
+		
+		private System.Nullable<byte> _jl_MingZu;
+		
+		private System.Nullable<byte> _jl_ZhengZhiMianMao;
+		
+		private System.Nullable<System.DateTime> _jl_CanJIanGongZuoShiJian;
+		
+		private System.Nullable<System.DateTime> _jl_YuanDanWeiLiZhiShiJian;
+		
+		private string _jl_ShenFenZhengHao;
+		
+		private string _jl_ShenFenZhengZhuZhi;
+		
+		private System.Nullable<bool> _jl_ZongJianZiGeZhengShu;
+		
+		private string _jl_JianKangZhuangKuang;
+		
+		private string _jl_HuJiDiZhi;
+		
+		private System.Nullable<byte> _jl_HuJiXingZhi;
+		
+		private string _jl_XianZhuZhi;
+		
+		private string _jl_XianYouBian;
+		
+		private string _jl_LianXiFangShi_1;
+		
+		private string _jl_LianXiFangShi_2;
+		
+		private string _jl_LianXiFangShi_3;
+		
+		private string _jl_SheHuiGuanXi;
+		
+		private System.Nullable<byte> _jl_CanBaoZhuangKuang;
+		
+		private System.Nullable<System.DateTime> _jl_RuZhiShiJian;
+		
+		private System.Nullable<byte> _jl_RuZhiTuJing;
+		
+		private System.Nullable<byte> _jl_SuShuBuMen;
+		
+		private System.Nullable<bool> _jl_RuZhiShouXuBanLi;
+		
+		private System.Nullable<System.DateTime> _jl_ShiYongKaiShiShiJian;
+		
+		private System.Nullable<System.DateTime> _jl_ShiYongJieShuShiJian;
+		
+		private System.Nullable<bool> _jl_ShiFouCanBao;
+		
+		private System.Nullable<bool> _jl_ShangYeBaoXian;
+		
+		private System.Nullable<System.DateTime> _jl_ShangBaoJieZhiShiJian;
+		
+		private System.Nullable<System.DateTime> _jl_LaoDongHeTongKaiShiShiJian;
+		
+		private System.Nullable<System.DateTime> _jl_LaoDongHeTongJieShuShiJian;
+		
+		private bool _jl_IsTingXing;
+		
+		private System.Nullable<bool> _jl_FanPingXieYiQianDing;
+		
+		private System.Nullable<System.DateTime> _jl_FanPingQianDingShiJian;
+		
+		private string _jl_LiuCunZhengJian;
+		
+		private System.Nullable<byte> _jl_GongZuoZhuangTai;
+		
+		private EntitySet<Tab_Report_MonthSalary_GuiDang> _Tab_Report_MonthSalary_GuiDang;
+		
+		private EntitySet<Tab_RL_DiaoDong> _Tab_RL_DiaoDong;
+		
+		private EntitySet<Tab_RL_QingJia> _Tab_RL_QingJia;
+		
+		private EntitySet<Tab_RL_User_JingLi> _Tab_RL_User_JingLi;
+		
+		private EntitySet<Tab_RL_XinChou> _Tab_RL_XinChou;
+		
+		private EntitySet<Tab_RL_XinChou_KouKuanJiangLi> _Tab_RL_XinChou_KouKuanJiangLi;
+		
+		private EntitySet<Tab_XiangMu_XunJian> _Tab_XiangMu_XunJian;
+		
+		private EntitySet<Tab_User_ZhiCheng> _Tab_User_ZhiCheng;
+		
+		private EntitySet<Tab_RL_ZhiYeZiGeZhengShu> _Tab_RL_ZhiYeZiGeZhengShu;
+		
+		private EntitySet<TabXiangMuQianQi> _TabXiangMuQianQi;
+		
+		private EntitySet<TabXiangMuQianQi> _TabXiangMuQianQi1;
+		
+		private EntitySet<TabXiangMuQianQi> _TabXiangMuQianQi2;
+		
+		private EntitySet<TabXiangMuQianQi> _TabXiangMuQianQi3;
+		
+		private EntitySet<Tab_RL_PeiXun> _Tab_RL_PeiXun;
+		
+		private EntitySet<Tab_RL_JiangCheng> _Tab_RL_JiangCheng;
+		
+		private EntitySet<Tab_DiaoDong> _Tab_DiaoDong;
+		
+		private EntitySet<Tab_DiaoDong> _Tab_DiaoDong1;
+		
+		private EntitySet<Tab_User_XueLi> _Tab_User_XueLi;
+		
+		private EntityRef<Tab_BuMen> _Tab_BuMen;
+		
+		private EntityRef<Tab_RL_GongZuoZhuangTai> _Tab_RL_GongZuoZhuangTai;
+		
+		private EntityRef<Tab_RL_RuZhiTuJin> _Tab_RL_RuZhiTuJin;
+		
+		private EntityRef<Tab_RL_User_CanBaoZhuangKuang> _Tab_RL_User_CanBaoZhuangKuang;
+		
+		private EntityRef<Tab_RL_User_HuJiXingZhi> _Tab_RL_User_HuJiXingZhi;
+		
+		private EntityRef<Tab_RL_User_HunYin> _Tab_RL_User_HunYin;
+		
+		private EntityRef<Tab_RL_User_MinZu> _Tab_RL_User_MinZu;
+		
+		private EntityRef<Tab_RL_User_ZhengZhiMianMao> _Tab_RL_User_ZhengZhiMianMao;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onjl_IdChanging(int value);
+    partial void Onjl_IdChanged();
+    partial void Onjl_NameChanging(string value);
+    partial void Onjl_NameChanged();
+    partial void Onjl_ZhaoPianChanging(string value);
+    partial void Onjl_ZhaoPianChanged();
+    partial void Onjl_YuanGongBianHaoChanging(string value);
+    partial void Onjl_YuanGongBianHaoChanged();
+    partial void Onjl_XingBieChanging(System.Nullable<bool> value);
+    partial void Onjl_XingBieChanged();
+    partial void Onjl_ChuShengRiQiChanging(System.Nullable<System.DateTime> value);
+    partial void Onjl_ChuShengRiQiChanged();
+    partial void Onji_JiGuanChanging(string value);
+    partial void Onji_JiGuanChanged();
+    partial void Onjl_HunYinZhuangKuangChanging(System.Nullable<byte> value);
+    partial void Onjl_HunYinZhuangKuangChanged();
+    partial void Onjl_MingZuChanging(System.Nullable<byte> value);
+    partial void Onjl_MingZuChanged();
+    partial void Onjl_ZhengZhiMianMaoChanging(System.Nullable<byte> value);
+    partial void Onjl_ZhengZhiMianMaoChanged();
+    partial void Onjl_CanJIanGongZuoShiJianChanging(System.Nullable<System.DateTime> value);
+    partial void Onjl_CanJIanGongZuoShiJianChanged();
+    partial void Onjl_YuanDanWeiLiZhiShiJianChanging(System.Nullable<System.DateTime> value);
+    partial void Onjl_YuanDanWeiLiZhiShiJianChanged();
+    partial void Onjl_ShenFenZhengHaoChanging(string value);
+    partial void Onjl_ShenFenZhengHaoChanged();
+    partial void Onjl_ShenFenZhengZhuZhiChanging(string value);
+    partial void Onjl_ShenFenZhengZhuZhiChanged();
+    partial void Onjl_ZongJianZiGeZhengShuChanging(System.Nullable<bool> value);
+    partial void Onjl_ZongJianZiGeZhengShuChanged();
+    partial void Onjl_JianKangZhuangKuangChanging(string value);
+    partial void Onjl_JianKangZhuangKuangChanged();
+    partial void Onjl_HuJiDiZhiChanging(string value);
+    partial void Onjl_HuJiDiZhiChanged();
+    partial void Onjl_HuJiXingZhiChanging(System.Nullable<byte> value);
+    partial void Onjl_HuJiXingZhiChanged();
+    partial void Onjl_XianZhuZhiChanging(string value);
+    partial void Onjl_XianZhuZhiChanged();
+    partial void Onjl_XianYouBianChanging(string value);
+    partial void Onjl_XianYouBianChanged();
+    partial void Onjl_LianXiFangShi_1Changing(string value);
+    partial void Onjl_LianXiFangShi_1Changed();
+    partial void Onjl_LianXiFangShi_2Changing(string value);
+    partial void Onjl_LianXiFangShi_2Changed();
+    partial void Onjl_LianXiFangShi_3Changing(string value);
+    partial void Onjl_LianXiFangShi_3Changed();
+    partial void Onjl_SheHuiGuanXiChanging(string value);
+    partial void Onjl_SheHuiGuanXiChanged();
+    partial void Onjl_CanBaoZhuangKuangChanging(System.Nullable<byte> value);
+    partial void Onjl_CanBaoZhuangKuangChanged();
+    partial void Onjl_RuZhiShiJianChanging(System.Nullable<System.DateTime> value);
+    partial void Onjl_RuZhiShiJianChanged();
+    partial void Onjl_RuZhiTuJingChanging(System.Nullable<byte> value);
+    partial void Onjl_RuZhiTuJingChanged();
+    partial void Onjl_SuShuBuMenChanging(System.Nullable<byte> value);
+    partial void Onjl_SuShuBuMenChanged();
+    partial void Onjl_RuZhiShouXuBanLiChanging(System.Nullable<bool> value);
+    partial void Onjl_RuZhiShouXuBanLiChanged();
+    partial void Onjl_ShiYongKaiShiShiJianChanging(System.Nullable<System.DateTime> value);
+    partial void Onjl_ShiYongKaiShiShiJianChanged();
+    partial void Onjl_ShiYongJieShuShiJianChanging(System.Nullable<System.DateTime> value);
+    partial void Onjl_ShiYongJieShuShiJianChanged();
+    partial void Onjl_ShiFouCanBaoChanging(System.Nullable<bool> value);
+    partial void Onjl_ShiFouCanBaoChanged();
+    partial void Onjl_ShangYeBaoXianChanging(System.Nullable<bool> value);
+    partial void Onjl_ShangYeBaoXianChanged();
+    partial void Onjl_ShangBaoJieZhiShiJianChanging(System.Nullable<System.DateTime> value);
+    partial void Onjl_ShangBaoJieZhiShiJianChanged();
+    partial void Onjl_LaoDongHeTongKaiShiShiJianChanging(System.Nullable<System.DateTime> value);
+    partial void Onjl_LaoDongHeTongKaiShiShiJianChanged();
+    partial void Onjl_LaoDongHeTongJieShuShiJianChanging(System.Nullable<System.DateTime> value);
+    partial void Onjl_LaoDongHeTongJieShuShiJianChanged();
+    partial void Onjl_IsTingXingChanging(bool value);
+    partial void Onjl_IsTingXingChanged();
+    partial void Onjl_FanPingXieYiQianDingChanging(System.Nullable<bool> value);
+    partial void Onjl_FanPingXieYiQianDingChanged();
+    partial void Onjl_FanPingQianDingShiJianChanging(System.Nullable<System.DateTime> value);
+    partial void Onjl_FanPingQianDingShiJianChanged();
+    partial void Onjl_LiuCunZhengJianChanging(string value);
+    partial void Onjl_LiuCunZhengJianChanged();
+    partial void Onjl_GongZuoZhuangTaiChanging(System.Nullable<byte> value);
+    partial void Onjl_GongZuoZhuangTaiChanged();
+    #endregion
+		
+		public Tab_RL_User()
+		{
+			this.Initialize();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int jl_Id
+		{
+			get
+			{
+				return this._jl_Id;
+			}
+			set
+			{
+				if ((this._jl_Id != value))
+				{
+					this.Onjl_IdChanging(value);
+					this.SendPropertyChanging();
+					this._jl_Id = value;
+					this.SendPropertyChanged("jl_Id");
+					this.Onjl_IdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_Name", DbType="NVarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string jl_Name
+		{
+			get
+			{
+				return this._jl_Name;
+			}
+			set
+			{
+				if ((this._jl_Name != value))
+				{
+					this.Onjl_NameChanging(value);
+					this.SendPropertyChanging();
+					this._jl_Name = value;
+					this.SendPropertyChanged("jl_Name");
+					this.Onjl_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ZhaoPian", DbType="VarChar(200)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string jl_ZhaoPian
+		{
+			get
+			{
+				return this._jl_ZhaoPian;
+			}
+			set
+			{
+				if ((this._jl_ZhaoPian != value))
+				{
+					this.Onjl_ZhaoPianChanging(value);
+					this.SendPropertyChanging();
+					this._jl_ZhaoPian = value;
+					this.SendPropertyChanged("jl_ZhaoPian");
+					this.Onjl_ZhaoPianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_YuanGongBianHao", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public string jl_YuanGongBianHao
+		{
+			get
+			{
+				return this._jl_YuanGongBianHao;
+			}
+			set
+			{
+				if ((this._jl_YuanGongBianHao != value))
+				{
+					this.Onjl_YuanGongBianHaoChanging(value);
+					this.SendPropertyChanging();
+					this._jl_YuanGongBianHao = value;
+					this.SendPropertyChanged("jl_YuanGongBianHao");
+					this.Onjl_YuanGongBianHaoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_XingBie", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public System.Nullable<bool> jl_XingBie
+		{
+			get
+			{
+				return this._jl_XingBie;
+			}
+			set
+			{
+				if ((this._jl_XingBie != value))
+				{
+					this.Onjl_XingBieChanging(value);
+					this.SendPropertyChanging();
+					this._jl_XingBie = value;
+					this.SendPropertyChanged("jl_XingBie");
+					this.Onjl_XingBieChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ChuShengRiQi", DbType="Date")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public System.Nullable<System.DateTime> jl_ChuShengRiQi
+		{
+			get
+			{
+				return this._jl_ChuShengRiQi;
+			}
+			set
+			{
+				if ((this._jl_ChuShengRiQi != value))
+				{
+					this.Onjl_ChuShengRiQiChanging(value);
+					this.SendPropertyChanging();
+					this._jl_ChuShengRiQi = value;
+					this.SendPropertyChanged("jl_ChuShengRiQi");
+					this.Onjl_ChuShengRiQiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ji_JiGuan", DbType="NVarChar(200)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		public string ji_JiGuan
+		{
+			get
+			{
+				return this._ji_JiGuan;
+			}
+			set
+			{
+				if ((this._ji_JiGuan != value))
+				{
+					this.Onji_JiGuanChanging(value);
+					this.SendPropertyChanging();
+					this._ji_JiGuan = value;
+					this.SendPropertyChanged("ji_JiGuan");
+					this.Onji_JiGuanChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_HunYinZhuangKuang", DbType="TinyInt")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		public System.Nullable<byte> jl_HunYinZhuangKuang
+		{
+			get
+			{
+				return this._jl_HunYinZhuangKuang;
+			}
+			set
+			{
+				if ((this._jl_HunYinZhuangKuang != value))
+				{
+					if (this._Tab_RL_User_HunYin.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onjl_HunYinZhuangKuangChanging(value);
+					this.SendPropertyChanging();
+					this._jl_HunYinZhuangKuang = value;
+					this.SendPropertyChanged("jl_HunYinZhuangKuang");
+					this.Onjl_HunYinZhuangKuangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_MingZu", DbType="TinyInt")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public System.Nullable<byte> jl_MingZu
+		{
+			get
+			{
+				return this._jl_MingZu;
+			}
+			set
+			{
+				if ((this._jl_MingZu != value))
+				{
+					if (this._Tab_RL_User_MinZu.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onjl_MingZuChanging(value);
+					this.SendPropertyChanging();
+					this._jl_MingZu = value;
+					this.SendPropertyChanged("jl_MingZu");
+					this.Onjl_MingZuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ZhengZhiMianMao", DbType="TinyInt")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		public System.Nullable<byte> jl_ZhengZhiMianMao
+		{
+			get
+			{
+				return this._jl_ZhengZhiMianMao;
+			}
+			set
+			{
+				if ((this._jl_ZhengZhiMianMao != value))
+				{
+					if (this._Tab_RL_User_ZhengZhiMianMao.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onjl_ZhengZhiMianMaoChanging(value);
+					this.SendPropertyChanging();
+					this._jl_ZhengZhiMianMao = value;
+					this.SendPropertyChanged("jl_ZhengZhiMianMao");
+					this.Onjl_ZhengZhiMianMaoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_CanJIanGongZuoShiJian", DbType="Date")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+		public System.Nullable<System.DateTime> jl_CanJIanGongZuoShiJian
+		{
+			get
+			{
+				return this._jl_CanJIanGongZuoShiJian;
+			}
+			set
+			{
+				if ((this._jl_CanJIanGongZuoShiJian != value))
+				{
+					this.Onjl_CanJIanGongZuoShiJianChanging(value);
+					this.SendPropertyChanging();
+					this._jl_CanJIanGongZuoShiJian = value;
+					this.SendPropertyChanged("jl_CanJIanGongZuoShiJian");
+					this.Onjl_CanJIanGongZuoShiJianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_YuanDanWeiLiZhiShiJian", DbType="Date")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+		public System.Nullable<System.DateTime> jl_YuanDanWeiLiZhiShiJian
+		{
+			get
+			{
+				return this._jl_YuanDanWeiLiZhiShiJian;
+			}
+			set
+			{
+				if ((this._jl_YuanDanWeiLiZhiShiJian != value))
+				{
+					this.Onjl_YuanDanWeiLiZhiShiJianChanging(value);
+					this.SendPropertyChanging();
+					this._jl_YuanDanWeiLiZhiShiJian = value;
+					this.SendPropertyChanged("jl_YuanDanWeiLiZhiShiJian");
+					this.Onjl_YuanDanWeiLiZhiShiJianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ShenFenZhengHao", DbType="NVarChar(100)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+		public string jl_ShenFenZhengHao
+		{
+			get
+			{
+				return this._jl_ShenFenZhengHao;
+			}
+			set
+			{
+				if ((this._jl_ShenFenZhengHao != value))
+				{
+					this.Onjl_ShenFenZhengHaoChanging(value);
+					this.SendPropertyChanging();
+					this._jl_ShenFenZhengHao = value;
+					this.SendPropertyChanged("jl_ShenFenZhengHao");
+					this.Onjl_ShenFenZhengHaoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ShenFenZhengZhuZhi", DbType="NVarChar(200)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
+		public string jl_ShenFenZhengZhuZhi
+		{
+			get
+			{
+				return this._jl_ShenFenZhengZhuZhi;
+			}
+			set
+			{
+				if ((this._jl_ShenFenZhengZhuZhi != value))
+				{
+					this.Onjl_ShenFenZhengZhuZhiChanging(value);
+					this.SendPropertyChanging();
+					this._jl_ShenFenZhengZhuZhi = value;
+					this.SendPropertyChanged("jl_ShenFenZhengZhuZhi");
+					this.Onjl_ShenFenZhengZhuZhiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ZongJianZiGeZhengShu", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
+		public System.Nullable<bool> jl_ZongJianZiGeZhengShu
+		{
+			get
+			{
+				return this._jl_ZongJianZiGeZhengShu;
+			}
+			set
+			{
+				if ((this._jl_ZongJianZiGeZhengShu != value))
+				{
+					this.Onjl_ZongJianZiGeZhengShuChanging(value);
+					this.SendPropertyChanging();
+					this._jl_ZongJianZiGeZhengShu = value;
+					this.SendPropertyChanged("jl_ZongJianZiGeZhengShu");
+					this.Onjl_ZongJianZiGeZhengShuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_JianKangZhuangKuang", DbType="NVarChar(100)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+		public string jl_JianKangZhuangKuang
+		{
+			get
+			{
+				return this._jl_JianKangZhuangKuang;
+			}
+			set
+			{
+				if ((this._jl_JianKangZhuangKuang != value))
+				{
+					this.Onjl_JianKangZhuangKuangChanging(value);
+					this.SendPropertyChanging();
+					this._jl_JianKangZhuangKuang = value;
+					this.SendPropertyChanged("jl_JianKangZhuangKuang");
+					this.Onjl_JianKangZhuangKuangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_HuJiDiZhi", DbType="NVarChar(200)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=17)]
+		public string jl_HuJiDiZhi
+		{
+			get
+			{
+				return this._jl_HuJiDiZhi;
+			}
+			set
+			{
+				if ((this._jl_HuJiDiZhi != value))
+				{
+					this.Onjl_HuJiDiZhiChanging(value);
+					this.SendPropertyChanging();
+					this._jl_HuJiDiZhi = value;
+					this.SendPropertyChanged("jl_HuJiDiZhi");
+					this.Onjl_HuJiDiZhiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_HuJiXingZhi", DbType="TinyInt")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=18)]
+		public System.Nullable<byte> jl_HuJiXingZhi
+		{
+			get
+			{
+				return this._jl_HuJiXingZhi;
+			}
+			set
+			{
+				if ((this._jl_HuJiXingZhi != value))
+				{
+					if (this._Tab_RL_User_HuJiXingZhi.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onjl_HuJiXingZhiChanging(value);
+					this.SendPropertyChanging();
+					this._jl_HuJiXingZhi = value;
+					this.SendPropertyChanged("jl_HuJiXingZhi");
+					this.Onjl_HuJiXingZhiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_XianZhuZhi", DbType="NVarChar(200)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=19)]
+		public string jl_XianZhuZhi
+		{
+			get
+			{
+				return this._jl_XianZhuZhi;
+			}
+			set
+			{
+				if ((this._jl_XianZhuZhi != value))
+				{
+					this.Onjl_XianZhuZhiChanging(value);
+					this.SendPropertyChanging();
+					this._jl_XianZhuZhi = value;
+					this.SendPropertyChanged("jl_XianZhuZhi");
+					this.Onjl_XianZhuZhiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_XianYouBian", DbType="VarChar(10)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=20)]
+		public string jl_XianYouBian
+		{
+			get
+			{
+				return this._jl_XianYouBian;
+			}
+			set
+			{
+				if ((this._jl_XianYouBian != value))
+				{
+					this.Onjl_XianYouBianChanging(value);
+					this.SendPropertyChanging();
+					this._jl_XianYouBian = value;
+					this.SendPropertyChanged("jl_XianYouBian");
+					this.Onjl_XianYouBianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_LianXiFangShi_1", DbType="NVarChar(200)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=21)]
+		public string jl_LianXiFangShi_1
+		{
+			get
+			{
+				return this._jl_LianXiFangShi_1;
+			}
+			set
+			{
+				if ((this._jl_LianXiFangShi_1 != value))
+				{
+					this.Onjl_LianXiFangShi_1Changing(value);
+					this.SendPropertyChanging();
+					this._jl_LianXiFangShi_1 = value;
+					this.SendPropertyChanged("jl_LianXiFangShi_1");
+					this.Onjl_LianXiFangShi_1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_LianXiFangShi_2", DbType="NVarChar(200)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=22)]
+		public string jl_LianXiFangShi_2
+		{
+			get
+			{
+				return this._jl_LianXiFangShi_2;
+			}
+			set
+			{
+				if ((this._jl_LianXiFangShi_2 != value))
+				{
+					this.Onjl_LianXiFangShi_2Changing(value);
+					this.SendPropertyChanging();
+					this._jl_LianXiFangShi_2 = value;
+					this.SendPropertyChanged("jl_LianXiFangShi_2");
+					this.Onjl_LianXiFangShi_2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_LianXiFangShi_3", DbType="NVarChar(200)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=23)]
+		public string jl_LianXiFangShi_3
+		{
+			get
+			{
+				return this._jl_LianXiFangShi_3;
+			}
+			set
+			{
+				if ((this._jl_LianXiFangShi_3 != value))
+				{
+					this.Onjl_LianXiFangShi_3Changing(value);
+					this.SendPropertyChanging();
+					this._jl_LianXiFangShi_3 = value;
+					this.SendPropertyChanged("jl_LianXiFangShi_3");
+					this.Onjl_LianXiFangShi_3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_SheHuiGuanXi", DbType="NVarChar(200)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=24)]
+		public string jl_SheHuiGuanXi
+		{
+			get
+			{
+				return this._jl_SheHuiGuanXi;
+			}
+			set
+			{
+				if ((this._jl_SheHuiGuanXi != value))
+				{
+					this.Onjl_SheHuiGuanXiChanging(value);
+					this.SendPropertyChanging();
+					this._jl_SheHuiGuanXi = value;
+					this.SendPropertyChanged("jl_SheHuiGuanXi");
+					this.Onjl_SheHuiGuanXiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_CanBaoZhuangKuang", DbType="TinyInt")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=25)]
+		public System.Nullable<byte> jl_CanBaoZhuangKuang
+		{
+			get
+			{
+				return this._jl_CanBaoZhuangKuang;
+			}
+			set
+			{
+				if ((this._jl_CanBaoZhuangKuang != value))
+				{
+					if (this._Tab_RL_User_CanBaoZhuangKuang.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onjl_CanBaoZhuangKuangChanging(value);
+					this.SendPropertyChanging();
+					this._jl_CanBaoZhuangKuang = value;
+					this.SendPropertyChanged("jl_CanBaoZhuangKuang");
+					this.Onjl_CanBaoZhuangKuangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_RuZhiShiJian", DbType="Date")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=26)]
+		public System.Nullable<System.DateTime> jl_RuZhiShiJian
+		{
+			get
+			{
+				return this._jl_RuZhiShiJian;
+			}
+			set
+			{
+				if ((this._jl_RuZhiShiJian != value))
+				{
+					this.Onjl_RuZhiShiJianChanging(value);
+					this.SendPropertyChanging();
+					this._jl_RuZhiShiJian = value;
+					this.SendPropertyChanged("jl_RuZhiShiJian");
+					this.Onjl_RuZhiShiJianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_RuZhiTuJing", DbType="TinyInt")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=27)]
+		public System.Nullable<byte> jl_RuZhiTuJing
+		{
+			get
+			{
+				return this._jl_RuZhiTuJing;
+			}
+			set
+			{
+				if ((this._jl_RuZhiTuJing != value))
+				{
+					if (this._Tab_RL_RuZhiTuJin.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onjl_RuZhiTuJingChanging(value);
+					this.SendPropertyChanging();
+					this._jl_RuZhiTuJing = value;
+					this.SendPropertyChanged("jl_RuZhiTuJing");
+					this.Onjl_RuZhiTuJingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_SuShuBuMen", DbType="TinyInt")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=28)]
+		public System.Nullable<byte> jl_SuShuBuMen
+		{
+			get
+			{
+				return this._jl_SuShuBuMen;
+			}
+			set
+			{
+				if ((this._jl_SuShuBuMen != value))
+				{
+					if (this._Tab_BuMen.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onjl_SuShuBuMenChanging(value);
+					this.SendPropertyChanging();
+					this._jl_SuShuBuMen = value;
+					this.SendPropertyChanged("jl_SuShuBuMen");
+					this.Onjl_SuShuBuMenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_RuZhiShouXuBanLi", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=29)]
+		public System.Nullable<bool> jl_RuZhiShouXuBanLi
+		{
+			get
+			{
+				return this._jl_RuZhiShouXuBanLi;
+			}
+			set
+			{
+				if ((this._jl_RuZhiShouXuBanLi != value))
+				{
+					this.Onjl_RuZhiShouXuBanLiChanging(value);
+					this.SendPropertyChanging();
+					this._jl_RuZhiShouXuBanLi = value;
+					this.SendPropertyChanged("jl_RuZhiShouXuBanLi");
+					this.Onjl_RuZhiShouXuBanLiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ShiYongKaiShiShiJian", DbType="Date")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=30)]
+		public System.Nullable<System.DateTime> jl_ShiYongKaiShiShiJian
+		{
+			get
+			{
+				return this._jl_ShiYongKaiShiShiJian;
+			}
+			set
+			{
+				if ((this._jl_ShiYongKaiShiShiJian != value))
+				{
+					this.Onjl_ShiYongKaiShiShiJianChanging(value);
+					this.SendPropertyChanging();
+					this._jl_ShiYongKaiShiShiJian = value;
+					this.SendPropertyChanged("jl_ShiYongKaiShiShiJian");
+					this.Onjl_ShiYongKaiShiShiJianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ShiYongJieShuShiJian", DbType="Date")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=31)]
+		public System.Nullable<System.DateTime> jl_ShiYongJieShuShiJian
+		{
+			get
+			{
+				return this._jl_ShiYongJieShuShiJian;
+			}
+			set
+			{
+				if ((this._jl_ShiYongJieShuShiJian != value))
+				{
+					this.Onjl_ShiYongJieShuShiJianChanging(value);
+					this.SendPropertyChanging();
+					this._jl_ShiYongJieShuShiJian = value;
+					this.SendPropertyChanged("jl_ShiYongJieShuShiJian");
+					this.Onjl_ShiYongJieShuShiJianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ShiFouCanBao", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=32)]
+		public System.Nullable<bool> jl_ShiFouCanBao
+		{
+			get
+			{
+				return this._jl_ShiFouCanBao;
+			}
+			set
+			{
+				if ((this._jl_ShiFouCanBao != value))
+				{
+					this.Onjl_ShiFouCanBaoChanging(value);
+					this.SendPropertyChanging();
+					this._jl_ShiFouCanBao = value;
+					this.SendPropertyChanged("jl_ShiFouCanBao");
+					this.Onjl_ShiFouCanBaoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ShangYeBaoXian", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=33)]
+		public System.Nullable<bool> jl_ShangYeBaoXian
+		{
+			get
+			{
+				return this._jl_ShangYeBaoXian;
+			}
+			set
+			{
+				if ((this._jl_ShangYeBaoXian != value))
+				{
+					this.Onjl_ShangYeBaoXianChanging(value);
+					this.SendPropertyChanging();
+					this._jl_ShangYeBaoXian = value;
+					this.SendPropertyChanged("jl_ShangYeBaoXian");
+					this.Onjl_ShangYeBaoXianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_ShangBaoJieZhiShiJian", DbType="Date")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=34)]
+		public System.Nullable<System.DateTime> jl_ShangBaoJieZhiShiJian
+		{
+			get
+			{
+				return this._jl_ShangBaoJieZhiShiJian;
+			}
+			set
+			{
+				if ((this._jl_ShangBaoJieZhiShiJian != value))
+				{
+					this.Onjl_ShangBaoJieZhiShiJianChanging(value);
+					this.SendPropertyChanging();
+					this._jl_ShangBaoJieZhiShiJian = value;
+					this.SendPropertyChanged("jl_ShangBaoJieZhiShiJian");
+					this.Onjl_ShangBaoJieZhiShiJianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_LaoDongHeTongKaiShiShiJian", DbType="Date")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=35)]
+		public System.Nullable<System.DateTime> jl_LaoDongHeTongKaiShiShiJian
+		{
+			get
+			{
+				return this._jl_LaoDongHeTongKaiShiShiJian;
+			}
+			set
+			{
+				if ((this._jl_LaoDongHeTongKaiShiShiJian != value))
+				{
+					this.Onjl_LaoDongHeTongKaiShiShiJianChanging(value);
+					this.SendPropertyChanging();
+					this._jl_LaoDongHeTongKaiShiShiJian = value;
+					this.SendPropertyChanged("jl_LaoDongHeTongKaiShiShiJian");
+					this.Onjl_LaoDongHeTongKaiShiShiJianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_LaoDongHeTongJieShuShiJian", DbType="Date")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=36)]
+		public System.Nullable<System.DateTime> jl_LaoDongHeTongJieShuShiJian
+		{
+			get
+			{
+				return this._jl_LaoDongHeTongJieShuShiJian;
+			}
+			set
+			{
+				if ((this._jl_LaoDongHeTongJieShuShiJian != value))
+				{
+					this.Onjl_LaoDongHeTongJieShuShiJianChanging(value);
+					this.SendPropertyChanging();
+					this._jl_LaoDongHeTongJieShuShiJian = value;
+					this.SendPropertyChanged("jl_LaoDongHeTongJieShuShiJian");
+					this.Onjl_LaoDongHeTongJieShuShiJianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_IsTingXing", DbType="Bit NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=37)]
+		public bool jl_IsTingXing
+		{
+			get
+			{
+				return this._jl_IsTingXing;
+			}
+			set
+			{
+				if ((this._jl_IsTingXing != value))
+				{
+					this.Onjl_IsTingXingChanging(value);
+					this.SendPropertyChanging();
+					this._jl_IsTingXing = value;
+					this.SendPropertyChanged("jl_IsTingXing");
+					this.Onjl_IsTingXingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_FanPingXieYiQianDing", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=38)]
+		public System.Nullable<bool> jl_FanPingXieYiQianDing
+		{
+			get
+			{
+				return this._jl_FanPingXieYiQianDing;
+			}
+			set
+			{
+				if ((this._jl_FanPingXieYiQianDing != value))
+				{
+					this.Onjl_FanPingXieYiQianDingChanging(value);
+					this.SendPropertyChanging();
+					this._jl_FanPingXieYiQianDing = value;
+					this.SendPropertyChanged("jl_FanPingXieYiQianDing");
+					this.Onjl_FanPingXieYiQianDingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_FanPingQianDingShiJian", DbType="Date")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=39)]
+		public System.Nullable<System.DateTime> jl_FanPingQianDingShiJian
+		{
+			get
+			{
+				return this._jl_FanPingQianDingShiJian;
+			}
+			set
+			{
+				if ((this._jl_FanPingQianDingShiJian != value))
+				{
+					this.Onjl_FanPingQianDingShiJianChanging(value);
+					this.SendPropertyChanging();
+					this._jl_FanPingQianDingShiJian = value;
+					this.SendPropertyChanged("jl_FanPingQianDingShiJian");
+					this.Onjl_FanPingQianDingShiJianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_LiuCunZhengJian", DbType="NVarChar(200)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=40)]
+		public string jl_LiuCunZhengJian
+		{
+			get
+			{
+				return this._jl_LiuCunZhengJian;
+			}
+			set
+			{
+				if ((this._jl_LiuCunZhengJian != value))
+				{
+					this.Onjl_LiuCunZhengJianChanging(value);
+					this.SendPropertyChanging();
+					this._jl_LiuCunZhengJian = value;
+					this.SendPropertyChanged("jl_LiuCunZhengJian");
+					this.Onjl_LiuCunZhengJianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_GongZuoZhuangTai", DbType="TinyInt")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=41)]
+		public System.Nullable<byte> jl_GongZuoZhuangTai
+		{
+			get
+			{
+				return this._jl_GongZuoZhuangTai;
+			}
+			set
+			{
+				if ((this._jl_GongZuoZhuangTai != value))
+				{
+					if (this._Tab_RL_GongZuoZhuangTai.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onjl_GongZuoZhuangTaiChanging(value);
+					this.SendPropertyChanging();
+					this._jl_GongZuoZhuangTai = value;
+					this.SendPropertyChanged("jl_GongZuoZhuangTai");
+					this.Onjl_GongZuoZhuangTaiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_Report_MonthSalary_GuiDang", Storage="_Tab_Report_MonthSalary_GuiDang", ThisKey="jl_Id", OtherKey="msgd_UserId")]
+		internal EntitySet<Tab_Report_MonthSalary_GuiDang> Tab_Report_MonthSalary_GuiDang
+		{
+			get
+			{
+				return this._Tab_Report_MonthSalary_GuiDang;
+			}
+			set
+			{
+				this._Tab_Report_MonthSalary_GuiDang.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_DiaoDong", Storage="_Tab_RL_DiaoDong", ThisKey="jl_Id", OtherKey="rl_dd_UserId")]
+		internal EntitySet<Tab_RL_DiaoDong> Tab_RL_DiaoDong
+		{
+			get
+			{
+				return this._Tab_RL_DiaoDong;
+			}
+			set
+			{
+				this._Tab_RL_DiaoDong.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_QingJia", Storage="_Tab_RL_QingJia", ThisKey="jl_Id", OtherKey="qj_UserId")]
+		internal EntitySet<Tab_RL_QingJia> Tab_RL_QingJia
+		{
+			get
+			{
+				return this._Tab_RL_QingJia;
+			}
+			set
+			{
+				this._Tab_RL_QingJia.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_User_JingLi", Storage="_Tab_RL_User_JingLi", ThisKey="jl_Id", OtherKey="rl_jl_UserId")]
+		internal EntitySet<Tab_RL_User_JingLi> Tab_RL_User_JingLi
+		{
+			get
+			{
+				return this._Tab_RL_User_JingLi;
+			}
+			set
+			{
+				this._Tab_RL_User_JingLi.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_XinChou", Storage="_Tab_RL_XinChou", ThisKey="jl_Id", OtherKey="xc_UserId")]
+		internal EntitySet<Tab_RL_XinChou> Tab_RL_XinChou
+		{
+			get
+			{
+				return this._Tab_RL_XinChou;
+			}
+			set
+			{
+				this._Tab_RL_XinChou.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_XinChou_KouKuanJiangLi", Storage="_Tab_RL_XinChou_KouKuanJiangLi", ThisKey="jl_Id", OtherKey="kkjl_UserId")]
+		internal EntitySet<Tab_RL_XinChou_KouKuanJiangLi> Tab_RL_XinChou_KouKuanJiangLi
+		{
+			get
+			{
+				return this._Tab_RL_XinChou_KouKuanJiangLi;
+			}
+			set
+			{
+				this._Tab_RL_XinChou_KouKuanJiangLi.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_XiangMu_XunJian", Storage="_Tab_XiangMu_XunJian", ThisKey="jl_Id", OtherKey="xj_XunJianRen")]
+		internal EntitySet<Tab_XiangMu_XunJian> Tab_XiangMu_XunJian
+		{
+			get
+			{
+				return this._Tab_XiangMu_XunJian;
+			}
+			set
+			{
+				this._Tab_XiangMu_XunJian.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_User_ZhiCheng", Storage="_Tab_User_ZhiCheng", ThisKey="jl_Id", OtherKey="uz_UserId")]
+		internal EntitySet<Tab_User_ZhiCheng> Tab_User_ZhiCheng
+		{
+			get
+			{
+				return this._Tab_User_ZhiCheng;
+			}
+			set
+			{
+				this._Tab_User_ZhiCheng.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_ZhiYeZiGeZhengShu", Storage="_Tab_RL_ZhiYeZiGeZhengShu", ThisKey="jl_Id", OtherKey="zgzs_UserId")]
+		internal EntitySet<Tab_RL_ZhiYeZiGeZhengShu> Tab_RL_ZhiYeZiGeZhengShu
+		{
+			get
+			{
+				return this._Tab_RL_ZhiYeZiGeZhengShu;
+			}
+			set
+			{
+				this._Tab_RL_ZhiYeZiGeZhengShu.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_TabXiangMuQianQi", Storage="_TabXiangMuQianQi", ThisKey="jl_Id", OtherKey="qq_JunGongYiJiao_QianShouRenYuan")]
+		internal EntitySet<TabXiangMuQianQi> TabXiangMuQianQi
+		{
+			get
+			{
+				return this._TabXiangMuQianQi;
+			}
+			set
+			{
+				this._TabXiangMuQianQi.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_TabXiangMuQianQi1", Storage="_TabXiangMuQianQi1", ThisKey="jl_Id", OtherKey="qq_JunGongYiJiao_QianShouRenYuan")]
+		internal EntitySet<TabXiangMuQianQi> TabXiangMuQianQi1
+		{
+			get
+			{
+				return this._TabXiangMuQianQi1;
+			}
+			set
+			{
+				this._TabXiangMuQianQi1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_TabXiangMuQianQi2", Storage="_TabXiangMuQianQi2", ThisKey="jl_Id", OtherKey="qq_JunGongYiJiao_ZongJianQianZi")]
+		internal EntitySet<TabXiangMuQianQi> TabXiangMuQianQi2
+		{
+			get
+			{
+				return this._TabXiangMuQianQi2;
+			}
+			set
+			{
+				this._TabXiangMuQianQi2.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_TabXiangMuQianQi3", Storage="_TabXiangMuQianQi3", ThisKey="jl_Id", OtherKey="qq_XiangMuFuZeRen")]
+		internal EntitySet<TabXiangMuQianQi> TabXiangMuQianQi3
+		{
+			get
+			{
+				return this._TabXiangMuQianQi3;
+			}
+			set
+			{
+				this._TabXiangMuQianQi3.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_PeiXun", Storage="_Tab_RL_PeiXun", ThisKey="jl_Id", OtherKey="rl_px_UserId")]
+		internal EntitySet<Tab_RL_PeiXun> Tab_RL_PeiXun
+		{
+			get
+			{
+				return this._Tab_RL_PeiXun;
+			}
+			set
+			{
+				this._Tab_RL_PeiXun.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_RL_JiangCheng", Storage="_Tab_RL_JiangCheng", ThisKey="jl_Id", OtherKey="rl_jc_UserId")]
+		internal EntitySet<Tab_RL_JiangCheng> Tab_RL_JiangCheng
+		{
+			get
+			{
+				return this._Tab_RL_JiangCheng;
+			}
+			set
+			{
+				this._Tab_RL_JiangCheng.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_DiaoDong", Storage="_Tab_DiaoDong", ThisKey="jl_Id", OtherKey="dd_FuZeRen")]
+		internal EntitySet<Tab_DiaoDong> Tab_DiaoDong
+		{
+			get
+			{
+				return this._Tab_DiaoDong;
+			}
+			set
+			{
+				this._Tab_DiaoDong.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_DiaoDong1", Storage="_Tab_DiaoDong1", ThisKey="jl_Id", OtherKey="dd_UserId")]
+		internal EntitySet<Tab_DiaoDong> Tab_DiaoDong1
+		{
+			get
+			{
+				return this._Tab_DiaoDong1;
+			}
+			set
+			{
+				this._Tab_DiaoDong1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_User_XueLi", Storage="_Tab_User_XueLi", ThisKey="jl_Id", OtherKey="ux_UserId")]
+		internal EntitySet<Tab_User_XueLi> Tab_User_XueLi
+		{
+			get
+			{
+				return this._Tab_User_XueLi;
+			}
+			set
+			{
+				this._Tab_User_XueLi.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_BuMen_Tab_RL_User", Storage="_Tab_BuMen", ThisKey="jl_SuShuBuMen", OtherKey="bm_Id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Tab_BuMen Tab_BuMen
+		{
+			get
+			{
+				return this._Tab_BuMen.Entity;
+			}
+			set
+			{
+				Tab_BuMen previousValue = this._Tab_BuMen.Entity;
+				if (((previousValue != value) 
+							|| (this._Tab_BuMen.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tab_BuMen.Entity = null;
+						previousValue.Tab_RL_User.Remove(this);
+					}
+					this._Tab_BuMen.Entity = value;
+					if ((value != null))
+					{
+						value.Tab_RL_User.Add(this);
+						this._jl_SuShuBuMen = value.bm_Id;
+					}
+					else
+					{
+						this._jl_SuShuBuMen = default(Nullable<byte>);
+					}
+					this.SendPropertyChanged("Tab_BuMen");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_GongZuoZhuangTai_Tab_RL_User", Storage="_Tab_RL_GongZuoZhuangTai", ThisKey="jl_GongZuoZhuangTai", OtherKey="zt_Id", IsForeignKey=true)]
+		public Tab_RL_GongZuoZhuangTai Tab_RL_GongZuoZhuangTai
+		{
+			get
+			{
+				return this._Tab_RL_GongZuoZhuangTai.Entity;
+			}
+			set
+			{
+				Tab_RL_GongZuoZhuangTai previousValue = this._Tab_RL_GongZuoZhuangTai.Entity;
+				if (((previousValue != value) 
+							|| (this._Tab_RL_GongZuoZhuangTai.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tab_RL_GongZuoZhuangTai.Entity = null;
+						previousValue.Tab_RL_User.Remove(this);
+					}
+					this._Tab_RL_GongZuoZhuangTai.Entity = value;
+					if ((value != null))
+					{
+						value.Tab_RL_User.Add(this);
+						this._jl_GongZuoZhuangTai = value.zt_Id;
+					}
+					else
+					{
+						this._jl_GongZuoZhuangTai = default(Nullable<byte>);
+					}
+					this.SendPropertyChanged("Tab_RL_GongZuoZhuangTai");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_RuZhiTuJin_Tab_RL_User", Storage="_Tab_RL_RuZhiTuJin", ThisKey="jl_RuZhiTuJing", OtherKey="rztj_Id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Tab_RL_RuZhiTuJin Tab_RL_RuZhiTuJin
+		{
+			get
+			{
+				return this._Tab_RL_RuZhiTuJin.Entity;
+			}
+			set
+			{
+				Tab_RL_RuZhiTuJin previousValue = this._Tab_RL_RuZhiTuJin.Entity;
+				if (((previousValue != value) 
+							|| (this._Tab_RL_RuZhiTuJin.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tab_RL_RuZhiTuJin.Entity = null;
+						previousValue.Tab_RL_User.Remove(this);
+					}
+					this._Tab_RL_RuZhiTuJin.Entity = value;
+					if ((value != null))
+					{
+						value.Tab_RL_User.Add(this);
+						this._jl_RuZhiTuJing = value.rztj_Id;
+					}
+					else
+					{
+						this._jl_RuZhiTuJing = default(Nullable<byte>);
+					}
+					this.SendPropertyChanged("Tab_RL_RuZhiTuJin");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_CanBaoZhuangKuang_Tab_RL_User", Storage="_Tab_RL_User_CanBaoZhuangKuang", ThisKey="jl_CanBaoZhuangKuang", OtherKey="cbzk_Id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Tab_RL_User_CanBaoZhuangKuang Tab_RL_User_CanBaoZhuangKuang
+		{
+			get
+			{
+				return this._Tab_RL_User_CanBaoZhuangKuang.Entity;
+			}
+			set
+			{
+				Tab_RL_User_CanBaoZhuangKuang previousValue = this._Tab_RL_User_CanBaoZhuangKuang.Entity;
+				if (((previousValue != value) 
+							|| (this._Tab_RL_User_CanBaoZhuangKuang.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tab_RL_User_CanBaoZhuangKuang.Entity = null;
+						previousValue.Tab_RL_User.Remove(this);
+					}
+					this._Tab_RL_User_CanBaoZhuangKuang.Entity = value;
+					if ((value != null))
+					{
+						value.Tab_RL_User.Add(this);
+						this._jl_CanBaoZhuangKuang = value.cbzk_Id;
+					}
+					else
+					{
+						this._jl_CanBaoZhuangKuang = default(Nullable<byte>);
+					}
+					this.SendPropertyChanged("Tab_RL_User_CanBaoZhuangKuang");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_HuJiXingZhi_Tab_RL_User", Storage="_Tab_RL_User_HuJiXingZhi", ThisKey="jl_HuJiXingZhi", OtherKey="hjxz_Id", IsForeignKey=true)]
+		public Tab_RL_User_HuJiXingZhi Tab_RL_User_HuJiXingZhi
+		{
+			get
+			{
+				return this._Tab_RL_User_HuJiXingZhi.Entity;
+			}
+			set
+			{
+				Tab_RL_User_HuJiXingZhi previousValue = this._Tab_RL_User_HuJiXingZhi.Entity;
+				if (((previousValue != value) 
+							|| (this._Tab_RL_User_HuJiXingZhi.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tab_RL_User_HuJiXingZhi.Entity = null;
+						previousValue.Tab_RL_User.Remove(this);
+					}
+					this._Tab_RL_User_HuJiXingZhi.Entity = value;
+					if ((value != null))
+					{
+						value.Tab_RL_User.Add(this);
+						this._jl_HuJiXingZhi = value.hjxz_Id;
+					}
+					else
+					{
+						this._jl_HuJiXingZhi = default(Nullable<byte>);
+					}
+					this.SendPropertyChanged("Tab_RL_User_HuJiXingZhi");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_HunYin_Tab_RL_User", Storage="_Tab_RL_User_HunYin", ThisKey="jl_HunYinZhuangKuang", OtherKey="hy_Id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Tab_RL_User_HunYin Tab_RL_User_HunYin
+		{
+			get
+			{
+				return this._Tab_RL_User_HunYin.Entity;
+			}
+			set
+			{
+				Tab_RL_User_HunYin previousValue = this._Tab_RL_User_HunYin.Entity;
+				if (((previousValue != value) 
+							|| (this._Tab_RL_User_HunYin.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tab_RL_User_HunYin.Entity = null;
+						previousValue.Tab_RL_User.Remove(this);
+					}
+					this._Tab_RL_User_HunYin.Entity = value;
+					if ((value != null))
+					{
+						value.Tab_RL_User.Add(this);
+						this._jl_HunYinZhuangKuang = value.hy_Id;
+					}
+					else
+					{
+						this._jl_HunYinZhuangKuang = default(Nullable<byte>);
+					}
+					this.SendPropertyChanged("Tab_RL_User_HunYin");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_MinZu_Tab_RL_User", Storage="_Tab_RL_User_MinZu", ThisKey="jl_MingZu", OtherKey="mz_Id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Tab_RL_User_MinZu Tab_RL_User_MinZu
+		{
+			get
+			{
+				return this._Tab_RL_User_MinZu.Entity;
+			}
+			set
+			{
+				Tab_RL_User_MinZu previousValue = this._Tab_RL_User_MinZu.Entity;
+				if (((previousValue != value) 
+							|| (this._Tab_RL_User_MinZu.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tab_RL_User_MinZu.Entity = null;
+						previousValue.Tab_RL_User.Remove(this);
+					}
+					this._Tab_RL_User_MinZu.Entity = value;
+					if ((value != null))
+					{
+						value.Tab_RL_User.Add(this);
+						this._jl_MingZu = value.mz_Id;
+					}
+					else
+					{
+						this._jl_MingZu = default(Nullable<byte>);
+					}
+					this.SendPropertyChanged("Tab_RL_User_MinZu");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_ZhengZhiMianMao_Tab_RL_User", Storage="_Tab_RL_User_ZhengZhiMianMao", ThisKey="jl_ZhengZhiMianMao", OtherKey="zzmm_Id", IsForeignKey=true)]
+		public Tab_RL_User_ZhengZhiMianMao Tab_RL_User_ZhengZhiMianMao
+		{
+			get
+			{
+				return this._Tab_RL_User_ZhengZhiMianMao.Entity;
+			}
+			set
+			{
+				Tab_RL_User_ZhengZhiMianMao previousValue = this._Tab_RL_User_ZhengZhiMianMao.Entity;
+				if (((previousValue != value) 
+							|| (this._Tab_RL_User_ZhengZhiMianMao.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tab_RL_User_ZhengZhiMianMao.Entity = null;
+						previousValue.Tab_RL_User.Remove(this);
+					}
+					this._Tab_RL_User_ZhengZhiMianMao.Entity = value;
+					if ((value != null))
+					{
+						value.Tab_RL_User.Add(this);
+						this._jl_ZhengZhiMianMao = value.zzmm_Id;
+					}
+					else
+					{
+						this._jl_ZhengZhiMianMao = default(Nullable<byte>);
+					}
+					this.SendPropertyChanged("Tab_RL_User_ZhengZhiMianMao");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Tab_Report_MonthSalary_GuiDang(Tab_Report_MonthSalary_GuiDang entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = this;
+		}
+		
+		private void detach_Tab_Report_MonthSalary_GuiDang(Tab_Report_MonthSalary_GuiDang entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = null;
+		}
+		
+		private void attach_Tab_RL_DiaoDong(Tab_RL_DiaoDong entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = this;
+		}
+		
+		private void detach_Tab_RL_DiaoDong(Tab_RL_DiaoDong entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = null;
+		}
+		
+		private void attach_Tab_RL_QingJia(Tab_RL_QingJia entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = this;
+		}
+		
+		private void detach_Tab_RL_QingJia(Tab_RL_QingJia entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = null;
+		}
+		
+		private void attach_Tab_RL_User_JingLi(Tab_RL_User_JingLi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = this;
+		}
+		
+		private void detach_Tab_RL_User_JingLi(Tab_RL_User_JingLi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = null;
+		}
+		
+		private void attach_Tab_RL_XinChou(Tab_RL_XinChou entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = this;
+		}
+		
+		private void detach_Tab_RL_XinChou(Tab_RL_XinChou entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = null;
+		}
+		
+		private void attach_Tab_RL_XinChou_KouKuanJiangLi(Tab_RL_XinChou_KouKuanJiangLi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = this;
+		}
+		
+		private void detach_Tab_RL_XinChou_KouKuanJiangLi(Tab_RL_XinChou_KouKuanJiangLi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = null;
+		}
+		
+		private void attach_Tab_XiangMu_XunJian(Tab_XiangMu_XunJian entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = this;
+		}
+		
+		private void detach_Tab_XiangMu_XunJian(Tab_XiangMu_XunJian entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = null;
+		}
+		
+		private void attach_Tab_User_ZhiCheng(Tab_User_ZhiCheng entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = this;
+		}
+		
+		private void detach_Tab_User_ZhiCheng(Tab_User_ZhiCheng entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = null;
+		}
+		
+		private void attach_Tab_RL_ZhiYeZiGeZhengShu(Tab_RL_ZhiYeZiGeZhengShu entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = this;
+		}
+		
+		private void detach_Tab_RL_ZhiYeZiGeZhengShu(Tab_RL_ZhiYeZiGeZhengShu entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = null;
+		}
+		
+		private void attach_TabXiangMuQianQi(TabXiangMuQianQi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = this;
+		}
+		
+		private void detach_TabXiangMuQianQi(TabXiangMuQianQi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = null;
+		}
+		
+		private void attach_TabXiangMuQianQi1(TabXiangMuQianQi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User1 = this;
+		}
+		
+		private void detach_TabXiangMuQianQi1(TabXiangMuQianQi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User1 = null;
+		}
+		
+		private void attach_TabXiangMuQianQi2(TabXiangMuQianQi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User2 = this;
+		}
+		
+		private void detach_TabXiangMuQianQi2(TabXiangMuQianQi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User2 = null;
+		}
+		
+		private void attach_TabXiangMuQianQi3(TabXiangMuQianQi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User3 = this;
+		}
+		
+		private void detach_TabXiangMuQianQi3(TabXiangMuQianQi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User3 = null;
+		}
+		
+		private void attach_Tab_RL_PeiXun(Tab_RL_PeiXun entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = this;
+		}
+		
+		private void detach_Tab_RL_PeiXun(Tab_RL_PeiXun entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = null;
+		}
+		
+		private void attach_Tab_RL_JiangCheng(Tab_RL_JiangCheng entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = this;
+		}
+		
+		private void detach_Tab_RL_JiangCheng(Tab_RL_JiangCheng entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = null;
+		}
+		
+		private void attach_Tab_DiaoDong(Tab_DiaoDong entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = this;
+		}
+		
+		private void detach_Tab_DiaoDong(Tab_DiaoDong entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = null;
+		}
+		
+		private void attach_Tab_DiaoDong1(Tab_DiaoDong entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User1 = this;
+		}
+		
+		private void detach_Tab_DiaoDong1(Tab_DiaoDong entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User1 = null;
+		}
+		
+		private void attach_Tab_User_XueLi(Tab_User_XueLi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = this;
+		}
+		
+		private void detach_Tab_User_XueLi(Tab_User_XueLi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_User = null;
+		}
+		
+		private void Initialize()
+		{
+			this._Tab_Report_MonthSalary_GuiDang = new EntitySet<Tab_Report_MonthSalary_GuiDang>(new Action<Tab_Report_MonthSalary_GuiDang>(this.attach_Tab_Report_MonthSalary_GuiDang), new Action<Tab_Report_MonthSalary_GuiDang>(this.detach_Tab_Report_MonthSalary_GuiDang));
+			this._Tab_RL_DiaoDong = new EntitySet<Tab_RL_DiaoDong>(new Action<Tab_RL_DiaoDong>(this.attach_Tab_RL_DiaoDong), new Action<Tab_RL_DiaoDong>(this.detach_Tab_RL_DiaoDong));
+			this._Tab_RL_QingJia = new EntitySet<Tab_RL_QingJia>(new Action<Tab_RL_QingJia>(this.attach_Tab_RL_QingJia), new Action<Tab_RL_QingJia>(this.detach_Tab_RL_QingJia));
+			this._Tab_RL_User_JingLi = new EntitySet<Tab_RL_User_JingLi>(new Action<Tab_RL_User_JingLi>(this.attach_Tab_RL_User_JingLi), new Action<Tab_RL_User_JingLi>(this.detach_Tab_RL_User_JingLi));
+			this._Tab_RL_XinChou = new EntitySet<Tab_RL_XinChou>(new Action<Tab_RL_XinChou>(this.attach_Tab_RL_XinChou), new Action<Tab_RL_XinChou>(this.detach_Tab_RL_XinChou));
+			this._Tab_RL_XinChou_KouKuanJiangLi = new EntitySet<Tab_RL_XinChou_KouKuanJiangLi>(new Action<Tab_RL_XinChou_KouKuanJiangLi>(this.attach_Tab_RL_XinChou_KouKuanJiangLi), new Action<Tab_RL_XinChou_KouKuanJiangLi>(this.detach_Tab_RL_XinChou_KouKuanJiangLi));
+			this._Tab_XiangMu_XunJian = new EntitySet<Tab_XiangMu_XunJian>(new Action<Tab_XiangMu_XunJian>(this.attach_Tab_XiangMu_XunJian), new Action<Tab_XiangMu_XunJian>(this.detach_Tab_XiangMu_XunJian));
+			this._Tab_User_ZhiCheng = new EntitySet<Tab_User_ZhiCheng>(new Action<Tab_User_ZhiCheng>(this.attach_Tab_User_ZhiCheng), new Action<Tab_User_ZhiCheng>(this.detach_Tab_User_ZhiCheng));
+			this._Tab_RL_ZhiYeZiGeZhengShu = new EntitySet<Tab_RL_ZhiYeZiGeZhengShu>(new Action<Tab_RL_ZhiYeZiGeZhengShu>(this.attach_Tab_RL_ZhiYeZiGeZhengShu), new Action<Tab_RL_ZhiYeZiGeZhengShu>(this.detach_Tab_RL_ZhiYeZiGeZhengShu));
+			this._TabXiangMuQianQi = new EntitySet<TabXiangMuQianQi>(new Action<TabXiangMuQianQi>(this.attach_TabXiangMuQianQi), new Action<TabXiangMuQianQi>(this.detach_TabXiangMuQianQi));
+			this._TabXiangMuQianQi1 = new EntitySet<TabXiangMuQianQi>(new Action<TabXiangMuQianQi>(this.attach_TabXiangMuQianQi1), new Action<TabXiangMuQianQi>(this.detach_TabXiangMuQianQi1));
+			this._TabXiangMuQianQi2 = new EntitySet<TabXiangMuQianQi>(new Action<TabXiangMuQianQi>(this.attach_TabXiangMuQianQi2), new Action<TabXiangMuQianQi>(this.detach_TabXiangMuQianQi2));
+			this._TabXiangMuQianQi3 = new EntitySet<TabXiangMuQianQi>(new Action<TabXiangMuQianQi>(this.attach_TabXiangMuQianQi3), new Action<TabXiangMuQianQi>(this.detach_TabXiangMuQianQi3));
+			this._Tab_RL_PeiXun = new EntitySet<Tab_RL_PeiXun>(new Action<Tab_RL_PeiXun>(this.attach_Tab_RL_PeiXun), new Action<Tab_RL_PeiXun>(this.detach_Tab_RL_PeiXun));
+			this._Tab_RL_JiangCheng = new EntitySet<Tab_RL_JiangCheng>(new Action<Tab_RL_JiangCheng>(this.attach_Tab_RL_JiangCheng), new Action<Tab_RL_JiangCheng>(this.detach_Tab_RL_JiangCheng));
+			this._Tab_DiaoDong = new EntitySet<Tab_DiaoDong>(new Action<Tab_DiaoDong>(this.attach_Tab_DiaoDong), new Action<Tab_DiaoDong>(this.detach_Tab_DiaoDong));
+			this._Tab_DiaoDong1 = new EntitySet<Tab_DiaoDong>(new Action<Tab_DiaoDong>(this.attach_Tab_DiaoDong1), new Action<Tab_DiaoDong>(this.detach_Tab_DiaoDong1));
+			this._Tab_User_XueLi = new EntitySet<Tab_User_XueLi>(new Action<Tab_User_XueLi>(this.attach_Tab_User_XueLi), new Action<Tab_User_XueLi>(this.detach_Tab_User_XueLi));
+			this._Tab_BuMen = default(EntityRef<Tab_BuMen>);
+			this._Tab_RL_GongZuoZhuangTai = default(EntityRef<Tab_RL_GongZuoZhuangTai>);
+			this._Tab_RL_RuZhiTuJin = default(EntityRef<Tab_RL_RuZhiTuJin>);
+			this._Tab_RL_User_CanBaoZhuangKuang = default(EntityRef<Tab_RL_User_CanBaoZhuangKuang>);
+			this._Tab_RL_User_HuJiXingZhi = default(EntityRef<Tab_RL_User_HuJiXingZhi>);
+			this._Tab_RL_User_HunYin = default(EntityRef<Tab_RL_User_HunYin>);
+			this._Tab_RL_User_MinZu = default(EntityRef<Tab_RL_User_MinZu>);
+			this._Tab_RL_User_ZhengZhiMianMao = default(EntityRef<Tab_RL_User_ZhengZhiMianMao>);
+			OnCreated();
+		}
+		
+		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnDeserializing(StreamingContext context)
+		{
+			this.Initialize();
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tab_RL_XueLi")]
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class Tab_RL_XueLi : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private byte _xl_Id;
+		
+		private string _xl_Name;
+		
+		private System.Nullable<byte> _xl_CengCi;
+		
+		private EntitySet<Tab_User_XueLi> _Tab_User_XueLi;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onxl_IdChanging(byte value);
+    partial void Onxl_IdChanged();
+    partial void Onxl_NameChanging(string value);
+    partial void Onxl_NameChanged();
+    partial void Onxl_CengCiChanging(System.Nullable<byte> value);
+    partial void Onxl_CengCiChanged();
+    #endregion
+		
+		public Tab_RL_XueLi()
+		{
+			this.Initialize();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_xl_Id", AutoSync=AutoSync.OnInsert, DbType="TinyInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public byte xl_Id
+		{
+			get
+			{
+				return this._xl_Id;
+			}
+			set
+			{
+				if ((this._xl_Id != value))
+				{
+					this.Onxl_IdChanging(value);
+					this.SendPropertyChanging();
+					this._xl_Id = value;
+					this.SendPropertyChanged("xl_Id");
+					this.Onxl_IdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_xl_Name", DbType="NVarChar(10)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string xl_Name
+		{
+			get
+			{
+				return this._xl_Name;
+			}
+			set
+			{
+				if ((this._xl_Name != value))
+				{
+					this.Onxl_NameChanging(value);
+					this.SendPropertyChanging();
+					this._xl_Name = value;
+					this.SendPropertyChanged("xl_Name");
+					this.Onxl_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_xl_CengCi", DbType="TinyInt")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.Nullable<byte> xl_CengCi
+		{
+			get
+			{
+				return this._xl_CengCi;
+			}
+			set
+			{
+				if ((this._xl_CengCi != value))
+				{
+					this.Onxl_CengCiChanging(value);
+					this.SendPropertyChanging();
+					this._xl_CengCi = value;
+					this.SendPropertyChanged("xl_CengCi");
+					this.Onxl_CengCiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_XueLi_Tab_User_XueLi", Storage="_Tab_User_XueLi", ThisKey="xl_Id", OtherKey="ux_XueLiId")]
+		internal EntitySet<Tab_User_XueLi> Tab_User_XueLi
+		{
+			get
+			{
+				return this._Tab_User_XueLi;
+			}
+			set
+			{
+				this._Tab_User_XueLi.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Tab_User_XueLi(Tab_User_XueLi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_XueLi = this;
+		}
+		
+		private void detach_Tab_User_XueLi(Tab_User_XueLi entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_RL_XueLi = null;
+		}
+		
+		private void Initialize()
+		{
+			this._Tab_User_XueLi = new EntitySet<Tab_User_XueLi>(new Action<Tab_User_XueLi>(this.attach_Tab_User_XueLi), new Action<Tab_User_XueLi>(this.detach_Tab_User_XueLi));
+			OnCreated();
+		}
+		
+		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnDeserializing(StreamingContext context)
+		{
+			this.Initialize();
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tab_User_XueLi")]
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class Tab_User_XueLi : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ux_Id;
+		
+		private System.Nullable<int> _ux_UserId;
+		
+		private System.Nullable<byte> _ux_XueLiId;
+		
+		private string _ux_ZhuanYe;
+		
+		private System.Nullable<System.DateTime> _ux_BiYiRiQi;
+		
+		private string _ux_BiYeYuanXiao;
+		
+		private string _ux_SaoMiao;
+		
+		private string _ux_XueLiBianHao;
+		
+		private string _ux_RuXiaoShiJian;
+		
+		private string _ux_BeiZhu;
+		
+		private EntitySet<Tab_Uploads> _Tab_Uploads;
+		
+		private EntityRef<Tab_RL_User> _Tab_RL_User;
+		
+		private EntityRef<Tab_RL_XueLi> _Tab_RL_XueLi;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onux_IdChanging(int value);
+    partial void Onux_IdChanged();
+    partial void Onux_UserIdChanging(System.Nullable<int> value);
+    partial void Onux_UserIdChanged();
+    partial void Onux_XueLiIdChanging(System.Nullable<byte> value);
+    partial void Onux_XueLiIdChanged();
+    partial void Onux_ZhuanYeChanging(string value);
+    partial void Onux_ZhuanYeChanged();
+    partial void Onux_BiYiRiQiChanging(System.Nullable<System.DateTime> value);
+    partial void Onux_BiYiRiQiChanged();
+    partial void Onux_BiYeYuanXiaoChanging(string value);
+    partial void Onux_BiYeYuanXiaoChanged();
+    partial void Onux_SaoMiaoChanging(string value);
+    partial void Onux_SaoMiaoChanged();
+    partial void Onux_XueLiBianHaoChanging(string value);
+    partial void Onux_XueLiBianHaoChanged();
+    partial void Onux_RuXiaoShiJianChanging(string value);
+    partial void Onux_RuXiaoShiJianChanged();
+    partial void Onux_BeiZhuChanging(string value);
+    partial void Onux_BeiZhuChanged();
+    #endregion
+		
+		public Tab_User_XueLi()
+		{
+			this.Initialize();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int ux_Id
+		{
+			get
+			{
+				return this._ux_Id;
+			}
+			set
+			{
+				if ((this._ux_Id != value))
+				{
+					this.Onux_IdChanging(value);
+					this.SendPropertyChanging();
+					this._ux_Id = value;
+					this.SendPropertyChanged("ux_Id");
+					this.Onux_IdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_UserId", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public System.Nullable<int> ux_UserId
+		{
+			get
+			{
+				return this._ux_UserId;
+			}
+			set
+			{
+				if ((this._ux_UserId != value))
+				{
+					if (this._Tab_RL_User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onux_UserIdChanging(value);
+					this.SendPropertyChanging();
+					this._ux_UserId = value;
+					this.SendPropertyChanged("ux_UserId");
+					this.Onux_UserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_XueLiId", DbType="TinyInt")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.Nullable<byte> ux_XueLiId
+		{
+			get
+			{
+				return this._ux_XueLiId;
+			}
+			set
+			{
+				if ((this._ux_XueLiId != value))
+				{
+					if (this._Tab_RL_XueLi.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onux_XueLiIdChanging(value);
+					this.SendPropertyChanging();
+					this._ux_XueLiId = value;
+					this.SendPropertyChanged("ux_XueLiId");
+					this.Onux_XueLiIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_ZhuanYe", DbType="NVarChar(30)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public string ux_ZhuanYe
+		{
+			get
+			{
+				return this._ux_ZhuanYe;
+			}
+			set
+			{
+				if ((this._ux_ZhuanYe != value))
+				{
+					this.Onux_ZhuanYeChanging(value);
+					this.SendPropertyChanging();
+					this._ux_ZhuanYe = value;
+					this.SendPropertyChanged("ux_ZhuanYe");
+					this.Onux_ZhuanYeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_BiYiRiQi", DbType="Date")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public System.Nullable<System.DateTime> ux_BiYiRiQi
+		{
+			get
+			{
+				return this._ux_BiYiRiQi;
+			}
+			set
+			{
+				if ((this._ux_BiYiRiQi != value))
+				{
+					this.Onux_BiYiRiQiChanging(value);
+					this.SendPropertyChanging();
+					this._ux_BiYiRiQi = value;
+					this.SendPropertyChanged("ux_BiYiRiQi");
+					this.Onux_BiYiRiQiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_BiYeYuanXiao", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public string ux_BiYeYuanXiao
+		{
+			get
+			{
+				return this._ux_BiYeYuanXiao;
+			}
+			set
+			{
+				if ((this._ux_BiYeYuanXiao != value))
+				{
+					this.Onux_BiYeYuanXiaoChanging(value);
+					this.SendPropertyChanging();
+					this._ux_BiYeYuanXiao = value;
+					this.SendPropertyChanged("ux_BiYeYuanXiao");
+					this.Onux_BiYeYuanXiaoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_SaoMiao", DbType="NVarChar(100)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		public string ux_SaoMiao
+		{
+			get
+			{
+				return this._ux_SaoMiao;
+			}
+			set
+			{
+				if ((this._ux_SaoMiao != value))
+				{
+					this.Onux_SaoMiaoChanging(value);
+					this.SendPropertyChanging();
+					this._ux_SaoMiao = value;
+					this.SendPropertyChanged("ux_SaoMiao");
+					this.Onux_SaoMiaoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_XueLiBianHao", DbType="NVarChar(100)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		public string ux_XueLiBianHao
+		{
+			get
+			{
+				return this._ux_XueLiBianHao;
+			}
+			set
+			{
+				if ((this._ux_XueLiBianHao != value))
+				{
+					this.Onux_XueLiBianHaoChanging(value);
+					this.SendPropertyChanging();
+					this._ux_XueLiBianHao = value;
+					this.SendPropertyChanged("ux_XueLiBianHao");
+					this.Onux_XueLiBianHaoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_RuXiaoShiJian", DbType="NVarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public string ux_RuXiaoShiJian
+		{
+			get
+			{
+				return this._ux_RuXiaoShiJian;
+			}
+			set
+			{
+				if ((this._ux_RuXiaoShiJian != value))
+				{
+					this.Onux_RuXiaoShiJianChanging(value);
+					this.SendPropertyChanging();
+					this._ux_RuXiaoShiJian = value;
+					this.SendPropertyChanged("ux_RuXiaoShiJian");
+					this.Onux_RuXiaoShiJianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ux_BeiZhu", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		public string ux_BeiZhu
+		{
+			get
+			{
+				return this._ux_BeiZhu;
+			}
+			set
+			{
+				if ((this._ux_BeiZhu != value))
+				{
+					this.Onux_BeiZhuChanging(value);
+					this.SendPropertyChanging();
+					this._ux_BeiZhu = value;
+					this.SendPropertyChanged("ux_BeiZhu");
+					this.Onux_BeiZhuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_User_XueLi_Tab_Uploads", Storage="_Tab_Uploads", ThisKey="ux_Id", OtherKey="up_XueLiId")]
+		internal EntitySet<Tab_Uploads> Tab_Uploads
+		{
+			get
+			{
+				return this._Tab_Uploads;
+			}
+			set
+			{
+				this._Tab_Uploads.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_User_Tab_User_XueLi", Storage="_Tab_RL_User", ThisKey="ux_UserId", OtherKey="jl_Id", IsForeignKey=true)]
+		public Tab_RL_User Tab_RL_User
+		{
+			get
+			{
+				return this._Tab_RL_User.Entity;
+			}
+			set
+			{
+				Tab_RL_User previousValue = this._Tab_RL_User.Entity;
+				if (((previousValue != value) 
+							|| (this._Tab_RL_User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tab_RL_User.Entity = null;
+						previousValue.Tab_User_XueLi.Remove(this);
+					}
+					this._Tab_RL_User.Entity = value;
+					if ((value != null))
+					{
+						value.Tab_User_XueLi.Add(this);
+						this._ux_UserId = value.jl_Id;
+					}
+					else
+					{
+						this._ux_UserId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Tab_RL_User");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tab_RL_XueLi_Tab_User_XueLi", Storage="_Tab_RL_XueLi", ThisKey="ux_XueLiId", OtherKey="xl_Id", IsForeignKey=true)]
+		public Tab_RL_XueLi Tab_RL_XueLi
+		{
+			get
+			{
+				return this._Tab_RL_XueLi.Entity;
+			}
+			set
+			{
+				Tab_RL_XueLi previousValue = this._Tab_RL_XueLi.Entity;
+				if (((previousValue != value) 
+							|| (this._Tab_RL_XueLi.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tab_RL_XueLi.Entity = null;
+						previousValue.Tab_User_XueLi.Remove(this);
+					}
+					this._Tab_RL_XueLi.Entity = value;
+					if ((value != null))
+					{
+						value.Tab_User_XueLi.Add(this);
+						this._ux_XueLiId = value.xl_Id;
+					}
+					else
+					{
+						this._ux_XueLiId = default(Nullable<byte>);
+					}
+					this.SendPropertyChanged("Tab_RL_XueLi");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Tab_Uploads(Tab_Uploads entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_User_XueLi = this;
+		}
+		
+		private void detach_Tab_Uploads(Tab_Uploads entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tab_User_XueLi = null;
+		}
+		
+		private void Initialize()
+		{
+			this._Tab_Uploads = new EntitySet<Tab_Uploads>(new Action<Tab_Uploads>(this.attach_Tab_Uploads), new Action<Tab_Uploads>(this.detach_Tab_Uploads));
+			this._Tab_RL_User = default(EntityRef<Tab_RL_User>);
+			this._Tab_RL_XueLi = default(EntityRef<Tab_RL_XueLi>);
+			OnCreated();
+		}
+		
+		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnDeserializing(StreamingContext context)
+		{
+			this.Initialize();
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.View_User")]
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class View_User
+	{
+		
+		private int _jl_Id;
+		
+		private string _jl_Name;
+		
+		private System.Nullable<System.DateTime> _jl_LaoDongHeTongJieShuShiJian;
+		
+		private bool _jl_IsTingXing;
+		
+		public View_User()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_Id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int jl_Id
+		{
+			get
+			{
+				return this._jl_Id;
+			}
+			set
+			{
+				if ((this._jl_Id != value))
+				{
+					this._jl_Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_Name", DbType="NVarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string jl_Name
+		{
+			get
+			{
+				return this._jl_Name;
+			}
+			set
+			{
+				if ((this._jl_Name != value))
+				{
+					this._jl_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_LaoDongHeTongJieShuShiJian", DbType="Date")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.Nullable<System.DateTime> jl_LaoDongHeTongJieShuShiJian
+		{
+			get
+			{
+				return this._jl_LaoDongHeTongJieShuShiJian;
+			}
+			set
+			{
+				if ((this._jl_LaoDongHeTongJieShuShiJian != value))
+				{
+					this._jl_LaoDongHeTongJieShuShiJian = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jl_IsTingXing", DbType="Bit NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public bool jl_IsTingXing
+		{
+			get
+			{
+				return this._jl_IsTingXing;
+			}
+			set
+			{
+				if ((this._jl_IsTingXing != value))
+				{
+					this._jl_IsTingXing = value;
+				}
+			}
 		}
 	}
 }

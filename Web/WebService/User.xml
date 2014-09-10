@@ -4,6 +4,7 @@
   <id>xm</id>
   <pw>xiangqi</pw>
   <features>
+    <feature>01</feature>
     <feature>11</feature>
     <feature>12</feature>
   </features>
@@ -12,6 +13,7 @@
     <id>rl</id>
     <pw>renkou</pw>
     <features>
+      <feature>01</feature>
       <feature>21</feature>
     </features>
   </user>
@@ -19,6 +21,7 @@
     <id>ht</id>
     <pw>hezuo</pw>
     <features>
+      <feature>01</feature>
       <feature>31</feature>
     </features>
   </user>
@@ -26,6 +29,7 @@
     <id>cb</id>
     <pw>chenggong</pw>
     <features>
+      <feature>01</feature>
       <feature>41</feature>
     </features>
   </user>
@@ -33,6 +37,7 @@
     <id>bb</id>
     <pw>baogao</pw>
     <features>
+      <feature>01</feature>
       <feature>51</feature>
     </features>
   </user>
@@ -40,6 +45,7 @@
     <id>th</id>
     <pw>tongzhi</pw>
     <features>
+      <feature>01</feature>
       <feature>61</feature>
       <feature>62</feature>
     </features>
@@ -48,6 +54,7 @@
     <id>admin</id>
     <pw>guanli</pw>
     <features>
+      <feature>01</feature>
       <feature>11</feature>
       <feature>12</feature>
       <feature>21</feature>
@@ -58,7 +65,10 @@
       <feature>51</feature>
     </features>
   </user>
-
+  <feature >
+    <id>01</id>
+    <page name="我的提醒" pName="提醒"  class="l_XM">../Freams/Desktop.aspx</page>
+  </feature>
   <feature name="项目_非项目组">
     <id>11</id>
     <page name="项目管理" pName="项目管理"  class="l_XM">../XM/Base_XiangMu.aspx</page>

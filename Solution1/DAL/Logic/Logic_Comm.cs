@@ -193,8 +193,9 @@ namespace DAL.Logic
             xiaoJi_YingKou += obj.xc_YK_ShiYe;
             xiaoJi_YingKou += obj.xc_YK_YangLao;
             xiaoJi_YingKou += obj.xc_YK_YiLiao;
-            //return Logic.Logic_Comm.getSuoDeShui(xiaoJi_YingFa - xiaoJi_YingKou);//这是国家规定（和下面是二选一）
-            return Logic.Logic_Comm.getSuoDeShui(xiaoJi_YingFa);//这里是明清的特殊需求
+
+            //return Logic.Logic_Comm.getSuoDeShui(xiaoJi_YingFa - xiaoJi_YingKou );//这是国家规定（和下面是二选一）
+            return Logic.Logic_Comm.getSuoDeShui(xiaoJi_YingFa - xiaoJi_YingKou - obj.xc_YK_FengXianJin);//明清特殊要求
         }
     }
 }

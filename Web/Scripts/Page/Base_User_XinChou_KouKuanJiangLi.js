@@ -154,7 +154,7 @@
     function createJson() {
         var jsonArray = [];
 
-        jsonArray.push({ itemId: "kkjl_Type", type: "select", title: "扣款或奖金", required: true, init: [{ id: '1', title: "扣款" }, { id: '2', title: "奖金"}] });
+        jsonArray.push({ itemId: "kkjl_Type", type: "select", title: "扣款或奖金", required: true, init: [{ id: '1', title: "扣款（不算入个税，如：罚款） " }, { id: '3', title: "扣款（先减再计算个税，如：社保调差） " }, { id: '2', title: "奖金（不算入个税）" }, { id: '4', title: "奖金（先加再计算个税，如：年终奖）"}] });
         jsonArray.push({ itemId: "kkjl_Year", type: "select", title: "年", required: true, init: getJsonYear() });
         jsonArray.push({ itemId: "kkjl_Month", type: "select", title: "月", required: true, init: getJsonMonth() });
         jsonArray.push({ itemId: "kkjl_JinE", type: "text", title: "金额（元）", required: true, validate: "money" });

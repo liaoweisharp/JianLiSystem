@@ -86,5 +86,7 @@ namespace DAL
         {
             return this.dataContext.TabShouKuanJiHua.ToList();
         }
+
+       
     }
 }

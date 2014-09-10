@@ -5,3 +5,10 @@ E:\项目\监理\Solution1\BLL\bin\Debug\DAL.pdb
 E:\项目\监理\Solution1\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 E:\项目\监理\Solution1\BLL\obj\Debug\BLL.dll
 E:\项目\监理\Solution1\BLL\obj\Debug\BLL.pdb
+E:\JianLiSystem\JianLiSystem\Solution1\BLL\bin\Debug\BLL.dll
+E:\JianLiSystem\JianLiSystem\Solution1\BLL\bin\Debug\BLL.pdb
+E:\JianLiSystem\JianLiSystem\Solution1\BLL\bin\Debug\DAL.dll
+E:\JianLiSystem\JianLiSystem\Solution1\BLL\bin\Debug\DAL.pdb
+E:\JianLiSystem\JianLiSystem\Solution1\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\JianLiSystem\JianLiSystem\Solution1\BLL\obj\Debug\BLL.dll
+E:\JianLiSystem\JianLiSystem\Solution1\BLL\obj\Debug\BLL.pdb

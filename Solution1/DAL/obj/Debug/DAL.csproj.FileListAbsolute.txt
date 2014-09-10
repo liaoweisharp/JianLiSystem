@@ -4,3 +4,8 @@ E:\项目\监理\Solution1\DAL\bin\Debug\DAL.pdb
 E:\项目\监理\Solution1\DAL\obj\Debug\DAL.dll
 E:\项目\监理\Solution1\DAL\obj\Debug\DAL.pdb
 E:\项目\监理\Solution1\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\JianLiSystem\JianLiSystem\Solution1\DAL\bin\Debug\DAL.dll.config
+E:\JianLiSystem\JianLiSystem\Solution1\DAL\bin\Debug\DAL.dll
+E:\JianLiSystem\JianLiSystem\Solution1\DAL\bin\Debug\DAL.pdb
+E:\JianLiSystem\JianLiSystem\Solution1\DAL\obj\Debug\DAL.dll
+E:\JianLiSystem\JianLiSystem\Solution1\DAL\obj\Debug\DAL.pdb

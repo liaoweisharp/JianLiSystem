@@ -83,6 +83,8 @@
     <Compile Include="Base\Base_XinChou_QingJia.cs" />
     <Compile Include="Base\ViewBase_HeTong_FaPiaoJiShouKuan_JiSuan.cs" />
     <Compile Include="Base\ViewBase_HeTong_FaPiaoJiShouKuan.cs" />
+    <Compile Include="Base\ViewBase_ShouKuanJiHua.cs" />
+    <Compile Include="Base\ViewBase_User.cs" />
     <Compile Include="Base\ViewBase_XiangMuForMonth.cs" />
     <Compile Include="Base\ViewBase_XiangMu_BuMen.cs" />
     <Compile Include="Base\ViewBase_XiangMu_JieSuanNeiRong.cs" />

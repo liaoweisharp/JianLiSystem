@@ -176,7 +176,7 @@
             var bindObj = h.find("[name='" + bind.Obj + "']").data("data");
             var jsonArray = bindObj.ShouJiData();
             var newHeTong = bind.jsonToObject(jsonArray);
-            
+
             newHeTong["jh_htId"] = bindObj.obj.jh_htId;
             newHeTong["jh_Id"] = bindObj.obj.jh_Id;
             $invokeWebService_2("~WebService_HeTong.updateShouKuanJiHua", { shouKuanJiHua: newHeTong }, function () {
@@ -204,6 +204,7 @@
         var jsonArray = [];
         jsonArray.push({ itemId: "jh_htId_bg", required: true, type: "select", title: "合同或合同变更" }); ///
         jsonArray.push({ itemId: "jh_ShouKuanRiQi", type: "text", validate: "datetime", title: "计划收款日期" });
+        jsonArray.push({ itemId: "jh_IsTiXing", required: true, parentId: "jh_ShouKuanRiQi", yesOrNo: true, type: "select", title: "到期提醒", init: [{ id: "1", title: "到期提醒", style: { color: "Green"} }, { id: "0", title: "不提醒", style: { color: "#FFA500"}}] });
         jsonArray.push({ itemId: "jh_ShouKuanJinE", type: "text", validate: "money", title: "计划收款金额（万元）" });
         jsonArray.push({ itemId: "jh_IsFaHan", type: "select", title: "发函", init: [{ id: "1", title: "已发函", style: { color: "Green"} }, { id: "2", title: "未发函", style: { color: "#FFA500"}}] });
         //jsonArray.push({ itemId: "jh_DengJiRen", type: "text", title: "登记人" });
@@ -249,7 +250,7 @@
             str.push("<td class='tdOpation'>操作</td>");
             str.push("</tr>");
             //表内容
-            
+
             for (var j = 0; j < datas.length; j++) {
                 str.push("<tr class='row'>");
                 for (var i = 0; i < jsonArray.length; i++) {

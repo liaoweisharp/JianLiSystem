@@ -193,11 +193,11 @@ namespace DAL.Logic
             salary.msgd_yf_BuTie += _salary.msgd_yf_BuTie;//应发补贴
             salary.msgd_yf_BuTie += baoXianObj.xc_YF_GuaZhengFei;//应发补贴(挂证费单独计算)
             salary.msgd_yf_JiBenGongZi = _salary.msgd_yf_JiBenGongZi;//应发基本工资
-            var temp= kouKuanJiangLiArr.Where(p => p.kkjl_Year == year && p.kkjl_Month == month && p.kkjl_Type == 2);
-            if (temp.Count() > 0)
-            {
-                salary.msgd_yf_JiBenGongZi +=temp.Sum(p => p.kkjl_JinE);//月奖励
-            }
+            var tempJiang_1= kouKuanJiangLiArr.Where(p => p.kkjl_Year == year && p.kkjl_Month == month && p.kkjl_Type == 2);
+            var tempJiang_2 = kouKuanJiangLiArr.Where(p => p.kkjl_Year == year && p.kkjl_Month == month && p.kkjl_Type == 4);
+
+            salary.msgd_yf_JiBenGongZi += tempJiang_1.Sum(p => p.kkjl_JinE) + tempJiang_2.Sum(p => p.kkjl_JinE);//月奖励
+            
 
             salary.msgd_yf_JiBenGongZi = decimal.Round(salary.msgd_yf_JiBenGongZi);//四舍五入
             salary.msgd_yf_BuTie = decimal.Round(salary.msgd_yf_BuTie);//四舍五入
@@ -220,24 +220,25 @@ namespace DAL.Logic
             DAL.DTO.Tab_RL_XinChou xinChouRencent= xinChouArr.OrderByDescending(p => p.xc_TiaoZhengShijian)
                 .Where(p => p.xc_TiaoZhengShijian < nextMonthFirstDay)
                 .FirstOrDefault();///最近的薪酬
-            if (xinChouRencent != null) {
+            if (xinChouRencent != null && salary.msgd_yf_XiaoJi>0)//还要没有工资发放的时候没有其他1（如停发工资）
+            {
                 salary.msgd_yk_QiTa1 += xinChouRencent.xc_YK_FengXianJin;
                 salary.msgd_yk_QiTa1 = decimal.Floor(salary.msgd_yk_QiTa1);//取整数
             }                      
             
-            temp = kouKuanJiangLiArr.Where(p => p.kkjl_Year == year && p.kkjl_Month == month && p.kkjl_Type == 1);
-            if (temp.Count() > 0)
-            {
+            var tempKou_1 = kouKuanJiangLiArr.Where(p => p.kkjl_Year == year && p.kkjl_Month == month && p.kkjl_Type == 1);
+            var tempKou_2 = kouKuanJiangLiArr.Where(p => p.kkjl_Year == year && p.kkjl_Month == month && p.kkjl_Type == 3);
+            
                 //其他2
-                salary.msgd_yk_QiTa2 += temp.Sum(p=>p.kkjl_JinE);
+                salary.msgd_yk_QiTa2 += (tempKou_1.Sum(p => p.kkjl_JinE) + tempKou_2.Sum(p => p.kkjl_JinE));
                 salary.msgd_yk_QiTa2 = decimal.Floor(salary.msgd_yk_QiTa2);//取整数
-            }
+            
             //在扣保险后算个税（国家规定）
             //decimal yingFa = salary.msgd_yf_XiaoJi - (salary.msgd_yk_SheBao + salary.msgd_yk_QiTa1 + salary.msgd_yk_QiTa2);
-            //应发工资开始算个税（2014-09-04后改，明清需求）
-            decimal yingFa = salary.msgd_yf_XiaoJi;
+            //（2014-09-04后改，明清需求）
+                decimal geShuiBase = (salary.msgd_yf_XiaoJi - tempJiang_1.Sum(p=>p.kkjl_JinE)) - (salary.msgd_yk_SheBao + tempKou_2.Sum(p => p.kkjl_JinE));
             //所得税
-            salary.msgd_yk_GeShui= Logic_Comm.getSuoDeShui(yingFa);
+            salary.msgd_yk_GeShui = Logic_Comm.getSuoDeShui(geShuiBase);
             //应扣小计
             salary.msgd_yk_XiaoJi += salary.msgd_yk_SheBao;
             salary.msgd_yk_XiaoJi += salary.msgd_yk_QiTa1;

@@ -1,0 +1,69 @@
+﻿.tx
+{
+    width:600px;
+    border: 2px solid #ccccff;
+    }
+.tx .content
+{
+    overflow:auto;
+    height:450px;
+    }
+.tx .header
+{
+    background-image: url("../Images/bgtx.jpg");
+    height: 24px;
+    line-height: 24px;
+    }
+ .divRow
+ {
+     border-bottom: 1px dashed gray;
+     white-space:nowrap; 
+     line-height:25px;
+     padding:1px 2px;
+     }
+.tx .header ul
+{
+   
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+    list-style:none;
+    margin:0px;
+    padding:0px;
+    }
+.tx .header ul li
+{
+    float:left;
+    }
+.tx .header .li1
+{
+       color: window;
+    font-weight: bold;
+    text-indent:2.2em;
+    width: 40%;
+    }
+.tx .header .li2
+{
+    width:56%;
+    text-align:right;
+    }
+.w600
+{
+    width:640px;
+    }
+.w480
+{
+    width:430px;
+    }
+#divHT .li1
+{
+    background-image:url(../Images/user.png);
+    background-position:6px center;
+    background-repeat:no-repeat;
+    }
+#divSK .li1
+{
+    background-image:url(../Images/lightbulb.png);
+    background-position:6px center;
+    background-repeat:no-repeat;
+    }

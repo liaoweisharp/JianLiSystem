@@ -1,4 +1,4 @@
-﻿<%@ page title="月薪及成本" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="Report_Base_MonthSalary, App_Web_kgwmq2py" %>
+﻿<%@ page title="月薪及成本" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="Report_Base_MonthSalary, App_Web_t1zvudpd" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script src="../Scripts/Page/Report/MonthSalary.js" type="text/javascript"></script>
