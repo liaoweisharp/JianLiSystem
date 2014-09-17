@@ -9,12 +9,14 @@
     <script src="../Scripts/Page/Base_XiangMu_ShiJian.js" type="text/javascript"></script>
     <script src="../Scripts/Page/Base_XiangMu_XunJian.js" type="text/javascript"></script>
     <script src="../Scripts/Page/Base_XiangMu_MingXi.js" type="text/javascript"></script>
+    <script src="../Scripts/Page/Base_XiangMu_HouQi_ShiYeBu.js" type="text/javascript"></script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
  <div style="width: 95%; margin: 0px auto;">
         <div class="ZX_BG_header ZX_h2">
             <ul class="ulnone">
-                <li class="ZX_title2">工程项目</li><li style="float: right;" class="bg_A"></li>
+                <li class="ZX_title2">项目部</li><li style="float: right;" class="bg_A"></li>
              <li style="height: 28px; float:right;margin-right:30px; width: 175px; background-repeat: no-repeat; background-image: url(&quot;../Images/Search1.png&quot;);">
              <input id="txtSerXiangMu" type="text" class="search searchW" watermark="工程关键字或合同号" />
              <img alt='搜索' style=" cursor:pointer;float:right" src="../Images/Search2.png" onclick="XMHQ.Search_XiangMu()"/></li>        
@@ -22,12 +24,7 @@
             <br />
         </div>
         <div class='cc'>
-            <%--<div>
-    <ul class="ulnone fr" >
-        <li class="mr20 bg_A"><a href="javascript:void(0);" onclick="XMHQ.clickAdd()">添加</a></li>
-    </ul>
-    <br />
-</div>--%>
+        
             <div class="divAll">
                 <div id="divContent_HQ">
                 </div>
@@ -35,7 +32,23 @@
                 </div>
             </div>
         </div>
-  
+  <div class="ZX_BG_header ZX_h2">
+            <ul class="ulnone">
+                <li class="ZX_title2">事业部</li><li style="float: right;" class="bg_A"></li>
+             <li style="height: 28px; float:right;margin-right:30px; width: 175px; background-repeat: no-repeat; background-image: url(&quot;../Images/Search1.png&quot;);">
+             <input id="Text1" type="text" class="search searchW" watermark="工程关键字或合同号" />
+             <img alt='搜索' style=" cursor:pointer;float:right" src="../Images/Search2.png" onclick="XMHQ_SYB.Search_XiangMu()"/></li>        
+            </ul>
+            <br />
+        </div>
+        <div class='cc'>
+            <div class="divAll">
+                <div id="divContent_HQ_ShiYeBu">
+                </div>
+                <div id="divPageSize_HQ_ShiYeBu" class="divPageSize">
+                </div>
+            </div>
+        </div>
     </div>
     <div style="clear:both;display:none;">
   <table class="tb_List QQ" id="tb_MX" width="100%" cellpadding="5" style="text-align:center;">

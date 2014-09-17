@@ -287,6 +287,14 @@ namespace DAL.CommClass
             set;
         }
         /// <summary>
+        /// 执行类型ID
+        /// </summary>
+        public byte? zhiXingLeiXingId
+        {
+            get;
+            set;
+        }
+        /// <summary>
         /// 项目负责人
         /// </summary>
         public string xiangMuFuZeRen

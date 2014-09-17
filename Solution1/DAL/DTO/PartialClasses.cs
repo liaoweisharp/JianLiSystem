@@ -20,4 +20,28 @@ namespace DAL.DTO
             return obj.ToString().GetHashCode();
         }
     }
+    public partial class Tab_XiangMuZu : IEqualityComparer<DTO.Tab_XiangMuZu> {
+
+        public bool Equals(Tab_XiangMuZu x, Tab_XiangMuZu y)
+        {
+            return x.xmz_Id.Equals(y.xmz_Id);
+        }
+
+        public int GetHashCode(Tab_XiangMuZu obj)
+        {
+            return obj.ToString().GetHashCode();
+        }
+    }
+    public partial class View_XiangMu_Tree : IEqualityComparer<DTO.View_XiangMu_Tree> {
+
+        public bool Equals(View_XiangMu_Tree x, View_XiangMu_Tree y)
+        {
+            return x.qq_Id.Equals(y.qq_Id);
+        }
+
+        public int GetHashCode(View_XiangMu_Tree obj)
+        {
+            return obj.ToString().GetHashCode();
+        }
+    }
 }

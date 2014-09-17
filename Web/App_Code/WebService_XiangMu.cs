@@ -137,10 +137,15 @@ public class WebService_XiangMu : System.Web.Services.WebService {
     {
         return DAL.Logic.Logic_XiangMu.updateMingXiInfo(projectId, mingXiArray, yiJiaoQingKuang);
     }
-    [WebMethod(EnableSession = true)]
-    public ArrayList getXiangMuZuInfo()
+    [WebMethod(EnableSession = true,Description="事业部")]
+    public ArrayList getXiangMuZuInfo_ShiYeBu()
     {
-        return DAL.Logic.Logic_XiangMu.getXiangMuZuInfo();
+        return DAL.Logic.Logic_XiangMu.getXiangMuZuInfo(3);
+    }
+    [WebMethod(EnableSession = true, Description = "项目部")]
+    public ArrayList getXiangMuZuInfo_XiangMuBu()
+    {
+        return DAL.Logic.Logic_XiangMu.getXiangMuZuInfo(2);
     }
     [WebMethod(EnableSession = true)]
     public bool updateXiangMuZu(DAL.DTO.Tab_XiangMuZu obj)

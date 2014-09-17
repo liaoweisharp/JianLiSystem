@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using DAL.DTO;
 using System.Data.Linq;
+using System.Collections;
+using DAL.CommClass;
 
 namespace DAL
 {
@@ -101,26 +103,93 @@ namespace DAL
         {
             queryConfig(tabs);
            
-          
+            List<Tab_XiangMuZu> returnValue = new List<Tab_XiangMuZu>();
+
+            if (pageClass.filter != null)
+            {
+                if (pageClass.filter.key == "type")
+                {
+                    switch (pageClass.filter.value) {
+                        case "zhiGuan": //直管
+                            returnValue = (from p in this.dataContext.Tab_XiangMuZu
+                                           join c in this.dataContext.TabXiangMuQianQi on p.xmz_Id equals c.qq_XiangMuZhuId
+                                           join e in this.dataContext.TabXiangMuQianQi on c.qq_Id equals e.qq_ParentId
+                                           where e.qq_ZhiXingLeiXing == 2
+                                           select p)
+                                     .Distinct()
+                                     .ToList();
+                                   
+                            break;
+                        case "shiYeBu"://事业部
+                            returnValue = (from p in this.dataContext.Tab_XiangMuZu
+                                           join c in this.dataContext.TabXiangMuQianQi on p.xmz_Id equals c.qq_XiangMuZhuId
+                                           join e in this.dataContext.TabXiangMuQianQi on c.qq_Id equals e.qq_ParentId
+                                           where e.qq_ZhiXingLeiXing == 3
+                                           select p)
+                                    .Distinct()
+                                    .ToList();
+                            break;
+                    }
+                }
+            }
+            else {
+                returnValue = this.dataContext.Tab_XiangMuZu.ToList();
+            }
+            
             if (where != null)
             {
-                return this.dataContext.Tab_XiangMuZu.Where(p => p.xmz_Name.Contains(where)).OrderBy(ins => ins.xmz_Name).Skip((pageClass.currentPageNumber) * pageClass.pageSize).Take(pageClass.pageSize).ToList();
+                returnValue= returnValue.Where(p => p.xmz_Name.Contains(where)).OrderBy(ins => ins.xmz_Name).Skip((pageClass.currentPageNumber) * pageClass.pageSize).Take(pageClass.pageSize).ToList();
             }
             else
             {
-                return this.dataContext.Tab_XiangMuZu.OrderBy(ins =>ins.xmz_Name).Skip((pageClass.currentPageNumber) * pageClass.pageSize).Take(pageClass.pageSize).ToList();
+                returnValue= returnValue.OrderBy(ins => ins.xmz_Name).Skip((pageClass.currentPageNumber) * pageClass.pageSize).Take(pageClass.pageSize).ToList();
             }
+            return returnValue.ToList();
         }
 
-        public int countXiangMuZu(string where)
+        public int countXiangMuZu(CommClass.PageClass pageClass,string where)
         {
-            if (where != null)
+            List<Tab_XiangMuZu> returnValue = new List<Tab_XiangMuZu>();
+
+            if (pageClass.filter != null)
             {
-                return this.dataContext.Tab_XiangMuZu.Where(p => p.xmz_Name.Contains(where)).Count();
+                if (pageClass.filter.key == "type")
+                {
+                    switch (pageClass.filter.value)
+                    {
+                        case "zhiGuan": //直管
+                            returnValue = (from p in this.dataContext.Tab_XiangMuZu
+                                           join c in this.dataContext.TabXiangMuQianQi on p.xmz_Id equals c.qq_XiangMuZhuId
+                                           join e in this.dataContext.TabXiangMuQianQi on c.qq_Id equals e.qq_ParentId
+                                           where e.qq_ZhiXingLeiXing == 2
+                                           select p)
+                                     .Distinct()
+                                     .ToList();
+
+                            break;
+                        case "shiYeBu"://事业部
+                            returnValue = (from p in this.dataContext.Tab_XiangMuZu
+                                           join c in this.dataContext.TabXiangMuQianQi on p.xmz_Id equals c.qq_XiangMuZhuId
+                                           join e in this.dataContext.TabXiangMuQianQi on c.qq_Id equals e.qq_ParentId
+                                           where e.qq_ZhiXingLeiXing == 3
+                                           select p)
+                                    .Distinct()
+                                    .ToList();
+                            break;
+                    }
+                }
             }
             else
             {
-                return this.dataContext.Tab_XiangMuZu.Count();
+                returnValue = this.dataContext.Tab_XiangMuZu.ToList();
+            }
+            if (where != null)
+            {
+                return returnValue.Where(p => p.xmz_Name.Contains(where)).Count();
+            }
+            else
+            {
+                return returnValue.Count();
             }
         }
         /// <summary>
@@ -133,6 +202,58 @@ namespace DAL
         {
             string sql = String.Format("update TabXiangMuQianQi set qq_GongChengMingCheng='{1}' where qq_Id={0}",id,newName);
             return base.ExecuteCommand(sql)==1?true:false;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type">2：直管，3：事业部</param>
+        /// <returns></returns>
+        public ArrayList getXiangMuZu_TreeInfo(int type) {
+            List<keyValueClass> xiangMuZuList = (from p in this.dataContext.Tab_XiangMuZu
+                                      join c in this.dataContext.TabXiangMuQianQi on p.xmz_Id equals c.qq_XiangMuZhuId
+                                      join q in this.dataContext.TabXiangMuQianQi on c.qq_Id equals q.qq_ParentId
+                                      where c.qq_LeiXing.HasValue && c.qq_LeiXing == 2 && (q.qq_LeiXing.HasValue == false || q.qq_LeiXing == 1)
+                                      && q.qq_ZhiXingLeiXing == type //直管或事业部
+                                      select new keyValueClass()
+                                      {
+                                          key = p.xmz_Id,
+                                          value = p.xmz_Name
+                                      }).ToList();
+            List<View_XiangMu_Tree> jianLiJiGouList = (from p in this.dataContext.Tab_XiangMuZu
+                                                 join c in this.dataContext.TabXiangMuQianQi on p.xmz_Id equals c.qq_XiangMuZhuId
+                                                 join q in this.dataContext.TabXiangMuQianQi on c.qq_Id equals q.qq_ParentId
+                                                 where c.qq_LeiXing.HasValue && c.qq_LeiXing == 2 && (q.qq_LeiXing.HasValue == false || q.qq_LeiXing == 1)
+                                                 && q.qq_ZhiXingLeiXing == type//直管或事业部
+                                                 select new View_XiangMu_Tree()
+                                                 {
+                                                     qq_GongChengMingCheng=c.qq_GongChengMingCheng,
+                                                     qq_LeiXing=c.qq_LeiXing,
+                                                     qq_ParentId=c.qq_ParentId,
+                                                      qq_Id=c.qq_Id,
+                                                       qq_XiangMuZhuId=c.qq_XiangMuZhuId
+                                                 }).ToList();
+            List<View_XiangMu_Tree> gongChengList = (from p in this.dataContext.Tab_XiangMuZu
+                                                       join c in this.dataContext.TabXiangMuQianQi on p.xmz_Id equals c.qq_XiangMuZhuId
+                                                       join q in this.dataContext.TabXiangMuQianQi on c.qq_Id equals q.qq_ParentId
+                                                       where c.qq_LeiXing.HasValue && c.qq_LeiXing == 2 && (q.qq_LeiXing.HasValue == false || q.qq_LeiXing == 1)
+                                                       && q.qq_ZhiXingLeiXing == type //直管
+                                                       select new View_XiangMu_Tree()
+                                                       {
+                                                           qq_GongChengMingCheng = q.qq_GongChengMingCheng,
+                                                           qq_LeiXing = q.qq_LeiXing,
+                                                           qq_ParentId = q.qq_ParentId,
+                                                           qq_Id = q.qq_Id,
+                                                           qq_XiangMuZhuId = q.qq_XiangMuZhuId
+                                                       }).ToList();
+            ArrayList returnValue = new ArrayList();
+            xiangMuZuList = xiangMuZuList.OrderBy(p => p.value).Distinct(new keyValueClass()).ToList();
+            jianLiJiGouList=jianLiJiGouList.OrderBy(p => p.qq_GongChengMingCheng).Distinct(new View_XiangMu_Tree()).ToList();
+            gongChengList = gongChengList.OrderBy(p => p.qq_GongChengMingCheng).Distinct(new View_XiangMu_Tree()).ToList();
+            returnValue.Add(xiangMuZuList);
+            returnValue.Add(jianLiJiGouList);
+            returnValue.Add(new List<DTO.View_XiangMu_Tree>());//这里始终传空数组（后加）
+            returnValue.Add(gongChengList);
+            return returnValue;
         }
     }
 }

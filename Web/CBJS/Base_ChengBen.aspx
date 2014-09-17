@@ -16,6 +16,24 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div style="width: 95%; margin: 0px auto;">
+
+     <div class="ZX_BG_header ZX_h2" >
+            <ul class="ulnone">
+                <li class="ZX_title2">项目部（直管）</li>
+              <%--<li style="height: 28px; float:right;margin-right:30px; width: 175px; background-repeat: no-repeat; background-image: url(&quot;../Images/Search1.png&quot;);">
+             <input id="txtSerXiangMu_ZhiGuan" type="text" class="search searchW" watermark="工程关键字或合同号" />
+             <img alt='搜索' style=" cursor:pointer;float:right" src="../Images/Search2.png" onclick="Search_XiangMu_ZhiGuan()"/></li>        --%>
+            </ul>
+            <br />
+        </div>
+        <div class='cc'>
+            <div class="divAll">
+                <div id="divContent_ZhiGuan_Zu">
+                </div>
+                <div id="divPageSize_ZhiGuan_Zu" class="divPageSize">
+                </div>
+            </div>
+        </div>
         <div class="ZX_BG_header ZX_h2">
             <ul class="ulnone">
                 <li class="ZX_title2">事业部</li>
@@ -34,23 +52,7 @@
             </div>
         </div>
  
-          <div class="ZX_BG_header ZX_h2" >
-            <ul class="ulnone">
-                <li class="ZX_title2">直管(项目组)</li>
-              <%--<li style="height: 28px; float:right;margin-right:30px; width: 175px; background-repeat: no-repeat; background-image: url(&quot;../Images/Search1.png&quot;);">
-             <input id="txtSerXiangMu_ZhiGuan" type="text" class="search searchW" watermark="工程关键字或合同号" />
-             <img alt='搜索' style=" cursor:pointer;float:right" src="../Images/Search2.png" onclick="Search_XiangMu_ZhiGuan()"/></li>        --%>
-            </ul>
-            <br />
-        </div>
-        <div class='cc'>
-            <div class="divAll">
-                <div id="divContent_ZhiGuan_Zu">
-                </div>
-                <div id="divPageSize_ZhiGuan_Zu" class="divPageSize">
-                </div>
-            </div>
-        </div>
+         
     </div>
 </asp:Content>
 

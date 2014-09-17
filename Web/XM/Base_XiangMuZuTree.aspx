@@ -9,12 +9,27 @@
     <script src="../Scripts/Page/Base_XiangMuZuTree.js" type="text/javascript"></script>
     	<style type="text/css">
 .ztree li span.button.add {margin-left:2px; margin-right: -1px; background-position:-144px 0; vertical-align:top; *vertical-align:middle}
+  .w50p
+  {
+      width:50%;
+      }
+    .title
+    {
+        color: #4182ec;
+    font-size: 18px;
+    font-weight: bold;
+        }
 	</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="content_wrap">
-	    <div class="zTreeDemoBackground left">
+	    <div class="zTreeDemoBackground fl w50p">
+        <div class="title">项目部</div>
 		    <ul id="treeDemo" class="ztree"></ul>
+	    </div>
+          <div class="zTreeDemoBackground fl w50p">
+        <div  class="title">事业部</div>
+		    <ul id="treeDemo_ShiYeBu" class="ztree"></ul>
 	    </div>
     </div>
 </asp:Content>

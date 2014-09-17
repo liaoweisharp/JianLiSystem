@@ -1,4 +1,4 @@
-﻿<%@ page title="成本及结算" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="CBJS_Base_ChengBen, App_Web_cmivaeyh" %>
+﻿<%@ page title="成本及结算" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="CBJS_Base_ChengBen, App_Web_hrt2f0eu" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script src="../Scripts/Page/Base_CBJS.js" type="text/javascript"></script>

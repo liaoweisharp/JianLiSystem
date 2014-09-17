@@ -8,6 +8,7 @@
         //$invokeWebService_2("~WebService_XiangMuJieSuan.getInitData", {}, null, successCallBack, errorCallBack, null, { userContent: "getInitData" });
     }
     ZGZU.pd = {};
+    ZGZU.pd.filter={key:"type",value:"zhiGuan"}
     ZGZU.where = null;
     //var requireColumn = ["qq_GongChengMingCheng", "qq_XiangMuLaiYuan", "qq_ZhiXingLeiXing", "qq_HeTongHao", "qq_ShiJian"];
     function ZGZU(divPage, divContent) {
@@ -20,7 +21,7 @@
         ZGZU.divContent = divContent;
     }
     ZGZU.callList = function () {
-        $invokeWebService_2("~WebService_XiangMuJieSuan.countZhiGuan_Zu", { pageClass: null, where: ZGZU.where }, function () {
+        $invokeWebService_2("~WebService_XiangMuJieSuan.countZhiGuan_Zu", { pageClass: ZGZU.pd, where: ZGZU.where }, function () {
             $("#" + ZGZU.divContent).html(loading);
         }, successCallBack, errorCallBack, null, { userContent: "countZhiGuan_Zu" });
     }

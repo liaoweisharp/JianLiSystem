@@ -4,10 +4,11 @@
     // $.fn.zTree.init($("#treeDemo"), setting, zNodes);
 })
 function init() {
-    $invokeWebService_2("~WebService_XiangMu.getXiangMuZuInfo", {}, null, successCallBack, errorCallBack, null, { userContent: "getXiangMuZuInfo" });
+    $invokeWebService_2("~WebService_XiangMu.getXiangMuZuInfo_XiangMuBu", {}, null, successCallBack, errorCallBack, null, { userContent: "getXiangMuZuInfo_XiangMuBu" });
+    $invokeWebService_2("~WebService_XiangMu.getXiangMuZuInfo_ShiYeBu", {}, null, successCallBack, errorCallBack, null, { userContent: "getXiangMuZuInfo_ShiYeBu" });
 }
 function successCallBack(result, context) {
-    if (context.userContent == "getXiangMuZuInfo") {
+    if (context.userContent == "getXiangMuZuInfo_XiangMuBu" || context.userContent == "getXiangMuZuInfo_ShiYeBu") {
         var xiangMuZu = result[0]; //项目部
         var jianLiJiGou = result[1]; //项目监理机构
         var projectOfXiangMuBu = result[2]; //项目部下的工程
@@ -26,7 +27,12 @@ function successCallBack(result, context) {
         for (var i = 0; i < projectOfJianLiJiGou.length; i++) {
             zNodes.push({ "id": projectOfJianLiJiGou[i].qq_Id, "pId": projectOfJianLiJiGou[i].qq_ParentId, "name": projectOfJianLiJiGou[i].qq_GongChengMingCheng });
         }
-        $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+        if (context.userContent == "getXiangMuZuInfo_XiangMuBu") {
+            $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+        }
+        else if (context.userContent == "getXiangMuZuInfo_ShiYeBu") {
+            $.fn.zTree.init($("#treeDemo_ShiYeBu"), setting, zNodes);
+        }
     }
     else if (context.userContent == "updateXiangMuZu" || context.userContent == "reNameProject") {
 

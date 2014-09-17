@@ -29,7 +29,7 @@ namespace BLL
         public static int countZhiGuan_Zu(DAL.CommClass.PageClass pageClass, string where)
         {
             DAL.Base_XiangMuZu b1 = new DAL.Base_XiangMuZu();
-            return b1.countXiangMuZu(where);
+            return b1.countXiangMuZu(pageClass,where);
         }
         public static List<DAL.CommClass.XiangMuQianQiWrapper> filterAllXiangMuQianQi(DAL.CommClass.PageClass pageClass, string where, params string[] tabs)
         {

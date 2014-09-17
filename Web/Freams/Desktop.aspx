@@ -25,7 +25,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <div>
         <div id="divSK" class="tx fl w600"></div>
-        <div id="divHT" class="tx fl w480" style="margin-left:30px;"></div>
+        <div id="divHT" class="tx fl w480" style="margin-left:15px;"></div>
         
     </div>
 </asp:Content>

@@ -37,6 +37,9 @@ namespace DAL.Logic
         /// <returns></returns>
         public static List<DAL.CommClass.XiangMuHouQiWrapper2> filterAllXiangMuHouQi2(CommClass.PageClass pageClass, string where)
         {
+            //pageClass.filter.key = "type";
+            //pageClass.filter.value = "shiYeBu";
+
             List<DAL.CommClass.XiangMuHouQiWrapper2> returnValue = new List<CommClass.XiangMuHouQiWrapper2>();
             DAL.Base_XiangMuZu _ins = new Base_XiangMuZu();
             List<DAL.DTO.Tab_XiangMuZu> xiangMuZuList = _ins.filterAllXiangMuZu(pageClass, where, new String[] { "TabXiangMuQianQi" });
@@ -75,6 +78,7 @@ namespace DAL.Logic
                     returnValue.Add(wrapper);
                 }
             }
+        
             return returnValue;
         }
         private static List<DAL.CommClass.XiangMuHouQiWrapper> _fun(List<DTO.TabXiangMuQianQi> list)
@@ -90,6 +94,8 @@ namespace DAL.Logic
                 ins.shiGongGonqQi = obj.qq_ShiGongGongQi == null ? "" : obj.qq_ShiGongGongQi;
                 ins.yuJiJunGongShiJian = obj.qq_YuJiJunGongShiJian.HasValue ? obj.qq_YuJiJunGongShiJian.Value.ToShortDateString() : "";
                 ins.zhiXingLeiXing = obj.Tab_HT_ZhiXingBuMen != null ? obj.Tab_HT_ZhiXingBuMen.bm_Name : "";
+                ins.zhiXingLeiXing = obj.Tab_HT_ZhiXingBuMen != null ? obj.Tab_HT_ZhiXingBuMen.bm_Name : "";
+                ins.zhiXingLeiXingId = obj.qq_ZhiXingLeiXing;
                 string name = "";
                 if (obj.Tab_DiaoDong.Count > 0)
                 {
@@ -426,7 +432,7 @@ namespace DAL.Logic
         public static int countHouQi2(PageClass pageClass, string where)
         {
             DAL.Base_XiangMuZu b1 = new Base_XiangMuZu();
-            return b1.countXiangMuZu(where);
+            return b1.countXiangMuZu(pageClass,where);
         }
 
         public static bool updateMingXiInfo(int projectId, List<DTO.Tab_XiangMu_YiJiaoMingXi> mingXiArray, DTO.View_XiangMu_YiJiao yiJiaoQingKuang)
@@ -440,7 +446,7 @@ namespace DAL.Logic
             return true;
         }
         /// <summary>
-        /// 得到项目组、监理机构、项目四层结构（用于显示树形结构）
+        /// 得到项目组、监理机构、项目四层结构（用于显示树形结构）(全部的，包括事业部和项目部)
         /// </summary>
         /// <returns></returns>
         public static ArrayList getXiangMuZuInfo()
@@ -457,6 +463,14 @@ namespace DAL.Logic
             b2 = new ViewBase_XiangMu_Tree();
             returnValue.Add(b2.getProjectOfJianLiJiGou());
             return returnValue;
+        }
+        /// <summary>
+        /// 得到项目组、监理机构、项目四层结构（用于显示树形结构）
+        /// </summary>
+        /// <returns></returns>
+        public static ArrayList getXiangMuZuInfo(int zhiXingLeiXingId)
+        {
+            return new DAL.Base_XiangMuZu().getXiangMuZu_TreeInfo(zhiXingLeiXingId);
         }
     }
 }

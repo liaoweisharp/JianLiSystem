@@ -1,4 +1,4 @@
-﻿<%@ page title="月薪及成本" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="Report_Base_XiangMuForMonth, App_Web_t1zvudpd" %>
+﻿<%@ page title="月薪及成本" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="Report_Base_XiangMuForMonth, App_Web_hk2gp5tm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script src="../Scripts/Page/Report/XiangMuForMonth.js" type="text/javascript"></script>

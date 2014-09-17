@@ -1,4 +1,4 @@
-﻿<%@ page title="项目管理" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="XM_Base_XiangMu, App_Web_fesklvsj" %>
+﻿<%@ page title="项目管理" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="XM_Base_XiangMu, App_Web_udybnsdb" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <link href="../Style/Base_XiangMu_HouQi.css" rel="stylesheet" type="text/css" />
