@@ -1,4 +1,4 @@
-﻿<%@ page title="证书查询" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="ImportExcel_ImportExcel, App_Web_qbt4umah" %>
+﻿<%@ page title="证书查询" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="ImportExcel_ImportExcel, App_Web_ye2cvmm3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script src="../Scripts/Page/Excel/ImportExcel.js" type="text/javascript"></script>

@@ -161,8 +161,8 @@ namespace DAL.Logic
             {
                 //有本月的"结算"记录
                 DTO.Tab_RL_XinChou_JieSuan jieSuan = obj_JieSuan.Tab_RL_XinChou_JieSuan;
-                int days = CommFun.DiffDay(jieSuan.xcjs_JieSuan_StartDate, jieSuan.xcjs_JieSuan_EndDate);
-                days += 1;//要加一天才合理
+                //int days = CommFun.DiffDay(jieSuan.xcjs_JieSuan_StartDate, jieSuan.xcjs_JieSuan_EndDate);
+                //days += 1;//要加一天才合理
                 _salary.msgd_yf_JiBenGongZi += obj_JieSuan.xc_YF_JiBenGongZi;
                 _salary.msgd_yf_JiBenGongZi += obj_JieSuan.xc_YF_GangWeiGongZi;
                 _salary.msgd_yf_BuTie += obj_JieSuan.xc_YF_JiaoTong;
@@ -170,9 +170,13 @@ namespace DAL.Logic
                 _salary.msgd_yf_BuTie += obj_JieSuan.xc_YF_TongXun;
                 _salary.msgd_yf_BuTie += obj_JieSuan.xc_YF_ZhuWai;
                 baoXianObj = obj_JieSuan;
-                int div = 30;//这个数有待商量
-                _salary.msgd_yf_JiBenGongZi = (_salary.msgd_yf_JiBenGongZi / div) * days;
-                _salary.msgd_yf_BuTie = (_salary.msgd_yf_BuTie / div) * days;
+                //int div = 30;//这个数有待商量
+                decimal percent = _jieSuanPercent(jieSuan.xcjs_JieSuan_StartDate, jieSuan.xcjs_JieSuan_EndDate);
+
+                //_salary.msgd_yf_JiBenGongZi = (_salary.msgd_yf_JiBenGongZi / div) * days;
+                //_salary.msgd_yf_BuTie = (_salary.msgd_yf_BuTie / div) * days;
+                _salary.msgd_yf_JiBenGongZi = _salary.msgd_yf_JiBenGongZi * percent;
+                _salary.msgd_yf_BuTie = _salary.msgd_yf_BuTie * percent;
                 _salary.msgd_Type = 1;
                 _salary.msgd_JieSuanStartDate = obj_JieSuan.Tab_RL_XinChou_JieSuan.xcjs_JieSuan_StartDate;
                 _salary.msgd_JieSuanEndDate = obj_JieSuan.Tab_RL_XinChou_JieSuan.xcjs_JieSuan_EndDate;
@@ -267,6 +271,69 @@ namespace DAL.Logic
             //    salary.msgd_GongSiChengDan -= temp.Sum(p => p.kkjl_JinE);
             //}
             return salary;
+        }
+        /// <summary>
+        /// 得到结算时间段的工资计算比例
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <param name="dateTime_2"></param>
+        /// <returns></returns>
+        private static decimal _jieSuanPercent(DateTime jieSuan_StartDate, DateTime jieSuan_EndDate)
+        {
+            decimal returnValue=0;
+            char splitChar=',';//分隔符
+            //得到["2014,5","2014,6"，"2014,7"]跨的月份集合.例如：参数为（2014-05-01,2014-07-15）
+            List<String> monthsArray = new List<string>();
+            int yearMonth=0;
+            DateTime _jieSuan_StartDate=jieSuan_StartDate;
+            int yearMonth_End=int.Parse(String.Format("{0}{1:00}",jieSuan_EndDate.Year,jieSuan_EndDate.Month));
+            do
+            {
+                int year = _jieSuan_StartDate.Year;
+                int month = _jieSuan_StartDate.Month;
+                monthsArray.Add(String.Format("{0}{2}{1}", year.ToString(), month.ToString(),splitChar));//加入数组
+                _jieSuan_StartDate = _jieSuan_StartDate.AddMonths(1);//加一个月
+                int year_new = _jieSuan_StartDate.Year;
+                int month_new = _jieSuan_StartDate.Month;
+                yearMonth = int.Parse(String.Format("{0}{1:00}", year_new, month_new));
+            } while (yearMonth_End >= yearMonth);
+            //开始计算
+            if (monthsArray.Count == 1)
+            {
+                //开始、结束时间都在一个月里的情况
+                string str= monthsArray[0];
+                string[] temp= str.Split(splitChar);
+                int year = int.Parse(temp[0]);//还原年份
+                int month = int.Parse(temp[1]);//还原月份
+                int days = CommFun.DiffDay(jieSuan_StartDate, jieSuan_EndDate);
+                days += 1;//加一天才合理
+                int daysOfMonth= DateTime.DaysInMonth(year, month);
+                returnValue = (decimal)(days * 1.0 / daysOfMonth);
+            }
+            else {
+                //开始、结束时间跨越至少两个月的情况
+
+                //第一个月（2014-5） 31.0/31=1
+                string str = monthsArray.First();
+                string[] temp = str.Split(splitChar);
+                int year = int.Parse(temp[0]);//还原年份
+                int month = int.Parse(temp[1]);//还原月份
+                int daysOfMonth = DateTime.DaysInMonth(year, month);
+                int days = CommFun.DiffDay(new DateTime(year, month, daysOfMonth), jieSuan_StartDate);
+                days += 1;//加一天才合理
+                returnValue += (decimal)(days * 1.0 / daysOfMonth);
+                //第最后一个月（2014-7） 15.0/31
+                str = monthsArray.Last();
+                temp = str.Split(splitChar);
+                year = int.Parse(temp[0]);//还原年份
+                month = int.Parse(temp[1]);//还原月份
+                days = jieSuan_EndDate.Day;
+                daysOfMonth = DateTime.DaysInMonth(year, month);
+                returnValue += (decimal)(days * 1.0 / daysOfMonth);
+                //第一和最后一个月中间夹的月份（2014-6），每个月加1
+                returnValue += monthsArray.Count - 2;
+            }
+            return returnValue;
         }
         /// <summary>
         /// 得到基本工资和补贴（考虑到一个月有多个薪酬记录时，按时间段比例分工资的累加）

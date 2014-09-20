@@ -1,4 +1,4 @@
-﻿<%@ page title="合同管理" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="HT_Base_HeTong, App_Web_azuphie0" %>
+﻿<%@ page title="合同管理" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="HT_Base_HeTong, App_Web_pk1kjo2f" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="../Scripts/Page/Base_HeTong.js" type="text/javascript"></script>

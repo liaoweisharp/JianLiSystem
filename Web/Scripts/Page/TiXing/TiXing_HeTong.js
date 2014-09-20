@@ -107,7 +107,7 @@
         for (var i = 0; i < datas.length; i++) {
             var item = datas[i];
             jl_LaoDongHeTongJieShuShiJian = strToDate(item.jl_LaoDongHeTongJieShuShiJian);
-            var diffDay = daysDiff(jl_LaoDongHeTongJieShuShiJian, new Date());
+            var diffDay = daysDiff(jl_LaoDongHeTongJieShuShiJian, new Date())+1;
             var name = "<font style='color:green;'>" + item.jl_Name + "</font>";
             var diffDay = "<font style='color:green;'>" + diffDay + "</font>";
             var riqi = "<font style='color:green;'>" + jl_LaoDongHeTongJieShuShiJian.pattern("yyyy-MM-dd") + "</font>";

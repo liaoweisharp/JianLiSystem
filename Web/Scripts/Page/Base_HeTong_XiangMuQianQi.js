@@ -204,7 +204,7 @@
         if (type == "1") {
             str.push("<select style='width:370px' id='ddl_XiangMuZu' onchange=\"XMQQ.XiangMuZuChange(this)\">");
             str.push("<option value='no'></option>");
-            str.push("<option value='new'>...新建一个项目组</option>");
+            str.push("<option value='new'>...新建一个项目组（项目部/事业部）</option>");
         }
         else if (type == "2") {
             str.push("<select  style='width:370px'  id='ddl_JianLiJiGou'  onchange=\"XMQQ.JianLiZuChange(this)\">");
@@ -223,11 +223,11 @@
         str.push("<div class='cl'>");
         str.push("<table class='tbComm mr20' cellpadding='5' style=' margin:10px auto;'>");
         str.push("<tr>");
-        str.push("<td class='td1' style='width:80px'>所属项目部</td>");
+        str.push("<td class='td1' style='width:180px'>所属项目组（项目部/事业部）</td>");
         str.push(String.format("<td  id='td_XiangMuZu' class='td2' style='width:400px;'>{0}</td>", getHtmlOfDDL(XMQQ.baseData["项目组"], "1")));
         str.push("</tr>");
         str.push("<tr>");
-        str.push("<td class='td1' style='width:90px'>所属监理机构</td>");
+        str.push("<td class='td1' style='width:180px'>所属监理机构</td>");
         str.push("<td class='td2' id='td_JianLiZu' style='width:400px;'></td>");
         str.push("</tr>");
         str.push("</table>");

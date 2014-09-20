@@ -110,7 +110,7 @@
             var item = datas[i];
             if (item.jh_ShouKuanRiQi) {
                 var jh_ShouKuanRiQi = strToDate(item.jh_ShouKuanRiQi);
-                var diffDay = daysDiff(jh_ShouKuanRiQi, new Date());
+                var diffDay = daysDiff(jh_ShouKuanRiQi, new Date())+1;
                 jh_ShouKuanRiQi = jh_ShouKuanRiQi.pattern("yyyy-MM-dd");
                 jh_ShouKuanRiQi = "<font style='color:green;'>" + jh_ShouKuanRiQi + "</font>";
                 diffDay = "<font style='color:green;'>" + diffDay + "</font>";

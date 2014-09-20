@@ -1,4 +1,4 @@
-﻿<%@ page title="" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="RL_test, App_Web_nti0rdg5" %>
+﻿<%@ page title="" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="RL_test, App_Web_d01trngr" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script src="../Scripts/jQuery/plugins/validate/jquery.validate.js" type="text/javascript"></script>

@@ -1,4 +1,4 @@
-﻿<%@ page title="我的提醒" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="Desktop, App_Web_uvuyqkeu" %>
+﻿<%@ page title="我的提醒" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="Desktop, App_Web_dombopf1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <script src="../Scripts/jQuery/jquery-1.6.1.min.js" type="text/javascript"></script>

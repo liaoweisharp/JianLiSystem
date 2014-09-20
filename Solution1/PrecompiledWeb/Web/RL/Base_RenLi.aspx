@@ -1,4 +1,4 @@
-﻿<%@ page title="人力资源" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="RL_Base_RenLi, App_Web_nti0rdg5" %>
+﻿<%@ page title="人力资源" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="RL_Base_RenLi, App_Web_d01trngr" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script src="../Scripts/Page/Base_RenLi.js" type="text/javascript"></script>

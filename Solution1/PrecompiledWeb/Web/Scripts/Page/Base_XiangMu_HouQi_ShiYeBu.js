@@ -1,32 +1,31 @@
-﻿//项目
-
+﻿
 (function () {
 
-    XMHQ.initDataDom = function () {
+    XMHQ_SYB.initDataDom = function () {
         pageSize = 10;
         baseData = {};
         loading = "<p><center><img src='../Images/ajax-loader_b.gif'/></center></p>";
-        XMHQ.callListXiangMu();
-        
+        XMHQ_SYB.callListXiangMu();
+
         $invokeWebService_2("~WebService_XiangMu.getInitData", {}, null, successCallBack, errorCallBack, null, { userContent: "getInitData" });
     }
-    XMHQ.pd = {};
-    XMHQ.where_HeTong = null;
+    XMHQ_SYB.pd = {};
+    XMHQ_SYB.where_HeTong = null;
     //var requireColumn = ["qq_GongChengMingCheng", "qq_XiangMuLaiYuan", "qq_ZhiXingLeiXing", "qq_HeTongHao", "qq_ShiJian"];
-    function XMHQ(divPage, divContent) {
+    function XMHQ_SYB(divPage, divContent) {
 
         $("#" + divPage).html(loading);
         $("#" + divContent).html(loading);
-        XMHQ.initDataDom();
+        XMHQ_SYB.initDataDom();
 
-        XMHQ.divPage = divPage;
-        XMHQ.divContent = divContent;
+        XMHQ_SYB.divPage = divPage;
+        XMHQ_SYB.divContent = divContent;
     }
-    XMHQ.callListXiangMu = function () {
-        XMHQ.pd["filter"] = {key:"type", value: "zhiGuan" };
-        $invokeWebService_2("~WebService_XiangMu.countHouQi2", { pageClass: XMHQ.pd, where: XMHQ.where_HeTong }, function () {
-            $("#" + XMHQ.divContent).html(loading);
-        }, successCallBack, errorCallBack, null, { userContent: "countHouQi2" });
+    XMHQ_SYB.callListXiangMu = function () {
+        XMHQ_SYB.pd["filter"] = { key: "type", value: "shiYeBu" };
+        $invokeWebService_2("~WebService_XiangMu.countHouQi2", { pageClass: XMHQ_SYB.pd, where: XMHQ_SYB.where_HeTong }, function () {
+            $("#" + XMHQ_SYB.divContent).html(loading);
+        }, successCallBack, errorCallBack, null, { userContent: "countHouQi2_ShiYeBu" });
     }
     function successCallBack(result, context) {
         if (context.userContent == "getInitData") {
@@ -36,12 +35,12 @@
             baseData["工程级别"] = result[1];
             baseData["工程类别"] = result[2];
         }
-        else if (context.userContent == "countHouQi2") {
+        else if (context.userContent == "countHouQi2_ShiYeBu") {
             var optInit = getOptionsFromForm();
-            $("#" + XMHQ.divPage).pagination(result, optInit);
-            $("#" + XMHQ.divContent).show();
+            $("#" + XMHQ_SYB.divPage).pagination(result, optInit);
+            $("#" + XMHQ_SYB.divContent).show();
         }
-        else if (context.userContent == "filterAllXiangMuHouQi2") {
+        else if (context.userContent == "filterAllXiangMuHouQi2_ShiYeBu") {
 
             var data = result;
             //baseData["xiangMuHouQi"] = data;
@@ -51,12 +50,12 @@
             //conventObjsToDateTime(data, jsons);
             //#endregion
             if (data.length == 0) {
-                $("#" + XMHQ.divContent).html("还没有项目记录");
+                $("#" + XMHQ_SYB.divContent).html("还没有项目记录");
             }
             else {
 
                 var str = getHtmlOfHouQi(data);
-                $("#" + XMHQ.divContent).html(str);
+                $("#" + XMHQ_SYB.divContent).html(str);
                 $("#tab_XiangMu").rowspan(0).rowspan(1);
                 tableAddStyle2();
             }
@@ -64,7 +63,7 @@
         else if (context.userContent == "updateXiangMuQianQi") {
             if (result == 1) {
                 $.jBox.tip('更新成功。', 'success');
-                pageselectCallback(XMHQ.pd.currentPageNumber, null);
+                pageselectCallback(XMHQ_SYB.pd.currentPageNumber, null);
                 HT.pageselectCallback(HT.pd.currentPageNumber, null);
             }
             else {
@@ -106,7 +105,7 @@
                     for (k = 0; k < jianLiJiGou.projectArray.length; k++) {
                         var obj = jianLiJiGou.projectArray[k];
                         str.push("<tr class='row'>");
-                        //str.push(String.format("<td class='num'>{0}</td>", XMHQ.pd.currentPageNumber * XMHQ.pd.pageSize + 1 + i));
+                        //str.push(String.format("<td class='num'>{0}</td>", XMHQ_SYB.pd.currentPageNumber * XMHQ_SYB.pd.pageSize + 1 + i));
                         str.push(String.format("<td style='background-color:white;'><font xiangmubuid={0}>{1}</td>", xiangMuBuId, xiangMuBuMingChen));
                         str.push(String.format("<td style='background-color:white;'><a href='javascript:void(0);' onclick=\"XM.click_Edit_Zu({0},'{1}')\">{1}</a></td>", jianLiJiGouId, jianLiJiGouMingCheng));
                         str.push(String.format("<td><a href='javascript:void(0);' onclick=\"XM.click_Edit_Project({0},'{1}')\">{1}</a></td>", obj.projectId, obj.gongChengMingCheng));
@@ -117,7 +116,7 @@
                         str.push(String.format("<td>{0}</td>", obj.yuJiJunGongShiJian));
                         str.push(String.format("<td>{0}</td>", obj.liHuiShiJian));
                         str.push(String.format("<td>{0}</td>", obj.gongChengZhuanTai));
-                        // str.push(String.format("<td class='td7'><span class='opation'><a class='hid' href='javascript:void(0);' onclick=\"XMHQ.clickDetail({0})\">详细</a>  <a href='javascript:void(0);' onclick=\"XM.click_Edit({0},'{1}')\">编辑</a></span></td>", obj.id, obj.gongChengMingCheng));
+                        // str.push(String.format("<td class='td7'><span class='opation'><a class='hid' href='javascript:void(0);' onclick=\"XMHQ_SYB.clickDetail({0})\">详细</a>  <a href='javascript:void(0);' onclick=\"XM.click_Edit({0},'{1}')\">编辑</a></span></td>", obj.id, obj.gongChengMingCheng));
                         str.push("</tr>");
                     }
                 }
@@ -128,7 +127,7 @@
     }
     //#endregion
     //#region 句柄
-    XMHQ.clickEdit = function (id) {
+    XMHQ_SYB.clickEdit = function (id) {
 
         var jsonArray = createJson();
         var leiXing = jsonArray.firstOrDefault("itemId", "qq_ZhiXingLeiXing");
@@ -143,7 +142,7 @@
         }
 
     }
-    XMHQ.clickDetail = function (id) {
+    XMHQ_SYB.clickDetail = function (id) {
         var option = { type: "review" };
         //jBox options
         var optionJbox = { title: "项目", width: 850, buttons: {} };
@@ -173,14 +172,14 @@
         return true;
     }
 
-    XMHQ.Search_XiangMu = function () {
+    XMHQ_SYB.Search_XiangMu = function () {
         var value = $.trim($("#txtSerXiangMu").val());
         if (value == "") {
             alert("搜索内容为空，请填值再搜索。");
             value = null;
         }
-        XMHQ.where_HeTong = value;
-        XMHQ.callListXiangMu(value);
+        XMHQ_SYB.where_HeTong = value;
+        XMHQ_SYB.callListXiangMu(value);
 
     }
 
@@ -198,35 +197,30 @@
     }
     function pageselectCallback(page_index, jq) {
 
-        XMHQ.pd.currentPageNumber = page_index;
-        XMHQ.pd.pageSize = pageSize;
+        XMHQ_SYB.pd.currentPageNumber = page_index;
+        XMHQ_SYB.pd.pageSize = pageSize;
 
-        $invokeWebService_2("~WebService_XiangMu.filterAllXiangMuHouQi2", { pageClass: XMHQ.pd, where: XMHQ.where_HeTong },
+        $invokeWebService_2("~WebService_XiangMu.filterAllXiangMuHouQi2", { pageClass: XMHQ_SYB.pd, where: XMHQ_SYB.where_HeTong },
        function () {
            //$("#divContent").html(loading);
-       }, successCallBack, errorCallBack, null, { userContent: "filterAllXiangMuHouQi2" });
+       }, successCallBack, errorCallBack, null, { userContent: "filterAllXiangMuHouQi2_ShiYeBu" });
     }
     //绑定列表后绑定样式或事件
     function tableAddStyle() {
-        $("#" + XMHQ.divContent).find("tr[class*='header']").addClass("bgHeader");
-        $("#" + XMHQ.divContent).find("tr[class*='row']:odd").addClass("bg1");
-        $("#" + XMHQ.divContent).find("tr[class*='row']").bind("mouseover", {}, function () {
+        $("#" + XMHQ_SYB.divContent).find("tr[class*='header']").addClass("bgHeader");
+        $("#" + XMHQ_SYB.divContent).find("tr[class*='row']:odd").addClass("bg1");
+        $("#" + XMHQ_SYB.divContent).find("tr[class*='row']").bind("mouseover", {}, function () {
             $(this).addClass("mouseover");
         })
-        $("#" + XMHQ.divContent).find("tr[class*='row']").bind("mouseout", {}, function () {
+        $("#" + XMHQ_SYB.divContent).find("tr[class*='row']").bind("mouseout", {}, function () {
             $(this).removeClass("mouseover");
         })
     }
     function tableAddStyle2() {
-        $("#" + XMHQ.divContent).find("tr[class*='header']").addClass("bgHeader");
-        $("#" + XMHQ.divContent).find("tr[class*='row']:odd").addClass("bg1");
+        $("#" + XMHQ_SYB.divContent).find("tr[class*='header']").addClass("bgHeader");
+        $("#" + XMHQ_SYB.divContent).find("tr[class*='row']:odd").addClass("bg1");
 
     }
     //#endregion
-    window.XMHQ = XMHQ;
+    window.XMHQ_SYB = XMHQ_SYB;
 })()
-
-$(function () {
-    var dd = new XMHQ("divPageSize_HQ", "divContent_HQ");
-    var dd = new XMHQ_SYB("divPageSize_HQ_ShiYeBu", "divContent_HQ_ShiYeBu");
-})
