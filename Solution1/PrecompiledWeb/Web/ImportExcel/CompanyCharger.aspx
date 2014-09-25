@@ -1,4 +1,4 @@
-﻿<%@ page title="技术负责人" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="ImportExcel_CompanyCharger, App_Web_ye2cvmm3" %>
+﻿<%@ page title="技术负责人" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="ImportExcel_CompanyCharger, App_Web_2f13hser" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script src="../Scripts/Page/Excel/CompanyCharger.js" type="text/javascript"></script>

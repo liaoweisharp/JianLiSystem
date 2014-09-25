@@ -1,4 +1,4 @@
-﻿<%@ page title="桌面" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="right, App_Web_dombopf1" %>
+﻿<%@ page title="桌面" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="right, App_Web_wzydtna2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 	<style type="text/css">

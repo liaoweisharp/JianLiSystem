@@ -62,19 +62,19 @@ namespace DAL.Logic
                         jianliZu.projectArray.AddRange(_fun(qq.TabXiangMuQianQi2.ToList()));
                         wrapper.jianLiJiGouArray.Add(jianliZu);
                     }
-                    //再选出工程
-                    List<DTO.TabXiangMuQianQi> list_Project = zu.TabXiangMuQianQi.Where(p => p.qq_ParentId==null && (p.qq_LeiXing ==null || p.qq_LeiXing==1)).ToList();
-                    ///排序
-                    list_Project = list_Project.OrderBy(p => p.qq_GongChengMingCheng).ToList();
-                    foreach (DTO.TabXiangMuQianQi qq in list_Project)
-                    {
-                        DAL.CommClass.XiangMuHouQiWrapper1 jianliZu = new XiangMuHouQiWrapper1();
-                        jianliZu.jianLiJiGouId = qq.qq_Id;
-                        jianliZu.jianLiJiGouMingCheng = qq.qq_GongChengMingCheng;
-                        jianliZu.projectArray=new List<XiangMuHouQiWrapper>();
-                        jianliZu.projectArray.AddRange(_fun(new List<DTO.TabXiangMuQianQi>() { qq }));
-                        wrapper.jianLiJiGouArray.Add(jianliZu);
-                    }
+                    ////再选出工程
+                    //List<DTO.TabXiangMuQianQi> list_Project = zu.TabXiangMuQianQi.Where(p => p.qq_ParentId==null && (p.qq_LeiXing ==null || p.qq_LeiXing==1)).ToList();
+                    /////排序
+                    //list_Project = list_Project.OrderBy(p => p.qq_GongChengMingCheng).ToList();
+                    //foreach (DTO.TabXiangMuQianQi qq in list_Project)
+                    //{
+                    //    DAL.CommClass.XiangMuHouQiWrapper1 jianliZu = new XiangMuHouQiWrapper1();
+                    //    jianliZu.jianLiJiGouId = qq.qq_Id;
+                    //    jianliZu.jianLiJiGouMingCheng = qq.qq_GongChengMingCheng;
+                    //    jianliZu.projectArray=new List<XiangMuHouQiWrapper>();
+                    //    jianliZu.projectArray.AddRange(_fun(new List<DTO.TabXiangMuQianQi>() { qq }));
+                    //    wrapper.jianLiJiGouArray.Add(jianliZu);
+                    //}
                     returnValue.Add(wrapper);
                 }
             }

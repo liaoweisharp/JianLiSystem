@@ -12,12 +12,13 @@
 {
     
     }
-    #tab_XiangMu
+    #tab_XiangMu,#tab_XiangMu_ShiYeBu
     {
         border-collapse:collapse;
         }
-#tab_XiangMu td
+#tab_XiangMu td,#tab_XiangMu_ShiYeBu td
 {
     border:1px solid #c1c1bb;
     }
+    
 

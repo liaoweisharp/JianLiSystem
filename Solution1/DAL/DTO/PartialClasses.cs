@@ -20,17 +20,32 @@ namespace DAL.DTO
             return obj.ToString().GetHashCode();
         }
     }
-    public partial class Tab_XiangMuZu : IEqualityComparer<DTO.Tab_XiangMuZu> {
+    public partial class Tab_XiangMuZu : IEquatable<Tab_XiangMuZu>
+    {
 
-        public bool Equals(Tab_XiangMuZu x, Tab_XiangMuZu y)
-        {
-            return x.xmz_Id.Equals(y.xmz_Id);
-        }
 
-        public int GetHashCode(Tab_XiangMuZu obj)
+        public bool Equals(Tab_XiangMuZu other)
         {
-            return obj.ToString().GetHashCode();
+            //Check whether the compared object is null.  
+            if (Object.ReferenceEquals(other, null)) return false;
+
+            //Check whether the compared object references the same data.  
+            if (Object.ReferenceEquals(this, other)) return true;
+
+            //Check whether the products' properties are equal.  
+            return this._xmz_Id.Equals(other.xmz_Id);
         }
+        public override int GetHashCode()
+        {
+
+            //Get hash code for the Name field if it is not null.  
+            int hashProductName = this._xmz_Id.GetHashCode();
+
+
+
+            //Calculate the hash code for the product.  
+            return hashProductName;
+        }  
     }
     public partial class View_XiangMu_Tree : IEqualityComparer<DTO.View_XiangMu_Tree> {
 
@@ -44,4 +59,31 @@ namespace DAL.DTO
             return obj.ToString().GetHashCode();
         }
     }
+
+    public class CommonEqualityComparer<T, V> : IEqualityComparer<T>
+    {
+        private Func<T, V> keySelector;
+
+        public CommonEqualityComparer(Func<T, V> keySelector)
+        {
+            this.keySelector = keySelector;
+        }
+
+        public bool Equals(T x, T y)
+        {
+            return EqualityComparer<V>.Default.Equals(keySelector(x), keySelector(y));
+        }
+
+        public int GetHashCode(T obj)
+        {
+            return EqualityComparer<V>.Default.GetHashCode(keySelector(obj));
+        }
+    }
+    public static class DistinctExtensions
+    {
+        public static IEnumerable<T> Distinct<T, V>(this IEnumerable<T> source, Func<T, V> keySelector)
+        {
+            return source.Distinct(new CommonEqualityComparer<T, V>(keySelector));
+        }
+    }  
 }

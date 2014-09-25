@@ -1,6 +1,6 @@
 ﻿(function () {
     SYB.initDataDom = function () {
-        pageSize = 20;
+        pageSize = 10;
         baseData = {};
         loading = "<p><center><img src='../Images/ajax-loader_b.gif'/></center></p>";
         SYB.callList()
@@ -261,7 +261,7 @@
 
         $invokeWebService_2("~WebService_XiangMuJieSuan.filterAllXiangMuJiSuan_ShiYeBu", { pageClass: SYB.pd, where: SYB.where },
        function () {
-           //$("#divContent").html(loading);
+           $("#" + SYB.divContent).html(loading);
        }, successCallBack, errorCallBack, null, { userContent: "filterAllXiangMuJiSuan_ShiYeBu" });
     }
     //绑定列表后绑定样式或事件

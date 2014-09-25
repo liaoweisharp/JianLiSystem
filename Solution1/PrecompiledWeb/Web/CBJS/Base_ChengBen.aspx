@@ -1,4 +1,4 @@
-﻿<%@ page title="成本及结算" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="CBJS_Base_ChengBen, App_Web_sqifvpcl" %>
+﻿<%@ page title="成本及结算" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="CBJS_Base_ChengBen, App_Web_vfa3x45w" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script src="../Scripts/Page/Base_CBJS.js" type="text/javascript"></script>
@@ -13,13 +13,15 @@
     <script src="../Scripts/Page/Base_XiangMu_BaoXiao.js" type="text/javascript"></script>
     <script src="../Scripts/Page/Base_XiangMu_FeiYongTiaoZheng.js" type="text/javascript"></script>
     <script src="../Scripts/Page/Base_XiangMu_RenYuanXinChou.js" type="text/javascript"></script>
+
+    <script src="../Scripts/jQuery/plugins/jquery.watermark.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div style="width: 95%; margin: 0px auto;">
+    <div style="width: 98%; margin: 0px auto;">
 
      <div class="ZX_BG_header ZX_h2" >
             <ul class="ulnone">
-                <li class="ZX_title2">项目部（直管）</li>
+                <li class="ZX_title2">项目部</li>
               <%--<li style="height: 28px; float:right;margin-right:30px; width: 175px; background-repeat: no-repeat; background-image: url(&quot;../Images/Search1.png&quot;);">
              <input id="txtSerXiangMu_ZhiGuan" type="text" class="search searchW" watermark="工程关键字或合同号" />
              <img alt='搜索' style=" cursor:pointer;float:right" src="../Images/Search2.png" onclick="Search_XiangMu_ZhiGuan()"/></li>        --%>

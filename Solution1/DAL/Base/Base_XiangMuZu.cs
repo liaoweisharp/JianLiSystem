@@ -116,7 +116,7 @@ namespace DAL
                                            join e in this.dataContext.TabXiangMuQianQi on c.qq_Id equals e.qq_ParentId
                                            where e.qq_ZhiXingLeiXing == 2
                                            select p)
-                                     .Distinct()
+                                     .Distinct(p=>p.xmz_Id)
                                      .ToList();
                                    
                             break;
@@ -126,7 +126,7 @@ namespace DAL
                                            join e in this.dataContext.TabXiangMuQianQi on c.qq_Id equals e.qq_ParentId
                                            where e.qq_ZhiXingLeiXing == 3
                                            select p)
-                                    .Distinct()
+                                    .Distinct(p=>p.xmz_Id)
                                     .ToList();
                             break;
                     }

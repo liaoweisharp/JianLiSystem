@@ -1,4 +1,4 @@
-﻿<%@ page title="" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="HT_TongJi_HeTong, App_Web_pk1kjo2f" %>
+﻿<%@ page title="" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="HT_TongJi_HeTong, App_Web_pscux1ei" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script src="../Scripts/Page/TongJi_HeTong.js" type="text/javascript"></script>

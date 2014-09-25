@@ -18,10 +18,10 @@
     <link href="../Style/Base_User.css" rel="stylesheet" type="text/css" />
     <link href="../Style/Base_RenLi.css" rel="stylesheet" type="text/css" />
     <link href="../Style/Base_XinChou.css" rel="stylesheet" type="text/css" />
-
+    <script src="../Scripts/jQuery/plugins/jquery.watermark.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<div class='width:95%; margin:0px auto;'>
+<div class='width:98%; margin:0px auto;'>
     <div style=" height:28px; line-height:28px" class="ZX_BG_header ZX_h2">
             <ul class="ulnone">
                 <li class="ZX_title2">人员</li>

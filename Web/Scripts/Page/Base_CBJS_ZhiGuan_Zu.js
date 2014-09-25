@@ -382,7 +382,7 @@
 
         $invokeWebService_2("~WebService_XiangMuJieSuan.filterAllXiangMuQianQi_ZhiGuan_Zu", { pageClass: ZGZU.pd, where: ZGZU.where },
        function () {
-           //$("#divContent").html(loading);
+           $("#" + ZGZU.divContent).html(loading);
        }, successCallBack, errorCallBack, null, { userContent: "filterAllXiangMuQianQi_ZhiGuan_Zu" });
     }
     //绑定列表后绑定样式或事件

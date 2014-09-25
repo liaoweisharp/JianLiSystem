@@ -1,4 +1,4 @@
-﻿<%@ page title="项目管理" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="XM_Base_XiangMu, App_Web_2ee4p35t" %>
+﻿<%@ page title="项目管理" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="XM_Base_XiangMu, App_Web_ug3k5dd0" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <link href="../Style/Base_XiangMu_HouQi.css" rel="stylesheet" type="text/css" />
@@ -10,10 +10,12 @@
     <script src="../Scripts/Page/Base_XiangMu_XunJian.js" type="text/javascript"></script>
     <script src="../Scripts/Page/Base_XiangMu_MingXi.js" type="text/javascript"></script>
     <script src="../Scripts/Page/Base_XiangMu_HouQi_ShiYeBu.js" type="text/javascript"></script>
+
+    <script src="../Scripts/jQuery/plugins/jquery.watermark.js" type="text/javascript"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- <div style="width: 95%; margin: 0px auto;">
+ <div style="width: 98%; margin: 0px auto;">
         <div class="ZX_BG_header ZX_h2">
             <ul class="ulnone">
                 <li class="ZX_title2">项目部</li><li style="float: right;" class="bg_A"></li>

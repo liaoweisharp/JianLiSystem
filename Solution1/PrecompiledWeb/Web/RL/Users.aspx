@@ -1,4 +1,4 @@
-﻿<%@ page title="填写个人信息" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="RL_Users, App_Web_d01trngr" %>
+﻿<%@ page title="填写个人信息" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="RL_Users, App_Web_wbo0355k" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script src="../RL/JS/Base_RenLi.js" type="text/javascript"></script>

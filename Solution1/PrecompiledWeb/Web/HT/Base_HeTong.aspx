@@ -1,4 +1,4 @@
-﻿<%@ page title="合同管理" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="HT_Base_HeTong, App_Web_pk1kjo2f" %>
+﻿<%@ page title="合同管理" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="HT_Base_HeTong, App_Web_pscux1ei" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="../Scripts/Page/Base_HeTong.js" type="text/javascript"></script>
@@ -10,10 +10,10 @@
     <script src="../Scripts/Page/Base_HeTong_XiangMuQianQi.js" type="text/javascript"></script>
     <script src="../Scripts/Page/Base_HeTong_FaPiaoGuanLi.js" type="text/javascript"></script>
    
-    
+    <script src="../Scripts/jQuery/plugins/jquery.watermark.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div style="width: 95%; margin: 0px auto;">
+    <div style="width: 98%; margin: 0px auto;">
         <div class="ZX_BG_header ZX_h2">
             <ul class="ulnone">
                 <li class="ZX_title2">项目前期</li><li style="float: right;" class="bg_A"><a onclick="XMQQ.clickAdd()"

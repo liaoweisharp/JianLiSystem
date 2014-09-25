@@ -56,7 +56,7 @@
 
                 var str = getHtmlOfHouQi(data);
                 $("#" + XMHQ_SYB.divContent).html(str);
-                $("#tab_XiangMu").rowspan(0).rowspan(1);
+                $("#tab_XiangMu_ShiYeBu").rowspan(0).rowspan(1);
                 tableAddStyle2();
             }
         }
@@ -79,7 +79,7 @@
         var str = [];
 
         if (houQi.length > 0) {
-            str.push("<table id='tab_XiangMu' class='tb_List QQ' cellspacing='0' cellpadding='5'>");
+            str.push("<table id='tab_XiangMu_ShiYeBu' class='tb_List QQ' cellspacing='0' cellpadding='5'>");
             str.push("<tr class='header'>");
             /// str.push(String.format("<td class='num'>#</td>"));
             str.push(String.format("<td>{0}</td>", "项目部"));

@@ -1,4 +1,4 @@
-﻿<%@ page title="项目部" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="XM_Base_XiangMuZuTree, App_Web_2ee4p35t" %>
+﻿<%@ page title="项目部" language="C#" masterpagefile="~/Master/MasterPage.master" autoeventwireup="true" inherits="XM_Base_XiangMuZuTree, App_Web_ug3k5dd0" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 	<link rel="stylesheet" type="text/css" href="../Scripts/jQuery/plugins/zTree_v3.5.14/css/zTreeStyle/zTreeStyle.css" />

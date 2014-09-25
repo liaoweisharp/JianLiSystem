@@ -1,4 +1,4 @@
-﻿<%@ master language="C#" autoeventwireup="true" inherits="Master_MasterPage, App_Web_p23syetp" %>
+﻿<%@ master language="C#" autoeventwireup="true" inherits="Master_MasterPage, App_Web_3jkchu4j" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -17,7 +17,7 @@
     <script src="../Scripts/Comm/Date.js" type="text/javascript"></script>
     <script src="../Scripts/Comm/Bind.js" type="text/javascript"></script>
     <script src="../Scripts/Comm/BindDiv.js" type="text/javascript"></script>
-        <script src="../Scripts/Page/MasterPage.js" type="text/javascript"></script>  
+       
     <link href="../Style/Base/base.css" rel="stylesheet" type="text/css" />
     <link href="../Style/Base/baseHeTong.css" rel="stylesheet" type="text/css" />
     <link href="../Scripts/JQuery/plugins/jBox/Skins/Default/jbox.css" rel="stylesheet" type="text/css" />
@@ -28,8 +28,9 @@
     
      <link href="../Scripts/jQuery/plugins/jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.min.css"
         rel="stylesheet" type="text/css" /> 
-      <%--  <script src="../Scripts/jQuery/plugins/jquery-ui-1.10.3.custom/development-bundle/ui/jquery-ui.custom.js"
-        type="text/javascript"></script>--%>
+
+      <script src="../Scripts/jQuery/plugins/jquery-ui-1.10.3.custom/development-bundle/ui/jquery-ui.custom.js"
+        type="text/javascript"></script>
    <script src="../Scripts/jQuery/plugins/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"
         type="text/javascript"></script>
        
@@ -40,14 +41,13 @@
 
 
 <%--    <script src="../Scripts/jQuery/plugins/jquery-ui-1.10.3.custom/js/jquery-ui.js" type="text/javascript"></script>--%>
-    <link href="../Scripts/jQuery/plugins/jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.css"
-        rel="stylesheet" type="text/css" />
+  
    
     <script src="../Scripts/jQuery/plugins/jquery-ui/ui/jquery.ui.core.js" type="text/javascript"></script>
     <script src="../Scripts/Comm/TextSelect.js" type="text/javascript"></script>
     <link href="../Style/Base/base.css" rel="stylesheet" type="text/css" />
 
-     <script src="../Scripts/jQuery/plugins/jquery.watermark.js" type="text/javascript"></script>
+     
     <script src="../Scripts/jQuery/plugins/jquery.jUploader-1.01.min.js" type="text/javascript"></script>
     <script src="../Scripts/jQuery/plugins/zTree_v3.5.14/js/jquery.ztree.core-3.5.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="../Scripts/jQuery/plugins/zTree_v3.5.14/css/zTreeStyle/zTreeStyle.css" />
@@ -57,7 +57,8 @@
     <script src="../Scripts/jQuery/plugins/validate/jquery.validate.js" type="text/javascript"></script>
     <script src="../Scripts/jQuery/plugins/validate/jquery.metadata.js" type="text/javascript"></script>
     <script src="../Scripts/jQuery/plugins/validate/messages_zh.js" type="text/javascript"></script>
-
+     <script src="../Scripts/Page/MasterPage.js" type="text/javascript"></script>  
+     
     <asp:ContentPlaceHolder id="head" runat="server">
     
     </asp:ContentPlaceHolder>

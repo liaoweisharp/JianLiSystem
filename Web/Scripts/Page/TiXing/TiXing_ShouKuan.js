@@ -187,7 +187,7 @@
             $(this).removeClass("mouseover");
         })
         $("#" + TXSK.contentId).find("td").find("label[validate='money']").formatCurrency();
-        debugger
+        
         
     }
     //#endregion

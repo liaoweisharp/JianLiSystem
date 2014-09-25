@@ -1,6 +1,6 @@
 ﻿(function () {
     ZG.initDataDom = function () {
-        pageSize = 20;
+        pageSize = 10;
         baseData = {};
         loading = "<p><center><img src='../Images/ajax-loader_b.gif'/></center></p>";
         ZG.callList()
