@@ -7,10 +7,11 @@
         baseData = {};
         loading = "<p><center><img src='../Images/ajax-loader_b.gif'/></center></p>";
         XMHQ.callListXiangMu();
-        
+
         $invokeWebService_2("~WebService_XiangMu.getInitData", {}, null, successCallBack, errorCallBack, null, { userContent: "getInitData" });
     }
     XMHQ.pd = {};
+    XMHQ.pd.filters = [];
     XMHQ.where_HeTong = null;
     //var requireColumn = ["qq_GongChengMingCheng", "qq_XiangMuLaiYuan", "qq_ZhiXingLeiXing", "qq_HeTongHao", "qq_ShiJian"];
     function XMHQ(divPage, divContent) {
@@ -23,10 +24,28 @@
         XMHQ.divContent = divContent;
     }
     XMHQ.callListXiangMu = function () {
-        XMHQ.pd["filter"] = {key:"type", value: "zhiGuan" };
-        $invokeWebService_2("~WebService_XiangMu.countHouQi2", { pageClass: XMHQ.pd, where: XMHQ.where_HeTong }, function () {
+        var zhuangTai = $("#ddlZhuangTai_ZhiGuan").val();
+        if (zhuangTai != "-1") {
+            var obj = XMHQ.pd.filters.firstOrDefault("key", "qq_GongChengZhuangTai");
+            if (obj != null) {
+                obj.value = zhuangTai;
+            }
+            else {
+                XMHQ.pd.filters.push({ "key": "qq_GongChengZhuangTai", "value": zhuangTai })
+            }
+        }
+        else {
+            XMHQ.pd.filters.removeFirst("key", "qq_GongChengZhuangTai");
+        }
+
+        XMHQ.where = $.trim($("#txtSerXiangMu").val());
+        XMHQ.pd["filter"] = { key: "type", value: "zhiGuan" };
+        $invokeWebService_2("~WebService_XiangMu.countHouQi2", { pageClass: XMHQ.pd, where: XMHQ.where }, function () {
             $("#" + XMHQ.divContent).html(loading);
         }, successCallBack, errorCallBack, null, { userContent: "countHouQi2" });
+
+
+
     }
     function successCallBack(result, context) {
         if (context.userContent == "getInitData") {
@@ -35,6 +54,17 @@
 
             baseData["工程级别"] = result[1];
             baseData["工程类别"] = result[2];
+            baseData["工程状态"] = result[3];
+
+            $ddlZhuangTai_ZhiGuan = $("#ddlZhuangTai_ZhiGuan");
+            $ddlZhuangTai_ShiYeBu = $("#ddlZhuangTai_ShiYeBu");
+            for (var i = 0; i < baseData["工程状态"].length; i++) {
+                var zhuangTai = baseData["工程状态"][i];
+                var $option1 = $(String.format("<option id='{0}'>{0}</option>", zhuangTai));
+                var $option2 = $option1.clone();
+                $ddlZhuangTai_ZhiGuan.append($option1);
+                $ddlZhuangTai_ShiYeBu.append($option2);
+            }
         }
         else if (context.userContent == "countHouQi2") {
             var optInit = getOptionsFromForm();
@@ -51,7 +81,7 @@
             //conventObjsToDateTime(data, jsons);
             //#endregion
             if (data.length == 0) {
-                $("#" + XMHQ.divContent).html("还没有项目记录");
+                $("#" + XMHQ.divContent).html("没有匹配记录");
             }
             else {
 
@@ -86,41 +116,66 @@
             str.push(String.format("<td>{0}</td>", "项目部"));
             str.push(String.format("<td>{0}</td>", "项目监理机构"));
             str.push(String.format("<td>{0}</td>", "工程名称"));
-            str.push(String.format("<td>{0}</td>", "执行类型"));
+            str.push(String.format("<td>{0}</td>", "合同号"));
 
-            str.push(String.format("<td>{0}</td>", "项目总监"));
+
             str.push(String.format("<td>{0}</td>", "施工工期"));
             str.push(String.format("<td>{0}</td>", "预计竣工时间"));
             str.push(String.format("<td>{0}</td>", "工地例会时间"));
-            str.push(String.format("<td>{0}</td>", "工程进度"));
+            str.push(String.format("<td>{0}</td>", "资料移交情况"));
+            str.push(String.format("<td>{0}</td>", "工程状态"));
 
             str.push("</tr>");
             //表内容
             for (var i = 0; i < houQi.length; i++) {
-                var xiangMuBuId = houQi[i].xiangMuBuId; //项目部ID
-                var xiangMuBuMingChen = houQi[i].xiangMuBuMingCheng; //项目部名称
-                for (var j = 0; j < houQi[i].jianLiJiGouArray.length; j++) {
-                    var jianLiJiGou = houQi[i].jianLiJiGouArray[j];
-                    var jianLiJiGouId = jianLiJiGou.jianLiJiGouId; //监理机构ID
-                    var jianLiJiGouMingCheng = jianLiJiGou.jianLiJiGouMingCheng; //监理机构名称
-                    for (k = 0; k < jianLiJiGou.projectArray.length; k++) {
-                        var obj = jianLiJiGou.projectArray[k];
-                        str.push("<tr class='row'>");
-                        //str.push(String.format("<td class='num'>{0}</td>", XMHQ.pd.currentPageNumber * XMHQ.pd.pageSize + 1 + i));
-                        str.push(String.format("<td style='background-color:white;'><font xiangmubuid={0}>{1}</td>", xiangMuBuId, xiangMuBuMingChen));
-                        str.push(String.format("<td style='background-color:white;'><a href='javascript:void(0);' onclick=\"XM.click_Edit_Zu({0},'{1}')\">{1}</a></td>", jianLiJiGouId, jianLiJiGouMingCheng));
-                        str.push(String.format("<td><a href='javascript:void(0);' onclick=\"XM.click_Edit_Project({0},'{1}')\">{1}</a></td>", obj.projectId, obj.gongChengMingCheng));
-                        str.push(String.format("<td>{0}</td>", obj.zhiXingLeiXing));
+                var obj = houQi[i];
+                var xiangMuBuId = obj.zu_ID; //项目部ID
+                xiangMuBuId = xiangMuBuId == null ? randomStringFun(5) : xiangMuBuId//如果为null，则随机分配一个（为保证界面上不合并单元格）
+                var xiangMuBuMingChen = obj.zu_Name; //项目部名称
+                xiangMuBuMingChen = xiangMuBuMingChen == null ? "" : xiangMuBuMingChen;
 
-                        str.push(String.format("<td>{0}</td>", obj.xiangMuZongJian));
-                        str.push(String.format("<td>{0}</td>", obj.shiGongGonqQi));
-                        str.push(String.format("<td>{0}</td>", obj.yuJiJunGongShiJian));
-                        str.push(String.format("<td>{0}</td>", obj.liHuiShiJian));
-                        str.push(String.format("<td>{0}</td>", obj.gongChengZhuanTai));
-                        // str.push(String.format("<td class='td7'><span class='opation'><a class='hid' href='javascript:void(0);' onclick=\"XMHQ.clickDetail({0})\">详细</a>  <a href='javascript:void(0);' onclick=\"XM.click_Edit({0},'{1}')\">编辑</a></span></td>", obj.id, obj.gongChengMingCheng));
-                        str.push("</tr>");
-                    }
+                var jianLiJiGouId = obj.jiGou_ID; //监理机构ID
+                jianLiJiGouId = jianLiJiGouId == null ? randomStringFun(5) : jianLiJiGouId; //如果为null，则随机分配一个（为保证界面上不合并单元格）
+                var jianLiJiGouMingCheng = obj.jiGou_Name; //监理机构名称
+                jianLiJiGouMingCheng = jianLiJiGouMingCheng == null ? "" : jianLiJiGouMingCheng;
+                var gongChengId = obj.qq_Id;
+                var gongChengMingCheng = obj.qq_GongChengMingCheng;
+                var yuJiJunGongShiJian = ""; //预计竣工时间
+                if (obj.qq_YuJiJunGongShiJian != null) {
+                    yuJiJunGongShiJian = strToDate(obj.qq_YuJiJunGongShiJian).pattern("yyyy-MM-dd");
                 }
+                var ziLiaoYiJiao = "";
+                switch (obj.qq_JunGongYiJiaoQingKuang) {
+                    case 0:
+                        ziLiaoYiJiao = "未移交"
+                        break;
+                    case 1:
+                        ziLiaoYiJiao = "全部移交"
+                        break;
+                    case 2:
+                        ziLiaoYiJiao = "部分移交"
+                        break;
+                    default:
+                        ziLiaoYiJiao = "";
+                        break
+                }
+
+                str.push("<tr class='row'>");
+                //str.push(String.format("<td class='num'>{0}</td>", XMHQ.pd.currentPageNumber * XMHQ.pd.pageSize + 1 + i));
+                str.push(String.format("<td style='background-color:white;'><font xiangmubuid={0}>{1}</td>", xiangMuBuId, xiangMuBuMingChen));
+                str.push(String.format("<td style='background-color:white;'><a href='javascript:void(0);' onclick=\"XM.click_Edit_Zu({0},'{1}')\">{1}</a></td>", jianLiJiGouId, jianLiJiGouMingCheng));
+                str.push(String.format("<td><a href='javascript:void(0);' onclick=\"XM.click_Edit_Project({0},'{1}')\">{1}</a></td>", gongChengId, gongChengMingCheng));
+
+                str.push(String.format("<td>{0}</td>", obj.qq_HeTongHao != null ? obj.qq_HeTongHao : ""));
+                str.push(String.format("<td>{0}</td>", obj.qq_ShiGongGongQi != null ? obj.qq_ShiGongGongQi : ""));
+                str.push(String.format("<td>{0}</td>", yuJiJunGongShiJian));
+                str.push(String.format("<td>{0}</td>", obj.qq_GongDiLiHuiShiJian == null ? "" : obj.qq_GongDiLiHuiShiJian));
+                str.push(String.format("<td>{0}</td>", ziLiaoYiJiao));
+                str.push(String.format("<td>{0}</td>", obj.qq_GongChengZhuangTai == null ? "" : obj.qq_GongChengZhuangTai));
+                // str.push(String.format("<td class='td7'><span class='opation'><a class='hid' href='javascript:void(0);' onclick=\"XMHQ.clickDetail({0})\">详细</a>  <a href='javascript:void(0);' onclick=\"XM.click_Edit({0},'{1}')\">编辑</a></span></td>", obj.id, obj.gongChengMingCheng));
+                str.push("</tr>");
+
+
             }
             str.push("</table>");
         }
@@ -174,13 +229,13 @@
     }
 
     XMHQ.Search_XiangMu = function () {
-        var value = $.trim($("#txtSerXiangMu").val());
-        if (value == "") {
-            alert("搜索内容为空，请填值再搜索。");
-            value = null;
-        }
-        XMHQ.where_HeTong = value;
-        XMHQ.callListXiangMu(value);
+        //        var value = $.trim($("#txtSerXiangMu").val());
+        //        if (value == "") {
+        //            alert("搜索内容为空，请填值再搜索。");
+        //            value = null;
+        //        }
+        //        XMHQ.where_HeTong = value;
+        XMHQ.callListXiangMu();
 
     }
 
@@ -201,7 +256,7 @@
         XMHQ.pd.currentPageNumber = page_index;
         XMHQ.pd.pageSize = pageSize;
 
-        $invokeWebService_2("~WebService_XiangMu.filterAllXiangMuHouQi2", { pageClass: XMHQ.pd, where: XMHQ.where_HeTong },
+        $invokeWebService_2("~WebService_XiangMu.filterAllXiangMuHouQi2", { pageClass: XMHQ.pd, where: XMHQ.where },
        function () {
            //$("#divContent").html(loading);
        }, successCallBack, errorCallBack, null, { userContent: "filterAllXiangMuHouQi2" });

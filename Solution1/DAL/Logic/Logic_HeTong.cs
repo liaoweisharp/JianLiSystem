@@ -40,11 +40,21 @@ namespace DAL.Logic
         public static List<DAL.CommClass.HeTongWrapper> filterHeTongWrappper(DAL.CommClass.PageClass pageClass,string where)
         {
             List<DAL.CommClass.HeTongWrapper> heTongWrapperList = new List<DAL.CommClass.HeTongWrapper>();
-            DAL.Base_HeTong ins = new DAL.Base_HeTong();
-            List<DAL.DTO.TabHeTong> htTongList = ins.filterAllHeTong(pageClass, where, new string[] { "TabHeTongVice", "TabHeTongBianGeng", "TabFaPiaoJiShouKuanGuanLi", "TabXiangMuQianQi" });
+            List<View_HeTong> heTongViewList = new DAL.ViewBase_HeTong().filter(pageClass,where);
+            int[] ids = heTongViewList.Select(p => p.ht_Id).ToArray();
+            List<DAL.DTO.TabHeTong> _heTongList = new DAL.Base_HeTong().getByIds(ids, new string[] { "TabHeTongVice", "TabHeTongBianGeng", "TabFaPiaoJiShouKuanGuanLi", "TabXiangMuQianQi" });
+            List<DAL.DTO.TabHeTong> heTongList = new List<TabHeTong>();
+            foreach (int id in ids) {
+                TabHeTong ht= _heTongList.FirstOrDefault(p => p.ht_Id == id);
+                if (ht != null) {
+                    heTongList.Add(ht);
+                }
+            }
+           // List<DAL.DTO.TabHeTong> htTongList = ins.filterAllHeTong(pageClass, where, new string[] { "TabHeTongVice", "TabHeTongBianGeng", "TabFaPiaoJiShouKuanGuanLi", "TabXiangMuQianQi" });
+
            
             //转换成Wrapper
-            foreach (DAL.DTO.TabHeTong ht in htTongList)
+            foreach (DAL.DTO.TabHeTong ht in heTongList)
             {
                 DAL.CommClass.HeTongWrapper newObj = new DAL.CommClass.HeTongWrapper();
                 newObj = ConvertToHeTongWrapper(ht);//转换函数
@@ -155,7 +165,7 @@ namespace DAL.Logic
             //工程状态
             newObj.gongChengZhuangTai = ht.TabXiangMuQianQi == null ? "" : ht.TabXiangMuQianQi.qq_GongChengZhuangTai;
             //结算监理费
-            newObj.jieSuanJianLiFei = ht.TabHeTongVice.htv_JieSuanJianLiFei;
+            newObj.jieSuanJianLiFei = ht.TabHeTongVice==null?null:ht.TabHeTongVice.htv_JieSuanJianLiFei;
             return newObj;
         }
        

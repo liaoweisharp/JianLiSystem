@@ -1,11 +1,15 @@
-﻿.tbChengBen{ margin:10px auto;border: 1px solid #009999;}
+﻿.tbChengBen{ margin:10px auto;border: 1px solid #009999;width:90%}
 .chengben_detail tr .td30{width:230px; text-align:left;}
 .chengben_detail tr .td31{ text-align:left;width:150px;}
 .tbChengBen .td12{width:110px;}
-.tbChengBen .td1{width:70px; text-align:center;vertical-align:top;}
+.tbChengBen .td1{width:100px; text-align:center;vertical-align:top;}
 .tbChengBen .td2{width:70px;vertical-align:top;}
 .tbChengBen .td3{}
 .tbChengBen .td4{width:100px;vertical-align:top;}
+.chengben_detail
+{
+    width:95%;
+    }
 .total{ color:Green;}
 .sm{ color:Gray;
      font-size:smaller;}

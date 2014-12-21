@@ -123,14 +123,14 @@ public class WebService_XiangMu : System.Web.Services.WebService {
     //    return BLL.XiangMu.filterAllXiangMuHouQi(pageClass, where, new string[] { "TabHeTong" });
     //}
     [WebMethod(EnableSession = true)]
-    public List<DAL.CommClass.XiangMuHouQiWrapper2> filterAllXiangMuHouQi2(DAL.CommClass.PageClass pageClass, string where)
+    public List<DAL.DTO.View_XiangMu_Management> filterAllXiangMuHouQi2(DAL.CommClass.PageClass pageClass, string where)
     {
-        return DAL.Logic.Logic_XiangMu.filterAllXiangMuHouQi2(pageClass, where);
+        return new DAL.ViewBase_XiangMu_Management().filter(pageClass, where);
     }
     [WebMethod(EnableSession = true)]
     public int countHouQi2(DAL.CommClass.PageClass pageClass, string where)
     {
-        return DAL.Logic.Logic_XiangMu.countHouQi2(pageClass, where);
+        return new DAL.ViewBase_XiangMu_Management().count(pageClass, where);
     }
     [WebMethod(EnableSession = true)]
     public bool updateMingXiInfo(int projectId, List<DAL.DTO.Tab_XiangMu_YiJiaoMingXi> mingXiArray, DAL.DTO.View_XiangMu_YiJiao yiJiaoQingKuang)
@@ -174,5 +174,20 @@ public class WebService_XiangMu : System.Web.Services.WebService {
         DAL.Base_XiangMuQianQi b2 = new DAL.Base_XiangMuQianQi();
         b2.updateParentId(id);
         return b1.Deletes(new int[] { id }) == 1 ? true : false;
+    }
+    [WebMethod( Description = "移动项目机构（树形菜单界面）",EnableSession = true)]
+    public bool dragJianLiJiGou(int jianLiJiGouId,int xiangMuZuId)
+    {
+        return BLL.XiangMu.dragJianLiJiGou(jianLiJiGouId, xiangMuZuId);
+    }
+    [WebMethod(Description = "移动工程（树形菜单界面）", EnableSession = true)]
+    public bool dragGongCheng(int gongChengId, int jianLiJiGouId)
+    {
+        return BLL.XiangMu.dragGongCheng(gongChengId, jianLiJiGouId);
+    }
+    [WebMethod(Description = "移动工程（树形菜单界面）", EnableSession = true)]
+    public ArrayList getDistinctInfo()
+    {
+        return BLL.XiangMu.getDistinctInfo();
     }
 }

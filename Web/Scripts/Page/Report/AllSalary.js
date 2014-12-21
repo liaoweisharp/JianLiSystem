@@ -54,7 +54,7 @@ function getHTML(datas) {
 
                 str.push(String.format("<td class='rig'>{0}</td>", obj.shiFaZongE == null ? "" : "<label validate='money'>" + obj.shiFaZongE + "</label>"));
                 if (obj.zhuangTai == 1) {
-                    str.push(String.format("<td class='rig'>{0}</td>", obj.gongSiChengDan == null ? "" : "<a style='color:green; cursor:pointer' href='Base_XiangMuForMonth.aspx?ms="+obj.monthSalaryId+"'>" + obj.gongSiChengDan + "</a>"));
+                    str.push(String.format("<td class='rig'>{0}</td>", obj.gongSiChengDan == null ? "" : "<a style='color:green; cursor:pointer' href='Base_XiangMuForMonth.aspx?ms="+obj.monthSalaryId+"'>￥&nbsp;" + obj.gongSiChengDan + "</a>"));
                 }
                 else {
                     str.push(String.format("<td class='rig'>{0}</td>", obj.gongSiChengDan == null ? "" : "<label validate='money'>" + obj.gongSiChengDan + "</label>"));

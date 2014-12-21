@@ -34,7 +34,7 @@
     function getHtml(datas) {
         var str = [];
         if (datas.length > 0) {
-            str.push("<table id='xiangMuForMonth' class='tb_List QQ' cellspacing='1' cellpadding='3'>");
+            str.push("<table id='xiangMuForMonth' class='tb_List QQ coll' cellspacing='0' cellpadding='3'>");
             str.push("<tr class='header'>");
 
             str.push(String.format("<td>{0}</td>", "项目部"));

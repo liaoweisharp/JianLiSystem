@@ -3,6 +3,7 @@
         pageSize = 10;
         baseData = {};
         loading = "<p><center><img src='../Images/ajax-loader_b.gif'/></center></p>";
+      
         ZG.callList()
 
         //$invokeWebService_2("~WebService_XiangMuJieSuan.getInitData", {}, null, successCallBack, errorCallBack, null, { userContent: "getInitData" });
@@ -60,6 +61,7 @@
             var projectId = context.projectId;
             var jsonsArray_MBGL = createJson_MBGL();
             var jsonsArray_XMJS = createJson_XMJS();
+            
             conventToDateTime(obj, jsonsArray_MBGL);
             conventToDateTime(obj, jsonsArray_XMJS);
             if (type == "update") {
@@ -113,7 +115,7 @@
         new JXKH(id, "update"); //绩效考核
         new BX(id, "update"); //报销
         new FYTZ(id, "update"); //费用调整
-        new RYXC(id, "review");//人员工资
+        new RYXC(id, "review"); //人员工资
     }
     ZG.click_Detail = function (id, Name) {
         var _id = String.randomString(6);
@@ -139,7 +141,7 @@
         new JXKH(id, "review"); //绩效考核
         new BX(id, "review"); //报销
         new FYTZ(id, "review"); //费用调整
-        new RYXC(id, "review");//人员工资
+        new RYXC(id, "review"); //人员工资
 
     }
     function _clickUpdate_MBGL(event) {
@@ -235,7 +237,7 @@
             }
         }
         else if (content == "renYuanXinChou") {
-        
+
             str.push("<li class='ZX_title'>人员薪酬</li>");
             if (type == "update") {
                 //str.push(String.format("<li class='bg_A' style='float:right;'><a href='javascript:void(0);' onclick=\"GZJL.Add('{0}')\" >添加</a></li>", userId));
@@ -287,7 +289,7 @@
         else if (content == "feiYongTiaoZheng") {
             str.push(String.format("<div id='{0}' class='ZX_con h480'>{1}</div>", FYTZ.Prefix + userId, loading));
         }
-    
+
 
 
         return str.join("");
@@ -345,10 +347,12 @@
         jsonArray.push({ itemId: "zg_js_ShiLing", type: "text", validate: "money", title: "实领（万元）" });
         jsonArray.push({ itemId: "zg_js_BaoZhengJin", type: "ntext", validate: "money", title: "保证金（万元）" });
         jsonArray.push({ itemId: "zg_js_BaoZhengJinJieSuan", type: "select", title: "保证金结算", init: [{ id: 1, title: "已结" }, { id: 0, title: "未结"}] });
+
         return jsonArray;
     }
     //#endregion
     //#region 其他
+ 
     function getOptionsFromForm() {
         var opt = { callback: pageselectCallback, items_per_page: pageSize, next_text: "下页", num_display_entries: pageSize, num_edge_entries: 2, prev_text: "上页" };
         var htmlspecialchars = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }
@@ -380,6 +384,7 @@
         })
         $("#" + ZG.divContent).find("td").find("label[validate='money']").formatCurrency();
     }
+
     //#endregion
     window.ZG = ZG;
 })()

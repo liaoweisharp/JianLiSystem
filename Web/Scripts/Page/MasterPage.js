@@ -1,9 +1,10 @@
 ﻿$(function () {
-  
+
     $.fn.numeral = function () {
-    
+
         $(this).css("ime-mode", "disabled");
         this.bind("keypress", function (e) {
+         
             var code = (e.keyCode ? e.keyCode : e.which);  //兼容火狐 IE   
             if (!$.browser.msie && (e.keyCode == 0x8))  //火狐下 不能使用退格键  
             {
@@ -12,22 +13,33 @@
             return code >= 48 && code <= 57 || code == 46;
         });
         this.bind("blur", function () {
-            if (this.value.lastIndexOf(".") == (this.value.length - 1)) {
-                this.value = this.value.substr(0, this.value.length - 1);
-            } else if (isNaN(this.value)) {
-                this.value = " ";
+           
+            //                if (this.value.lastIndexOf(".") == (this.value.length - 1)) {
+            //                    this.value = this.value.substr(0, this.value.length - 1);
+            //                } else if (isNaN(this.value)) {
+            //                    this.value = " ";
+            //     
+            //下面是我写的，上面是原来的
+            if (isNaN(this.value)) {
+                if (this.value != "-") {
+                    this.value = " ";
+                }
             }
+
         });
         this.bind("paste", function () {
+          
             var s = clipboardData.getData('text');
             if (!/\D/.test(s));
             value = s.replace(/^0*/, '');
             return false;
         });
         this.bind("dragenter", function () {
+          
             return false;
         });
         this.bind("keyup", function () {
+            var t = obj.value.charAt(0);    
             this.value = this.value.replace(/[^\d.]/g, "");
             //必须保证第一个为数字而不是.
             this.value = this.value.replace(/^\./g, "");
@@ -35,6 +47,10 @@
             this.value = this.value.replace(/\.{2,}/g, ".");
             //保证.只出现一次，而不能出现两次以上
             this.value = this.value.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
+            //如果第一位是负号，则允许添加 
+            if (t == '-') {
+                obj.value = '-' + obj.value;
+            }  
         });
     };
 
@@ -54,7 +70,7 @@
     };
 
     jQuery.fn.formatCurrency = function (destination, settings) {
-    
+
         if (arguments.length == 1 && typeof destination !== "string") {
             settings = destination;
             destination = false;
@@ -81,7 +97,7 @@
         settings.regex = generateRegex(settings);
 
         return this.each(function () {
-            
+
             $this = $(this);
 
             // get number
@@ -160,7 +176,7 @@
                 $destination = $(destination);
             }
             // set destination
-            
+
             $destination[$destination.is('input, select, textarea') ? 'val' : 'html']("￥&nbsp;" + money);
 
 
@@ -271,8 +287,8 @@
         }
     }
     //#endregion  
-    
-  
+
+
 })
 var loading = "<div class='loading'><center><img src='../Images/ajax-loader_b.gif'></center></div>";
 function getInit(arr, prefix) {

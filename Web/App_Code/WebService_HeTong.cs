@@ -96,6 +96,13 @@ public class WebService_HeTong : System.Web.Services.WebService
     public int addHeTong(DAL.DTO.TabHeTong heTong)
     {
         heTong=BLL.HeTong.addHeTong(heTong);
+        if (heTong.ht_QqId.HasValue) {
+            DAL.DTO.TabXiangMuQianQi qq=  new DAL.Base_XiangMuQianQi().getById(heTong.ht_QqId.Value);
+            if (qq.qq_ZhiXingZhuangTai.HasValue == false) {
+                qq.qq_ZhiXingZhuangTai = 2;
+                new DAL.Base_XiangMuQianQi().Update(qq);
+            }
+        }
         if (heTong != null)
         {
             return heTong.ht_Id;

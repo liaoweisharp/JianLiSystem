@@ -21,7 +21,13 @@
                 <li class="ZX_title2">项目部</li><li style="float: right;" class="bg_A"></li>
              <li style="height: 28px; float:right;margin-right:30px; width: 175px; background-repeat: no-repeat; background-image: url(&quot;../Images/Search1.png&quot;);">
              <input id="txtSerXiangMu" type="text" class="search searchW" watermark="工程关键字或合同号" />
-             <img alt='搜索' style=" cursor:pointer;float:right" src="../Images/Search2.png" onclick="XMHQ.Search_XiangMu()"/></li>        
+             <img alt='搜索' style=" cursor:pointer;float:right" src="../Images/Search2.png" onclick="XMHQ.Search_XiangMu()"/></li>
+             <li style="height: 28px; float:right;margin-right:30px;">
+                <select id="ddlZhuangTai_ZhiGuan" onchange="XMHQ.Search_XiangMu()">
+                    <option value='-1'>工程状态（全部）</option>
+                    <option value='-100' class="empty">(未填)</option>
+                </select>
+             </li>        
             </ul>
             <br />
         </div>
@@ -38,8 +44,14 @@
             <ul class="ulnone">
                 <li class="ZX_title2">事业部</li><li style="float: right;" class="bg_A"></li>
              <li style="height: 28px; float:right;margin-right:30px; width: 175px; background-repeat: no-repeat; background-image: url(&quot;../Images/Search1.png&quot;);">
-             <input id="Text1" type="text" class="search searchW" watermark="工程关键字或合同号" />
+             <input id="txtSerXiangMu_ShiYeBu" type="text" class="search searchW" watermark="工程关键字或合同号" />
              <img alt='搜索' style=" cursor:pointer;float:right" src="../Images/Search2.png" onclick="XMHQ_SYB.Search_XiangMu()"/></li>        
+             <li style="height: 28px; float:right;margin-right:30px;">
+                <select id="ddlZhuangTai_ShiYeBu" onchange="XMHQ_SYB.Search_XiangMu()">
+                    <option value='-1'>工程状态（全部）</option>
+                    <option value='-100' class="empty">(未填)</option>
+                </select>
+             </li>      
             </ul>
             <br />
         </div>

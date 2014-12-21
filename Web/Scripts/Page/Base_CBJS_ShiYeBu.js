@@ -3,11 +3,13 @@
         pageSize = 10;
         baseData = {};
         loading = "<p><center><img src='../Images/ajax-loader_b.gif'/></center></p>";
+        bindDom();
         SYB.callList()
 
         //$invokeWebService_2("~WebService_XiangMuJieSuan.getInitData", {}, null, successCallBack, errorCallBack, null, { userContent: "getInitData" });
     }
     SYB.pd = {};
+    SYB.pd.filters = [];
     SYB.where = null;
     //var requireColumn = ["qq_GongChengMingCheng", "qq_XiangMuLaiYuan", "qq_ZhiXingLeiXing", "qq_HeTongHao", "qq_ShiJian"];
     function SYB(divPage, divContent) {
@@ -21,7 +23,25 @@
     }
     SYB.callList = function () {
 
-        $invokeWebService_2("~WebService_XiangMuJieSuan.countJS_ShiYeBu", { pageClass: null, where: SYB.where }, function () {
+        var ddlValue = $("#ddlJiSuan_ShiYeBu").val();
+
+        if (ddlValue != "-1") {
+            var obj = SYB.pd.filters.firstOrDefault("key", "jieSuanZhuangTai");
+            if (obj != null) {
+                obj.value = ddlValue;
+            }
+            else {
+                SYB.pd.filters.push({ "key": "jieSuanZhuangTai", "value": ddlValue })
+            }
+        }
+        else {
+            SYB.pd.filters.removeFirst("key", "jieSuanZhuangTai");
+        }
+
+        SYB.where = $.trim($("#txtSerXiangMu_ShiYeBu").val());
+        
+
+        $invokeWebService_2("~WebService_XiangMuJieSuan.countJS_ShiYeBu", { pageClass: SYB.pd, where: SYB.where }, function () {
             $("#" + SYB.divContent).html(loading);
         }, successCallBack, errorCallBack, null, { userContent: "countJS_ShiYeBu" });
     }
@@ -45,7 +65,7 @@
             var projectId = context.projectId;
             var jsonsArray = createJson();
             conventToDateTime(obj, jsonsArray);
-            
+
             if (type == "update") {
 
                 new bindDiv(jsonsArray, obj, id1, { type: "update", align: "y", id: projectId }, _clickUpdate);
@@ -64,11 +84,12 @@
             //conventObjsToDateTime(data, jsons);
             //#endregion
             if (data.length == 0) {
-                $("#" + XMHQ.divContent).html("还没有项目记录");
+                $("#" + SYB.divContent).html("没有匹配的记录");
             }
             else {
                 var str = getHtmlOfHouQi(data);
                 $("#" + SYB.divContent).html(str);
+                $("#" + SYB.divContent).rowspan(0).rowspan(1)
                 tableAddStyle();
             }
 
@@ -101,7 +122,7 @@
 
         $("#" + _id).tabs();
         $invokeWebService_2("~WebService_XiangMuJieSuan.getXiangMu_JieSuanNeiRongById", { id: id }, null, successCallBack, errorCallBack, null, { userContent: "getXiangMu_JieSuanNeiRongById", id: id1, projectId: id, type: "update" });
-        
+
         new JSMX(id, "update");
     }
     SYB.click_Detail = function (id, Name) {
@@ -121,7 +142,7 @@
     }
     function _clickUpdate(event) {
 
-    
+
         var jsonArray = event.data.newBind.ShouJiData();
         var obj = bind.jsonToObject(jsonArray);
         if (event.data.obj) {
@@ -132,18 +153,13 @@
             obj["jsnr_Id"] = event.data.newBind.options.id;
             $invokeWebService_2("~WebService_XiangMuJieSuan.saveXiangMu_JieSuanNeiRong", { obj: obj }, null, successCallBack, errorCallBack, null, { userContent: "updateXiangMu_JieSuanNeiRong" });
         }
-        
-        
+
+
     }
 
-    SYB.Search_XiangMu = function () {
-        var value = $.trim($("#txtSerXiangMu").val());
-        if (value == "") {
-            alert("搜索内容为空，请填值再搜索。");
-            value = null;
-        }
-        SYB.where = value;
-        SYB.callListXiangMu(value);
+    SYB.Search_XiangMu_ShiYeBu = function () {
+
+        SYB.callList();
 
     }
 
@@ -194,9 +210,11 @@
         var str = [];
 
         if (houQi.length > 0) {
-            str.push("<table class='tb_List QQ' cellspacing='1' cellpadding='3'>");
+            str.push("<table class='tb_List QQ tbShiYeBu' cellspacing='1' cellpadding='3'>");
             str.push("<tr class='header'>");
-            str.push(String.format("<td class='num'>#</td>"));
+      
+            str.push(String.format("<td>{0}</td>", "项目部"));
+            str.push(String.format("<td>{0}</td>", "项目监理机构"));
             str.push(String.format("<td>{0}</td>", "工程名称"));
             str.push(String.format("<td>{0}</td>", "合同号"));
             str.push(String.format("<td>{0}</td>", "业主名称"));
@@ -212,13 +230,19 @@
 
             for (var j = 0; j < houQi.length; j++) {
                 var obj = houQi[j];
+                var xiangMuBuMenMingCheng = obj.zuName == null ? "" : obj.zuName; //项目部
+                var jianLiZuMingCheng = obj.jiGouName == null ? "" : obj.jiGouName; //监理分组名称
+                var jianLiJiGouId = obj.jiGouId == null ? randomStringFun(3) : obj.jiGouId;
+                var xiangMuBuId = obj.zuId == null ? randomStringFun(3) : obj.zuId;
                 str.push("<tr class='row'>");
-                str.push(String.format("<td class='num'>{0}</td>", SYB.pd.currentPageNumber * SYB.pd.pageSize + 1 + j));
+                //   str.push(String.format("<td class='num'>{0}</td>", SYB.pd.currentPageNumber * SYB.pd.pageSize + 1 + j));
+                str.push(String.format("<td><font xiangmubilid='{0}'>{1}</font></td>", xiangMuBuId, xiangMuBuMenMingCheng));
+                str.push(String.format("<td><font jianlijigouid='{0}'>{1}</font></td>", jianLiJiGouId, jianLiZuMingCheng));
                 str.push(String.format("<td><a href='javascript:void(0);' onclick=\"SYB.click_Detail({1},'{0}')\">{0}</a></td>", obj.gongChengMingCheng, obj.id));
-                
-                str.push(String.format("<td>{0}</td>", obj.heTongHao));
-                str.push(String.format("<td>{0}</td>", obj.yeZhuMingCheng));
-                str.push(String.format("<td>{0}</td>", obj.xiangMuFuZeRen));
+
+                str.push(String.format("<td>{0}</td>", obj.heTongHao == null ? "" : obj.heTongHao));
+                str.push(String.format("<td>{0}</td>", obj.yeZhuMingCheng == null ? "" : obj.yeZhuMingCheng));
+                str.push(String.format("<td>{0}</td>", obj.xiangMuFuZeRen == null ? "" : obj.xiangMuFuZeRen));
                 str.push(String.format("<td class='rig'>{0}</td>", obj.zanDingJianLiFeiZongE == null ? "" : "<label validate='money'>" + obj.zanDingJianLiFeiZongE + "</label>"));
                 str.push(String.format("<td class='rig'>{0}</td>", obj.shiShouKuanZongE == null ? "" : "<label validate='money'>" + obj.shiShouKuanZongE + "</label>"));
                 str.push(String.format("<td class='rig'>{0}</td>", obj.yiJieSuanZongE == null ? "" : "<label validate='money' >" + obj.yiJieSuanZongE + "</label>"));
@@ -268,13 +292,22 @@
     function tableAddStyle() {
         $("#" + SYB.divContent).find("tr[class*='header']").addClass("bgHeader");
         $("#" + SYB.divContent).find("tr[class*='row']:odd").addClass("bg1");
-        $("#" + SYB.divContent).find("tr[class*='row']").bind("mouseover", {}, function () {
-            $(this).addClass("mouseover");
-        })
-        $("#" + SYB.divContent).find("tr[class*='row']").bind("mouseout", {}, function () {
-            $(this).removeClass("mouseover");
-        })
+//        $("#" + SYB.divContent).find("tr[class*='row']").bind("mouseover", {}, function () {
+//            $(this).addClass("mouseover");
+//        })
+//        $("#" + SYB.divContent).find("tr[class*='row']").bind("mouseout", {}, function () {
+//            $(this).removeClass("mouseover");
+//        })
         $("#" + SYB.divContent).find("td").find("label[validate='money']").formatCurrency();
+    }
+    //绑定Dom
+    function bindDom() {
+        var $ddl = $("#ddlJiSuan_ShiYeBu");
+        for (var i = 0; i < const_JieSuanInit.length; i++) {
+            var item = const_JieSuanInit[i];
+            var $option = $(String.format("<option value='{0}'>{1}</option>", item.id, item.title));
+            $ddl.append($option);
+        }
     }
     //#endregion
     window.SYB = SYB;

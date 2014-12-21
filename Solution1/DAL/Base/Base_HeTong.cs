@@ -243,28 +243,28 @@ namespace DAL
         /// 计算所有的记录数
         /// </summary>
         /// <returns></returns>
-        public int countAllHeTong(DAL.CommClass.PageClass pageClass,string where)
-        {
-            if (where != null)
-            {
-                return this.dataContext.TabHeTong.Where(ins=>(ins.TabXiangMuQianQi!=null && ins.TabXiangMuQianQi.qq_HeTongHao==where) || ins.ht_MingCheng.Contains(where)).Count();
-            }
-            else
-            {
-                queryConfig(new String[] { "TabXiangMuQianQi" });
-              ////  byte? id= byte.Parse(pageClass.filter.Value);
-                return (from p in this.dataContext.TabHeTong
-                          join k in this.dataContext.TabXiangMuQianQi
-                          on p.ht_QqId equals k.qq_Id
-                        where (pageClass == null || pageClass.filter == null || pageClass.filter.key == "-1" || pageClass.filter.key != "zhixingleixing") ? true : (pageClass.filter.value == null ? k.qq_ZhiXingLeiXing == null : k.qq_ZhiXingLeiXing.Equals(pageClass.filter.value))
+        //public int countAllHeTong(DAL.CommClass.PageClass pageClass,string where)
+        //{
+        //    if (where != null)
+        //    {
+        //        return this.dataContext.TabHeTong.Where(ins=>(ins.TabXiangMuQianQi!=null && ins.TabXiangMuQianQi.qq_HeTongHao==where) || ins.ht_MingCheng.Contains(where)).Count();
+        //    }
+        //    else
+        //    {
+        //        queryConfig(new String[] { "TabXiangMuQianQi" });
+        //      ////  byte? id= byte.Parse(pageClass.filter.Value);
+        //        return (from p in this.dataContext.TabHeTong
+        //                  join k in this.dataContext.TabXiangMuQianQi
+        //                  on p.ht_QqId equals k.qq_Id
+        //                where (pageClass == null || pageClass.filter == null || pageClass.filter.key == "-1" || pageClass.filter.key != "zhixingleixing") ? true : (pageClass.filter.value == null ? k.qq_ZhiXingLeiXing == null : k.qq_ZhiXingLeiXing.Equals(pageClass.filter.value))
                        
-                        //where (pageClass == null) ? true : "1" == pageClass.filter.Value
-                          select p
-                         ).Count();
+        //                //where (pageClass == null) ? true : "1" == pageClass.filter.Value
+        //                  select p
+        //                 ).Count();
 
               
-            }
-        }
+        //    }
+        //}
       
         /// <summary>
         /// 返回分段记录
@@ -449,6 +449,12 @@ namespace DAL
                 hetong = hetong.FindAll(ins => ins.ht_QianYueRiQi.Value <= queryWhereHT.ht_QianYueRiQi_End.Value);
             }
             return hetong;
+        }
+
+        public List<TabHeTong> getByIds(int[] ids, params string[] tabs)
+        {
+            queryConfig(tabs);
+            return this.dataContext.TabHeTong.Where(p => ids.Contains(p.ht_Id)).ToList();
         }
     }
 }

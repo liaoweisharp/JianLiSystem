@@ -20,7 +20,8 @@ $(function () {
 //        }
 //    }, showClose: false
 //    });
-initDataDom();
+    initDataDom();
+    bindDom();
 })
 function HT() { }
 
@@ -30,7 +31,9 @@ function initDataDom() {
     where_HeTong = null;
     requireColumn = ["ht_Number", "ht_MingCheng", "ht_QianDingZhuangTai"];
     loading = "<p><center><img src='../Images/ajax-loader_b.gif'/></center></p>";
+
     HT.pd = {};
+    HT.pd.filters = [];
     $invokeWebService_2("~WebService_HeTong.getInitData", {}, null, successCallBack, errorCallBack, null, "getInitData");
 //    $invokeWebService_2("~WebService_HeTong.getHeTongInfo", { htId: 24 }, null, function (result) { 
 //        
@@ -61,7 +64,7 @@ function successCallBack(result,context){
 
 
         //开始调用显示合同列表
-        callListHeTong(null);
+        callListHeTong();
         //开始调用项目前期
         new XMQQ("divPageSize_QQ", "divContent_QQ");
     }
@@ -82,8 +85,8 @@ function successCallBack(result,context){
         //如果还有不存在Json的日期类型还需要在此处转换
         //#endregion
         baseData["heTongArray"] = data;
-        if (data.length == 0 && !HT.pd.filter) {
-            $("#divContent").html("还没有合同的记录哦，要添加一个合同请点击右上角的\"添加\"按钮");
+        if (data.length == 0) {
+            $("#divContent").html("没有匹配的记录");
         }
         else {
             var str = getHtmlOfHeTong(data);
@@ -225,7 +228,8 @@ function getHtmlOfHeTong(heTongs){
         str.push("<td class='td2'>合同名称</td>");
         str.push("<td class='td11'>执行类型");
         str.push("<span class='flowButton'>");
-        if (HT.pd.filter && HT.pd.filter.key == "zhixingleixing") {
+        var temp= HT.pd.filters.firstOrDefault("key","zhiXingLeiXing");
+        if (temp != null) {
             str.push("&nbsp;<img class='imgPaiXu' src='../Images/sanJiao_light.gif' title='筛选'>");
         }
         else {
@@ -235,10 +239,10 @@ function getHtmlOfHeTong(heTongs){
         str.push("<span class='flow flow_LeiXing hid'>");
         str.push("<ul>");
         str.push(String.format("<li id='{0}' >{1}</li>", "-1", "全部"));
-        str.push(String.format("<li id='{0}' class='{2}' style='color:gray;'><i>({1})</i></li>", "0", "空", (HT.pd.filter && HT.pd.filter.key == "zhixingleixing" && HT.pd.filter.value==null)?"selBg":""));
+        str.push(String.format("<li id='{0}' class='{2}' style='color:gray;'><i>({1})</i></li>", "0", "空", (temp != null && temp.value == null) ? "selBg" : ""));
         baseData["合同执行部门"].each(function (item) {
 
-            str.push(String.format("<li id='{0}' class='{2}'>{1}</li>", item.bm_Id, item.bm_Name, (HT.pd.filter && HT.pd.filter.key == "zhixingleixing" && HT.pd.filter.value==item.bm_Id)?"selBg":""));
+            str.push(String.format("<li id='{0}' class='{2}'>{1}</li>", item.bm_Id, item.bm_Name, (temp != null && temp.value == item.bm_Id) ? "selBg" : ""));
         })
       
         str.push("</ul>");
@@ -254,7 +258,7 @@ function getHtmlOfHeTong(heTongs){
         str.push("<td class='td6'>开票总额(万元)</td>");
         str.push("<td class='td7'>履约/质保金</td>");
 
-        str.push("<td class='td12'>工程进度</td>");
+        str.push("<td class='td12'>工程状态</td>");
         str.push("<td class='td13'>竣工资料移交</td>");
         str.push("<td class='td9'>变更及收款</td>");
         str.push("<td class='td10'>操作</td>");
@@ -406,8 +410,9 @@ function clickUpdate_HT(event) {
     $invokeWebService_2("~WebService_HeTong.updateHeTong", { heTong: obj }, null, successCallBack, errorCallBack, null, { userContent: "updateHeTong" });
 }
 function clickUpdate_HTV(event) {
-    
+
     var jsonArray = event.data.newBind.ShouJiData();
+    debugger
     var obj = bind.jsonToObject(jsonArray);
     obj["htv_Id"]=event.data.obj.htv_Id;
     $invokeWebService_2("~WebService_HeTong.updateHeTongVice", {htv:obj}, null, successCallBack, errorCallBack, null,{userContent:"updateHeTongVice"});
@@ -542,19 +547,31 @@ function _clickDel(v, h, f) {
     return true;
 }
 //开始调用显示合同列表
-function callListHeTong(where) {
+function callListHeTong() {
+    var ddlValue = $("#ddl_HT_ZhuangTai").val();
+   
+    if (ddlValue != "-1") {
+        var obj = HT.pd.filters.firstOrDefault("key", "zhiXingZhuangTai");
+        if (obj != null) {
+            obj.value = ddlValue;
+        }
+        else {
+            HT.pd.filters.push({ "key": "zhiXingZhuangTai", "value": ddlValue })
+        }
+    }
+    else {
+        HT.pd.filters.removeFirst("key", "zhiXingZhuangTai");
+    }
 
-    $invokeWebService_2("~WebService_HeTong.countHeTong", { pageClass: HT.pd, where: where }, null, successCallBack, errorCallBack, null, { userContent: "countHeTong" });
+    HT.where = $.trim($("#txtSerHeTong").val());
+    HT.where = HT.where == "" ? null : HT.where;
+    $invokeWebService_2("~WebService_HeTong.countHeTong", { pageClass: HT.pd, where: HT.where }, null, successCallBack, errorCallBack, null, { userContent: "countHeTong" });
 }
 function Click_Search_HeTong() {
-    var value = $.trim($("#txtSerHeTong").val());
-    if (value == "") {
-        alert("搜索内容为空，请填值再搜索。");
-        value=null;
-    }
    
-    callListHeTong(value);
-    where_HeTong=value;
+   
+    callListHeTong();
+
 }
 //点击排序
 function click_Order(type) {
@@ -585,28 +602,34 @@ function click_Order(type) {
 //点击筛选（执行类型）
 function clickFlowLi_ZhiXingLeiXing(event) {
     
-    clickFlowLi(event, $(this), "ZhiXingLeiXing")
+    clickFlowLi(event, $(this), "zhiXingLeiXing")
 }
 //点击筛选
 function clickFlowLi(event, node, type) {
+debugger
     node.parent().parent().hide(); //关掉浮动层
     //记录选项
     var selectedValue = node.attr("id");
     if (selectedValue == "-1") {
 
-        delete HT.pd.filter;
+        HT.pd.filters.removeFirst("key","zhiXingLeiXing");
     }
 
     else {
         selectedValue = selectedValue == "0" ? null : selectedValue;
-        HT.pd.filter = { "key": type.toLowerCase(), "value": selectedValue };
-
+        var temp = HT.pd.filters.firstOrDefault("key","zhiXingLeiXing");
+        if (temp != null) {
+            temp.value = selectedValue;
+        }
+        else {
+            HT.pd.filters.push({ "key": "zhiXingLeiXing", "value": selectedValue });
+        }
     }
 
 
 
     //调用WebService
-    callListHeTong(null)
+    callListHeTong()
 }
 //#endregion
 //#region 生成json
@@ -643,7 +666,8 @@ function createJson() {
     jsonArray.push({ itemId: "ht_LvYueZhiBaoJinYueDing", type: "ntext", title: "履约保证金退还约定(万元)" });
     
     jsonArray.push({ itemId: "ht_GongChengGuiMoYuGaiKuang", type: "ntext", title: "工程规模与概况" });
-    jsonArray.push({itemId:"ht_BeiZhu",type:"ntext",title:"备注"});
+    jsonArray.push({ itemId: "ht_BeiZhu", type: "ntext", title: "备注" });
+    
     
     return jsonArray;
 }
@@ -664,7 +688,8 @@ function createJson_htv(){
 //    jsonArray.push({ itemId: "htv_GuiDangQingKuang", type: "select",title: "竣工资料归档情况",init: getInit(baseData["归档情况"],"gd_")});
     jsonArray.push({ itemId: "htv_BeiZhu", type: "ntext", title: "备注" });
     jsonArray.push({ itemId: "htv_JieSuanJianLiFei",isOtherCol:true, type: "text", validate: "money", title: "结算监理费（万元）" });
-    jsonArray.push({ itemId: "htv_JieSuanShuoMing", type: "ntext",title: "结算说明" });
+    jsonArray.push({ itemId: "htv_JieSuanShuoMing", type: "ntext", title: "结算说明" });
+    jsonArray.push({ itemId: "htv_ZhiXingZhuangTai", type: "select", title: "合同执行状态", init: const_HT_JieSuanInit });
     return jsonArray;
 }
 function createJson_jieSuan(){
@@ -696,8 +721,8 @@ HT.pageselectCallback=function(page_index, jq) {
     
     HT.pd.currentPageNumber = page_index;
     HT.pd.pageSize = pageSize;
-    
-    $invokeWebService_2("~WebService_HeTong.filterHeTongWrappper", { pageClass: HT.pd,where:where_HeTong },
+
+    $invokeWebService_2("~WebService_HeTong.filterHeTongWrappper", { pageClass: HT.pd, where: HT.where },
        function () {
            $("#divContent").html(loading);
        }, successCallBack, errorCallBack, null, { userContent: "filterHeTongWrappper" });
@@ -735,7 +760,17 @@ HT.pageselectCallback=function(page_index, jq) {
         )
         .bind("click", {}, clickFlowLi_ZhiXingLeiXing)
 
-   }
+    }
+    var const_HT_JieSuanInit = [{ id: 2, title: "正常" }, { id: 3, title: "延期" }, { id: 4, title: "结算" }, { id: 1, title: "完成" }, { id: 5, title: "其他" }, ]
 
+    //绑定Dom
+    function bindDom() {
+        var $ddl = $("#ddl_HT_ZhuangTai");
+        for (var i = 0; i < const_HT_JieSuanInit.length; i++) {
+            var item = const_HT_JieSuanInit[i];
+            var $option = $(String.format("<option value='{0}'>{1}</option>", item.id, item.title));
+            $ddl.append($option);
+        }
+    }
 
 //#endregion

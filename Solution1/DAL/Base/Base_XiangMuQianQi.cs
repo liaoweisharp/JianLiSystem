@@ -154,7 +154,35 @@ namespace DAL
         {
             queryConfig(tabs);
             //int?[] qq_ParentIds = (from p in this.dataContext.TabXiangMuQianQi where p.qq_ParentId != null select p.qq_ParentId).Distinct().ToArray();
-            var list = this.dataContext.TabXiangMuQianQi.Where(p => p.qq_LeiXing == 1 || p.qq_LeiXing==null);//排除监理组
+            List<TabXiangMuQianQi> list = this.dataContext.TabXiangMuQianQi.Where(p => p.qq_LeiXing == 1 || p.qq_LeiXing == null).ToList();//排除监理组
+            if (pageClass.filters != null && pageClass.filters.Count > 0)
+            {
+                for (int i = 0; i < pageClass.filters.Count; i++) {
+                    switch (pageClass.filters[i].key) { 
+                        case "zhuangTai":
+                            if (pageClass.filters[i].value == "-100")
+                            {
+                                //未填值
+                                list = list.Where(p => p.qq_ZhiXingZhuangTai.HasValue==false).ToList();
+                            }
+                            else {
+                                list = list.Where(p => p.qq_ZhiXingZhuangTai.HasValue && p.qq_ZhiXingZhuangTai.Value.ToString() == pageClass.filters[i].value).ToList();
+                            }
+                            break;
+                        case "zhiXingLeiXing":
+                            if (pageClass.filters[i].value == "0")
+                            {
+                                //未填值
+                                list = list.Where(p => p.qq_ZhiXingLeiXing.HasValue == false).ToList();
+                            }
+                            else
+                            {
+                                list = list.Where(p => p.qq_ZhiXingLeiXing.HasValue && p.qq_ZhiXingLeiXing.Value.ToString() == pageClass.filters[i].value).ToList();
+                            }
+                            break;
+                    }
+                }
+            }
             if (where != null)
             {
                 return list.Where(p => (p.qq_HeTongHao != null && p.qq_HeTongHao == where) || (p.qq_GongChengMingCheng != null && p.qq_GongChengMingCheng.Contains(where))).OrderBy(ins => ins.TabHeTong.Count).Skip((pageClass.currentPageNumber) * pageClass.pageSize).Take(pageClass.pageSize).ToList();
@@ -241,14 +269,39 @@ namespace DAL
         public int countAllHeTong(CommClass.PageClass pageClass, string where)
         {
             //int?[] qq_ParentIds = (from p in this.dataContext.TabXiangMuQianQi where p.qq_ParentId != null select p.qq_ParentId).Distinct().ToArray();
-            var list = this.dataContext.TabXiangMuQianQi.Where(p => p.qq_LeiXing==null || p.qq_LeiXing==1);//排除监理组
+            List<DTO.TabXiangMuQianQi> list = this.dataContext.TabXiangMuQianQi.Where(p => p.qq_LeiXing == null || p.qq_LeiXing == 1).ToList();//排除监理组
             if (where != null)
             {
-                return list.Where(p => (p.qq_HeTongHao != null && p.qq_HeTongHao == where) || (p.qq_GongChengMingCheng != null && p.qq_GongChengMingCheng.Contains(where))).Count();
+                list =list.Where(p => (p.qq_HeTongHao != null && p.qq_HeTongHao == where) || (p.qq_GongChengMingCheng != null && p.qq_GongChengMingCheng.Contains(where))).ToList();
             }
-            else {
-                return list.Count();
+            if (pageClass.filters != null && pageClass.filters.Count > 0) { 
+                for(int i=0;i< pageClass.filters.Count;i++){
+                    switch (pageClass.filters[i].key) { 
+                        case "zhuangTai":
+                            if (pageClass.filters[i].value == "-100")
+                            {
+                                //未填值
+                                list = list.Where(p => p.qq_ZhiXingZhuangTai.HasValue==false).ToList();
+                            }
+                            else {
+                                list = list.Where(p => p.qq_ZhiXingZhuangTai.HasValue && p.qq_ZhiXingZhuangTai.Value.ToString() == pageClass.filters[i].value).ToList();
+                            }
+                            break;
+                        case "zhiXingLeiXing":
+                            if (pageClass.filters[i].value == "0")
+                            {
+                                //未填值
+                                list = list.Where(p => p.qq_ZhiXingLeiXing.HasValue == false).ToList();
+                            }
+                            else
+                            {
+                                list = list.Where(p => p.qq_ZhiXingLeiXing.HasValue && p.qq_ZhiXingLeiXing.Value.ToString() == pageClass.filters[i].value).ToList();
+                            }
+                            break;
+                    }
+                }
             }
+            return list.Count;
         }
         /// <summary>
         /// 项目排序后返回
@@ -276,17 +329,17 @@ namespace DAL
         }
 
 
-        public int countShiYeBu(CommClass.PageClass pageClass, string where)
-        {
-            if (where != null)
-            {
-                return this.dataContext.TabXiangMuQianQi.Where(p => p.Tab_HT_ZhiXingBuMen != null && p.Tab_HT_ZhiXingBuMen.bm_Id == 3 && ((p.qq_HeTongHao != null && p.qq_HeTongHao == where) || (p.qq_GongChengMingCheng != null && p.qq_GongChengMingCheng.Contains(where)))).Count();
-            }
-            else
-            {
-                return this.dataContext.TabXiangMuQianQi.Count(p => p.Tab_HT_ZhiXingBuMen != null && p.Tab_HT_ZhiXingBuMen.bm_Id == 3);
-            }
-        }
+        //public int countShiYeBu(CommClass.PageClass pageClass, string where)
+        //{
+        //    if (where != null)
+        //    {
+        //        return this.dataContext.TabXiangMuQianQi.Where(p => p.Tab_HT_ZhiXingBuMen != null && p.Tab_HT_ZhiXingBuMen.bm_Id == 3 && ((p.qq_HeTongHao != null && p.qq_HeTongHao == where) || (p.qq_GongChengMingCheng != null && p.qq_GongChengMingCheng.Contains(where)))).Count();
+        //    }
+        //    else
+        //    {
+        //        return this.dataContext.TabXiangMuQianQi.Count(p => p.Tab_HT_ZhiXingBuMen != null && p.Tab_HT_ZhiXingBuMen.bm_Id == 3);
+        //    }
+        //}
 
         public int countZhiGuan_JustXiangMu(CommClass.PageClass pageClass, string where)
         {
@@ -350,8 +403,21 @@ namespace DAL
                                                   }).ToList();
             return list;
         }
-
-
+        /// <summary>
+        /// 只返回最底层的“工程”
+        /// </summary>
+        /// <returns></returns>
+        public List<CommClass.keyValueClass> getByAllProject() {
+            List<CommClass.keyValueClass> list = (from p in this.dataContext.TabXiangMuQianQi
+                                                  where p.qq_LeiXing.HasValue == false || p.qq_LeiXing.Value == 1
+                                                  orderby p.qq_GongChengMingCheng
+                                                  select new CommClass.keyValueClass { 
+                                                    key=p.qq_Id,
+                                                    value = p.qq_GongChengMingCheng
+                                                  }
+                                                 ).ToList();
+            return list;
+        }
 
         public List<CommClass.keyValueClass> getByXiangMuZuId(int xiangMuZuId)
         {
@@ -374,6 +440,36 @@ namespace DAL
         public void updateParentId(int id)
         {
             this.ExecuteCommand("update TabXiangMuQianQi set qq_ParentId=null where qq_ParentId=" + id);
+        }
+        /// <summary>
+        /// 把parentId为指定值的XiangMuZuId更新为指定值
+        /// </summary>
+        /// <param name="jianLiJiGouId"></param>
+        /// <param name="xiangMuZuId"></param>
+        public int updateXiangMuZuIdByParentId(int parentId, int xiangMuZuId)
+        {
+            string sql = String.Format("update TabXiangMuQianQi set qq_XiangMuZhuId={0} where qq_ParentId={1}", xiangMuZuId, parentId);
+            return base.ExecuteCommand(sql);
+        }
+        /// <summary>
+        /// 得到工程状态（去重）
+        /// </summary>
+        /// <returns></returns>
+        public string[] getDistinctGongChengZhuangTai()
+        {
+            string[] list = this.dataContext.TabXiangMuQianQi.Where(p => p.qq_GongChengZhuangTai != null).Select(p => p.qq_GongChengZhuangTai.Trim()).Distinct().ToArray();
+            return list.OrderBy(p => p).ToArray();
+        }
+        public List<DTO.TabXiangMuQianQi> getByIds(int[] ids, params string[] tabs)
+        {
+            queryConfig(tabs);
+            List<DTO.TabXiangMuQianQi> list = this.dataContext.TabXiangMuQianQi.Where(p => ids.Contains(p.qq_Id)).ToList();
+            return list;
+        }
+
+        public bool Update(TabXiangMuQianQi qq)
+        {
+            return this.Updates(new TabXiangMuQianQi[] { qq }) == 1 ? true : false;
         }
     }
 }

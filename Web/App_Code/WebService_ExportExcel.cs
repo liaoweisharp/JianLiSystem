@@ -82,9 +82,41 @@ public class WebService_ExportExcel : System.Web.Services.WebService {
         DAL.Base_ExcelCharger base_Charger = new DAL.Base_ExcelCharger();
         return base_Charger.Deletes(new int[]{id})==1?true:false;
     }
+    [WebMethod(Description = "", EnableSession = true)]
+    public int countCompany(PageClass pageClass, string where)
+    {
+        DAL.Base_ExcelCompany baseCharger = new DAL.Base_ExcelCompany();
+        return baseCharger.countCompany(pageClass, where);
+    }
+    [WebMethod(Description = "", EnableSession = true)]
+    public List<DAL.DTO.Tab_Excel_Company> filterCompany(PageClass pageClass, string where)
+    {
+        DAL.Base_ExcelCompany baseCharger = new DAL.Base_ExcelCompany();
+        return baseCharger.filterCompany(pageClass, where);
+    }
+    [WebMethod(Description = "", EnableSession = true)]
+    public DAL.DTO.Tab_Excel_Company updateCompany(DAL.DTO.Tab_Excel_Company obj)
+    {
+        DAL.Base_ExcelCompany base_Charger = new DAL.Base_ExcelCompany();
+        return base_Charger.Updates(new DAL.DTO.Tab_Excel_Company[] { obj }) == 1 ? obj : null;
+    }
+    [WebMethod(Description = "", EnableSession = true)]
+    public bool delCompany(int id)
+    {
+        DAL.Base_ExcelCompany base_Charger = new DAL.Base_ExcelCompany();
+        return base_Charger.Deletes(new int[] { id }) == 1 ? true : false;
+    }
+    [WebMethod(Description = "", EnableSession = true)]
+    public DAL.DTO.Tab_Excel_Company addCompany(DAL.DTO.Tab_Excel_Company obj)
+    {
+        DAL.Base_ExcelCompany base_Charger = new DAL.Base_ExcelCompany();
+        return base_Charger.Save(obj);
+    }
+    
     [WebMethod(Description = "C/S连接字符串", EnableSession = true)]
     public string getConnString()
     {
         return System.Configuration.ConfigurationSettings.AppSettings["connString"];
     }
+
 }

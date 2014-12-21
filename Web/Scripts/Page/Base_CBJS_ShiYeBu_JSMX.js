@@ -420,7 +420,7 @@
         var jsonArray = [];
         jsonArray.push({ itemId: "sumOfZhiBaoJin", type: "label",validate:"money", title: "质保金总额" });
         jsonArray.push({ itemId: "jsnr_js_ZhiBaoJin", type: "text", title: "结算质保金" });
-        jsonArray.push({ itemId: "jsnr_js_ShiFouJieSuan", type: "select", title: "是否结算",yesOrNo: true,init: [{ id: "1", title: "已结算" }, { id: "0", title: "未结算"}]  });
+        jsonArray.push({ itemId: "jsnr_js_ShiFouJieSuan", type: "select", title: "是否结算",init: const_JieSuanInit });
         jsonArray.push({ itemId: "jsnr_js_JieSuanRiQi", type: "text", validate: "datetime", title: "结算日期" });
         return jsonArray;
     }

@@ -1,22 +1,42 @@
 ﻿//项目前期
 (function () {
     XMQQ.pd = {};
+    XMQQ.pd.filters = [];
     XMQQ.where_HeTong = null;
     pageSize = 10;
-    var requireColumn = ["qq_GongChengMingCheng", "qq_XiangMuLaiYuan", "qq_ZhiXingLeiXing", "qq_HeTongHao", "qq_ShiJian"];
+    var requireColumn = ["qq_GongChengMingCheng", "qq_XiangMuLaiYuan", "qq_ZhiXingLeiXing", "qq_GuSuanJianLiFei", "qq_HeTongHao", "qq_ShiJian"];
     function XMQQ(divPage, divContent) {
 
         $("#" + divPage).html(loading);
         $("#" + divContent).html(loading);
         callListXiangMu();
-
+        bindDom();
         XMQQ.divPage = divPage;
         XMQQ.divContent = divContent;
         XMQQ.baseData = {};
+        $invokeWebService_2("~WebService_HeTong.getXiangMuZu", {}, null, successCallBack, errorCallBack, null, { userContent: "getXiangMuZu" });
     }
     function callListXiangMu() {
-        $invokeWebService_2("~WebService_HeTong.countQianQi", { pageClass: null, where: XMQQ.where_HeTong }, null, successCallBack, errorCallBack, null, { userContent: "countQianQi" });
-        $invokeWebService_2("~WebService_HeTong.getXiangMuZu", {}, null, successCallBack, errorCallBack, null, { userContent: "getXiangMuZu" });
+
+        var ddlValue = $("#ddl_QQ_ZhuangTai").val();
+        if (ddlValue != "-1") {
+            var obj = XMQQ.pd.filters.firstOrDefault("key", "zhuangTai");
+            if (obj != null) {
+                obj.value = ddlValue;
+            }
+            else {
+                XMQQ.pd.filters.push({ "key": "zhuangTai", "value": ddlValue })
+            }
+        }
+        else {
+            XMQQ.pd.filters.removeFirst("key", "zhuangTai");
+        }
+
+        XMQQ.where_HeTong = $.trim($("#txtSerXiangMu").val());
+
+
+        $invokeWebService_2("~WebService_HeTong.countQianQi", { pageClass: XMQQ.pd, where: XMQQ.where_HeTong }, null, successCallBack, errorCallBack, null, { userContent: "countQianQi" });
+
     }
     function successCallBack(result, context) {
         if (context.userContent == "countQianQi") {
@@ -69,7 +89,7 @@
             conventObjsToDateTime(data, jsons);
             //#endregion
             if (data.length == 0) {
-                $("#" + XMQQ.divContent).html("还没有项目前期记录，要添加一个合同请点击右上角的\"添加\"按钮");
+                $("#" + XMQQ.divContent).html("没有匹配的记录");
             }
             else {
                 var str = getHtmlOfQianQi(data);
@@ -91,7 +111,7 @@
             if (result == 1) {
                 $.jBox.tip('更新成功。', 'success');
                 pageselectCallback(XMQQ.pd.currentPageNumber, null);
-                HT.pageselectCallback(HT.pd.currentPageNumber, null);
+                XMQQ.pageselectCallback(XMQQ.pd.currentPageNumber, null);
             }
             else {
                 $.jBox.tip('更新失败', 'error', {});
@@ -153,7 +173,31 @@
 
                     }
                     else {
-                        str.push(String.format("<td>{0}</td>", json.title));
+                        str.push(String.format("<td>{0}", json.title));
+                        if (json.itemId == "qq_ZhiXingLeiXing") {
+                            str.push("<span class='flowButton'>");
+                            var temp = XMQQ.pd.filters.firstOrDefault("key", "zhiXingLeiXing");
+                            if (temp != null) {
+                                str.push("&nbsp;<img class='imgPaiXu' src='../Images/sanJiao_light.gif' title='筛选'>");
+                            }
+                            else {
+                                str.push("&nbsp;<img class='imgPaiXu' src='../Images/sanJiao.gif' title='筛选'>");
+                            }
+
+                            str.push("<span class='flow flow_LeiXing hid'>");
+                            str.push("<ul>");
+                            str.push(String.format("<li id='{0}' >{1}</li>", "-1", "全部"));
+                            str.push(String.format("<li id='{0}' class='{2}' style='color:gray;'><i>({1})</i></li>", "0", "空", (temp != null && temp.value == null) ? "selBg" : ""));
+                            baseData["合同执行部门"].each(function (item) {
+
+                                str.push(String.format("<li id='{0}' class='{2}'>{1}</li>", item.bm_Id, item.bm_Name, (temp != null && temp.value == item.bm_Id) ? "selBg" : ""));
+                            })
+
+                            str.push("</ul>");
+                            str.push("</span>");
+                            str.push("</span>");
+                        }
+                        str.push("</td>");
                     }
                 }
             }
@@ -174,7 +218,14 @@
                         if (json.type == "select" && value != "") {
                             value = json.init.firstOrDefault("id", value).title;
                         }
-                        str.push(String.format("<td>{0}</td>", value));
+
+                        if (value != "" && json.validate && json.validate == "money") {
+                            value = "<label validate='money' >" + value + "</label>";
+                            str.push(String.format("<td>{0}</td>", value));
+                        }
+                        else {
+                            str.push(String.format("<td>{0}</td>", value));
+                        }
                     }
                 }
                 var zhuangTai = "";
@@ -300,7 +351,7 @@
     }
     function _clickEdit(v, h, f) {
         if (v == "1") {
-
+            debugger
             var bindObj = h.find("[name='" + bind.Obj + "']").data("data");
             var jsonArray = bindObj.ShouJiData();
 
@@ -329,13 +380,8 @@
         return true;
     }
     XMQQ.Search_XiangMu = function () {
-        var value = $.trim($("#txtSerXiangMu").val());
-        if (value == "") {
-            alert("搜索内容为空，请填值再搜索。");
-            value = null;
-        }
-        XMQQ.where_HeTong = value;
-        callListXiangMu(value);
+
+        callListXiangMu();
 
     }
     XMQQ.XiangMuZuChange = function (ddl) {
@@ -397,17 +443,44 @@
         }
         return true;
     }
+    XMQQ.clickFlowLi = function (event, node, type) {
+        debugger
+        node.parent().parent().hide(); //关掉浮动层
+        //记录选项
+        var selectedValue = node.attr("id");
+        if (selectedValue == "-1") {
+
+            XMQQ.pd.filters.removeFirst("key", "zhiXingLeiXing");
+        }
+        else {
+            selectedValue = selectedValue == "0" ? null : selectedValue;
+            var temp = XMQQ.pd.filters.firstOrDefault("key", "zhiXingLeiXing");
+            if (temp != null) {
+                temp.value = selectedValue;
+            }
+            else {
+                XMQQ.pd.filters.push({ "key": "zhiXingLeiXing", "value": selectedValue });
+            }
+        }
+        //调用WebService
+        callListXiangMu();
+    }
+    XMQQ.clickFlowLi_ZhiXingLeiXing = function (event) {
+        XMQQ.clickFlowLi(event, $(this), "zhiXingLeiXing")
+    }
+    
     //#endregion
     //#region 生成json
     function createJson() {
         var jsonArray = [];
         jsonArray.push({ itemId: "qq_GongChengMingCheng", type: "text", title: "工程名称" });
         jsonArray.push({ itemId: "qq_XiangMuLaiYuan", type: "select", title: "项目来源", init: getInit(baseData["获取方式"], "fs_") });
-
+        jsonArray.push({ itemId: "qq_GuSuanJianLiFei", type: "text", validate: "money", title: "估算监理费（万元）" });
         //jsonArray.push({ itemId: "qq_ZhiXingLeiXing", type: "textSelect", title: "执行类型", init: [] });
         jsonArray.push({ itemId: "qq_ZhiXingLeiXing", type: "select", title: "执行类型", init: getInit(baseData["合同执行部门"], "bm_") });
         jsonArray.push({ itemId: "qq_ShiJian", type: "text", validate: "datetime", title: "日期" });
         jsonArray.push({ itemId: "qq_HeTongHao", type: "text", title: "合同号" });
+        jsonArray.push({ itemId: "qq_ZhiXingZhuangTai", type: "select", title: "项目执行状态", init: const_QQ_ZhiXingZhuanTai });
 
         return jsonArray;
     }
@@ -442,6 +515,35 @@
         $("#" + XMQQ.divContent).find("tr[class*='row']").bind("mouseout", {}, function () {
             $(this).removeClass("mouseover");
         })
+        $("#" + XMQQ.divContent).find("td").find("label[validate='money']").formatCurrency().addClass("fr")
+
+        //筛选层样式
+        $(".flowButton").hover(
+        function () {
+            $(this).find(".flow").show();
+        },
+        function () {
+            $(this).find(".flow").hide();
+        }
+        )
+        $(".flow li").hover(
+        function () {
+            $(this).addClass("hovBg");
+        },
+        function () {
+            $(this).removeClass("hovBg");
+        }
+        )
+        .bind("click", {}, XMQQ.clickFlowLi_ZhiXingLeiXing)
+    }
+    //绑定Dom
+    function bindDom() {
+        var $ddl = $("#ddl_QQ_ZhuangTai");
+        for (var i = 0; i < const_QQ_ZhiXingZhuanTai.length; i++) {
+            var item = const_QQ_ZhiXingZhuanTai[i];
+            var $option = $(String.format("<option value='{0}'>{1}</option>", item.id, item.title));
+            $ddl.append($option);
+        }
     }
     //添加项目组和监理组的数据
     XMQQ.shouJiShuJu = function (obj) {
@@ -461,6 +563,8 @@
             }
         }
     }
+
     window.XMQQ = XMQQ;
 })()
+var const_QQ_ZhiXingZhuanTai = [{ id: 2, title: "执行中" }, { id: 1, title: "完成" }, { id: 0, title: "其他" }]
 //#endregion

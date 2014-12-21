@@ -16,6 +16,15 @@
 #tab_XiangMuZu td {
     border: 1px solid #c1c1bb;
 }
-#tab_XiangMuZu {
+#tab_XiangMuZu{
     border-collapse: collapse;
 }
+.tbShiYeBu
+{
+    border-collapse: collapse;
+    }
+#divContent_ShiYeBu td
+{
+        border:1px solid #c1c1bb;
+        
+    }

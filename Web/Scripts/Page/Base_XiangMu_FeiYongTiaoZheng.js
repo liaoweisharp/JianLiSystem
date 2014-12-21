@@ -100,7 +100,7 @@
     }
     FYTZ.clickDel = function (id, projectId) {
         var ramdomId = String.randomString(6);
-        $.jBox.confirm(String.format("<input id='{0}' type='hidden'>你确定要删除这条记录吗？", ramdomId), "确定删除吗？", _clickDel, { buttons: { "删除": "1", "取消": "0"} })
+        $.jBox.confirm(String.format("<input id='{0}' type='hidden'>你确定要删除这条记录吗？", ramdomId), "确定删除吗？", FYTZ._clickDel, { buttons: { "删除": "1", "取消": "0"} })
         $("#" + ramdomId).data("data", { id: id, projectId: projectId });
     }
     FYTZ._clickAdd = function (v, h, f) {
@@ -133,7 +133,7 @@
         }
         return true;
     }
-    _clickDel = function (v, h, f) {
+    FYTZ._clickDel = function (v, h, f) {
         if (v == "1") {
             var data = h.find("input[type='hidden']").data("data");
             var id = data.id;

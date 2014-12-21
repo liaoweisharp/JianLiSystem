@@ -17,11 +17,17 @@
     <div style="width: 98%; margin: 0px auto;">
         <div class="ZX_BG_header ZX_h2">
             <ul class="ulnone">
-                <li class="ZX_title2">项目前期</li><li style="float: right;" class="bg_A"><a onclick="XMQQ.clickAdd()"
+                <li class="ZX_title2">项目执行</li><li style="float: right;" class="bg_A"><a onclick="XMQQ.clickAdd()"
                     href="javascript:void(0);">添加</a></li>
              <li style="height: 28px; float:right;margin-right:30px; width: 175px; background-repeat: no-repeat; background-image: url(&quot;../Images/Search1.png&quot;);">
              <input id="txtSerXiangMu" type="text" class="search searchW" watermark="工程关键字或合同号" />
              <img alt='搜索' style=" cursor:pointer;float:right" src="../Images/Search2.png" onclick="XMQQ.Search_XiangMu()"/></li>        
+              <li style="height: 28px; float:right;margin-right:30px;">
+                <select class="ddlJieSuan" onchange="XMQQ.Search_XiangMu()" id="ddl_QQ_ZhuangTai">
+                    <option value="-1">项目执行状态（全部）</option>
+                    <option value='-100' class="empty">(未填)</option>
+                </select>
+             </li>
             </ul>
             <br />
         </div>
@@ -48,6 +54,12 @@
              <li style="height: 28px; float:right;margin-right:30px; width: 175px; background-repeat: no-repeat; background-image: url(&quot;../Images/Search1.png&quot;);">
              <input id="txtSerHeTong" type="text" class="search searchW" watermark="合同关键字或合同号" />
              <img alt='搜索' style=" cursor:pointer;float:right" src="../Images/Search2.png" onclick="Click_Search_HeTong()"/></li>
+                <li style="height: 28px; float:right;margin-right:30px;">
+                <select class="ddlJieSuan" onchange="Click_Search_HeTong()" id="ddl_HT_ZhuangTai">
+                    <option value="-1">合同执行状态（全部）</option>
+                    <option value='-100' class="empty">(未填)</option>
+                </select>
+             </li>
             </ul>
             <br />
         </div>

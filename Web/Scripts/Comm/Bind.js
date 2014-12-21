@@ -30,7 +30,7 @@ bind.prototype.ShouJiData = function () {
     for (var i = 0; i < this.jsonArray.length; i++) {
         if (this.jsonArray[i].value != null) {
             if (!this.jsonArray[i].yesOrNo && this.jsonArray[i].value && this.jsonArray[i].type == "select" && this.jsonArray[i].init) {
-                this.jsonArray[i]["value"] = Number(this.jsonArray[i]["value"]);
+                //this.jsonArray[i]["value"] = Number(this.jsonArray[i]["value"]);
             }
             else if (this.jsonArray[i].yesOrNo && this.jsonArray[i].init) {
                 this.jsonArray[i]["value"] = this.jsonArray[i]["value"] == "1" ? true : false;

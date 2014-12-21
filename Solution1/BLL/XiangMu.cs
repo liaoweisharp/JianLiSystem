@@ -18,7 +18,7 @@ namespace BLL
         }
         public static int countJS_ShiYeBu(DAL.CommClass.PageClass pageClass, string where)
         {
-            DAL.Base_XiangMuQianQi ins = new DAL.Base_XiangMuQianQi();
+            DAL.Logic.Logic_XiangMu ins = new DAL.Logic.Logic_XiangMu();
             return ins.countShiYeBu(pageClass, where);
         }
         public static int countZhiGuan_JustXiangMu(DAL.CommClass.PageClass pageClass, string where)
@@ -28,7 +28,7 @@ namespace BLL
         }
         public static int countZhiGuan_Zu(DAL.CommClass.PageClass pageClass, string where)
         {
-            DAL.Base_XiangMuZu b1 = new DAL.Base_XiangMuZu();
+            DAL.Logic.Logic_XiangMu b1 = new DAL.Logic.Logic_XiangMu();
             return b1.countXiangMuZu(pageClass,where);
         }
         public static List<DAL.CommClass.XiangMuQianQiWrapper> filterAllXiangMuQianQi(DAL.CommClass.PageClass pageClass, string where, params string[] tabs)
@@ -54,6 +54,7 @@ namespace BLL
         {
             return DAL.Logic.Logic_XiangMu.filterAllXiangMuQianQi_ZhiGuan_Zu(pageClass, where);
         }
+      
         public static ArrayList getInitData()
         {
             ArrayList returnValue = new ArrayList();
@@ -63,6 +64,8 @@ namespace BLL
             returnValue.Add(ins2.listXMJB());
             DAL.Base_XiangMuQianQi ins3 = new DAL.Base_XiangMuQianQi();
             returnValue.Add(ins3.listXMLB());
+            DAL.Base_XiangMuQianQi ins4 = new DAL.Base_XiangMuQianQi();
+            returnValue.Add(ins4.getDistinctGongChengZhuangTai());
             return returnValue;
         }
 
@@ -154,6 +157,43 @@ namespace BLL
 
 
 
-       
+
+        /// <summary>
+        /// 移动树形菜单节点
+        /// </summary>
+        /// <param name="jianLiJiGouId">项目监理结构ID</param>
+        /// <param name="xiangMuZuId">目标项目组ID</param>
+        /// <returns></returns>
+        public static bool dragJianLiJiGou(int jianLiJiGouId, int xiangMuZuId)
+        {
+            TabXiangMuQianQi tab= new DAL.Base_XiangMuQianQi().getById(jianLiJiGouId);
+            tab.qq_XiangMuZhuId = xiangMuZuId;
+            new DAL.Base_XiangMuQianQi().Updates(new TabXiangMuQianQi[] { tab });
+            new DAL.Base_XiangMuQianQi().updateXiangMuZuIdByParentId(jianLiJiGouId, xiangMuZuId);
+            return true;
+        }
+        /// <summary>
+        /// 移动树形菜单节点
+        /// </summary>
+        /// <param name="gongChengId">工程 Id</param>
+        /// <param name="jianLiJiGouId">目标监理机构ID</param>
+        /// <returns></returns>
+        public static bool dragGongCheng(int gongChengId, int jianLiJiGouId)
+        {
+            TabXiangMuQianQi tab1 = new DAL.Base_XiangMuQianQi().getById(jianLiJiGouId);
+            TabXiangMuQianQi tab2 = new DAL.Base_XiangMuQianQi().getById(gongChengId);
+            tab2.qq_ParentId = jianLiJiGouId;
+            tab2.qq_XiangMuZhuId = tab1.qq_XiangMuZhuId;
+            new DAL.Base_XiangMuQianQi().Updates(new TabXiangMuQianQi[] { tab2 });
+            return true;
+        }
+
+        public static ArrayList getDistinctInfo()
+        {
+            ArrayList returnValue = new ArrayList();
+            string[] gongChengZhuangTai = new DAL.Base_XiangMuQianQi().getDistinctGongChengZhuangTai();
+            returnValue.Add(gongChengZhuangTai);
+            return returnValue;
+        }
     }
 }

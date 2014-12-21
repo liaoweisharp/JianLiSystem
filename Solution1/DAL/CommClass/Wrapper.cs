@@ -232,110 +232,110 @@ namespace DAL.CommClass
             set;
         }
     }
-    public class XiangMuHouQiWrapper2 {
-        /// <summary>
-        /// 项目部ID
-        /// </summary>
-        public int xiangMuBuId { get; set; }
-        /// <summary>
-        /// 项目部名称
-        /// </summary>
-        public string xiangMuBuMingCheng { get; set; }
-        /// <summary>
-        /// 监理机构
-        /// </summary>
-        public List<XiangMuHouQiWrapper1> jianLiJiGouArray{get;set;}
-    }
-    public class XiangMuHouQiWrapper1
-    {
-        /// <summary>
-        /// 监理机构ID
-        /// </summary>
-        public int jianLiJiGouId { get; set; }
-        /// <summary>
-        /// 监理机构名称
-        /// </summary>
-        public string jianLiJiGouMingCheng { get; set; }
-        /// <summary>
-        /// 工程
-        /// </summary>
-        public List<XiangMuHouQiWrapper> projectArray { get; set; }
-    }
-    public class XiangMuHouQiWrapper {
-        /// <summary>
-        /// 工程ID
-        /// </summary>
-        public int projectId
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// 工程名称
-        /// </summary>
-        public string gongChengMingCheng
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// 执行类型
-        /// </summary>
-        public string zhiXingLeiXing
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// 执行类型ID
-        /// </summary>
-        public byte? zhiXingLeiXingId
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// 项目负责人
-        /// </summary>
-        public string xiangMuFuZeRen
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// 项目总监
-        /// </summary>
-        public string xiangMuZongJian
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// 施工工期
-        /// </summary>
-        public string shiGongGonqQi
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// 预计竣工时间
-        /// </summary>
-        public string yuJiJunGongShiJian
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// 工地例会时间
-        /// </summary>
-        public string liHuiShiJian { get; set; }
-        /// <summary>
-        /// 工程状态
-        /// </summary>
-        public string gongChengZhuanTai { get; set; }
+    //public class XiangMuHouQiWrapper2 {
+    //    /// <summary>
+    //    /// 项目部ID
+    //    /// </summary>
+    //    public int xiangMuBuId { get; set; }
+    //    /// <summary>
+    //    /// 项目部名称
+    //    /// </summary>
+    //    public string xiangMuBuMingCheng { get; set; }
+    //    /// <summary>
+    //    /// 监理机构
+    //    /// </summary>
+    //    public List<XiangMuHouQiWrapper1> jianLiJiGouArray{get;set;}
+    //}
+    //public class XiangMuHouQiWrapper1
+    //{
+    //    /// <summary>
+    //    /// 监理机构ID
+    //    /// </summary>
+    //    public int jianLiJiGouId { get; set; }
+    //    /// <summary>
+    //    /// 监理机构名称
+    //    /// </summary>
+    //    public string jianLiJiGouMingCheng { get; set; }
+    //    /// <summary>
+    //    /// 工程
+    //    /// </summary>
+    //    public List<XiangMuHouQiWrapper> projectArray { get; set; }
+    //}
+    //public class XiangMuHouQiWrapper {
+    //    /// <summary>
+    //    /// 工程ID
+    //    /// </summary>
+    //    public int projectId
+    //    {
+    //        get;
+    //        set;
+    //    }
+    //    /// <summary>
+    //    /// 工程名称
+    //    /// </summary>
+    //    public string gongChengMingCheng
+    //    {
+    //        get;
+    //        set;
+    //    }
+    //    /// <summary>
+    //    /// 执行类型
+    //    /// </summary>
+    //    public string zhiXingLeiXing
+    //    {
+    //        get;
+    //        set;
+    //    }
+    //    /// <summary>
+    //    /// 执行类型ID
+    //    /// </summary>
+    //    public byte? zhiXingLeiXingId
+    //    {
+    //        get;
+    //        set;
+    //    }
+    //    /// <summary>
+    //    /// 项目负责人
+    //    /// </summary>
+    //    public string xiangMuFuZeRen
+    //    {
+    //        get;
+    //        set;
+    //    }
+    //    /// <summary>
+    //    /// 项目总监
+    //    /// </summary>
+    //    public string xiangMuZongJian
+    //    {
+    //        get;
+    //        set;
+    //    }
+    //    /// <summary>
+    //    /// 施工工期
+    //    /// </summary>
+    //    public string shiGongGonqQi
+    //    {
+    //        get;
+    //        set;
+    //    }
+    //    /// <summary>
+    //    /// 预计竣工时间
+    //    /// </summary>
+    //    public string yuJiJunGongShiJian
+    //    {
+    //        get;
+    //        set;
+    //    }
+    //    /// <summary>
+    //    /// 工地例会时间
+    //    /// </summary>
+    //    public string liHuiShiJian { get; set; }
+    //    /// <summary>
+    //    /// 工程状态
+    //    /// </summary>
+    //    public string gongChengZhuanTai { get; set; }
 
-    }
+    //}
     /// <summary>
     /// 项目移交明细
     /// </summary>
@@ -414,7 +414,24 @@ namespace DAL.CommClass
 
     }
     public class XiangMuJiSuan_ShiYeBuWrapper {
+        
         public int id { get; set; }
+        /// <summary>
+        /// 项目监理机构ID
+        /// </summary>
+        public int? jiGouId { get; set; }
+        /// <summary>
+        /// 监理机构名称
+        /// </summary>
+        public string jiGouName { get; set; }
+        /// <summary>
+        /// 项目部 ID
+        /// </summary>
+        public int? zuId { get; set; }
+        /// <summary>
+        /// 项目部名称
+        /// </summary>
+        public string zuName { get; set; }
         /// <summary>
         /// 发票号
         /// </summary>
@@ -509,7 +526,7 @@ namespace DAL.CommClass
         /// <summary>
         /// 项目部ID
         /// </summary>
-        public int xiangMuBuId { get; set; }
+        public int? xiangMuBuId { get; set; }
         /// <summary>
         /// 项目部名称
         /// </summary>
@@ -517,7 +534,7 @@ namespace DAL.CommClass
         /// <summary>
         /// 监理机构ID
         /// </summary>
-        public int jianLiJiGouId { get; set; }
+        public int? jianLiJiGouId { get; set; }
         /// <summary>
         /// 监理机构名称
         /// </summary>
@@ -1004,5 +1021,11 @@ namespace DAL.CommClass
         /// 证书数量
         /// </summary>
         public int numberOfZhengShu { get; set; }
+    }
+    public class zhengZhangZhengShu:DAL.DTO.Tab_ZZ_ZhengShu {
+        /// <summary>
+        /// 未归还的数量
+        /// </summary>
+        public int usedNum { get; set; }
     }
 }

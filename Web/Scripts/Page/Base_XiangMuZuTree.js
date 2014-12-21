@@ -16,16 +16,16 @@ function successCallBack(result, context) {
         var zNodes = [];
 
         for (var i = 0; i < xiangMuZu.length; i++) {
-            zNodes.push({ "id": "z_"+xiangMuZu[i].key, "pId": 0,"key":xiangMuZu[i].key, "name": xiangMuZu[i].value, "type": "1", "isEdit": true, "isDelete": true });
+            zNodes.push({ "id": "z_" + xiangMuZu[i].key, "pId": 0, "key": xiangMuZu[i].key, "name": xiangMuZu[i].value, "type": "1", "isEdit": true, "isDelete": true, drag: false });
         }
         for (var i = 0; i < jianLiJiGou.length; i++) {
-            zNodes.push({ "id": jianLiJiGou[i].qq_Id, "pId": "z_" + jianLiJiGou[i].qq_XiangMuZhuId, "name": jianLiJiGou[i].qq_GongChengMingCheng, "type": "2", "isEdit": true, "isDelete": true });
+            zNodes.push({ "id": jianLiJiGou[i].qq_Id, "pId": "z_" + jianLiJiGou[i].qq_XiangMuZhuId, "name": jianLiJiGou[i].qq_GongChengMingCheng, "type": "2", "isEdit": true, "isDelete": true, drag: true });
         }
-        for (var i = 0; i < projectOfXiangMuBu.length; i++) {
-            zNodes.push({ "id": projectOfXiangMuBu[i].qq_Id, "pId": "z_" + projectOfXiangMuBu[i].qq_XiangMuZhuId, "name": projectOfXiangMuBu[i].qq_GongChengMingCheng });
-        }
+//        for (var i = 0; i < projectOfXiangMuBu.length; i++) {
+        //            zNodes.push({ "id": projectOfXiangMuBu[i].qq_Id, "pId":  z_" +projectOfXiangMuBu[i].qq_XiangMuZhuId, "name": projectOfXiangMuBu[i].qq_GongChengMingCheng, drag: true });
+//        }
         for (var i = 0; i < projectOfJianLiJiGou.length; i++) {
-            zNodes.push({ "id": projectOfJianLiJiGou[i].qq_Id, "pId": projectOfJianLiJiGou[i].qq_ParentId, "name": projectOfJianLiJiGou[i].qq_GongChengMingCheng });
+            zNodes.push({ "id": projectOfJianLiJiGou[i].qq_Id, "pId":  projectOfJianLiJiGou[i].qq_ParentId, "name": projectOfJianLiJiGou[i].qq_GongChengMingCheng, "type": "3", drag: true });
         }
         if (context.userContent == "getXiangMuZuInfo_XiangMuBu") {
             $.fn.zTree.init($("#treeDemo"), setting, zNodes);
@@ -59,7 +59,14 @@ var setting = {
         enable: true,
         editNameSelectAll: true,
         showRemoveBtn: showRemoveBtn,
-        showRenameBtn: showRenameBtn
+        showRenameBtn: showRenameBtn,
+        drag:{
+            isCopy:true,
+            isMove:true,
+            prev:false,
+            next:false,
+            inner:true
+        }
     },
     data: {
         simpleData: {
@@ -68,11 +75,13 @@ var setting = {
     },
     callback: {
         beforeDrag: beforeDrag,
+        beforeDrop: beforeDrop,
         beforeEditName: beforeEditName,
         beforeRemove: beforeRemove,
         beforeRename: beforeRename,
         onRemove: onRemove,
         onRename: onRename
+      
     }
 };
 
@@ -98,7 +107,39 @@ var zNodes = [
 		];
 var log, className = "dark";
 function beforeDrag(treeId, treeNodes) {
-    return false;
+
+    for (var i = 0, l = treeNodes.length; i < l; i++) {
+        if (treeNodes[i].drag === false) {
+            return false;
+        }
+    }
+    return true;
+}
+function beforeDrop(treeId, treeNodes, targetNode, moveType) {
+
+    var bo = targetNode ? targetNode.drop !== false : true;
+    if (bo == true) {
+        if (Number(treeNodes[0].type) != (Number(targetNode.type) + 1)) {
+        //目标节点不是上一级
+            alert("层次错误，取消此次拖动。请重试并拖动到相应的层次。")
+            bo = false;
+        }
+
+    }
+    if (bo) {
+        var objId = treeNodes[0].id;
+        var targetId =targetNode.id;
+        if (treeNodes[0].type == "2") {
+            //拖动是监理结构节点
+            targetId = targetId.substring(2);// 去掉前缀“z_”
+            $invokeWebService_2("~WebService_XiangMu.dragJianLiJiGou", { jianLiJiGouId: objId, xiangMuZuId: targetId }, null, successCallBack, errorCallBack, null, { userContent: "dragJianLiJiGou" });
+        }
+        else if (treeNodes[0].type == "3") {
+            //拖动是工程节点
+            $invokeWebService_2("~WebService_XiangMu.dragGongCheng", { gongChengId: objId, jianLiJiGouId: targetId }, null, successCallBack, errorCallBack, null, { userContent: "dragGongCheng" });
+        }
+    }
+    return bo;
 }
 function beforeEditName(treeId, treeNode) {
 //    className = (className === "dark" ? "" : "dark");

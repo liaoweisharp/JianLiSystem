@@ -370,7 +370,7 @@ namespace DAL.Logic
                         decimal percent = ((dayOfMonth + 1 - 1)*1m / DateTime.DaysInMonth(year, month));
                         salary.msgd_yf_JiBenGongZi = Math.Round(salary.msgd_yf_JiBenGongZi * percent,2);
                         salary.msgd_yf_BuTie = Math.Round(salary.msgd_yf_BuTie * percent, 2);
-                        if (percent>0 && xinChou.xc_YK_YangLao > baoXianDuiXiang.xc_YK_YangLao)
+                        if (percent>0 && xinChou.xc_YK_YangLao >= baoXianDuiXiang.xc_YK_YangLao)//此处的“==":没有社保，但有商保的情况（2014-10-11改）
                         {
                             //按个人所交最大的保险记录为扣保险标准
                             Base b = new Base();
@@ -394,8 +394,8 @@ namespace DAL.Logic
                         decimal percent= ((dayOfMonth+1-xinChou.xc_TiaoZhengShijian.Day)*1m/DateTime.DaysInMonth(year,month));
                         salary.msgd_yf_JiBenGongZi = Math.Round(salary.msgd_yf_JiBenGongZi * percent,2);
                         salary.msgd_yf_BuTie = Math.Round(salary.msgd_yf_BuTie * percent,2);
-                       
-                        if (xinChou.xc_YK_YangLao > baoXianDuiXiang.xc_YK_YangLao)
+
+                        if (xinChou.xc_YK_YangLao >= baoXianDuiXiang.xc_YK_YangLao)//此处的“==":没有社保，但有商保的情况（2014-10-11改）
                         {
                             //按个人所交最大的保险记录为扣保险标准
                             Base b = new Base();
@@ -577,7 +577,8 @@ namespace DAL.Logic
                         //结算
                         start = item.msgd_JieSuanStartDate.HasValue ? item.msgd_JieSuanStartDate.Value : DateTime.MaxValue;
                         end = item.msgd_JieSuanEndDate.HasValue ? item.msgd_JieSuanEndDate.Value : DateTime.MaxValue;
-                        diaoDongList_ForJieSuan = diaoDongList.Where(p => (p.dd_EndShiJian.HasValue == false && end >= p.dd_ShiJian) || (p.dd_EndShiJian.HasValue == true && ((end >= p.dd_ShiJian && end <= p.dd_EndShiJian) || (start >= p.dd_ShiJian && start <= p.dd_EndShiJian)))).ToList();
+                        //排除法（排除不在时间段的）
+                        diaoDongList_ForJieSuan = diaoDongList.Where(p => (p.dd_EndShiJian.HasValue == false && end >= p.dd_ShiJian) || (p.dd_EndShiJian.HasValue == true && !(start>p.dd_EndShiJian.Value || p.dd_ShiJian>end))).ToList();
                     }
                     ///结算的和正常发放的求并集
                     diaoDongList_ForNomanl.AddRange(diaoDongList_ForJieSuan);

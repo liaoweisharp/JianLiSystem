@@ -79,5 +79,33 @@ namespace DAL
             queryConfig(tabs);
             return this.dataContext.Tab_Excel_Company.Where(p => companyIds.Contains(p.ec_ID)).ToList();
         }
+        public int countCompany(CommClass.PageClass pageClass, string where, params string[] tabs)
+        {
+            queryConfig(tabs);
+            //int?[] qq_ParentIds = (from p in this.dataContext.TabXiangMuQianQi where p.qq_ParentId != null select p.qq_ParentId).Distinct().ToArray();
+
+            if (where != null)
+            {
+                return this.dataContext.Tab_Excel_Company.Where(p => p.ec_Name.Contains(where) || p.ec_Name.Contains(where)).Count();
+            }
+            else
+            {
+                return this.dataContext.Tab_Excel_Company.Count();
+            }
+        }
+        public List<Tab_Excel_Company> filterCompany(CommClass.PageClass pageClass, string where, params string[] tabs)
+        {
+            queryConfig(tabs);
+            //int?[] qq_ParentIds = (from p in this.dataContext.TabXiangMuQianQi where p.qq_ParentId != null select p.qq_ParentId).Distinct().ToArray();
+
+            if (where != null)
+            {
+                return this.dataContext.Tab_Excel_Company.Where(p => p.ec_Name.Contains(where) || p.ec_Name.Contains(where)).OrderBy(ins => ins.ec_Name).Skip((pageClass.currentPageNumber) * pageClass.pageSize).Take(pageClass.pageSize).ToList();
+            }
+            else
+            {
+                return this.dataContext.Tab_Excel_Company.OrderBy(ins => ins.ec_Name).Skip((pageClass.currentPageNumber) * pageClass.pageSize).Take(pageClass.pageSize).ToList();
+            }
+        }
     }
 }

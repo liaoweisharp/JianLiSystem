@@ -112,13 +112,15 @@ namespace DAL.Logic
             decimal? cb5 = qq.Tab_XiangMu_JiXiao.Sum(p => p.jx_JinE);//绩效
             decimal? cb6 = qq.Tab_XiangMu_PeiXunJiJiao.Sum(p => p.pxjj_JinE);//培训继教育
             chenBen += cb1.HasValue ? cb1.Value : 0;
+            chenBen += cb7.HasValue ? cb7.Value : 0;
+            chenBen = chenBen * 0.0001m;//薪酬的单位是元，下面几项单位是万元
             chenBen += cb2.HasValue ? cb2.Value : 0;
             chenBen += cb3.HasValue ? cb3.Value : 0;
             chenBen += cb4.HasValue ? cb4.Value : 0;
             chenBen += cb5.HasValue ? cb5.Value : 0;
             chenBen += cb6.HasValue ? cb6.Value : 0;
-            chenBen += cb7.HasValue ? cb7.Value : 0;
-            chenBen = chenBen * 0.0001m;
+            
+            
             return chenBen;
 
         }

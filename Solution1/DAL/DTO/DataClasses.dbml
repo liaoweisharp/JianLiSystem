@@ -48,6 +48,7 @@
       <Column Name="fs_Id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="fs_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="Tab_HT_HuoQuFangShi_TabHeTong" Member="TabHeTong" AccessModifier="Internal" ThisKey="fs_Id" OtherKey="ht_HuoQuFangShi" Type="TabHeTong" />
+      <Association Name="Tab_HT_HuoQuFangShi_TabXiangMuQianQi" Member="TabXiangMuQianQi" AccessModifier="Internal" ThisKey="fs_Id" OtherKey="qq_XiangMuLaiYuan" Type="TabXiangMuQianQi" />
     </Type>
   </Table>
   <Table Name="dbo.Tab_HT_JinEShuoMing" Member="Tab_HT_JinEShuoMing">
@@ -419,21 +420,6 @@
       <Association Name="Tab_XiangMu_JiBie_Tab_XiangMu_YiJiaoDan" Member="Tab_XiangMu_YiJiaoDan" AccessModifier="Internal" ThisKey="jb_Id" OtherKey="yjd_LieBie" Type="Tab_XiangMu_YiJiaoDan" />
     </Type>
   </Table>
-  <Table Name="dbo.Tab_XiangMu_JieSuanNeiRong" Member="Tab_XiangMu_JieSuanNeiRong">
-    <Type Name="Tab_XiangMu_JieSuanNeiRong">
-      <Column Name="jsnr_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="jsnr_XiangMuFuZeRen" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="jsnr_LianXiDianHua" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="jsnr_DiZhi" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="jsnr_YouBian" Type="System.String" DbType="NVarChar(13)" CanBeNull="true" />
-      <Column Name="jsnr_XieYiBianHao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="jsnr_XieYiNeiRong" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="jsnr_js_ShiFouJieSuan" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="jsnr_js_JieSuanRiQi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="jsnr_js_ZhiBaoJin" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Association Name="TabXiangMuQianQi_Tab_XiangMu_JieSuanNeiRong" Member="TabXiangMuQianQi" ThisKey="jsnr_Id" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Tab_XiangMu_JiXiao" Member="Tab_XiangMu_JiXiao">
     <Type Name="Tab_XiangMu_JiXiao">
       <Column Name="jx_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -480,8 +466,8 @@
       <Column Name="xj_YeWuYiJian" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="xj_ShiGongFangYiJian" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="xj_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="TabXiangMuQianQi_Tab_XiangMu_XunJian" Member="TabXiangMuQianQi" ThisKey="xj_XiangMuId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Tab_RL_User_Tab_XiangMu_XunJian" Member="Tab_RL_User" ThisKey="xj_XunJianRen" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
+      <Association Name="TabXiangMuQianQi_Tab_XiangMu_XunJian" Member="TabXiangMuQianQi" ThisKey="xj_XiangMuId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Tab_XiangMu_YiJiaoDan" Member="Tab_XiangMu_YiJiaoDan">
@@ -633,40 +619,6 @@
       <Column Name="qq_BuMenId" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.View_XiangMu_HouQi" Member="View_XiangMu_HouQi">
-    <Type Name="View_XiangMu_HouQi">
-      <Column Name="qq_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="qq_XiangMuFuZeRen" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="qq_ZongJianDaiBiao" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="qq_YeZhuMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_YeZhuLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_ShiGongDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_ShiGongDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_FenBaoDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_FenBaoDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_SheJiDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_SheJiDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_DiKanDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_DiKanDanWenLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_ZhiJianDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_ZhiJianDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_AnJianDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_GongChengLieBie" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="qq_AnJianDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_XiangMuJiBie" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="qq_XiangMuGaiKuang" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="qq_GongChengDiDian" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="qq_ZongTouZi" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="qq_ShiGongGongQi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_JianLiFuWuQi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_KaiGongRiQi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="qq_YuJiJunGongShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="qq_ShiJiJunGongShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="qq_GongDiLiHuiShiJian" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_GongChengZhuangTai" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="qq_MuQianJinDu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.View_XiangMu_JieSuanNeiRong" Member="View_XiangMu_JieSuanNeiRong">
     <Type Name="View_XiangMu_JieSuanNeiRong">
       <Column Name="jsnr_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -676,27 +628,6 @@
       <Column Name="jsnr_YouBian" Type="System.String" DbType="NVarChar(13)" CanBeNull="true" />
       <Column Name="jsnr_XieYiBianHao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="jsnr_XieYiNeiRong" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-    </Type>
-  </Table>
-  <Table Name="dbo.View_XiangMu_JieSuanNeiRong_IsJieSuan" Member="View_XiangMu_JieSuanNeiRong_IsJieSuan">
-    <Type Name="View_XiangMu_JieSuanNeiRong_IsJieSuan">
-      <Column Name="jsnr_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="jsnr_js_ShiFouJieSuan" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="jsnr_js_JieSuanRiQi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="jsnr_js_ZhiBaoJin" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.View_XiangMu_QianQi" Member="View_XiangMu_QianQi">
-    <Type Name="View_XiangMu_QianQi">
-      <Column Name="qq_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="qq_GongChengMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_XiangMuLaiYuan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="qq_ZhiXingLeiXing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="qq_ShiJian" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="qq_HeTongHao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_LeiXing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="qq_ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="qq_XiangMuZhuId" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.View_XiangMu_Tree" Member="View_XiangMu_Tree">
@@ -717,76 +648,6 @@
       <Column Name="qq_JunGongYiJiaoQingKuang" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="qq_JunGongYiJiao_QianShoShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="qq_JunGongYiJiao_ZongJianQianZi" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.View_XiangMu_ZhiGuan_JieSuan" Member="View_XiangMu_ZhiGuan_JieSuan">
-    <Type Name="View_XiangMu_ZhiGuan_JieSuan">
-      <Column Name="zg_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="zg_js_ZongChengBenZhiChu" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="zg_js_LeiJiJieYu" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="zg_js_ShiLing" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="zg_js_BaoZhengJin" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="zg_js_BaoZhengJinJieSuan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.View_XiangMu_ZhiGuan_MuBiaoGuanLi" Member="View_XiangMu_ZhiGuan_MuBiaoGuanLi">
-    <Type Name="View_XiangMu_ZhiGuan_MuBiaoGuanLi">
-      <Column Name="zg_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="zg_mb_ChengBenKongZhiZhiBiao" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="zg_mb_ChengBenKongZhiQiXian" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="zg_mb_YanQi" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="zg_mb_BeiZhu" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TabHeTong" Member="TabHeTong">
-    <Type Name="TabHeTong">
-      <Column Name="ht_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ht_QqId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ht_MingCheng" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="ht_Number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ht_QianDingZhuangTai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="ht_YeZhuHeTongBianHao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ht_YeZhuMingCheng" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="ht_XiangGuanDanWei" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="ht_YiFangQianYueDanWei" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="ht_QianYueRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ht_XiangMuFenLei" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="ht_HuoQuFangShi" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="ht_GongChengDiDian" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="ht_TouZiXinZhi" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="ht_YeWuLeiXing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="ht_GongChengZongTouZi" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="ht_ShouFeiFangShi" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="ht_HeTongJinE" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="ht_JinEShuoMing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="ht_HeTongFuKuanFangShi" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="ht_ShiGongFuWuQiXian" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ht_JianLiFuWuQiXian" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ht_HeTongKaiShiRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ht_HeTongJieShuRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ht_DangAnJieShouRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ht_HeTongNeiRong" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ht_ZhiBaoJin" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="ht_ZhiBaoJinYueDing" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ht_LvYueBaoZhengJin" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="ht_LvYueZhiBaoJinYueDing" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ht_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ht_GongChengGuiMoYuGaiKuang" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="TabHeTong_TabFaPiaoJiShouKuanGuanLi" Member="TabFaPiaoJiShouKuanGuanLi" AccessModifier="Internal" ThisKey="ht_Id" OtherKey="fp_htId" Type="TabFaPiaoJiShouKuanGuanLi" />
-      <Association Name="TabHeTong_TabHeTongBianGeng" Member="TabHeTongBianGeng" AccessModifier="Internal" ThisKey="ht_Id" OtherKey="bg_htId" Type="TabHeTongBianGeng" />
-      <Association Name="TabHeTong_TabJieSuanGuanLi" Member="TabJieSuanGuanLi" AccessModifier="Internal" ThisKey="ht_Id" OtherKey="js_Id" Type="TabJieSuanGuanLi" Cardinality="One" />
-      <Association Name="TabHeTong_TabHeTongVice" Member="TabHeTongVice" AccessModifier="Internal" ThisKey="ht_Id" OtherKey="htv_Id" Type="TabHeTongVice" Cardinality="One" />
-      <Association Name="TabHeTong_TabShouKuanJiHua" Member="TabShouKuanJiHua" AccessModifier="Internal" ThisKey="ht_Id" OtherKey="jh_htId" Type="TabShouKuanJiHua" />
-      <Association Name="Tab_HT_GongChengDiDian_TabHeTong" Member="Tab_HT_GongChengDiDian" ThisKey="ht_GongChengDiDian" OtherKey="dd_Id" Type="Tab_HT_GongChengDiDian" IsForeignKey="true" />
-      <Association Name="Tab_HT_JinEShuoMing_TabHeTong" Member="Tab_HT_JinEShuoMing" ThisKey="ht_JinEShuoMing" OtherKey="jesm_Id" Type="Tab_HT_JinEShuoMing" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Tab_HT_ShouFeiFangShi_TabHeTong" Member="Tab_HT_ShouFeiFangShi" ThisKey="ht_ShouFeiFangShi" OtherKey="sf_Id" Type="Tab_HT_ShouFeiFangShi" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Tab_HT_YeWuLeiXing_TabHeTong" Member="Tab_HT_YeWuLeiXing" ThisKey="ht_YeWuLeiXing" OtherKey="lx_Id" Type="Tab_HT_YeWuLeiXing" IsForeignKey="true" />
-      <Association Name="Tab_HT_FuKuanFangShi_TabHeTong" Member="Tab_HT_FuKuanFangShi" ThisKey="ht_HeTongFuKuanFangShi" OtherKey="fk_Id" Type="Tab_HT_FuKuanFangShi" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Tab_HT_HuoQuFangShi_TabHeTong" Member="Tab_HT_HuoQuFangShi" ThisKey="ht_HuoQuFangShi" OtherKey="fs_Id" Type="Tab_HT_HuoQuFangShi" IsForeignKey="true" />
-      <Association Name="Tab_HT_QianDingZhuangTai_TabHeTong" Member="Tab_HT_QianDingZhuangTai" ThisKey="ht_QianDingZhuangTai" OtherKey="zt_Id" Type="Tab_HT_QianDingZhuangTai" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Tab_HT_TouZiXingZhi_TabHeTong" Member="Tab_HT_TouZiXingZhi" ThisKey="ht_TouZiXinZhi" OtherKey="xz_Id" Type="Tab_HT_TouZiXingZhi" IsForeignKey="true" />
-      <Association Name="Tab_HT_XiangMuFenLei_TabHeTong" Member="Tab_HT_XiangMuFenLei" ThisKey="ht_XiangMuFenLei" OtherKey="fl_Id" Type="Tab_HT_XiangMuFenLei" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="TabXiangMuQianQi_TabHeTong" Member="TabXiangMuQianQi" ThisKey="ht_QqId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Tab_User_ZhiCheng" Member="Tab_User_ZhiCheng">
@@ -827,102 +688,6 @@
       <Association Name="Tab_RL_User_Tab_RL_ZhiYeZiGeZhengShu" Member="Tab_RL_User" ThisKey="zgzs_UserId" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
-  <Table Name="dbo.TabHeTongVice" Member="TabHeTongVice">
-    <Type Name="TabHeTongVice">
-      <Column Name="htv_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="htv_YanQiZongE" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="htv_YanQiKaiShiRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="htv_YanQiYuJiKaiShiRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="htv_YanQiYuJiJieShuRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="htv_LvYueYingTuiHuanRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="htv_LvYueYingTuiZongE" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="htv_LvYueTuiHuanShiJian" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="htv_ZhiBaoJinTuiHuanShiJian" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="htv_ZhiBaoJinYingTuiZongE" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="htv_ZhiBaoJinYingTuiZong" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="htv_GuiDangQingKuang" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="htv_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="htv_GongChengZhuangTai" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="htv_JieSuanJianLiFei" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="htv_JieSuanShuoMing" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Tab_HTV_GuiDangQingKuang_TabHeTongVice" Member="Tab_HTV_GuiDangQingKuang" ThisKey="htv_GuiDangQingKuang" OtherKey="gd_Id" Type="Tab_HTV_GuiDangQingKuang" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="TabHeTong_TabHeTongVice" Member="TabHeTong" ThisKey="htv_Id" OtherKey="ht_Id" Type="TabHeTong" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TabXiangMuQianQi" Member="TabXiangMuQianQi">
-    <Type Name="TabXiangMuQianQi">
-      <Column Name="qq_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="qq_GongChengMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_XiangMuLaiYuan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="qq_ZhiXingLeiXing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="qq_ShiJian" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="qq_HeTongHao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_XiangMuFuZeRen" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="qq_ZongJianDaiBiao" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="qq_YeZhuMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_YeZhuLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_ShiGongDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_ShiGongDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_FenBaoDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_FenBaoDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_SheJiDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_SheJiDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_DiKanDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_DiKanDanWenLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_ZhiJianDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_ZhiJianDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_AnJianDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_AnJianDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_GongChengLieBie" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="qq_XiangMuJiBie" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="qq_XiangMuGaiKuang" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="qq_GongChengDiDian" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="qq_ZongTouZi" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="qq_ShiGongGongQi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_JianLiFuWuQi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_KaiGongRiQi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="qq_YuJiJunGongShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="qq_ShiJiJunGongShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="qq_GongDiLiHuiShiJian" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="qq_MuQianJinDu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="qq_GongChengZhuangTai" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="qq_JunGongYiJiaoQingKuang" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="qq_JunGongYiJiao_ShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="qq_JunGongYiJiao_YiJiaoRen" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="qq_JunGongYiJiao_QianShouRenYuan" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="qq_JunGongYiJiao_QianShoShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="qq_JunGongYiJiao_ZongJianQianZi" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="qq_BuMenId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="qq_LeiXing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="qq_ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="qq_XiangMuZhuId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="TabXiangMuQianQi_Tab_Report_MonthSalaryDetail_ChengBen" Member="Tab_Report_MonthSalaryDetail_ChengBen" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="msdcd_XiangMuId" Type="Tab_Report_MonthSalaryDetail_ChengBen" />
-      <Association Name="TabXiangMuQianQi_Tab_XiangMu_BanGongYongPin" Member="Tab_XiangMu_BanGongYongPin" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="bgyp_XiangMuId" Type="Tab_XiangMu_BanGongYongPin" />
-      <Association Name="TabXiangMuQianQi_Tab_XiangMu_BaoXiao" Member="Tab_XiangMu_BaoXiao" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="bx_XiangMuId" Type="Tab_XiangMu_BaoXiao" />
-      <Association Name="TabXiangMuQianQi_Tab_XiangMu_FeiYongTiaoZheng" Member="Tab_XiangMu_FeiYongTiaoZheng" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="fytz_XiangMuId" Type="Tab_XiangMu_FeiYongTiaoZheng" />
-      <Association Name="TabXiangMuQianQi_Tab_XiangMu_JieSuanNeiRong" Member="Tab_XiangMu_JieSuanNeiRong" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="jsnr_Id" Type="Tab_XiangMu_JieSuanNeiRong" Cardinality="One" />
-      <Association Name="TabXiangMuQianQi_Tab_XiangMu_JiXiao" Member="Tab_XiangMu_JiXiao" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="jx_XiangMuId" Type="Tab_XiangMu_JiXiao" />
-      <Association Name="TabXiangMuQianQi_Tab_XiangMu_PeiXunJiJiao" Member="Tab_XiangMu_PeiXunJiJiao" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="pxjj_XiangMuId" Type="Tab_XiangMu_PeiXunJiJiao" />
-      <Association Name="TabXiangMuQianQi_Tab_XiangMu_ShiJian" Member="Tab_XiangMu_ShiJian" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="sj_XiangMuId" Type="Tab_XiangMu_ShiJian" />
-      <Association Name="TabXiangMuQianQi_Tab_XiangMu_XunJian" Member="Tab_XiangMu_XunJian" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="xj_XiangMuId" Type="Tab_XiangMu_XunJian" />
-      <Association Name="TabXiangMuQianQi_Tab_XiangMu_YiJiaoMingXi" Member="Tab_XiangMu_YiJiaoMingXi" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="mx_XiangMuId" Type="Tab_XiangMu_YiJiaoMingXi" />
-      <Association Name="TabXiangMuQianQi_TabHeTong" Member="TabHeTong" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="ht_QqId" Type="TabHeTong" />
-      <Association Name="TabXiangMuQianQi_TabXiangMuQianQi" Member="TabXiangMuQianQi2" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="qq_ParentId" Type="TabXiangMuQianQi" />
-      <Association Name="TabXiangMuQianQi_Tab_RL_PeiXun" Member="Tab_RL_PeiXun" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="rl_px_XiangMuId" Type="Tab_RL_PeiXun" />
-      <Association Name="TabXiangMuQianQi_Tab_RL_JiangCheng" Member="Tab_RL_JiangCheng" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="rl_jc_XiangMuId" Type="Tab_RL_JiangCheng" />
-      <Association Name="TabXiangMuQianQi_Tab_XiangMu_ZhiGuan" Member="Tab_XiangMu_ZhiGuan" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="zg_Id" Type="Tab_XiangMu_ZhiGuan" Cardinality="One" />
-      <Association Name="TabXiangMuQianQi_Tab_DiaoDong" Member="Tab_DiaoDong" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="dd_XiangMuId" Type="Tab_DiaoDong" />
-      <Association Name="Tab_HT_XiangMuFenLei_TabXiangMuQianQi" Member="Tab_HT_XiangMuFenLei" ThisKey="qq_GongChengLieBie" OtherKey="fl_Id" Type="Tab_HT_XiangMuFenLei" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Tab_HT_ZhiXingBuMen_TabXiangMuQianQi" Member="Tab_HT_ZhiXingBuMen" ThisKey="qq_ZhiXingLeiXing" OtherKey="bm_Id" Type="Tab_HT_ZhiXingBuMen" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Tab_XiangMu_BuMen_TabXiangMuQianQi" Member="Tab_XiangMu_BuMen" ThisKey="qq_BuMenId" OtherKey="xmbm_Id" Type="Tab_XiangMu_BuMen" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Tab_XiangMuZu_TabXiangMuQianQi" Member="Tab_XiangMuZu" ThisKey="qq_XiangMuZhuId" OtherKey="xmz_Id" Type="Tab_XiangMuZu" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="TabXiangMuQianQi_TabXiangMuQianQi" Member="TabXiangMuQianQi1" ThisKey="qq_ParentId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" />
-      <Association Name="Tab_RL_User_TabXiangMuQianQi" Member="Tab_RL_User" ThisKey="qq_JunGongYiJiao_QianShouRenYuan" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
-      <Association Name="Tab_RL_User_TabXiangMuQianQi1" Member="Tab_RL_User1" ThisKey="qq_JunGongYiJiao_QianShouRenYuan" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
-      <Association Name="Tab_RL_User_TabXiangMuQianQi2" Member="Tab_RL_User2" ThisKey="qq_JunGongYiJiao_ZongJianQianZi" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
-      <Association Name="Tab_RL_User_TabXiangMuQianQi3" Member="Tab_RL_User3" ThisKey="qq_XiangMuFuZeRen" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Tab_RL_PeiXun" Member="Tab_RL_PeiXun">
     <Type Name="Tab_RL_PeiXun">
       <Column Name="rl_px_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -948,8 +713,8 @@
       <Association Name="Tab_BuMen_Tab_RL_PeiXun" Member="Tab_BuMen" ThisKey="rl_px_BuMen" OtherKey="bm_Id" Type="Tab_BuMen" IsForeignKey="true" />
       <Association Name="Tab_RL_PeiXun_LeiBie_Tab_RL_PeiXun" Member="Tab_RL_PeiXun_LeiBie" ThisKey="rl_px_PeiXunLeiBie" OtherKey="pxlb_Id" Type="Tab_RL_PeiXun_LeiBie" IsForeignKey="true" />
       <Association Name="Tab_RL_PeiXun_XingZhi_Tab_RL_PeiXun" Member="Tab_RL_PeiXun_XingZhi" ThisKey="rl_px_PeiXunXingZhi" OtherKey="pxxz_Id" Type="Tab_RL_PeiXun_XingZhi" IsForeignKey="true" />
-      <Association Name="TabXiangMuQianQi_Tab_RL_PeiXun" Member="TabXiangMuQianQi" ThisKey="rl_px_XiangMuId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" />
       <Association Name="Tab_RL_User_Tab_RL_PeiXun" Member="Tab_RL_User" ThisKey="rl_px_UserId" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
+      <Association Name="TabXiangMuQianQi_Tab_RL_PeiXun" Member="TabXiangMuQianQi" ThisKey="rl_px_XiangMuId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Tab_RL_JiangCheng" Member="Tab_RL_JiangCheng">
@@ -963,8 +728,8 @@
       <Column Name="rl_jc_JiangChengQingKuang" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="rl_jc_SuoShuXiangMu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="rl_jc_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="TabXiangMuQianQi_Tab_RL_JiangCheng" Member="TabXiangMuQianQi" ThisKey="rl_jc_XiangMuId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" />
       <Association Name="Tab_RL_User_Tab_RL_JiangCheng" Member="Tab_RL_User" ThisKey="rl_jc_UserId" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
+      <Association Name="TabXiangMuQianQi_Tab_RL_JiangCheng" Member="TabXiangMuQianQi" ThisKey="rl_jc_XiangMuId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Tab_Excel_Company_User_ZhuanYe" Member="Tab_Excel_Company_User_ZhuanYe">
@@ -1004,21 +769,6 @@
       <Association Name="Tab_Excel_Company_Tab_Excel_Company_User_ZhuanYe" Member="Tab_Excel_Company_User_ZhuanYe" AccessModifier="Internal" ThisKey="ec_ID" OtherKey="ecu_CompanyId" Type="Tab_Excel_Company_User_ZhuanYe" />
     </Type>
   </Table>
-  <Table Name="dbo.Tab_XiangMu_ZhiGuan" Member="Tab_XiangMu_ZhiGuan">
-    <Type Name="Tab_XiangMu_ZhiGuan">
-      <Column Name="zg_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="zg_mb_ChengBenKongZhiZhiBiao" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="zg_mb_ChengBenKongZhiQiXian" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="zg_mb_YanQi" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="zg_mb_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="zg_js_ZongChengBenZhiChu" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="zg_js_LeiJiJieYu" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="zg_js_ShiLing" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="zg_js_BaoZhengJin" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
-      <Column Name="zg_js_BaoZhengJinJieSuan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Association Name="TabXiangMuQianQi_Tab_XiangMu_ZhiGuan" Member="TabXiangMuQianQi" ThisKey="zg_Id" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Tab_DiaoDong" Member="Tab_DiaoDong">
     <Type Name="Tab_DiaoDong">
       <Column Name="dd_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -1029,9 +779,9 @@
       <Column Name="dd_FuZeRen" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="dd_GangWei" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="dd_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="TabXiangMuQianQi_Tab_DiaoDong" Member="TabXiangMuQianQi" ThisKey="dd_XiangMuId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Tab_RL_User_Tab_DiaoDong" Member="Tab_RL_User" ThisKey="dd_FuZeRen" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Tab_RL_User_Tab_DiaoDong1" Member="Tab_RL_User1" ThisKey="dd_UserId" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
+      <Association Name="TabXiangMuQianQi_Tab_DiaoDong" Member="TabXiangMuQianQi" ThisKey="dd_XiangMuId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.TabShouKuanJiHua" Member="TabShouKuanJiHua">
@@ -1116,15 +866,15 @@
       <Association Name="Tab_RL_User_Tab_XiangMu_XunJian" Member="Tab_XiangMu_XunJian" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="xj_XunJianRen" Type="Tab_XiangMu_XunJian" />
       <Association Name="Tab_RL_User_Tab_User_ZhiCheng" Member="Tab_User_ZhiCheng" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="uz_UserId" Type="Tab_User_ZhiCheng" />
       <Association Name="Tab_RL_User_Tab_RL_ZhiYeZiGeZhengShu" Member="Tab_RL_ZhiYeZiGeZhengShu" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="zgzs_UserId" Type="Tab_RL_ZhiYeZiGeZhengShu" />
-      <Association Name="Tab_RL_User_TabXiangMuQianQi" Member="TabXiangMuQianQi" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qq_JunGongYiJiao_QianShouRenYuan" Type="TabXiangMuQianQi" />
-      <Association Name="Tab_RL_User_TabXiangMuQianQi1" Member="TabXiangMuQianQi1" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qq_JunGongYiJiao_QianShouRenYuan" Type="TabXiangMuQianQi" />
-      <Association Name="Tab_RL_User_TabXiangMuQianQi2" Member="TabXiangMuQianQi2" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qq_JunGongYiJiao_ZongJianQianZi" Type="TabXiangMuQianQi" />
-      <Association Name="Tab_RL_User_TabXiangMuQianQi3" Member="TabXiangMuQianQi3" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qq_XiangMuFuZeRen" Type="TabXiangMuQianQi" />
       <Association Name="Tab_RL_User_Tab_RL_PeiXun" Member="Tab_RL_PeiXun" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="rl_px_UserId" Type="Tab_RL_PeiXun" />
       <Association Name="Tab_RL_User_Tab_RL_JiangCheng" Member="Tab_RL_JiangCheng" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="rl_jc_UserId" Type="Tab_RL_JiangCheng" />
       <Association Name="Tab_RL_User_Tab_DiaoDong" Member="Tab_DiaoDong" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="dd_FuZeRen" Type="Tab_DiaoDong" />
       <Association Name="Tab_RL_User_Tab_DiaoDong1" Member="Tab_DiaoDong1" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="dd_UserId" Type="Tab_DiaoDong" />
       <Association Name="Tab_RL_User_Tab_User_XueLi" Member="Tab_User_XueLi" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="ux_UserId" Type="Tab_User_XueLi" />
+      <Association Name="Tab_RL_User_TabXiangMuQianQi" Member="TabXiangMuQianQi" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qq_JunGongYiJiao_QianShouRenYuan" Type="TabXiangMuQianQi" />
+      <Association Name="Tab_RL_User_TabXiangMuQianQi1" Member="TabXiangMuQianQi1" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qq_JunGongYiJiao_QianShouRenYuan" Type="TabXiangMuQianQi" />
+      <Association Name="Tab_RL_User_TabXiangMuQianQi2" Member="TabXiangMuQianQi2" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qq_JunGongYiJiao_ZongJianQianZi" Type="TabXiangMuQianQi" />
+      <Association Name="Tab_RL_User_TabXiangMuQianQi3" Member="TabXiangMuQianQi3" AccessModifier="Internal" ThisKey="jl_Id" OtherKey="qq_XiangMuFuZeRen" Type="TabXiangMuQianQi" />
       <Association Name="Tab_BuMen_Tab_RL_User" Member="Tab_BuMen" ThisKey="jl_SuShuBuMen" OtherKey="bm_Id" Type="Tab_BuMen" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Tab_RL_GongZuoZhuangTai_Tab_RL_User" Member="Tab_RL_GongZuoZhuangTai" ThisKey="jl_GongZuoZhuangTai" OtherKey="zt_Id" Type="Tab_RL_GongZuoZhuangTai" IsForeignKey="true" />
       <Association Name="Tab_RL_RuZhiTuJin_Tab_RL_User" Member="Tab_RL_RuZhiTuJin" ThisKey="jl_RuZhiTuJing" OtherKey="rztj_Id" Type="Tab_RL_RuZhiTuJin" IsForeignKey="true" DeleteRule="SET NULL" />
@@ -1166,6 +916,411 @@
       <Column Name="jl_Name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="jl_LaoDongHeTongJieShuShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="jl_IsTingXing" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_XiangMu_ZhiGuan_MuBiaoGuanLi" Member="View_XiangMu_ZhiGuan_MuBiaoGuanLi">
+    <Type Name="View_XiangMu_ZhiGuan_MuBiaoGuanLi">
+      <Column Name="zg_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="zg_mb_ChengBenKongZhiZhiBiao" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="zg_mb_YanQi" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="zg_mb_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="zg_mb_ChengBenKongZhiQiXian" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tab_ZZ_GongSi" Member="Tab_ZZ_GongSi">
+    <Type Name="Tab_ZZ_GongSi">
+      <Column Name="zzgs_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="zzgs_ZhengName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="zzgs_ZhengShuBianHao" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="zzgs_UsedTime" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="zzgs_GuiHuan_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="zzgs_JieChuRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="zzgs_YongTu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="zzgs_QianPiRen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="zzgs_BeiZhu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tab_ZZ_ZhengShu" Member="Tab_ZZ_ZhengShu">
+    <Type Name="Tab_ZZ_ZhengShu">
+      <Column Name="zzzs_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="zzzs_FullName" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="zzzs_ZhengShu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="zzzs_Num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="zzzs_LeiXing" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="zzzs_BeiZhu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Tab_ZZ_ZhengShu_Tab_ZZ_ZhengShu_Used" Member="Tab_ZZ_ZhengShu_Used" AccessModifier="Internal" ThisKey="zzzs_Id" OtherKey="zzzsu_ZhengShuId" Type="Tab_ZZ_ZhengShu_Used" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tab_ZZ_YinZhang" Member="Tab_ZZ_YinZhang">
+    <Type Name="Tab_ZZ_YinZhang">
+      <Column Name="zzyz_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="zzyz_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="zzyz_BuMen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="zzyz_XiangMuId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="zzyz_ShiYou" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="zzyz_Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="zzyz_JingBanRen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="zzyz_JingBanRen_Tel" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="zzyz_PiZhunRen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="zzyz_QianZhangDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="zzyz_BeiZhu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="TabXiangMuQianQi_Tab_ZZ_YinZhang" Member="TabXiangMuQianQi" ThisKey="zzyz_XiangMuId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tab_ZZ_ZhengShu_Used" Member="Tab_ZZ_ZhengShu_Used">
+    <Type Name="Tab_ZZ_ZhengShu_Used">
+      <Column Name="zzzsu_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="zzzsu_ZhengShuId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="zzzsu_UsedTime" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="zzzsu_GuiHuan_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="zzzsu_YongTu" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="zzzsu_XiangMuId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="zzzsu_JieChuRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="zzzsu_QianPiRen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="zzzsu_BeiZhu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Tab_ZZ_ZhengShu_Tab_ZZ_ZhengShu_Used" Member="Tab_ZZ_ZhengShu" ThisKey="zzzsu_ZhengShuId" OtherKey="zzzs_Id" Type="Tab_ZZ_ZhengShu" IsForeignKey="true" />
+      <Association Name="TabXiangMuQianQi_Tab_ZZ_ZhengShu_Used" Member="TabXiangMuQianQi" ThisKey="zzzsu_XiangMuId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_TongJi_XiangMu" Member="View_TongJi_XiangMu">
+    <Type Name="View_TongJi_XiangMu">
+      <Column Name="qq_GongChengMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="fs_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bm_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="jl_Name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="qq_ShiJian" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="qq_GuSuanJianLiFei" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_XiangMu_Management" Member="View_XiangMu_Management">
+    <Type Name="View_XiangMu_Management">
+      <Column Name="qq_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="qq_GongChengMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_HeTongHao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ZhiXingLeiXing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_ShiGongGongQi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_JunGongYiJiaoQingKuang" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_YuJiJunGongShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="qq_GongDiLiHuiShiJian" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_GongChengZhuangTai" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="jiGou_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="jiGou_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="zu_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="zu_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_XiangMu_HouQi" Member="View_XiangMu_HouQi">
+    <Type Name="View_XiangMu_HouQi">
+      <Column Name="qq_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="qq_XiangMuFuZeRen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="qq_ZongJianDaiBiao" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="qq_YeZhuMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_YeZhuLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ShiGongDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ShiGongDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_FenBaoDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_FenBaoDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_SheJiDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_SheJiDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_DiKanDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_DiKanDanWenLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ZhiJianDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ZhiJianDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_AnJianDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_GongChengLieBie" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_AnJianDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_XiangMuJiBie" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_XiangMuGaiKuang" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="qq_GongChengDiDian" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="qq_ZongTouZi" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="qq_ShiGongGongQi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_JianLiFuWuQi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_KaiGongRiQi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="qq_YuJiJunGongShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="qq_ShiJiJunGongShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="qq_GongDiLiHuiShiJian" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_GongChengZhuangTai" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="qq_MuQianJinDu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="qq_ZongBaoJianCeMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ZongBaoJianCeLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_QiTaJianCeMingCheng" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="qq_QiTaJianCeLianXiRen" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="qq_JinChangShiJian" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ZongHeYanShouShiJian" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ChuChangShiJian" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_TouBiaoZongJian" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="qq_BeiAnZongJian" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="qq_YiWanChengGongChengLiang" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_XiangMu_ZhiGuan_JieSuan" Member="View_XiangMu_ZhiGuan_JieSuan">
+    <Type Name="View_XiangMu_ZhiGuan_JieSuan">
+      <Column Name="zg_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="zg_js_ZongChengBenZhiChu" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="zg_js_LeiJiJieYu" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="zg_js_ShiLing" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="zg_js_BaoZhengJin" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="zg_js_BaoZhengJinJieSuan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="zg_js_JieSuan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tab_XiangMu_ZhiGuan" Member="Tab_XiangMu_ZhiGuan">
+    <Type Name="Tab_XiangMu_ZhiGuan">
+      <Column Name="zg_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="zg_mb_ChengBenKongZhiZhiBiao" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="zg_mb_ChengBenKongZhiQiXian" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="zg_mb_YanQi" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="zg_mb_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="zg_js_ZongChengBenZhiChu" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="zg_js_LeiJiJieYu" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="zg_js_ShiLing" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="zg_js_BaoZhengJin" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="zg_js_BaoZhengJinJieSuan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="zg_js_JieSuan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="TabXiangMuQianQi_Tab_XiangMu_ZhiGuan" Member="TabXiangMuQianQi" ThisKey="zg_Id" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_JieSuan_ZhiGuan" Member="View_JieSuan_ZhiGuan">
+    <Type Name="View_JieSuan_ZhiGuan">
+      <Column Name="qq_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="qq_GongChengMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_HeTongHao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ZhiXingLeiXing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_ShiGongGongQi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_JunGongYiJiaoQingKuang" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_YuJiJunGongShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="qq_GongDiLiHuiShiJian" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_GongChengZhuangTai" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="jiGou_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="jiGou_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="zu_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="zu_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="jiGou_JieSuan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tab_XiangMu_JieSuanNeiRong" Member="Tab_XiangMu_JieSuanNeiRong">
+    <Type Name="Tab_XiangMu_JieSuanNeiRong">
+      <Column Name="jsnr_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="jsnr_XiangMuFuZeRen" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="jsnr_LianXiDianHua" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="jsnr_DiZhi" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="jsnr_YouBian" Type="System.String" DbType="NVarChar(13)" CanBeNull="true" />
+      <Column Name="jsnr_XieYiBianHao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="jsnr_XieYiNeiRong" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="jsnr_js_ShiFouJieSuan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="jsnr_js_JieSuanRiQi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="jsnr_js_ZhiBaoJin" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Association Name="TabXiangMuQianQi_Tab_XiangMu_JieSuanNeiRong" Member="TabXiangMuQianQi" ThisKey="jsnr_Id" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_XiangMu_JieSuanNeiRong_IsJieSuan" Member="View_XiangMu_JieSuanNeiRong_IsJieSuan">
+    <Type Name="View_XiangMu_JieSuanNeiRong_IsJieSuan">
+      <Column Name="jsnr_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="jsnr_js_ShiFouJieSuan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="jsnr_js_JieSuanRiQi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="jsnr_js_ZhiBaoJin" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TabHeTong" Member="TabHeTong">
+    <Type Name="TabHeTong">
+      <Column Name="ht_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ht_QqId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ht_MingCheng" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ht_Number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ht_QianDingZhuangTai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ht_YeZhuHeTongBianHao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ht_YeZhuMingCheng" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ht_XiangGuanDanWei" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ht_YiFangQianYueDanWei" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ht_QianYueRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ht_XiangMuFenLei" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ht_HuoQuFangShi" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ht_GongChengDiDian" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ht_TouZiXinZhi" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ht_YeWuLeiXing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ht_GongChengZongTouZi" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="ht_ShouFeiFangShi" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ht_HeTongJinE" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="ht_JinEShuoMing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ht_HeTongFuKuanFangShi" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ht_ShiGongFuWuQiXian" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ht_JianLiFuWuQiXian" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ht_HeTongKaiShiRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ht_HeTongJieShuRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ht_DangAnJieShouRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ht_HeTongNeiRong" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ht_ZhiBaoJin" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="ht_ZhiBaoJinYueDing" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ht_LvYueBaoZhengJin" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="ht_LvYueZhiBaoJinYueDing" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ht_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ht_GongChengGuiMoYuGaiKuang" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="TabHeTong_TabFaPiaoJiShouKuanGuanLi" Member="TabFaPiaoJiShouKuanGuanLi" AccessModifier="Internal" ThisKey="ht_Id" OtherKey="fp_htId" Type="TabFaPiaoJiShouKuanGuanLi" />
+      <Association Name="TabHeTong_TabHeTongBianGeng" Member="TabHeTongBianGeng" AccessModifier="Internal" ThisKey="ht_Id" OtherKey="bg_htId" Type="TabHeTongBianGeng" />
+      <Association Name="TabHeTong_TabJieSuanGuanLi" Member="TabJieSuanGuanLi" AccessModifier="Internal" ThisKey="ht_Id" OtherKey="js_Id" Type="TabJieSuanGuanLi" Cardinality="One" />
+      <Association Name="TabHeTong_TabShouKuanJiHua" Member="TabShouKuanJiHua" AccessModifier="Internal" ThisKey="ht_Id" OtherKey="jh_htId" Type="TabShouKuanJiHua" />
+      <Association Name="TabHeTong_TabHeTongVice" Member="TabHeTongVice" AccessModifier="Internal" ThisKey="ht_Id" OtherKey="htv_Id" Type="TabHeTongVice" Cardinality="One" />
+      <Association Name="Tab_HT_GongChengDiDian_TabHeTong" Member="Tab_HT_GongChengDiDian" ThisKey="ht_GongChengDiDian" OtherKey="dd_Id" Type="Tab_HT_GongChengDiDian" IsForeignKey="true" />
+      <Association Name="Tab_HT_JinEShuoMing_TabHeTong" Member="Tab_HT_JinEShuoMing" ThisKey="ht_JinEShuoMing" OtherKey="jesm_Id" Type="Tab_HT_JinEShuoMing" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Tab_HT_ShouFeiFangShi_TabHeTong" Member="Tab_HT_ShouFeiFangShi" ThisKey="ht_ShouFeiFangShi" OtherKey="sf_Id" Type="Tab_HT_ShouFeiFangShi" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Tab_HT_YeWuLeiXing_TabHeTong" Member="Tab_HT_YeWuLeiXing" ThisKey="ht_YeWuLeiXing" OtherKey="lx_Id" Type="Tab_HT_YeWuLeiXing" IsForeignKey="true" />
+      <Association Name="Tab_HT_FuKuanFangShi_TabHeTong" Member="Tab_HT_FuKuanFangShi" ThisKey="ht_HeTongFuKuanFangShi" OtherKey="fk_Id" Type="Tab_HT_FuKuanFangShi" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Tab_HT_HuoQuFangShi_TabHeTong" Member="Tab_HT_HuoQuFangShi" ThisKey="ht_HuoQuFangShi" OtherKey="fs_Id" Type="Tab_HT_HuoQuFangShi" IsForeignKey="true" />
+      <Association Name="Tab_HT_QianDingZhuangTai_TabHeTong" Member="Tab_HT_QianDingZhuangTai" ThisKey="ht_QianDingZhuangTai" OtherKey="zt_Id" Type="Tab_HT_QianDingZhuangTai" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Tab_HT_TouZiXingZhi_TabHeTong" Member="Tab_HT_TouZiXingZhi" ThisKey="ht_TouZiXinZhi" OtherKey="xz_Id" Type="Tab_HT_TouZiXingZhi" IsForeignKey="true" />
+      <Association Name="Tab_HT_XiangMuFenLei_TabHeTong" Member="Tab_HT_XiangMuFenLei" ThisKey="ht_XiangMuFenLei" OtherKey="fl_Id" Type="Tab_HT_XiangMuFenLei" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="TabXiangMuQianQi_TabHeTong" Member="TabXiangMuQianQi" ThisKey="ht_QqId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TabHeTongVice" Member="TabHeTongVice">
+    <Type Name="TabHeTongVice">
+      <Column Name="htv_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="htv_YanQiZongE" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="htv_YanQiKaiShiRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="htv_YanQiYuJiKaiShiRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="htv_YanQiYuJiJieShuRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="htv_LvYueYingTuiHuanRiQi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="htv_LvYueYingTuiZongE" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="htv_LvYueTuiHuanShiJian" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="htv_ZhiBaoJinTuiHuanShiJian" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="htv_ZhiBaoJinYingTuiZongE" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="htv_ZhiBaoJinYingTuiZong" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="htv_GuiDangQingKuang" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="htv_BeiZhu" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="htv_GongChengZhuangTai" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="htv_JieSuanJianLiFei" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="htv_JieSuanShuoMing" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="htv_ZhiXingZhuangTai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="Tab_HTV_GuiDangQingKuang_TabHeTongVice" Member="Tab_HTV_GuiDangQingKuang" ThisKey="htv_GuiDangQingKuang" OtherKey="gd_Id" Type="Tab_HTV_GuiDangQingKuang" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="TabHeTong_TabHeTongVice" Member="TabHeTong" ThisKey="htv_Id" OtherKey="ht_Id" Type="TabHeTong" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_HeTong" Member="View_HeTong">
+    <Type Name="View_HeTong">
+      <Column Name="ht_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ht_QqId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ht_MingCheng" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="qq_ZhiXingLeiXing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="htv_ZhiXingZhuangTai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_HeTongHao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TabXiangMuQianQi" Member="TabXiangMuQianQi">
+    <Type Name="TabXiangMuQianQi">
+      <Column Name="qq_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="qq_GongChengMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_XiangMuLaiYuan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_ZhiXingLeiXing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_GuSuanJianLiFei" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="qq_ShiJian" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="qq_HeTongHao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ZhiXingZhuangTai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_XiangMuFuZeRen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="qq_TouBiaoZongJian" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="qq_BeiAnZongJian" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="qq_ZongJianDaiBiao" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="qq_YeZhuMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_YeZhuLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ShiGongDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ShiGongDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_FenBaoDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_FenBaoDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_SheJiDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_SheJiDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_DiKanDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_DiKanDanWenLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ZhiJianDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ZhiJianDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ZongBaoJianCeMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ZongBaoJianCeLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_QiTaJianCeMingCheng" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="qq_QiTaJianCeLianXiRen" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="qq_AnJianDanWeiMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_AnJianDanWeiLianXiRen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_GongChengLieBie" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_XiangMuJiBie" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_XiangMuGaiKuang" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="qq_GongChengDiDian" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="qq_ZongTouZi" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="qq_ShiGongGongQi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_JianLiFuWuQi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_KaiGongRiQi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="qq_JinChangShiJian" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_YuJiJunGongShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="qq_ShiJiJunGongShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="qq_ZongHeYanShouShiJian" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_ChuChangShiJian" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_GongDiLiHuiShiJian" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_MuQianJinDu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="qq_GongChengZhuangTai" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="qq_YiWanChengGongChengLiang" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="qq_JunGongYiJiaoQingKuang" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_JunGongYiJiao_ShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="qq_JunGongYiJiao_YiJiaoRen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="qq_JunGongYiJiao_QianShouRenYuan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="qq_JunGongYiJiao_QianShoShiJian" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="qq_JunGongYiJiao_ZongJianQianZi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="qq_BuMenId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="qq_LeiXing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="qq_XiangMuZhuId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TabXiangMuQianQi_Tab_Report_MonthSalaryDetail_ChengBen" Member="Tab_Report_MonthSalaryDetail_ChengBen" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="msdcd_XiangMuId" Type="Tab_Report_MonthSalaryDetail_ChengBen" />
+      <Association Name="TabXiangMuQianQi_Tab_XiangMu_BanGongYongPin" Member="Tab_XiangMu_BanGongYongPin" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="bgyp_XiangMuId" Type="Tab_XiangMu_BanGongYongPin" />
+      <Association Name="TabXiangMuQianQi_Tab_XiangMu_BaoXiao" Member="Tab_XiangMu_BaoXiao" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="bx_XiangMuId" Type="Tab_XiangMu_BaoXiao" />
+      <Association Name="TabXiangMuQianQi_Tab_XiangMu_FeiYongTiaoZheng" Member="Tab_XiangMu_FeiYongTiaoZheng" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="fytz_XiangMuId" Type="Tab_XiangMu_FeiYongTiaoZheng" />
+      <Association Name="TabXiangMuQianQi_Tab_XiangMu_JiXiao" Member="Tab_XiangMu_JiXiao" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="jx_XiangMuId" Type="Tab_XiangMu_JiXiao" />
+      <Association Name="TabXiangMuQianQi_Tab_XiangMu_PeiXunJiJiao" Member="Tab_XiangMu_PeiXunJiJiao" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="pxjj_XiangMuId" Type="Tab_XiangMu_PeiXunJiJiao" />
+      <Association Name="TabXiangMuQianQi_Tab_XiangMu_ShiJian" Member="Tab_XiangMu_ShiJian" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="sj_XiangMuId" Type="Tab_XiangMu_ShiJian" />
+      <Association Name="TabXiangMuQianQi_Tab_XiangMu_XunJian" Member="Tab_XiangMu_XunJian" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="xj_XiangMuId" Type="Tab_XiangMu_XunJian" />
+      <Association Name="TabXiangMuQianQi_Tab_XiangMu_YiJiaoMingXi" Member="Tab_XiangMu_YiJiaoMingXi" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="mx_XiangMuId" Type="Tab_XiangMu_YiJiaoMingXi" />
+      <Association Name="TabXiangMuQianQi_Tab_RL_PeiXun" Member="Tab_RL_PeiXun" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="rl_px_XiangMuId" Type="Tab_RL_PeiXun" />
+      <Association Name="TabXiangMuQianQi_Tab_RL_JiangCheng" Member="Tab_RL_JiangCheng" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="rl_jc_XiangMuId" Type="Tab_RL_JiangCheng" />
+      <Association Name="TabXiangMuQianQi_Tab_DiaoDong" Member="Tab_DiaoDong" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="dd_XiangMuId" Type="Tab_DiaoDong" />
+      <Association Name="TabXiangMuQianQi_Tab_ZZ_YinZhang" Member="Tab_ZZ_YinZhang" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="zzyz_XiangMuId" Type="Tab_ZZ_YinZhang" />
+      <Association Name="TabXiangMuQianQi_Tab_ZZ_ZhengShu_Used" Member="Tab_ZZ_ZhengShu_Used" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="zzzsu_XiangMuId" Type="Tab_ZZ_ZhengShu_Used" />
+      <Association Name="TabXiangMuQianQi_Tab_XiangMu_ZhiGuan" Member="Tab_XiangMu_ZhiGuan" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="zg_Id" Type="Tab_XiangMu_ZhiGuan" Cardinality="One" />
+      <Association Name="TabXiangMuQianQi_Tab_XiangMu_JieSuanNeiRong" Member="Tab_XiangMu_JieSuanNeiRong" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="jsnr_Id" Type="Tab_XiangMu_JieSuanNeiRong" Cardinality="One" />
+      <Association Name="TabXiangMuQianQi_TabHeTong" Member="TabHeTong" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="ht_QqId" Type="TabHeTong" />
+      <Association Name="TabXiangMuQianQi_TabXiangMuQianQi" Member="TabXiangMuQianQi2" AccessModifier="Internal" ThisKey="qq_Id" OtherKey="qq_ParentId" Type="TabXiangMuQianQi" />
+      <Association Name="Tab_HT_HuoQuFangShi_TabXiangMuQianQi" Member="Tab_HT_HuoQuFangShi" ThisKey="qq_XiangMuLaiYuan" OtherKey="fs_Id" Type="Tab_HT_HuoQuFangShi" IsForeignKey="true" />
+      <Association Name="Tab_HT_XiangMuFenLei_TabXiangMuQianQi" Member="Tab_HT_XiangMuFenLei" ThisKey="qq_GongChengLieBie" OtherKey="fl_Id" Type="Tab_HT_XiangMuFenLei" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Tab_HT_ZhiXingBuMen_TabXiangMuQianQi" Member="Tab_HT_ZhiXingBuMen" ThisKey="qq_ZhiXingLeiXing" OtherKey="bm_Id" Type="Tab_HT_ZhiXingBuMen" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Tab_RL_User_TabXiangMuQianQi" Member="Tab_RL_User" ThisKey="qq_JunGongYiJiao_QianShouRenYuan" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
+      <Association Name="Tab_RL_User_TabXiangMuQianQi1" Member="Tab_RL_User1" ThisKey="qq_JunGongYiJiao_QianShouRenYuan" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
+      <Association Name="Tab_RL_User_TabXiangMuQianQi2" Member="Tab_RL_User2" ThisKey="qq_JunGongYiJiao_ZongJianQianZi" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
+      <Association Name="Tab_RL_User_TabXiangMuQianQi3" Member="Tab_RL_User3" ThisKey="qq_XiangMuFuZeRen" OtherKey="jl_Id" Type="Tab_RL_User" IsForeignKey="true" />
+      <Association Name="Tab_XiangMu_BuMen_TabXiangMuQianQi" Member="Tab_XiangMu_BuMen" ThisKey="qq_BuMenId" OtherKey="xmbm_Id" Type="Tab_XiangMu_BuMen" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Tab_XiangMuZu_TabXiangMuQianQi" Member="Tab_XiangMuZu" ThisKey="qq_XiangMuZhuId" OtherKey="xmz_Id" Type="Tab_XiangMuZu" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="TabXiangMuQianQi_TabXiangMuQianQi" Member="TabXiangMuQianQi1" ThisKey="qq_ParentId" OtherKey="qq_Id" Type="TabXiangMuQianQi" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_XiangMu_QianQi" Member="View_XiangMu_QianQi">
+    <Type Name="View_XiangMu_QianQi">
+      <Column Name="qq_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="qq_GongChengMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_XiangMuLaiYuan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_ZhiXingLeiXing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_ShiJian" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="qq_HeTongHao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_LeiXing" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="qq_ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="qq_XiangMuZhuId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="qq_GuSuanJianLiFei" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="qq_ZhiXingZhuangTai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_JieSuan_ShiYeBu" Member="View_JieSuan_ShiYeBu">
+    <Type Name="View_JieSuan_ShiYeBu">
+      <Column Name="qq_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="qq_GongChengMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_HeTongHao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qq_YeZhuMingCheng" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="jl_Name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="jsnr_js_ShiFouJieSuan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="jiGou_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="jiGou_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="zu_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="zu_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

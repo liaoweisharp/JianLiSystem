@@ -48,6 +48,7 @@
       <feature>01</feature>
       <feature>61</feature>
       <feature>62</feature>
+      <feature>63</feature>
     </features>
   </user>
   <user>
@@ -62,7 +63,12 @@
       <feature>41</feature>
       <feature>61</feature>
       <feature>62</feature>
+      <feature>63</feature>
       <feature>51</feature>
+      <feature>71</feature>
+      <feature>72</feature>
+      <feature>73</feature>
+      <feature>74</feature>
     </features>
   </user>
   <feature >
@@ -103,5 +109,25 @@
   <feature>
     <id>62</id>
     <page  name="技术负责人" pName="同行资源" class="l_TH">../ImportExcel/CompanyCharger.aspx</page>
+  </feature>
+  <feature>
+    <id>63</id>
+    <page  name="企业" pName="同行资源" class="l_TH">../ImportExcel/Manage.aspx</page>
+  </feature>
+  <feature>
+    <id>71</id>
+    <page  name="企业证件" pName="证章使用" class="l_TH">../ZhengZhang/GongSi.aspx</page>
+  </feature>
+  <feature>
+    <id>72</id>
+    <page  name="印章使用" pName="证章使用" class="l_TH">../ZhengZhang/YinZhang.aspx</page>
+  </feature>
+  <feature>
+    <id>73</id>
+    <page  name="证书外借" pName="证章使用" class="l_TH">../ZhengZhang/ZhengShuWaiJie.aspx</page>
+  </feature>
+  <feature>
+    <id>74</id>
+    <page  name="证书管理" pName="证章使用" class="l_TH">../ZhengZhang/ZhengShu.aspx</page>
   </feature>
 </users>

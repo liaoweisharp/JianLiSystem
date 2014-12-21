@@ -35,125 +35,211 @@ namespace DAL.Logic
         /// <param name="where"></param>
         /// <param name="tabs"></param>
         /// <returns></returns>
-        public static List<DAL.CommClass.XiangMuHouQiWrapper2> filterAllXiangMuHouQi2(CommClass.PageClass pageClass, string where)
-        {
-            //pageClass.filter.key = "type";
-            //pageClass.filter.value = "shiYeBu";
+        //public static List<DAL.CommClass.XiangMuJiSuan_ShiYeBuWrapper> filterAllXiangMuJiSuan_ShiYeBu(CommClass.PageClass pageClass, string where)
+        //{
+        //    List<DAL.CommClass.XiangMuJiSuan_ShiYeBuWrapper> returnValue = new List<CommClass.XiangMuJiSuan_ShiYeBuWrapper>();
+        //    DAL.Base_XiangMuQianQi _ins = new Base_XiangMuQianQi();
+        //    List<DAL.DTO.TabXiangMuQianQi> qqList = _ins.filterAllXiangMuQianQi_ShiYeBu(pageClass, where, new String[] { "Tab_RL_User3", "TabHeTong" });
+        //    foreach (DAL.DTO.TabXiangMuQianQi item in qqList)
+        //    {
+        //        DAL.CommClass.XiangMuJiSuan_ShiYeBuWrapper obj = new CommClass.XiangMuJiSuan_ShiYeBuWrapper();
+        //        obj.id = item.qq_Id;
+        //        obj.heTongHao = item.qq_HeTongHao == null ? "" : item.qq_HeTongHao;
+        //        obj.gongChengMingCheng = item.qq_GongChengMingCheng == null ? "" : item.qq_GongChengMingCheng; ;
+        //        obj.shiShouGuanLiFeiZongE = 0;
+        //        if (item.TabHeTong.Count == 1)
+        //        {
+        //            if (item.TabHeTong[0].TabFaPiaoJiShouKuanGuanLi != null)
+        //            {
+        //                obj.shiShouKuanZongE = item.TabHeTong[0].TabFaPiaoJiShouKuanGuanLi.Sum(p => p.fp_ShiShouJinE.HasValue ? p.fp_ShiShouJinE.Value : 0);
+        //                obj.yiJieSuanZongE = item.TabHeTong[0].TabFaPiaoJiShouKuanGuanLi.Sum(p => p.fp_hs_BenCiJieSuanJinE.HasValue ? p.fp_hs_BenCiJieSuanJinE.Value : 0);
+        //                obj.weiJieSuanZongE = obj.shiShouKuanZongE - obj.yiJieSuanZongE;
+        //                obj.shiShouGuanLiFeiZongE = item.TabHeTong[0].TabFaPiaoJiShouKuanGuanLi.Sum(p => p.fp_hs_ShiShouGuanLiFeiZongE.HasValue ? p.fp_hs_ShiShouGuanLiFeiZongE.Value : 0);
+        //            }
+        //        }
+        //        obj.xiangMuFuZeRen = item.Tab_RL_User3 != null ? item.Tab_RL_User3.jl_Name : "";
+        //        obj.yeZhuMingCheng = item.qq_YeZhuMingCheng == null ? "" : item.qq_YeZhuMingCheng;
 
-            List<DAL.CommClass.XiangMuHouQiWrapper2> returnValue = new List<CommClass.XiangMuHouQiWrapper2>();
-            DAL.Base_XiangMuZu _ins = new Base_XiangMuZu();
-            List<DAL.DTO.Tab_XiangMuZu> xiangMuZuList = _ins.filterAllXiangMuZu(pageClass, where, new String[] { "TabXiangMuQianQi" });
-            foreach (DAL.DTO.Tab_XiangMuZu zu in xiangMuZuList) {
-                DAL.CommClass.XiangMuHouQiWrapper2 wrapper = new XiangMuHouQiWrapper2();
-                wrapper.xiangMuBuId = zu.xmz_Id;
-                wrapper.xiangMuBuMingCheng = zu.xmz_Name;
-                wrapper.jianLiJiGouArray = new List<XiangMuHouQiWrapper1>();
-                if (zu.TabXiangMuQianQi.Count > 0)
-                { 
-                    //先选出监理机构
-                    List<DTO.TabXiangMuQianQi> list_Zu = zu.TabXiangMuQianQi.Where(p => p.qq_LeiXing == 2).ToList();
-                    ///排序
-                    list_Zu = list_Zu.OrderBy(p => p.qq_GongChengMingCheng).ToList();
-                    foreach (DTO.TabXiangMuQianQi qq in list_Zu) {
-                        DAL.CommClass.XiangMuHouQiWrapper1 jianliZu = new XiangMuHouQiWrapper1();
-                        jianliZu.jianLiJiGouId = qq.qq_Id;
-                        jianliZu.jianLiJiGouMingCheng = qq.qq_GongChengMingCheng;
-                        jianliZu.projectArray=new List<XiangMuHouQiWrapper>();
-                        jianliZu.projectArray.AddRange(_fun(qq.TabXiangMuQianQi2.ToList()));
-                        wrapper.jianLiJiGouArray.Add(jianliZu);
-                    }
-                    ////再选出工程
-                    //List<DTO.TabXiangMuQianQi> list_Project = zu.TabXiangMuQianQi.Where(p => p.qq_ParentId==null && (p.qq_LeiXing ==null || p.qq_LeiXing==1)).ToList();
-                    /////排序
-                    //list_Project = list_Project.OrderBy(p => p.qq_GongChengMingCheng).ToList();
-                    //foreach (DTO.TabXiangMuQianQi qq in list_Project)
-                    //{
-                    //    DAL.CommClass.XiangMuHouQiWrapper1 jianliZu = new XiangMuHouQiWrapper1();
-                    //    jianliZu.jianLiJiGouId = qq.qq_Id;
-                    //    jianliZu.jianLiJiGouMingCheng = qq.qq_GongChengMingCheng;
-                    //    jianliZu.projectArray=new List<XiangMuHouQiWrapper>();
-                    //    jianliZu.projectArray.AddRange(_fun(new List<DTO.TabXiangMuQianQi>() { qq }));
-                    //    wrapper.jianLiJiGouArray.Add(jianliZu);
-                    //}
-                    returnValue.Add(wrapper);
-                }
-            }
-        
-            return returnValue;
-        }
-        private static List<DAL.CommClass.XiangMuHouQiWrapper> _fun(List<DTO.TabXiangMuQianQi> list)
-        {
-            List<DAL.CommClass.XiangMuHouQiWrapper> returnValue = new List<XiangMuHouQiWrapper>();
-            foreach (DAL.DTO.TabXiangMuQianQi obj in list)
-            {
-                DAL.CommClass.XiangMuHouQiWrapper ins = new CommClass.XiangMuHouQiWrapper();
-                ins.projectId = obj.qq_Id;
-                ins.gongChengMingCheng = obj.qq_GongChengMingCheng == null ? "" : obj.qq_GongChengMingCheng;
-                ins.gongChengZhuanTai = obj.qq_GongChengZhuangTai == null ? "" : obj.qq_GongChengZhuangTai;
-                ins.liHuiShiJian = obj.qq_GongDiLiHuiShiJian == null ? "" : obj.qq_GongDiLiHuiShiJian;
-                ins.shiGongGonqQi = obj.qq_ShiGongGongQi == null ? "" : obj.qq_ShiGongGongQi;
-                ins.yuJiJunGongShiJian = obj.qq_YuJiJunGongShiJian.HasValue ? obj.qq_YuJiJunGongShiJian.Value.ToShortDateString() : "";
-                ins.zhiXingLeiXing = obj.Tab_HT_ZhiXingBuMen != null ? obj.Tab_HT_ZhiXingBuMen.bm_Name : "";
-                ins.zhiXingLeiXing = obj.Tab_HT_ZhiXingBuMen != null ? obj.Tab_HT_ZhiXingBuMen.bm_Name : "";
-                ins.zhiXingLeiXingId = obj.qq_ZhiXingLeiXing;
-                string name = "";
-                if (obj.Tab_DiaoDong.Count > 0)
-                {
-                    var dd = from p in obj.Tab_DiaoDong where p.dd_GangWei != null && p.dd_GangWei.Trim() == "总监" select p.Tab_RL_User1;
-                    int temp = 0;
-                    foreach (DTO.Tab_RL_User user in dd)
-                    {
-                        if (temp > 0)
-                        {
-                            name += "<br/>";
-                        }
-                        name += user.jl_Name;
-                        temp++;
-                    }
-                }
-                ins.xiangMuZongJian = name;
-                ins.xiangMuFuZeRen = obj.Tab_RL_User == null ? "" : obj.Tab_RL_User.jl_Name;
-                returnValue.Add(ins);
-            }
-            return returnValue;
-        }
-        
+        //        if (item.TabHeTong.Count == 1)
+        //        {
+        //            obj.zanDingJianLiFeiZongE = Logic_Comm.getZanDingJianLiFei(item.TabHeTong.First());
+        //        }
+        //        else
+        //        {
+        //            obj.zanDingJianLiFeiZongE = 0;
+        //        }
+        //        returnValue.Add(obj);
+        //    }
+        //    return returnValue;
+        //}
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pageClass"></param>
+        /// <param name="where"></param>
+        /// <returns></returns>
         public static List<DAL.CommClass.XiangMuJiSuan_ShiYeBuWrapper> filterAllXiangMuJiSuan_ShiYeBu(CommClass.PageClass pageClass, string where)
         {
             List<DAL.CommClass.XiangMuJiSuan_ShiYeBuWrapper> returnValue = new List<CommClass.XiangMuJiSuan_ShiYeBuWrapper>();
-            DAL.Base_XiangMuQianQi _ins = new Base_XiangMuQianQi();
-            List<DAL.DTO.TabXiangMuQianQi> qqList = _ins.filterAllXiangMuQianQi_ShiYeBu(pageClass, where, new String[] { "Tab_RL_User3", "TabHeTong" });
-            foreach (DAL.DTO.TabXiangMuQianQi item in qqList)
-            {
-                DAL.CommClass.XiangMuJiSuan_ShiYeBuWrapper obj = new CommClass.XiangMuJiSuan_ShiYeBuWrapper();
-                obj.id = item.qq_Id;
-                obj.heTongHao = item.qq_HeTongHao == null ? "" : item.qq_HeTongHao;
-                obj.gongChengMingCheng = item.qq_GongChengMingCheng == null ? "" : item.qq_GongChengMingCheng; ;
-                obj.shiShouGuanLiFeiZongE = 0;
-                if (item.TabHeTong.Count == 1)
-                { 
-                    if(item.TabHeTong[0].TabFaPiaoJiShouKuanGuanLi!=null)
-                    {
-                        obj.shiShouKuanZongE = item.TabHeTong[0].TabFaPiaoJiShouKuanGuanLi.Sum(p => p.fp_ShiShouJinE.HasValue ? p.fp_ShiShouJinE.Value : 0);
-                        obj.yiJieSuanZongE = item.TabHeTong[0].TabFaPiaoJiShouKuanGuanLi.Sum(p => p.fp_hs_BenCiJieSuanJinE.HasValue ? p.fp_hs_BenCiJieSuanJinE.Value : 0);
-                        obj.weiJieSuanZongE = obj.shiShouKuanZongE - obj.yiJieSuanZongE;
-                        obj.shiShouGuanLiFeiZongE = item.TabHeTong[0].TabFaPiaoJiShouKuanGuanLi.Sum(p => p.fp_hs_ShiShouGuanLiFeiZongE.HasValue ? p.fp_hs_ShiShouGuanLiFeiZongE.Value : 0);
-                    } 
-                }
-                obj.xiangMuFuZeRen = item.Tab_RL_User3 != null ? item.Tab_RL_User3.jl_Name : "";
-                obj.yeZhuMingCheng = item.qq_YeZhuMingCheng == null ? "" : item.qq_YeZhuMingCheng; 
-              
-                if (item.TabHeTong.Count == 1)
+            DAL.ViewBase_JieSuan_ShiYeBu _ins = new DAL.ViewBase_JieSuan_ShiYeBu();
+            List<DTO.View_JieSuan_ShiYeBu> objList = _ins.filter(pageClass, where);
+            string[] tabs = new String[] { "TabHeTong" };
+            List<DTO.TabXiangMuQianQi> qqList = new DAL.Base_XiangMuQianQi().getByIds(objList.Select(p => p.qq_Id).ToArray(),tabs);
+            foreach (DTO.View_JieSuan_ShiYeBu ins in objList) {
+                DAL.CommClass.XiangMuJiSuan_ShiYeBuWrapper obj = new XiangMuJiSuan_ShiYeBuWrapper();
+                obj.gongChengMingCheng = ins.qq_GongChengMingCheng;
+                obj.heTongHao = ins.qq_HeTongHao;
+                obj.id = ins.qq_Id;
+                obj.yeZhuMingCheng = ins.qq_YeZhuMingCheng;
+                obj.xiangMuFuZeRen = ins.jl_Name;
+                obj.jiGouId = ins.jiGou_ID;
+                obj.jiGouName = ins.jiGou_Name;
+                obj.zuId = ins.zu_ID;
+                obj.zuName = ins.zu_Name;
+                DTO.TabXiangMuQianQi qq= qqList.FirstOrDefault(p => p.qq_Id == ins.qq_Id);
+                if (qq.TabHeTong.Count == 1)
                 {
-                    obj.zanDingJianLiFeiZongE = Logic_Comm.getZanDingJianLiFei(item.TabHeTong.First());
+                    obj.zanDingJianLiFeiZongE = Logic_Comm.getZanDingJianLiFei(qq.TabHeTong.First());
                 }
-                else {
+                else
+                {
                     obj.zanDingJianLiFeiZongE = 0;
+                }
+                obj.shiShouGuanLiFeiZongE = 0;
+                if (qq.TabHeTong.Count == 1)
+                {
+                    if (qq.TabHeTong[0].TabFaPiaoJiShouKuanGuanLi != null)
+                    {
+                        obj.shiShouKuanZongE = qq.TabHeTong[0].TabFaPiaoJiShouKuanGuanLi.Sum(p => p.fp_ShiShouJinE.HasValue ? p.fp_ShiShouJinE.Value : 0);
+                        obj.yiJieSuanZongE = qq.TabHeTong[0].TabFaPiaoJiShouKuanGuanLi.Sum(p => p.fp_hs_BenCiJieSuanJinE.HasValue ? p.fp_hs_BenCiJieSuanJinE.Value : 0);
+                        obj.weiJieSuanZongE = obj.shiShouKuanZongE - obj.yiJieSuanZongE;
+                        obj.shiShouGuanLiFeiZongE = qq.TabHeTong[0].TabFaPiaoJiShouKuanGuanLi.Sum(p => p.fp_hs_ShiShouGuanLiFeiZongE.HasValue ? p.fp_hs_ShiShouGuanLiFeiZongE.Value : 0);
+                    }
                 }
                 returnValue.Add(obj);
             }
             return returnValue;
         }
+
+        //public static List<DAL.CommClass.XiangMuHouQiWrapper2> filterAllXiangMuHouQi2(CommClass.PageClass pageClass, string where)
+        //{
+        //    //pageClass.filter.key = "type";
+        //    //pageClass.filter.value = "shiYeBu";
+
+        //    List<DAL.CommClass.XiangMuHouQiWrapper2> returnValue = new List<CommClass.XiangMuHouQiWrapper2>();
+        //    DAL.Base_XiangMuZu _ins = new Base_XiangMuZu();
+        //    List<DAL.DTO.Tab_XiangMuZu> xiangMuZuList = _ins.filterAllXiangMuZu(pageClass, where, new String[] { "TabXiangMuQianQi" });
+        //    foreach (DAL.DTO.Tab_XiangMuZu zu in xiangMuZuList) {
+        //        DAL.CommClass.XiangMuHouQiWrapper2 wrapper = new XiangMuHouQiWrapper2();
+        //        wrapper.xiangMuBuId = zu.xmz_Id;
+        //        wrapper.xiangMuBuMingCheng = zu.xmz_Name;
+        //        wrapper.jianLiJiGouArray = new List<XiangMuHouQiWrapper1>();
+        //        if (zu.TabXiangMuQianQi.Count > 0)
+        //        { 
+        //            //先选出监理机构
+        //            List<DTO.TabXiangMuQianQi> list_Zu = zu.TabXiangMuQianQi.Where(p => p.qq_LeiXing == 2).ToList();
+        //            ///排序
+        //            list_Zu = list_Zu.OrderBy(p => p.qq_GongChengMingCheng).ToList();
+        //            foreach (DTO.TabXiangMuQianQi qq in list_Zu) {
+        //                DAL.CommClass.XiangMuHouQiWrapper1 jianliZu = new XiangMuHouQiWrapper1();
+        //                jianliZu.jianLiJiGouId = qq.qq_Id;
+        //                jianliZu.jianLiJiGouMingCheng = qq.qq_GongChengMingCheng;
+        //                jianliZu.projectArray=new List<XiangMuHouQiWrapper>();
+        //                jianliZu.projectArray.AddRange(_fun(qq.TabXiangMuQianQi2.ToList()));
+        //                wrapper.jianLiJiGouArray.Add(jianliZu);
+        //            }
+        //            ////再选出工程
+        //            //List<DTO.TabXiangMuQianQi> list_Project = zu.TabXiangMuQianQi.Where(p => p.qq_ParentId==null && (p.qq_LeiXing ==null || p.qq_LeiXing==1)).ToList();
+        //            /////排序
+        //            //list_Project = list_Project.OrderBy(p => p.qq_GongChengMingCheng).ToList();
+        //            //foreach (DTO.TabXiangMuQianQi qq in list_Project)
+        //            //{
+        //            //    DAL.CommClass.XiangMuHouQiWrapper1 jianliZu = new XiangMuHouQiWrapper1();
+        //            //    jianliZu.jianLiJiGouId = qq.qq_Id;
+        //            //    jianliZu.jianLiJiGouMingCheng = qq.qq_GongChengMingCheng;
+        //            //    jianliZu.projectArray=new List<XiangMuHouQiWrapper>();
+        //            //    jianliZu.projectArray.AddRange(_fun(new List<DTO.TabXiangMuQianQi>() { qq }));
+        //            //    wrapper.jianLiJiGouArray.Add(jianliZu);
+        //            //}
+        //            returnValue.Add(wrapper);
+        //        }
+        //    }
+        
+        //    return returnValue;
+        //}
+        //private static List<DAL.CommClass.XiangMuHouQiWrapper> _fun(List<DTO.TabXiangMuQianQi> list)
+        //{
+        //    List<DAL.CommClass.XiangMuHouQiWrapper> returnValue = new List<XiangMuHouQiWrapper>();
+        //    foreach (DAL.DTO.TabXiangMuQianQi obj in list)
+        //    {
+        //        DAL.CommClass.XiangMuHouQiWrapper ins = new CommClass.XiangMuHouQiWrapper();
+        //        ins.projectId = obj.qq_Id;
+        //        ins.gongChengMingCheng = obj.qq_GongChengMingCheng == null ? "" : obj.qq_GongChengMingCheng;
+        //        ins.gongChengZhuanTai = obj.qq_GongChengZhuangTai == null ? "" : obj.qq_GongChengZhuangTai;
+        //        ins.liHuiShiJian = obj.qq_GongDiLiHuiShiJian == null ? "" : obj.qq_GongDiLiHuiShiJian;
+        //        ins.shiGongGonqQi = obj.qq_ShiGongGongQi == null ? "" : obj.qq_ShiGongGongQi;
+        //        ins.yuJiJunGongShiJian = obj.qq_YuJiJunGongShiJian.HasValue ? obj.qq_YuJiJunGongShiJian.Value.ToShortDateString() : "";
+        //        ins.zhiXingLeiXing = obj.Tab_HT_ZhiXingBuMen != null ? obj.Tab_HT_ZhiXingBuMen.bm_Name : "";
+        //        ins.zhiXingLeiXing = obj.Tab_HT_ZhiXingBuMen != null ? obj.Tab_HT_ZhiXingBuMen.bm_Name : "";
+        //        ins.zhiXingLeiXingId = obj.qq_ZhiXingLeiXing;
+        //        string name = "";
+        //        if (obj.Tab_DiaoDong.Count > 0)
+        //        {
+        //            var dd = from p in obj.Tab_DiaoDong where p.dd_GangWei != null && p.dd_GangWei.Trim() == "总监" select p.Tab_RL_User1;
+        //            int temp = 0;
+        //            foreach (DTO.Tab_RL_User user in dd)
+        //            {
+        //                if (temp > 0)
+        //                {
+        //                    name += "<br/>";
+        //                }
+        //                name += user.jl_Name;
+        //                temp++;
+        //            }
+        //        }
+        //        ins.xiangMuZongJian = name;
+        //        ins.xiangMuFuZeRen = obj.Tab_RL_User == null ? "" : obj.Tab_RL_User.jl_Name;
+        //        returnValue.Add(ins);
+        //    }
+        //    return returnValue;
+        //}
+        
+        //public static List<DAL.CommClass.XiangMuJiSuan_ShiYeBuWrapper> filterAllXiangMuJiSuan_ShiYeBu(CommClass.PageClass pageClass, string where)
+        //{
+        //    List<DAL.CommClass.XiangMuJiSuan_ShiYeBuWrapper> returnValue = new List<CommClass.XiangMuJiSuan_ShiYeBuWrapper>();
+        //    DAL.Base_XiangMuQianQi _ins = new Base_XiangMuQianQi();
+        //    List<DAL.DTO.TabXiangMuQianQi> qqList = _ins.filterAllXiangMuQianQi_ShiYeBu(pageClass, where, new String[] { "Tab_RL_User3", "TabHeTong" });
+        //    foreach (DAL.DTO.TabXiangMuQianQi item in qqList)
+        //    {
+        //        DAL.CommClass.XiangMuJiSuan_ShiYeBuWrapper obj = new CommClass.XiangMuJiSuan_ShiYeBuWrapper();
+        //        obj.id = item.qq_Id;
+        //        obj.heTongHao = item.qq_HeTongHao == null ? "" : item.qq_HeTongHao;
+        //        obj.gongChengMingCheng = item.qq_GongChengMingCheng == null ? "" : item.qq_GongChengMingCheng; ;
+        //        obj.shiShouGuanLiFeiZongE = 0;
+        //        if (item.TabHeTong.Count == 1)
+        //        { 
+        //            if(item.TabHeTong[0].TabFaPiaoJiShouKuanGuanLi!=null)
+        //            {
+        //                obj.shiShouKuanZongE = item.TabHeTong[0].TabFaPiaoJiShouKuanGuanLi.Sum(p => p.fp_ShiShouJinE.HasValue ? p.fp_ShiShouJinE.Value : 0);
+        //                obj.yiJieSuanZongE = item.TabHeTong[0].TabFaPiaoJiShouKuanGuanLi.Sum(p => p.fp_hs_BenCiJieSuanJinE.HasValue ? p.fp_hs_BenCiJieSuanJinE.Value : 0);
+        //                obj.weiJieSuanZongE = obj.shiShouKuanZongE - obj.yiJieSuanZongE;
+        //                obj.shiShouGuanLiFeiZongE = item.TabHeTong[0].TabFaPiaoJiShouKuanGuanLi.Sum(p => p.fp_hs_ShiShouGuanLiFeiZongE.HasValue ? p.fp_hs_ShiShouGuanLiFeiZongE.Value : 0);
+        //            } 
+        //        }
+        //        obj.xiangMuFuZeRen = item.Tab_RL_User3 != null ? item.Tab_RL_User3.jl_Name : "";
+        //        obj.yeZhuMingCheng = item.qq_YeZhuMingCheng == null ? "" : item.qq_YeZhuMingCheng; 
+              
+        //        if (item.TabHeTong.Count == 1)
+        //        {
+        //            obj.zanDingJianLiFeiZongE = Logic_Comm.getZanDingJianLiFei(item.TabHeTong.First());
+        //        }
+        //        else {
+        //            obj.zanDingJianLiFeiZongE = 0;
+        //        }
+        //        returnValue.Add(obj);
+        //    }
+        //    return returnValue;
+        //}
         public static List<CommClass.XiangMuJiSuan_ZhiGuanWrapper> filterAllXiangMuQianQi_ZhiGuan_JustXiangMu(CommClass.PageClass pageClass, string where)
         {
             List<CommClass.XiangMuJiSuan_ZhiGuanWrapper> returnValue = new List<CommClass.XiangMuJiSuan_ZhiGuanWrapper>();
@@ -173,73 +259,38 @@ namespace DAL.Logic
             }
             return returnValue;
         }
+    
         public static List<XiangMuJiSuan_ZhiGuanWrapperZu> filterAllXiangMuQianQi_ZhiGuan_Zu(PageClass pageClass, string where)
         {
             List<XiangMuJiSuan_ZhiGuanWrapperZu> returnValue = new List<XiangMuJiSuan_ZhiGuanWrapperZu>();
-            DAL.Base_XiangMuZu b1 = new Base_XiangMuZu();
-            List<DTO.Tab_XiangMuZu> list = b1.filterAllXiangMuZu(pageClass,where,new string[] { "TabXiangMuQianQi" });
-            foreach (DAL.DTO.Tab_XiangMuZu zu in list)
+            List<DTO.View_JieSuan_ZhiGuan> xiangMuList = new DAL.ViewBase_JieSuan_ZhiGuan().filter(pageClass, where);
+            int[] qqIds=xiangMuList.Select(p => p.qq_Id).ToArray();
+
+            List<DTO.TabXiangMuQianQi> qqList = new DAL.Base_XiangMuQianQi().getByIds(qqIds, new string[] { "TabXiangMuQianQi1", "TabXiangMuQianQi2", "Tab_XiangMu_PeiXunJiJiao", "Tab_XiangMu_JiXiao", "Tab_XiangMu_FeiYongTiaoZheng", "Tab_XiangMu_ZhiGuan", "Tab_XiangMu_BaoXiao", "Tab_XiangMu_BanGongYongPin", "TabHeTong", "Tab_Report_MonthSalaryDetail_ChengBen", });
+            foreach (DTO.View_JieSuan_ZhiGuan xiangMu in xiangMuList)
             {
-               
-                
-                //wrapper.jianLiJiGouArray = new List<XiangMuHouQiWrapper1>();
-                if (zu.TabXiangMuQianQi.Count > 0)
-                {
-                    //先选出监理机构
-                    List<DTO.TabXiangMuQianQi> list_Zu = zu.TabXiangMuQianQi.Where(p => p.qq_LeiXing == 2).ToList();
-                    ///排序
-                    list_Zu = list_Zu.OrderBy(p => p.qq_GongChengMingCheng).ToList();
-                    foreach (DTO.TabXiangMuQianQi qq in list_Zu)
-                    {
-                        
-                        int jianLiJiGouId = qq.qq_Id;
-                        string jianLiJiGouMingCheng = qq.qq_GongChengMingCheng;
-                        decimal? zongChengBenZhiChu= DAL.Logic.Logic_Comm.getXiangMuZongChengBenZhiChu(qq);
-                        decimal? chenBenKongZhiZhiBiao = qq.Tab_XiangMu_ZhiGuan != null ? qq.Tab_XiangMu_ZhiGuan.zg_mb_ChengBenKongZhiZhiBiao : null;
-                        foreach (DTO.TabXiangMuQianQi obj in qq.TabXiangMuQianQi2) {
-                            DAL.CommClass.XiangMuJiSuan_ZhiGuanWrapperZu wrapper = new XiangMuJiSuan_ZhiGuanWrapperZu();
-                            wrapper.xiangMuBuId = zu.xmz_Id;
-                            wrapper.xiangMuBuMingCheng = zu.xmz_Name;
-                            wrapper.jianLiJiGouId = jianLiJiGouId;
-                            wrapper.jianLiJiGouMingCheng = jianLiJiGouMingCheng;
-                            wrapper.projectId = obj.qq_Id;
-                            wrapper.heTongHao = obj.qq_HeTongHao;
-                            wrapper.projectMingCheng = obj.qq_GongChengMingCheng;
-                            
-                            wrapper.shiShouKuanZongE = obj.TabHeTong.Count == 1 ? Logic_Comm.getLeiJiShiShouKuan(obj.TabHeTong.First()) : 0;
-                            wrapper.zanDingJianLiFeiZongE = obj.TabHeTong.Count == 1 ? Logic_Comm.getZanDingJianLiFei(obj.TabHeTong.First()) : 0;
-                            wrapper.chenBenKongZhiZhiBiao = chenBenKongZhiZhiBiao;
-                            wrapper.zongChengBenZhiChu = zongChengBenZhiChu;
-                            returnValue.Add(wrapper);
-                        }
-                    }
-                    //再选出工程
-                    List<DTO.TabXiangMuQianQi> list_Project = zu.TabXiangMuQianQi.Where(p => p.qq_ParentId == null && (p.qq_LeiXing == null || p.qq_LeiXing == 1)).ToList();
-                    ///排序
-                    list_Project = list_Project.OrderBy(p => p.qq_GongChengMingCheng).ToList();
-                    foreach (DTO.TabXiangMuQianQi qq in list_Project)
-                    {
-                        DAL.CommClass.XiangMuJiSuan_ZhiGuanWrapperZu wrapper = new XiangMuJiSuan_ZhiGuanWrapperZu();
-                        wrapper.xiangMuBuId = zu.xmz_Id;
-                        wrapper.xiangMuBuMingCheng = zu.xmz_Name;
-                        wrapper.jianLiJiGouId = qq.qq_Id;
-                        wrapper.jianLiJiGouMingCheng = qq.qq_GongChengMingCheng;
-                        wrapper.projectId = qq.qq_Id;
-                        wrapper.heTongHao = qq.qq_HeTongHao;
-                        wrapper.projectMingCheng = qq.qq_GongChengMingCheng;
-                        wrapper.zongChengBenZhiChu = DAL.Logic.Logic_Comm.getXiangMuZongChengBenZhiChu(qq);
-                        wrapper.chenBenKongZhiZhiBiao = qq.Tab_XiangMu_ZhiGuan != null ? qq.Tab_XiangMu_ZhiGuan.zg_mb_ChengBenKongZhiZhiBiao : null;
-                        wrapper.shiShouKuanZongE = qq.TabHeTong.Count == 1 ? Logic_Comm.getLeiJiShiShouKuan(qq.TabHeTong.First()) : 0;
-                        wrapper.zanDingJianLiFeiZongE = qq.TabHeTong.Count == 1 ? Logic_Comm.getZanDingJianLiFei(qq.TabHeTong.First()) : 0;
-                        returnValue.Add(wrapper);
+                XiangMuJiSuan_ZhiGuanWrapperZu obj = new XiangMuJiSuan_ZhiGuanWrapperZu();
+                obj.xiangMuBuId = xiangMu.zu_ID;
+                obj.xiangMuBuMingCheng = xiangMu.zu_Name;
+                obj.jianLiJiGouId = xiangMu.jiGou_ID;
+                obj.jianLiJiGouMingCheng = xiangMu.jiGou_Name;
+                obj.projectId = xiangMu.qq_Id;
+                obj.projectMingCheng = xiangMu.qq_GongChengMingCheng;
+                obj.heTongHao = xiangMu.qq_HeTongHao;
+                DTO.TabXiangMuQianQi qq= qqList.FirstOrDefault(p => p.qq_Id == obj.projectId);
+                if (qq != null) {
+                    if (qq.TabXiangMuQianQi1 != null) {
+                        obj.zongChengBenZhiChu = DAL.Logic.Logic_Comm.getXiangMuZongChengBenZhiChu(qq.TabXiangMuQianQi1);
+                        obj.chenBenKongZhiZhiBiao = qq.TabXiangMuQianQi1.Tab_XiangMu_ZhiGuan != null ? qq.TabXiangMuQianQi1.Tab_XiangMu_ZhiGuan.zg_mb_ChengBenKongZhiZhiBiao : null;
                     }
                     
+                    obj.shiShouKuanZongE = qq.TabHeTong.Count == 1 ? Logic_Comm.getLeiJiShiShouKuan(qq.TabHeTong.First()) : 0;
+                    obj.zanDingJianLiFeiZongE = qq.TabHeTong.Count == 1 ? Logic_Comm.getZanDingJianLiFei(qq.TabHeTong.First()) : 0;
                 }
-                
+                returnValue.Add(obj);
             }
             return returnValue;
         }
-       
         /// <summary>
         /// 项目当月人员情况
         /// </summary>
@@ -364,7 +415,7 @@ namespace DAL.Logic
             DAL.Base_XiangMu_JieSuanNeiRong baseJieSuan=new Base_XiangMu_JieSuanNeiRong();
             DTO.Tab_XiangMu_JieSuanNeiRong jieSuanNeiRong= baseJieSuan.getById(projectId);
 
-            if (jieSuanNeiRong != null && jieSuanNeiRong.jsnr_js_ShiFouJieSuan.HasValue && jieSuanNeiRong.jsnr_js_ShiFouJieSuan.Value)
+            if (jieSuanNeiRong != null && jieSuanNeiRong.jsnr_js_ShiFouJieSuan.HasValue && jieSuanNeiRong.jsnr_js_ShiFouJieSuan.Value==1)
             {
                 DAL.CommClass.XiangMu_JieSuanMingXi newObj = new CommClass.XiangMu_JieSuanMingXi();
                 newObj.isJieSuan = true;
@@ -471,6 +522,16 @@ namespace DAL.Logic
         public static ArrayList getXiangMuZuInfo(int zhiXingLeiXingId)
         {
             return new DAL.Base_XiangMuZu().getXiangMuZu_TreeInfo(zhiXingLeiXingId);
+        }
+
+        public int countXiangMuZu(PageClass pageClass, string where)
+        {
+            return new DAL.ViewBase_JieSuan_ZhiGuan().count(pageClass, where);
+        }
+
+        public int countShiYeBu(PageClass pageClass, string where)
+        {
+            return new DAL.ViewBase_JieSuan_ShiYeBu().count(pageClass, where);
         }
     }
 }

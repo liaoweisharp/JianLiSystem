@@ -22,9 +22,15 @@
      <div class="ZX_BG_header ZX_h2" >
             <ul class="ulnone">
                 <li class="ZX_title2">项目部</li>
-              <%--<li style="height: 28px; float:right;margin-right:30px; width: 175px; background-repeat: no-repeat; background-image: url(&quot;../Images/Search1.png&quot;);">
+              <li style="height: 28px; float:right;margin-right:30px; width: 175px; background-repeat: no-repeat; background-image: url(&quot;../Images/Search1.png&quot;);">
              <input id="txtSerXiangMu_ZhiGuan" type="text" class="search searchW" watermark="工程关键字或合同号" />
-             <img alt='搜索' style=" cursor:pointer;float:right" src="../Images/Search2.png" onclick="Search_XiangMu_ZhiGuan()"/></li>        --%>
+             <img alt='搜索' style=" cursor:pointer;float:right" src="../Images/Search2.png" onclick="ZGZU.Search_ZhiGuan()"/></li>        
+             <li style="height: 28px; float:right;margin-right:30px;">
+                <select class="ddlJieSuan" onchange="ZGZU.Search_ZhiGuan()" id="ddlJiSuan_ZhiGuan">
+                    <option value="-1">结算状态（全部）</option>
+                    <option value='-100' class="empty">(未填)</option>
+                </select>
+             </li>
             </ul>
             <br />
         </div>
@@ -36,12 +42,19 @@
                 </div>
             </div>
         </div>
+        <br />
         <div class="ZX_BG_header ZX_h2">
             <ul class="ulnone">
                 <li class="ZX_title2">事业部</li>
-            <%-- <li style="height: 28px; float:right;margin-right:30px; width: 175px; background-repeat: no-repeat; background-image: url(&quot;../Images/Search1.png&quot;);">
+             <li style="height: 28px; float:right;margin-right:30px; width: 175px; background-repeat: no-repeat; background-image: url(&quot;../Images/Search1.png&quot;);">
              <input id="txtSerXiangMu_ShiYeBu" type="text" class="search searchW" watermark="工程关键字或合同号" />
-             <img alt='搜索' style=" cursor:pointer;float:right" src="../Images/Search2.png" onclick="Search_XiangMu_ShiYeBu()"/></li>   --%>     
+             <img alt='搜索' style=" cursor:pointer;float:right" src="../Images/Search2.png" onclick="SYB.Search_XiangMu_ShiYeBu()"/></li>        
+             <li style="height: 28px; float:right;margin-right:30px;">
+                <select  class="ddlJieSuan" onchange="SYB.Search_XiangMu_ShiYeBu()" id="ddlJiSuan_ShiYeBu">
+                    <option value="-1">结算状态（全部）</option>
+                    <option value='-100' class="empty">(未填)</option>
+                </select>
+             </li>
             </ul>
             <br />
         </div>

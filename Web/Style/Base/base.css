@@ -262,8 +262,11 @@
 {
     color:Red;
     }
-.xj{ text-align:center; color:Green; font-weight:bold}
-
+.xj{ text-align:center; color:Green; font-weight:bold;text-align:right;}
+.coll
+{
+     border-collapse: collapse;
+    }
 .flow
 {
     
@@ -312,7 +315,11 @@
     
      
      }
-     
+    .empty
+    {
+        font-style:italic;
+        color:Gray;
+        } 
 .num
 {
     width:20px;

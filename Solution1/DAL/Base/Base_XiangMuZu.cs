@@ -135,7 +135,15 @@ namespace DAL
             else {
                 returnValue = this.dataContext.Tab_XiangMuZu.ToList();
             }
-            
+            //if (pageClass.filters.Count > 0)
+            //{ 
+            //    stringAndStringClass temp= pageClass.filters.FirstOrDefault(p=>p.key=="qq_GongChengZhuangTai");
+            //    if (temp != null && temp.value!="-1")
+            //    { 
+            //        //工程状态的筛选
+            //        returnValue.FindAll(p=>p)
+            //    }
+            //}
             if (where != null)
             {
                 returnValue= returnValue.Where(p => p.xmz_Name.Contains(where)).OrderBy(ins => ins.xmz_Name).Skip((pageClass.currentPageNumber) * pageClass.pageSize).Take(pageClass.pageSize).ToList();
@@ -185,7 +193,7 @@ namespace DAL
             }
             if (where != null)
             {
-                return returnValue.Where(p => p.xmz_Name.Contains(where)).Count();
+                return returnValue.Where(p => p.xmz_Name.Contains(where) ).Count();
             }
             else
             {

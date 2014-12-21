@@ -1,14 +1,16 @@
 ﻿(function () {
     ZGZU.initDataDom = function () {
-        pageSize = 20;
+        pageSize = 10;
         baseData = {};
         loading = "<p><center><img src='../Images/ajax-loader_b.gif'/></center></p>";
+        bindDom()
         ZGZU.callList()
 
         //$invokeWebService_2("~WebService_XiangMuJieSuan.getInitData", {}, null, successCallBack, errorCallBack, null, { userContent: "getInitData" });
     }
     ZGZU.pd = {};
-    ZGZU.pd.filter={key:"type",value:"zhiGuan"}
+    ZGZU.pd.filter = { key: "type", value: "zhiGuan" }
+    ZGZU.pd.filters = [];
     ZGZU.where = null;
     //var requireColumn = ["qq_GongChengMingCheng", "qq_XiangMuLaiYuan", "qq_ZhiXingLeiXing", "qq_HeTongHao", "qq_ShiJian"];
     function ZGZU(divPage, divContent) {
@@ -21,6 +23,24 @@
         ZGZU.divContent = divContent;
     }
     ZGZU.callList = function () {
+
+        var ddlValue = $("#ddlJiSuan_ZhiGuan").val();
+        if (ddlValue != "-1") {
+            var obj = ZGZU.pd.filters.firstOrDefault("key", "jiGou_JieSuan");
+            if (obj != null) {
+                obj.value = ddlValue;
+            }
+            else {
+                ZGZU.pd.filters.push({ "key": "jiGou_JieSuan", "value": ddlValue })
+            }
+        }
+        else {
+            ZGZU.pd.filters.removeFirst("key", "jiGou_JieSuan");
+        }
+
+        ZGZU.where = $.trim($("#txtSerXiangMu_ZhiGuan").val());
+        ZGZU.pd["filter"] = { key: "type", value: "zhiGuan" };
+
         $invokeWebService_2("~WebService_XiangMuJieSuan.countZhiGuan_Zu", { pageClass: ZGZU.pd, where: ZGZU.where }, function () {
             $("#" + ZGZU.divContent).html(loading);
         }, successCallBack, errorCallBack, null, { userContent: "countZhiGuan_Zu" });
@@ -37,6 +57,7 @@
         }
         else if (context.userContent == "filterAllXiangMuQianQi_ZhiGuan_Zu") {
             var data = result;
+            
             //baseData["xiangMuHouQi"] = data;
             //#region 日期转换成日期格式
             //var jsons = createJson().findAll("validate", "datetime");
@@ -44,14 +65,15 @@
             //conventObjsToDateTime(data, jsons);
             //#endregion
             if (data.length == 0) {
-                $("#" + ZGZU.divContent).html("还没有项目记录");
-                $("#" + ZGZU.divContent).hide();
+                $("#" + ZGZU.divContent).html("没有匹配的记录");
+                
                 $("#" + ZGZU.divPage).hide();
             }
             else {
                 var str = getHtmlOfHouQi(data);
                 $("#" + ZGZU.divContent).html(str);
                 $("#tab_XiangMuZu").rowspan(0).rowspan(1).rowspan(6).rowspan(7).rowspan(8);
+
                 tableAddStyle2();
             }
 
@@ -173,14 +195,9 @@
 
 
     }
-    ZGZU.Search_XiangMu = function () {
-        var value = $.trim($("#txtSerXiangMu").val());
-        if (value == "") {
-            alert("搜索内容为空，请填值再搜索。");
-            value = null;
-        }
-        ZGZU.where = value;
-        ZGZU.callListXiangMu(value);
+
+    ZGZU.Search_ZhiGuan=function () {
+        ZGZU.callList();
 
     }
 
@@ -316,10 +333,10 @@
             for (var j = 0; j < houQi.length; j++) {
 
                 var obj = houQi[j];
-                var xiangMuBuMenMingCheng = obj.xiangMuBuMingCheng; //项目部
-                var jianLiZuMingCheng = obj.jianLiJiGouMingCheng; //监理分组名称
-                var jianLiJiGouId = obj.jianLiJiGouId;
-                var xiangMuBuId = obj.xiangMuBuId;
+                var xiangMuBuMenMingCheng = obj.xiangMuBuMingCheng == null ? "" : obj.xiangMuBuMingCheng; //项目部
+                var jianLiZuMingCheng = obj.jianLiJiGouMingCheng == null ? "" : obj.jianLiJiGouMingCheng; //监理分组名称
+                var jianLiJiGouId = obj.jianLiJiGouId == null ? randomStringFun(3) : obj.jianLiJiGouId;
+                var xiangMuBuId = obj.xiangMuBuId == null ? randomStringFun(3) : obj.xiangMuBuId;
                 var projectId = obj.projectId;
                 var projectName = obj.projectMingCheng; //项目名称
                 var heTongHao = obj.heTongHao;
@@ -362,6 +379,8 @@
         jsonArray.push({ itemId: "zg_js_ShiLing", type: "text", validate: "money", title: "实领（万元）" });
         jsonArray.push({ itemId: "zg_js_BaoZhengJin", type: "ntext", validate: "money", title: "保证金（万元）" });
         jsonArray.push({ itemId: "zg_js_BaoZhengJinJieSuan", type: "select", title: "保证金结算", init: [{ id: 1, title: "已结" }, { id: 0, title: "未结"}] });
+        jsonArray.push({ itemId: "zg_js_JieSuan", isOtherCol: true, type: "select", title: "结算状态", init: const_JieSuanInit });
+
         return jsonArray;
     }
     //#endregion
@@ -402,6 +421,14 @@
         $("#" + ZGZU.divContent).find("tr[class*='row']:odd").addClass("bg1");
 
         $("#" + ZGZU.divContent).find("td").find("label[validate='money']").formatCurrency();
+    }
+    function bindDom() {
+        var $ddl = $("#ddlJiSuan_ZhiGuan");
+        for (var i = 0; i < const_JieSuanInit.length; i++) {
+            var item = const_JieSuanInit[i];
+            var $option = $(String.format("<option value='{0}'>{1}</option>", item.id, item.title));
+            $ddl.append($option);
+        }
     }
     //#endregion
     window.ZGZU = ZGZU;

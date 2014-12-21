@@ -114,8 +114,8 @@ namespace BLL
         
 
         public static int countHeTong(DAL.CommClass.PageClass pageClass,string where) {
-            DAL.Base_HeTong ins = new DAL.Base_HeTong();
-            return ins.countAllHeTong(pageClass, where);
+            DAL.ViewBase_HeTong ins = new DAL.ViewBase_HeTong();
+            return ins.count(pageClass, where);
         }
         public static List<DAL.CommClass.HeTongWrapper> filterHeTongWrappper(DAL.CommClass.PageClass pageClass,string where) {
 

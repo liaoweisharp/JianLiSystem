@@ -463,7 +463,7 @@
                         var jinE = item.jinE ? Number(item.jinE) : 0;
                         var sheBaoGongSi = item.sheBaoGongSi ? Number(item.sheBaoGongSi) : 0;
                         var gongSiChengDan = add(jinE, sheBaoGongSi);
-                        str.push(String.format("<td class='td31'><font class='ft'>分摊金额</font>：{0} <img src='../Images/mouse.png' align='absmiddle' title='工资: {1}\n公司社保: {2}'/></td>", gongSiChengDan, item.jinE != null ? item.jinE : "", item.sheBaoGongSi != null ? item.sheBaoGongSi : ""));
+                        str.push(String.format("<td class='td31'><font class='ft'>分摊金额</font>：{0} <img src='../Images/mouse.png' align='absmiddle' title='工资: {1}\n公司社商保: {2}'/></td>", gongSiChengDan, item.jinE != null ? item.jinE : "", item.sheBaoGongSi != null ? item.sheBaoGongSi : ""));
                         //str.push(String.format("<td class='td12'><font class='sm'>公司社保:</font>{0}</td>", ));
                     }
                     str.push("</tr>");

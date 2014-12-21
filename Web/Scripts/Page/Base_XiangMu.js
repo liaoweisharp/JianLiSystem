@@ -12,9 +12,18 @@
             conventToDateTime(obj, jsonsArray);
 
             if (type == "update") {
-              
-                new bindDiv(jsonsArray, obj, id1, { type: "update", align: "y" }, _clickUpdate);
-                
+
+                $invokeWebService_2("~WebService_XiangMu.getDistinctInfo", {}, null, function (r2) {
+                    var gongChengZhuangTai = r2[0]; //工程状态
+                    var json = jsonsArray.firstOrDefault("itemId", "qq_GongChengZhuangTai");
+                    
+                    if (json != null) {
+                        json.init = gongChengZhuangTai;
+                    }
+                    new bindDiv(jsonsArray, obj, id1, { type: "update", align: "y" }, _clickUpdate);
+                }, errorCallBack, null, null);
+
+
             }
             else if (type == "review") {
                 new bindDiv(jsonsArray, obj, id1, { type: "review", align: "y" }, null);
@@ -35,7 +44,7 @@
     function errorCallBack(result, context) { }
     //#region 句柄
     XM.click_Edit_Zu = function (id, Name) {
-    
+
         var _id = String.randomString(6);
         var id1 = String.randomString(6);
         var id2 = String.randomString(6);
@@ -52,9 +61,9 @@
         new RYZC_C(id, "review");
         new RYZC_A(id, "review");
         new SJ(id, "update");
-//        new MX(id, "update");
+        //        new MX(id, "update");
         new XJ(id, "update");
-        
+
     }
     XM.click_Edit_Project = function (id, Name) {
 
@@ -71,12 +80,13 @@
 
         $("#" + _id).tabs();
         $invokeWebService_2("~WebService_XiangMu.getXiangMuById", { id: id }, null, successCallBack, errorCallBack, null, { userContent: "getXiangMuById", id: id1, type: "update" });
-//        new RYZC_C(id, "review");
-//        new RYZC_A(id, "review");
-//        new SJ(id, "update");
+        //        new RYZC_C(id, "review");
+        //        new RYZC_A(id, "review");
+        new SJ(id, "update");
+        new XJ(id, "update");
         new MX(id, "update");
-//        new XJ(id, "update");
-       
+
+
     }
     XM.click_Detail = function (id, Name) {
         var _id = String.randomString(6);
@@ -112,7 +122,7 @@
 
         var jsonArray = event.data.newBind.ShouJiData();
         var obj = bind.jsonToObject(jsonArray);
-        
+
         obj["qq_Id"] = event.data.obj.qq_Id;
         $invokeWebService_2("~WebService_XiangMu.updateXiangMu_HouQi", { obj: obj }, null, successCallBack, errorCallBack, null, { userContent: "updateXiangMu_HouQi" });
     }
@@ -137,29 +147,29 @@
         str.push("<ul>");
         //str.push(String.format("<li><a href='#{0}'>基本信息</a></li>", id1));
         str.push(String.format("<li><a href='#{0}'>人员组成情况</a></li>", id2));
-        str.push(String.format("<li><a href='#{0}'>事件记录</a></li>", id3));
+        // str.push(String.format("<li><a href='#{0}'>事件记录</a></li>", id3));
         //str.push(String.format("<li><a href='#{0}'>竣工资料移交情况</a></li>", id4));
-        str.push(String.format("<li><a href='#{0}'>巡检记录</a></li>", id5));
+        //str.push(String.format("<li><a href='#{0}'>巡检记录</a></li>", id5));
         str.push("</ul>");
-//        str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id1));
-//        str.push("</div>");
+        //        str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id1));
+        //        str.push("</div>");
         str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id2));
         str.push(_getContent(projectId, "currentRenYuan", type));
         str.push(_getContent(projectId, "totalRenYuan", type));
 
-        str.push("</div>");
-        str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id3));
-        str.push(_getContent(projectId, "shiJian", type));
+        //        str.push("</div>");
+        //        str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id3));
+        //        str.push(_getContent(projectId, "shiJian", type));
 
-        str.push("</div>");
-//        str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id4));
-//                str.push(_getContent(projectId, "mingXi", type));
-// 
-//        str.push("</div>");
-        str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id5));
-        str.push(_getContent(projectId, "xunJian", type));
+        //        str.push("</div>");
+        //        str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id4));
+        //                str.push(_getContent(projectId, "mingXi", type));
+        // 
+        //        str.push("</div>");
+        //        str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id5));
+        //        str.push(_getContent(projectId, "xunJian", type));
 
-        str.push("</div>");
+        //        str.push("</div>");
         str.push("</div>");
         return str.join("");
     }
@@ -168,30 +178,32 @@
         str.push(String.format("<div id='{0}' class='tabsP'>", id));
         str.push("<ul>");
         str.push(String.format("<li><a href='#{0}'>基本信息</a></li>", id1));
-       // str.push(String.format("<li><a href='#{0}'>人员组成情况</a></li>", id2));
-       // str.push(String.format("<li><a href='#{0}'>事件记录</a></li>", id3));
+        // str.push(String.format("<li><a href='#{0}'>人员组成情况</a></li>", id2));
+        str.push(String.format("<li><a href='#{0}'>事件记录</a></li>", id3));
+        str.push(String.format("<li><a href='#{0}'>巡检记录</a></li>", id5));
         str.push(String.format("<li><a href='#{0}'>竣工资料移交情况</a></li>", id4));
-      //  str.push(String.format("<li><a href='#{0}'>巡检记录</a></li>", id5));
+
         str.push("</ul>");
         str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id1));
         str.push("</div>");
-//        str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id2));
-//        str.push(_getContent(projectId, "currentRenYuan", type));
-//        str.push(_getContent(projectId, "totalRenYuan", type));
+        //        str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id2));
+        //        str.push(_getContent(projectId, "currentRenYuan", type));
+        //        str.push(_getContent(projectId, "totalRenYuan", type));
 
-//        str.push("</div>");
-//        str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id3));
-//        str.push(_getContent(projectId, "shiJian", type));
+        // str.push("</div>");
+        str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id3));
+        str.push(_getContent(projectId, "shiJian", type));
+        str.push("</div>");
 
-//        str.push("</div>");
+        str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id5));
+        str.push(_getContent(projectId, "xunJian", type));
+        str.push("</div>");
+
         str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id4));
         str.push(_getContent(projectId, "mingXi", type));
 
         str.push("</div>");
-//        str.push(String.format("<div class='tabsContent' style='background-color:White;' id='{0}'>", id5));
-//        str.push(_getContent(projectId, "xunJian", type));
 
-//        str.push("</div>");
         str.push("</div>");
         return str.join("");
     }
@@ -257,6 +269,9 @@
     function createJson() {
         var jsonArray = [];
         jsonArray.push({ itemId: "qq_XiangMuFuZeRen", type: "select", title: "项目负责人", init: getInit(baseData["人员"]) });
+        
+        jsonArray.push({ itemId: "qq_TouBiaoZongJian", type: "text", title: "投标总监" });
+        jsonArray.push({ itemId: "qq_BeiAnZongJian", type: "text", title: "备案总监" });
         jsonArray.push({ itemId: "qq_ZongJianDaiBiao", type: "text", title: "总监代表" });
         jsonArray.push({ itemId: "qq_YeZhuMingCheng", type: "text", title: "业主名称" });
         jsonArray.push({ itemId: "qq_YeZhuLianXiRen", type: "text", title: "业主联系人、电话" });
@@ -270,6 +285,12 @@
         jsonArray.push({ itemId: "qq_DiKanDanWenLianXiRen", type: "text", title: "地勘单位联系人、电话" });
         jsonArray.push({ itemId: "qq_ZhiJianDanWeiMingCheng", type: "text", title: "质检单位名称" });
         jsonArray.push({ itemId: "qq_ZhiJianDanWeiLianXiRen", type: "text", title: "质检单位联系人、电话" });
+
+        jsonArray.push({ itemId: "qq_ZongBaoJianCeMingCheng", type: "text", title: "总包检测单位名称" });
+        jsonArray.push({ itemId: "qq_ZongBaoJianCeLianXiRen", type: "text", title: "总包检测单位联系人" });
+        jsonArray.push({ itemId: "qq_QiTaJianCeMingCheng", type: "text", title: "其他检测单位名称" });
+        jsonArray.push({ itemId: "qq_QiTaJianCeLianXiRen", type: "text", title: "其他检测单位联系人" });
+
         jsonArray.push({ itemId: "qq_AnJianDanWeiMingCheng", type: "text", title: "安检单位名称" });
         jsonArray.push({ itemId: "qq_AnJianDanWeiLianXiRen", type: "text", title: "安检单位联系人、电话" });
         jsonArray.push({ itemId: "qq_GongChengLieBie", isOtherCol: true, type: "select", title: "工程类别", init: getInit(baseData["工程类别"], "fl_") });
@@ -279,12 +300,18 @@
         jsonArray.push({ itemId: "qq_ZongTouZi", type: "text", title: "工程总投资(万元)", validate: "money" });
         jsonArray.push({ itemId: "qq_ShiGongGongQi", type: "text", title: "施工工期" });
         jsonArray.push({ itemId: "qq_JianLiFuWuQi", type: "text", title: "监理服务期" });
+        jsonArray.push({ itemId: "qq_JinChangShiJian", type: "text", title: "监理进场时间" });
         jsonArray.push({ itemId: "qq_KaiGongRiQi", type: "text", validate: "datetime", title: "开工日期" });
         jsonArray.push({ itemId: "qq_YuJiJunGongShiJian", type: "text", validate: "datetime", title: "预计竣工时间" });
-        jsonArray.push({ itemId: "qq_ShiJiJunGongShiJian", type: "text", validate: "datetime", title: "实际竣工时间" });
+        jsonArray.push({ itemId: "qq_ShiJiJunGongShiJian", type: "text", validate: "datetime", title: "实际验收时间" });
+        jsonArray.push({ itemId: "qq_ZongHeYanShouShiJian", type: "text", title: "综合验收时间" });
+        jsonArray.push({ itemId: "qq_ChuChangShiJian", type: "text", title: "监理出场时间" });
+
         jsonArray.push({ itemId: "qq_GongDiLiHuiShiJian", type: "text", title: "工地例会时间" });
-        jsonArray.push({ itemId: "qq_MuQianJinDu", type: "text", title: "目前进度" });
-        jsonArray.push({ itemId: "qq_GongChengZhuangTai", type: "text", title: "工程进度" });
+        jsonArray.push({ itemId: "qq_MuQianJinDu", type: "text", title: "形象进度" });
+        jsonArray.push({ itemId: "qq_GongChengZhuangTai", type: "textSelect", title: "工程状态", init: [] });
+
+        jsonArray.push({ itemId: "qq_YiWanChengGongChengLiang", type: "text", title: "已完成工程量（万元）", validate: "money" });
         return jsonArray;
     }
     //#endregion
